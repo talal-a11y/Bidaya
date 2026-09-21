@@ -94,3 +94,12 @@ The predictable version named first (text fades up, a blob drifts); the built ve
 
 2026-09-21 — Milestones reordered. PROPOSED — awaiting the founder.
 See the proposal put to the founder in this session; recorded here once he rules.
+
+2026-09-21 — Milestones reordered. DECIDED.
+"Yes go ahead." The order now: 1 skeleton (done) · 2 reference study of the six sites · 3 three directions as complete home pages, each on its own preview · 4 lock the chosen direction (header, footer, type, layout, motion language, phone and laptop) · 5 apply it across all pages with scroll chapters and page transitions · 6 Where you stand · 7 tax review of the register · 8 Papers and the Start form wired · 9 pre-launch audit · 10 launch. Supersedes docs/00 Part 4.
+
+2026-09-21 — Type is open. DECIDED.
+"Even fonts will be re-explored." Readex Pro is a candidate, not the choice; each direction in milestone 3 may propose its own family, self-hosted, never a third-party stylesheet. Overrides CLAUDE.md §5's provisional type.
+
+2026-09-21 — English only. DECIDED.
+"No need for bilingual readiness anymore — site will be in English only." The bilingual milestone is dropped. بداية stays in the lockups and in the two lines of copy that name it. Logical CSS properties stay because they cost nothing; RTL is not tested or promised.
