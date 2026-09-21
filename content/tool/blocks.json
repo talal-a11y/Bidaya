@@ -1,0 +1,15 @@
+{
+  "$comment": "Where you stand — the content blocks the read is assembled from. 40 to 60 of them, drafted from the spec and public sources, each marked draft, each passing the voice checklist, confirmed by the founder in a review session before launch (CLAUDE.md §8; ledger BC). Empty at milestone 1; filled at milestone 2. One block is one cell of the read.",
+  "version": 1,
+  "schema": {
+    "id": "kebab-case, unique",
+    "function": "setup | operations | finance | tech",
+    "column": "covered | needs-building | yours-to-do",
+    "title": "the line the visitor reads first",
+    "body": "one or two sentences, sentence case, plural we, no future-tense promise",
+    "method": "required when column is yours-to-do: { steps: [2 to 4 strings], done: 'what done looks like' }",
+    "when": "the rule that selects this block: an object of intake answer ids to the values that match",
+    "draft": "true until the founder confirms it in the review session"
+  },
+  "blocks": []
+}

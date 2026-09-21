@@ -1,0 +1,82 @@
+/* The page's blocks. Rounded everywhere; boxes never; bands as colour, not as borders. */
+.section { padding-block: 40px; }
+.section + .section { padding-block-start: 8px; }
+.hero { padding-block: 56px 24px; }
+.band { padding-block: 56px; margin-block: 40px; border-radius: var(--r-48); }
+.band h2 { color: var(--text-inverse); }
+.band p { color: var(--text-inverse); }
+@media (max-width: 600px) {
+  .band { border-radius: var(--r-28); padding-block: 40px; margin-inline: calc(-1 * var(--gutter) + 8px); padding-inline: var(--gutter); }
+}
+
+.tagline { font-size: var(--body-lg); font-weight: var(--w-label); color: var(--text-secondary); margin-block-end: 20px; }
+.h1 { margin-block-end: 20px; }
+.h1.display { font-size: var(--display-1); max-inline-size: 15ch; }
+.h2 { margin-block: 8px 16px; }
+.h3 { margin-block: 20px 8px; }
+.lead { font-size: var(--body-lg); max-inline-size: 56ch; margin-block-end: 20px; }
+.p { margin-block-end: 16px; }
+.aside { font-size: var(--body); color: var(--text-secondary); margin-block-start: 28px; max-inline-size: 48ch; }
+.list { padding-inline-start: 1.2em; margin-block-end: 16px; }
+.list li + li { margin-block-start: 6px; }
+
+.buttons { display: flex; flex-wrap: wrap; gap: 12px; margin-block: 24px 8px; }
+.inline { display: flex; flex-wrap: wrap; gap: 6px 0; padding: 0; margin: 0 0 20px; list-style: none; }
+.inline li { display: inline-flex; align-items: center; min-block-size: 44px; }
+.inline li + li::before { content: "·"; margin-inline: 12px; color: var(--muted); }
+
+/* rows: bold lead, then the sentence. No icons, no grid of boxes. */
+.rows { list-style: none; padding: 0; margin: 20px 0; display: grid; gap: 18px; max-inline-size: 66ch; }
+.rows li { padding-inline-start: 20px; border-inline-start: 2px solid var(--soft); }
+.rows li p { max-inline-size: none; }
+
+/* the three published terms as circles, no number on the homepage */
+.terms { list-style: none; padding: 0; margin: 28px 0; display: flex; flex-wrap: wrap; gap: 20px; }
+.terms li {
+  inline-size: 236px; block-size: 236px; border-radius: 50%;
+  background: var(--paper);
+  display: flex; flex-direction: column; justify-content: center; align-items: center;
+  text-align: center; padding: 28px;
+}
+.terms li strong { display: block; font-size: var(--h3); margin-block-end: 8px; }
+.terms li p { font-size: var(--body-sm); max-inline-size: 22ch; }
+@media (max-width: 600px) { .terms li { inline-size: 200px; block-size: 200px; padding: 20px; } }
+
+/* FAQ: a plain list of question and answer, schema on the page's head */
+.faq { list-style: none; padding: 0; margin: 20px 0; display: grid; gap: 22px; max-inline-size: 66ch; }
+.faq h3 { margin: 0 0 6px; }
+.faq p { max-inline-size: none; }
+
+/* the worked example: a paper card, marked fictional by its own first line */
+.example {
+  background: var(--paper); border-radius: var(--r-28); padding: 28px; margin-block: 24px;
+  max-inline-size: 72ch;
+}
+.example .intro { color: var(--text-secondary); margin-block-end: 20px; }
+.example ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 14px; }
+.example p { max-inline-size: none; }
+@media (max-width: 600px) { .example { padding: 20px; border-radius: var(--r-20); } }
+
+/* About's machine-readable block: quiet */
+.quiet { font-size: var(--body-sm); color: var(--text-secondary); padding-inline-start: 1.2em; margin: 8px 0 0; max-inline-size: 66ch; }
+.quiet li + li { margin-block-start: 4px; }
+
+/* the Start form: one screen, 44px targets, no boxes but rounded fields */
+.form { display: grid; gap: 28px; max-inline-size: 640px; margin-block: 28px; }
+.fieldset { border: 0; padding: 0; margin: 0; display: grid; gap: 10px; }
+.legend { font-weight: var(--w-label); padding: 0; margin-block-end: 4px; }
+.hint { color: var(--text-secondary); font-size: var(--body-sm); margin-block-start: -2px; }
+.choice { display: flex; align-items: center; gap: 12px; min-block-size: 44px; cursor: pointer; }
+.choice input { inline-size: 22px; block-size: 22px; accent-color: var(--aqua); margin: 0; flex: none; }
+.label { display: grid; gap: 8px; font-weight: var(--w-label); }
+.optional { font-weight: var(--w-body); color: var(--text-secondary); }
+.input {
+  inline-size: 100%; min-block-size: 48px; padding: 10px 16px;
+  border: 2px solid var(--soft); border-radius: var(--r-12);
+  background: var(--paper); font-weight: var(--w-body);
+}
+.input:focus-visible { outline: 3px solid var(--aqua); outline-offset: 2px; border-color: var(--aqua); }
+textarea.input { min-block-size: 120px; resize: vertical; }
+.contact { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+.consent { align-items: flex-start; }
+.consent input { margin-block-start: 11px; }

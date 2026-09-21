@@ -1,0 +1,203 @@
+{
+  "$comment": "Where you stand — the intake. Twelve questions, tool spec 5.1. Each question is here because of what it changes in the read; 'changes' records that and is not shown to the visitor. The qualification fields (budget, timeline, shape) are NOT here: they are asked on Start, after the read (tool spec 5.6). Question wording is drafted from the spec and is marked draft until the founder confirms.",
+  "version": 1,
+  "draft": true,
+  "estimatedMinutes": 4,
+  "questions": [
+    {
+      "id": "jurisdiction",
+      "number": 1,
+      "label": "Where the company stands",
+      "type": "single",
+      "required": true,
+      "changes": "Register applicability; Setup column",
+      "options": [
+        { "value": "not-registered", "label": "Not registered yet" },
+        { "value": "mainland", "label": "Mainland" },
+        { "value": "free-zone", "label": "Free zone", "asksWhich": true, "whichLabel": "Which zone" },
+        { "value": "more-than-one", "label": "More than one" }
+      ]
+    },
+    {
+      "id": "stage",
+      "number": 2,
+      "label": "Stage",
+      "type": "single",
+      "required": true,
+      "changes": "Whether an executive layer is warranted; tone of the read",
+      "options": [
+        { "value": "idea", "label": "Idea" },
+        { "value": "setting-up", "label": "Setting up" },
+        { "value": "under-1-year", "label": "Trading under a year" },
+        { "value": "1-3-years", "label": "One to three years" },
+        { "value": "3-plus-years", "label": "More than three years" }
+      ]
+    },
+    {
+      "id": "revenue",
+      "number": 3,
+      "label": "Revenue, last 12 months",
+      "type": "single",
+      "required": true,
+      "changes": "VAT and corporate-tax rules; scale of finance need",
+      "options": [
+        { "value": "none", "label": "None" },
+        { "value": "under-375k", "label": "Under AED 375,000" },
+        { "value": "375k-1m", "label": "AED 375,000 to 1 million" },
+        { "value": "1m-5m", "label": "AED 1 to 5 million" },
+        { "value": "5m-20m", "label": "AED 5 to 20 million" },
+        { "value": "20m-plus", "label": "Over AED 20 million" }
+      ]
+    },
+    {
+      "id": "people",
+      "number": 4,
+      "label": "People, including you",
+      "type": "single",
+      "required": true,
+      "changes": "Payroll and labour obligations; Operations column",
+      "options": [
+        { "value": "1", "label": "1" },
+        { "value": "2-5", "label": "2–5" },
+        { "value": "6-15", "label": "6–15" },
+        { "value": "16-50", "label": "16–50" },
+        { "value": "50-plus", "label": "More than 50" }
+      ]
+    },
+    {
+      "id": "finance-held-by",
+      "number": 5,
+      "label": "Who holds the finance today",
+      "type": "single",
+      "required": true,
+      "changes": "Finance column",
+      "options": [
+        { "value": "you", "label": "You" },
+        { "value": "bookkeeper", "label": "A bookkeeper" },
+        { "value": "accounting-firm", "label": "An accounting firm" },
+        { "value": "finance-person", "label": "A finance person on the team" },
+        { "value": "no-one", "label": "No one" }
+      ]
+    },
+    {
+      "id": "monthly-figures",
+      "number": 6,
+      "label": "Monthly figures you trust — profit, cash",
+      "type": "single",
+      "required": true,
+      "changes": "Failure state 5",
+      "options": [
+        { "value": "every-month", "label": "Every month" },
+        { "value": "sometimes", "label": "Sometimes" },
+        { "value": "no", "label": "No" }
+      ]
+    },
+    {
+      "id": "records",
+      "number": 7,
+      "label": "Where records and procedures live",
+      "type": "single",
+      "required": true,
+      "changes": "Operations column",
+      "options": [
+        { "value": "phone-and-inbox", "label": "Your phone and inbox" },
+        { "value": "shared-drive", "label": "A shared drive" },
+        { "value": "a-person", "label": "A person" },
+        { "value": "nowhere-yet", "label": "Nowhere yet" }
+      ]
+    },
+    {
+      "id": "clients-arrive",
+      "number": 8,
+      "label": "How new clients arrive",
+      "type": "single",
+      "required": true,
+      "changes": "Pipeline; whether the Tech column includes web presence",
+      "options": [
+        { "value": "referrals", "label": "Referrals" },
+        { "value": "outbound", "label": "Outbound" },
+        { "value": "online", "label": "Online" },
+        { "value": "partners", "label": "Partners" },
+        { "value": "not-yet", "label": "Not yet" }
+      ]
+    },
+    {
+      "id": "your-week",
+      "number": 9,
+      "label": "What your own week goes to",
+      "type": "multi",
+      "required": true,
+      "changes": "The load — opening line of the read; Rule 3 framing",
+      "options": [
+        { "value": "finance-and-admin", "label": "Finance and admin" },
+        { "value": "people-and-hiring", "label": "People and hiring" },
+        { "value": "compliance", "label": "Compliance" },
+        { "value": "sales", "label": "Sales" },
+        { "value": "delivery", "label": "Delivery" },
+        { "value": "product", "label": "Product" }
+      ]
+    },
+    {
+      "id": "comfortable-doing",
+      "number": 10,
+      "label": "What you're comfortable doing yourselves",
+      "type": "multi",
+      "required": true,
+      "changes": "Which items land in 'yours to do' versus 'needs building'",
+      "options": [
+        { "value": "bookkeeping", "label": "Bookkeeping" },
+        { "value": "setting-up-tools", "label": "Setting up tools" },
+        { "value": "hiring", "label": "Hiring" },
+        { "value": "contracts-and-paperwork", "label": "Contracts and paperwork" },
+        { "value": "none-of-these", "label": "None of these", "exclusive": true }
+      ]
+    },
+    {
+      "id": "sector",
+      "number": 11,
+      "label": "Sector",
+      "type": "single",
+      "required": true,
+      "changes": "Activity-specific obligations in section 2 (healthcare, F&B, education carry extra approvals); the worked example; P1 sector packs",
+      "options": [
+        { "value": "contracting-and-fit-out", "label": "Contracting and fit-out" },
+        { "value": "food-and-beverage", "label": "Food and beverage" },
+        { "value": "healthcare", "label": "Healthcare" },
+        { "value": "retail-and-ecommerce", "label": "Retail and e-commerce" },
+        { "value": "software", "label": "Software" },
+        { "value": "professional-services", "label": "Professional services" },
+        { "value": "creative-studio", "label": "Creative studio" },
+        { "value": "real-estate", "label": "Real estate" },
+        { "value": "logistics", "label": "Logistics" },
+        { "value": "other", "label": "Other" }
+      ]
+    },
+    {
+      "id": "fix-first",
+      "number": 12,
+      "label": "The one thing you'd fix first, in your words",
+      "type": "text",
+      "required": false,
+      "maxLength": 200,
+      "changes": "Quoted back at the top of the read; never scored"
+    }
+  ],
+  "contradictions": [
+    {
+      "id": "trading-years-no-revenue",
+      "$comment": "Tool spec 5.1: answers 2 and 3 conflict. One clarifying question before the read, never a wrong read. Wording is draft — founder to confirm.",
+      "when": { "stage": ["3-plus-years", "1-3-years"], "revenue": ["none"] },
+      "ask": {
+        "id": "trading-years-no-revenue-clarify",
+        "label": "You said the business has been trading for more than a year and that revenue in the last twelve months was none. Which is nearer?",
+        "type": "single",
+        "options": [
+          { "value": "registered-not-trading", "label": "Registered a while ago, trading has not started" },
+          { "value": "trading-no-revenue-yet", "label": "Trading, and nothing has been invoiced yet" },
+          { "value": "revenue-elsewhere", "label": "Revenue sits in another company" },
+          { "value": "revenue-answer-wrong", "label": "The revenue answer was wrong — let me change it", "returnsTo": "revenue" }
+        ]
+      }
+    }
+  ]
+}

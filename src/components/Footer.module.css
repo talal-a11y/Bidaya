@@ -1,0 +1,24 @@
+.footer {
+  position: relative;
+  margin-block-start: 96px;
+  padding-block: 56px 40px;
+  border-block-start: 1px solid var(--soft);
+  overflow: hidden;
+}
+.inner { position: relative; display: grid; gap: 28px; }
+.list { display: flex; flex-wrap: wrap; gap: 4px 20px; list-style: none; padding: 0; margin: 0; }
+.link { display: inline-flex; align-items: center; min-block-size: 44px; color: var(--ink); text-decoration: none; }
+.link:hover { text-decoration: underline; text-underline-offset: 0.3em; }
+.based { color: var(--text-primary); }
+.legal { font-size: var(--body-sm); color: var(--text-secondary); max-inline-size: 60ch; }
+/* the mark alone, watermark bottom-right, one per page (brand README) */
+.watermark {
+  position: absolute;
+  inset-block-end: -40px;
+  inset-inline-end: -20px;
+  inline-size: 220px;
+  block-size: auto;
+  pointer-events: none;
+  opacity: 0.09; /* the watermark: the mark alone at 9%, bottom-right, one per page (brand README) */
+}
+@media (max-width: 600px) { .watermark { inline-size: 150px; } .footer { margin-block-start: 64px; } }

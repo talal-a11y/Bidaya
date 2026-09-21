@@ -1,0 +1,14 @@
+[
+  {
+    "file": "content/pages/tech-and-projects.md",
+    "rule": "banned word: \"platforms\"",
+    "contains": "custom platforms",
+    "why": "Deck §11 description as written. Checklist 11 bans the word; the deck's own §14 says it was rewritten out and it wasn't. Shipped verbatim, flagged — docs/decisions.md 2026-09-21."
+  },
+  {
+    "file": "content/pages/where-you-stand.md",
+    "rule": "\"AED\" outside How we work, the intent pages and FAQ",
+    "contains": "the cost in AED of missing it",
+    "why": "Deck §4 body copy as written, outside the FAQ and the worked example. Shipped verbatim, flagged — docs/decisions.md 2026-09-21."
+  }
+]

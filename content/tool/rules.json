@@ -1,0 +1,18 @@
+{
+  "$comment": "Where you stand — the rules that turn an intake into a read. Deterministic; nothing regulatory is generated at runtime (tool spec 3, 5.2-5.5). Empty at milestone 1; written at milestone 2. The acceptance tests in tool spec §5 are the definition of done. Rule 3 (stretched, never incapable) and Rule 8 (no future-tense promise) are tested on every block the rules can select.",
+  "version": 1,
+  "schema": {
+    "selectBlocks": "ordered rules; each names a block id and the intake answers that select it. First match per cell wins; every cell ends with a fallback so no cell is ever empty.",
+    "whatToDoFirst": "three items, ordered by cost of delay: obligations with penalties, then visibility, then structure. Drawn from sections 1 and 2; no new content.",
+    "honestLine": "exactly one of the three closing blocks, by rule, never a score. The first ('you don't need an executive layer yet') renders with the files and 'Not now' only — no call-to-action to an engagement."
+  },
+  "selectBlocks": [],
+  "whatToDoFirst": { "order": ["obligations", "visibility", "structure"], "count": 3, "rules": [] },
+  "honestLine": {
+    "blocks": [
+      { "id": "no-layer-yet", "$comment": "Stage at or before setting up, or revenue none with headcount 1. The warmest copy on the site. Three things to do yourselves, with method, and when it changes.", "when": null, "body": null, "draft": true },
+      { "id": "one-piece-of-work", "$comment": "Needs-building items concentrated in one row, or the visitor is comfortable holding the rest. The project path, and what a quote covers.", "when": null, "body": null, "draft": true },
+      { "id": "executive-layer", "$comment": "Needs-building across three or more rows, or answer 9 shows the owner's week in finance, admin and compliance. Stated as load taken, never as inability.", "when": null, "body": null, "draft": true }
+    ]
+  }
+}

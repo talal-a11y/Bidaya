@@ -1,0 +1,22 @@
+{
+  "$comment": "Where you stand — the obligations register. Authored data, never generated (CLAUDE.md §8). Every row carries source, sourceUrl and verifiedOn. A row older than reviewCadenceDays shows 'verification due'. A jurisdiction or activity not in this file shows 'not covered yet' — never a guess. Every row stays draft:true until the licensed tax consultancy has reviewed it; the page says so in the voice until then. Empty at milestone 1; filled at milestone 2; reviewed at milestone 3.",
+  "version": 1,
+  "reviewCadenceDays": 30,
+  "reviewedByTaxConsultancy": false,
+  "lastReviewed": null,
+  "schema": {
+    "id": "kebab-case, unique",
+    "title": "the obligation as the visitor would name it",
+    "trigger": "what makes it apply",
+    "appliesWhen": "an object of intake answer ids to the values that match",
+    "nextDate": "absolute where derivable, otherwise relative — 'within 3 months of licence issue'",
+    "cadence": "once | monthly | quarterly | annually | on-renewal",
+    "penaltyAed": "the number, or a range as [low, high]",
+    "penaltyNote": "how the penalty grows with delay, where it does",
+    "source": "the naming authority, written out",
+    "sourceUrl": "the page the figure was read from",
+    "verifiedOn": "YYYY-MM-DD, the day a person last checked the source",
+    "draft": "true until the tax review signs the row off"
+  },
+  "rows": []
+}

@@ -1,0 +1,5 @@
+#!/bin/sh
+# Runs the copy checklist before any commit that touches content or the site's code.
+if git diff --cached --name-only | grep -qE '^(content/|src/|public/llms.txt)'; then
+  node scripts/check-copy.mjs || exit 1
+fi
