@@ -98,37 +98,37 @@ Fonts are self-hosted, open-licensed; بداية in the two copy lines that name
 
 ## D — The synthesis
 
-*My call: the parts of the six that belong to Bidaya, in one page.*
+*My call: one spine from Aspen, two moves from the others, nothing else.*
 
-**The refused default.** Any of the above done timidly.
+**The refused default.** Every liked thing on one page. (Founder: "just because I liked all these things does not mean all of them have to be in one iteration.")
 
-**Why these parts.** Aspen's sectional rhythm — every section a different shape, the page full without being filled — is the spine, because the founder named it as the feel. WeEvolveIT's sideways chapter is used exactly once, for the four functions, because a firm with four scopes has the one thing that deserves a slideshow. Orchid's rising pills carry the three terms, because terms are the proof and should arrive like evidence. Filmbot's varied text entrances give each section a different way in, so nothing repeats. Lando's field lives only in the hero, toned to a firm. Rapidkert's card fan carries Programs, because a partnership is a stack of things held together.
+**The spine — Aspen's rhythm.** Every section a different shape and size, the page full without being filled, the same strict type system holding it together. That is the whole design; the two moves below are the only motion beyond entrances.
 
-**Type.** Bricolage Grotesque (display, 700–800; it has a voice at large sizes and disappears into good manners at small) · IBM Plex Mono (the facts layer) · body in Bricolage at 400.
+**Move 1 — the sideways chapter, once (WeEvolveIT).** Only the four functions turn the page sideways: Setup · Operations · Finance · Tech, four full-bleed slides in their four colours, the word at 14vw, its sentence beneath, `1 / 4` in mono. A firm with four scopes has exactly one thing that deserves a slideshow, so it gets one and nothing else does.
 
-**The world.** Stone. Ink lines are the drawing tool everywhere: hairlines, arcs of the mark, the contour field in the hero only.
+**Move 2 — things rising into place, for evidence only (Orchid).** The three columns of the read and the three terms of How we work rise into place as the reader reaches them. Terms are the proof; they should arrive like evidence. Nothing else rises.
 
-**Load.** Full viewport. The lockup top left; the header is a single hairline with the nav on it. The contour field is already breathing in the lower two thirds. The tagline is set; the H1 arrives one line at a time, each line sliding up from under a hairline that draws itself first (Filmbot). The two buttons are pills that draw their outline before filling.
+**Everything else** enters the plain way: a line slides up under a hairline that draws first, once per section (Filmbot's restraint, one entrance, reused). No canvas, no field, no cards fanning. Ink lines are the only drawing.
 
-**Scroll 1 — Where you stand.** The field fades. A full-bleed paper panel; the section title at 8vw on the left third; on the right two-thirds, the three column heads in mono, and beneath each, the deck's line — the three columns rising into place one scroll-step apart, as pills (Orchid). Beneath, *The read* in mono.
+**Type.** Bricolage Grotesque (display; a voice at large sizes, good manners at small; body at 400) · IBM Plex Mono (the fact layer: column heads, terms, dates, the `1 / 4`).
 
-**Scroll 2 — One firm, four functions.** The page turns sideways: four slides — Setup (teal), Operations (aqua), Finance (plum), Tech (ink) — each full-bleed in its colour with paper type, the function word at 14vw, its sentence beneath, a `1 / 4` mark in mono. The mark, in paper, is drawn one arc per slide so that on the fourth it is complete (the four-tone build, reinterpreted). Then the page returns to vertical with "Where a need falls outside these four…" on stone.
+**Load.** Full viewport, stone. Header: a hairline carrying the lockup and the nav, staying put. The tagline set; the H1 arrives one line at a time under its hairline. Two pill buttons. The lower third is empty on purpose — Aspen's "full without being filled".
 
-**Scroll 3 — A few steps ahead.** Teal, edge to edge, the title alone at 12vw, the line beneath on stone. The entrance: the panel opens from a hairline in the middle, like a letter (Filmbot).
+**Scroll 1 — Where you stand.** Paper panel, edge to edge. The title at 8vw on the left third; the three column heads in mono on the right; the three lines rise in one scroll-step apart.
 
-**Scroll 4 — How we work.** The three terms as three circles of different sizes (236 / 180 / 300), rising from below the fold at different speeds and settling; inside each, the term in mono and its sentence. The heading's sentence — *Terms a firm that couldn't deliver would never publish* — at 6vw above them.
+**Scroll 2 — One firm, four functions.** Sideways: four slides. Back to vertical for "Where a need falls outside these four…"
 
-**Scroll 5 — Before it's big.** Stone, quiet. The two owner sentences in italic at 4vw; the rest at reading width. One entrance: the italic lines slide in from the left as the reader reaches them.
+**Scroll 3 — A few steps ahead.** Teal, edge to edge, the title alone at 12vw; the line beneath on stone.
 
-**Scroll 6 — Programs.** Aqua. Three paper cards — *For cultural and educational institutions* / *and the practitioners they host* / *Built as a partnership* — fanned in shallow 3D (Rapidkert), squaring up as the panel is reached.
+**Scroll 4 — How we work.** The heading at 6vw; three circles of three sizes rise and settle; mono inside.
 
-**Footer.** The mark alone as the watermark, the seven links in mono, the two lines.
+**Scroll 5 — Before it's big.** Stone, reading width, the two owner sentences in italic at 4vw. No motion but the entrance.
 
-**Header.** Stays put (the founder doesn't mind it): a hairline with the lockup and the nav, stone at 92% over the page.
+**Scroll 6 — Programs.** Aqua, edge to edge, the two lines and the button. Footer: watermark, links in mono, two lines.
 
-**Phone.** The hero keeps the field; the sideways chapter becomes four swipe slides; the circles stack; the fan becomes a stack.
+**Phone.** The sideways chapter becomes four swipe slides; the circles stack; everything else stacks in the same order.
 
-**The risk.** Six different section shapes on one page. Aspen shows it holds when the type system is strict; the mono layer and the one display face are what hold it.
+**The risk.** Six section shapes with almost no motion between them. It depends entirely on the type and the panel rhythm being right — which is the bet Aspen wins, and the one the founder asked for.
 
 ---
 
