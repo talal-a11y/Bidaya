@@ -13,7 +13,7 @@
   overflow-x: clip;
 }
 .page p { max-inline-size: none; }
-.mono { font-family: var(--b-mono); font-size: 13px; letter-spacing: 0; font-weight: 400; }
+.mono { font-family: var(--b-mono); font-size: 15px; letter-spacing: 0; font-weight: 400; }
 .mono strong { font-weight: 600; }
 
 /* ---- header bar ---- */
@@ -71,14 +71,28 @@
 
 /* the construction mark: strokes only, scaled past the panel so only arcs show */
 .arcs { position: absolute; inset: 0; overflow: hidden; }
-.arcs svg { position: absolute; inline-size: 170%; block-size: auto; inset-inline-start: -20%; inset-block-start: -30%; }
+.arcs svg { position: absolute; inline-size: 125%; block-size: auto; inset-inline-start: -14%; inset-block-start: -16%; }
 .arcs circle { fill: none; stroke: currentColor; stroke-width: 2; }
-.arcsSmall svg { inline-size: 110%; inset-inline-start: 38%; inset-block-start: -20%; }
+.arcsSmall svg { inline-size: 95%; inset-inline-start: 48%; inset-block-start: -22%; }
 
 /* buttons in the grid: square, full-height, arrow */
-.action { display: inline-flex; align-items: center; justify-content: space-between; gap: 24px; min-block-size: 56px; padding: 0 20px; border: var(--line); text-decoration: none; color: var(--ink); font-weight: 600; font-size: 15px; }
-.action::after { content: "→"; }
+.action { position: relative; z-index: 0; overflow: hidden; display: inline-flex; align-items: center; justify-content: space-between; gap: 24px; min-block-size: 56px; padding: 0 20px; border: var(--line); text-decoration: none; color: var(--ink); font-weight: 600; font-size: 15px; transition: color 260ms var(--ease-standard), border-color 260ms var(--ease-standard); }
+.action::after { content: "→"; transition: transform 260ms var(--ease-standard); }
+.action::before { content: ""; position: absolute; inset: 0; z-index: -1; background: var(--ink); transform: scaleX(0); transform-origin: 0 50%; transition: transform 320ms var(--ease-standard); }
+.action:hover, .action:focus-visible { color: var(--paper); }
+.action:hover::before, .action:focus-visible::before { transform: scaleX(1); }
+.action:hover::after { transform: translateX(6px); }
 .actionFill { background: var(--ink); color: var(--paper); }
+.actionFill::before { background: var(--aqua); }
+.actionFill:hover { border-color: var(--aqua); }
+.aqua .action::before, .plum .action::before, .ink .action::before, .tealDeep .action::before { background: var(--paper); }
+.aqua .action:hover, .plum .action:hover, .ink .action:hover, .tealDeep .action:hover { color: var(--ink); }
+.barStart { position: relative; z-index: 0; overflow: hidden; transition: color 260ms var(--ease-standard); }
+.barStart::before { content: ""; position: absolute; inset: 0; z-index: -1; background: var(--ink); transform: scaleX(0); transform-origin: 0 50%; transition: transform 320ms var(--ease-standard); }
+.barStart:hover::before { transform: scaleX(1); }
+.barNav a { position: relative; }
+.barNav a::after { content: ""; position: absolute; inset-inline: 0; inset-block-end: 2px; block-size: 2px; background: var(--aqua); transform: scaleX(0); transform-origin: 0 50%; transition: transform 240ms var(--ease-standard); }
+.barNav a:hover::after { transform: scaleX(1); }
 .aqua .action, .plum .action, .ink .action { border-color: var(--paper); color: var(--paper); }
 .actions { display: grid; grid-auto-flow: column; grid-auto-columns: 1fr; border-block-start: var(--line); }
 .actions .action { border: 0; border-inline-end: var(--line); min-block-size: 72px; padding-inline: 28px; }
@@ -155,3 +169,15 @@
 /* the arcs, in ink, on a light panel */
 .arcsInk { color: var(--ink); }
 .arcsInk svg { inline-size: 130%; inset-inline-start: -15%; inset-block-start: -25%; }
+
+/* the closing section: four cards, each a door to its own form */
+.doors { grid-template-columns: repeat(4, 1fr); }
+.door { display: flex; flex-direction: column; justify-content: space-between; gap: 40px; min-block-size: 46svh; padding: 28px; border-inline-end: var(--line); text-decoration: none; color: inherit; position: relative; z-index: 0; overflow: hidden; transition: color 260ms var(--ease-standard); }
+.door:last-child { border-inline-end: 0; }
+.door::before { content: ""; position: absolute; inset: 0; z-index: -1; background: var(--ink); transform: scaleY(0); transform-origin: 50% 100%; transition: transform 360ms var(--ease-standard); }
+.door:hover, .door:focus-visible { color: var(--paper); }
+.door:hover::before, .door:focus-visible::before { transform: scaleY(1); }
+.door strong { font-size: clamp(22px, 2vw, 32px); line-height: 1.1; font-weight: 500; letter-spacing: -0.02em; display: block; }
+.door .arrow { font-size: 28px; }
+.doorBody { display: grid; gap: 14px; }
+@media (max-width: 900px) { .doors { grid-template-columns: 1fr; } .door { min-block-size: 0; border-inline-end: 0; border-block-end: var(--line); padding: 20px; gap: 20px; } }

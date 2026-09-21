@@ -6,7 +6,8 @@ order: 1
 ---
 
 @assumed the title tag is assumed — ledger AU; 29 characters.
-@tagline Executive management, from the beginning.
+@note [proposed] "from the start" for "from the beginning" — founder 2026-09-21. The deck and ledger carried the thesis as "from the beginning".
+@tagline Executive management, from the start.
 
 # Setup, operations, finance and tech — run inside your business by one firm.
 
@@ -36,9 +37,16 @@ Setup, operations, finance and tech are scopes of one role, not four vendors.
 **Tech.** The systems underneath all of it, built on the tools you already use.
 @end
 
-Where a need falls outside these four, we know who does it and we manage them.
+@note [proposed] rewritten on the founder's instruction 2026-09-21 ("and we manage them — explains but doesn't sound nice"). The deck's line: "Where a need falls outside these four, we know who does it and we manage them." "Under one roof" is on the never-say list, so the sense is carried without it.
+
+Where a need falls outside these four, we bring in the right people and run it for you, inside the same engagement.
+
+@note [proposed] the early call to the read, in context — founder: "add a phrase for the reader to understand based on where they are in the site".
+
+@aside See where your business stands on all four, in ten minutes.
 
 @ghost What we do -> /what-we-do
+@cta See where you stand -> /where-you-stand
 
 ---
 
@@ -110,3 +118,19 @@ Each of the four functions, read three ways: covered, needs building, yours to d
 For creatives, small businesses and people starting out. We work with cultural and educational institutions to take care of the business side for young entrepreneurs and practitioners in the creative sectors.
 
 @cta Programs -> /programs
+
+---
+
+## Start a conversation
+
+@note [proposed] the closing section — founder 2026-09-21: four cards, each opening the form for that reason to reach us. The card names are the founder's words; the one-line descriptions are drafted from his brief and are his to confirm. The email address is not on the site until he gives it. For now each card opens /start.
+
+@rows
+**Start a conversation.** For businesses looking to hire us.
+
+**Become a Bidaya Talent Partner.** For professionals and firms who want to help run Bidaya's clients.
+
+**Partnerships and programs.** For educational and creative institutions building entrepreneurship programs and workshops.
+
+**General inquiry.** Anything else: our email, or a short form.
+@end

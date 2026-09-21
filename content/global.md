@@ -3,11 +3,12 @@ siteName: Bidaya
 alternateName: بداية
 areaServed: UAE
 founder: Talal Abdel-Hamid
-navOrder: /what-we-do, /how-we-work, /where-you-stand, /programs, /papers, /about, /start
+navOrder: /what-we-do, /how-we-work, /where-you-stand, /programs, /about, /start
 ---
 
 @note the header: the mark, Bidaya, the hairline, بداية. On phones: the mark and Bidaya.
-@note the footer: the mark alone, watermark bottom-right. Links: the seven in navOrder.
+@note the footer: the mark alone, watermark bottom-right. Links: those in navOrder.
+@note Papers is out of the navigation until the first paper exists — founder 2026-09-21. The page still builds at /papers.
 @note the legal line is the one place "AED" appears outside How we work, the intent pages and FAQ — it is a legal notice, not copy.
 
 @field basedIn Based in the UAE.

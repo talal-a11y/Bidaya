@@ -28,9 +28,10 @@ function Action({ href, label, fill = false }: { href: string; label: string; fi
 
 export default function HomeB({ page }: { page: Page }) {
   const g = getGlobal();
-  const [hero, four, band, line, terms, story, read, programs] = page.sections;
+  const [hero, four, band, line, terms, story, read, programs, start] = page.sections;
   const h1 = find(hero, "h1")!, tagline = find(hero, "tagline")!, lead = find(hero, "lead")!, heroBtns = find(hero, "buttons")!, aside = find(hero, "aside")!;
-  const fourT = find(four, "h2")!, fourP = find(four, "p", 0)!, fourRows = find(four, "rows")!, fourOut = find(four, "p", 1)!, fourBtn = find(four, "buttons")!;
+  const fourT = find(four, "h2")!, fourP = find(four, "p", 0)!, fourRows = find(four, "rows")!, fourOut = find(four, "p", 1)!, fourAside = find(four, "aside")!, fourBtn = find(four, "buttons")!;
+  const startT = find(start, "h2")!, doors = find(start, "rows")!;
   const bandT = find(band, "h2")!, lineP = find(line, "p")!;
   const termsT = find(terms, "h2")!, termsP = find(terms, "p")!, termsItems = find(terms, "terms")!, termsBtn = find(terms, "buttons")!;
   const storyT = find(story, "h2")!, storyPs = story.blocks.filter((b) => b.type === "p"), storyBtn = find(story, "buttons")!;
@@ -56,7 +57,7 @@ export default function HomeB({ page }: { page: Page }) {
       </section>
 
       {/* 2 — the flip: the headline in ink, the lead on stone */}
-      <section className={`${styles.row} ${styles.flip}`}>
+      <section id="what-we-do" className={`${styles.row} ${styles.flip}`}>
         <div className={`${styles.panel} ${styles.ink}`} data-slide="left">
           <h1 className={styles.h1}><InlineNodes nodes={h1.text} /></h1>
         </div>
@@ -86,14 +87,20 @@ export default function HomeB({ page }: { page: Page }) {
       <section className={`${styles.row} ${styles.lineRow}`}>
         <div className={`${styles.panel} ${styles.paper}`}>
           <p className={styles.lead}><InlineNodes nodes={fourOut.text} /></p>
-          {fourBtn.buttons.map((b, i) => <Action key={i} href={b.href} label={b.label} />)}
+          <div>
+            <p className={styles.mono} style={{ marginBlockEnd: 14 }}><InlineNodes nodes={fourAside.text} /></p>
+            <div style={{ display: "flex", flexWrap: "wrap", gap: 12 }}>
+              {fourBtn.buttons.map((b, i) => <Action key={i} href={b.href} label={b.label} fill={b.style === "cta"} />)}
+            </div>
+          </div>
         </div>
       </section>
 
       {/* 4 — A few steps ahead: teal, the title alone */}
       <section className={`${styles.row} ${styles.band}`}>
         <div className={`${styles.panel} ${styles.teal}`}>
-          <h2 className={styles.titleHuge} data-rise><InlineNodes nodes={bandT.text} /></h2>
+          <Arcs small />
+          <h2 className={styles.title} style={{ position: "relative" }} data-rise><InlineNodes nodes={bandT.text} /></h2>
         </div>
       </section>
       <section className={`${styles.row} ${styles.lineRow}`}>
@@ -103,7 +110,7 @@ export default function HomeB({ page }: { page: Page }) {
       </section>
 
       {/* 5 — How we work: three terms, three panels */}
-      <section className={`${styles.row} ${styles.lineRow}`}>
+      <section id="how-we-work" className={`${styles.row} ${styles.lineRow}`}>
         <div className={`${styles.panel} ${styles.paper}`}>
           <h2 className={styles.title}><InlineNodes nodes={termsT.text} /></h2>
           <p className={styles.lead}><InlineNodes nodes={termsP.text} /></p>
@@ -124,7 +131,7 @@ export default function HomeB({ page }: { page: Page }) {
       </section>
 
       {/* 6 — Before it's big: the story */}
-      <section className={`${styles.row} ${styles.story}`}>
+      <section id="about" className={`${styles.row} ${styles.story}`}>
         <div className={`${styles.panel} ${styles.plum}`} data-slide="left">
           <h2 className={styles.title}><InlineNodes nodes={storyT.text} /></h2>
         </div>
@@ -135,7 +142,7 @@ export default function HomeB({ page }: { page: Page }) {
       </section>
 
       {/* 7 — Where you stand: the reader knows the firm now; the read closes the page */}
-      <section className={`${styles.row} ${styles.readIntro}`}>
+      <section id="where-you-stand" className={`${styles.row} ${styles.readIntro}`}>
         <div className={`${styles.panel} ${styles.stone}`}>
           <h2 className={styles.title}><InlineNodes nodes={readT.text} /></h2>
           <p className={styles.lead} style={{ maxInlineSize: "38ch" }}><InlineNodes nodes={readIntro.text} /></p>
@@ -159,7 +166,7 @@ export default function HomeB({ page }: { page: Page }) {
       </section>
 
       {/* 8 — Programs: aqua, coming soon */}
-      <section className={`${styles.row} ${styles.programs}`}>
+      <section id="programs" className={`${styles.row} ${styles.programs}`}>
         <div className={`${styles.panel} ${styles.aqua}`} data-slide="left">
           <div>
             <h2 className={styles.titleHuge} data-rise><InlineNodes nodes={progT.text} /></h2>
@@ -172,6 +179,41 @@ export default function HomeB({ page }: { page: Page }) {
           <span />
           {progBtn.buttons.map((b, i) => <Action key={i} href={b.href} label={b.label} fill />)}
         </div>
+      </section>
+
+      {/* 9 — Start a conversation: four doors, each to its own form (for now, all to /start) */}
+      <section id="start" className={`${styles.row} ${styles.lineRow}`}>
+        <div className={`${styles.panel} ${styles.stone}`}>
+          <h2 className={styles.title}><InlineNodes nodes={startT.text} /></h2>
+        </div>
+      </section>
+      <section className={`${styles.row} ${styles.doors}`}>
+        {doors.items.map((it, i) => (
+          <Link key={i} href="/start" className={`${styles.door} ${[styles.paper, styles.stone, styles.paper, styles.stone][i]}`} data-slide="up">
+            <div className={styles.doorBody}>
+              <strong><InlineNodes nodes={it.lead} /></strong>
+              <p className={styles.body}><InlineNodes nodes={it.rest} /></p>
+            </div>
+            <span className={styles.arrow} aria-hidden="true">→</span>
+          </Link>
+        ))}
+      </section>
+      {/* 9 — Start a conversation: four doors, each to its own form (for now, all to /start) */}
+      <section id="start" className={`${styles.row} ${styles.lineRow}`}>
+        <div className={`${styles.panel} ${styles.stone}`}>
+          <h2 className={styles.title}><InlineNodes nodes={startT.text} /></h2>
+        </div>
+      </section>
+      <section className={`${styles.row} ${styles.doors}`}>
+        {doors.items.map((it, i) => (
+          <Link key={i} href="/start" className={`${styles.door} ${[styles.paper, styles.stone, styles.paper, styles.stone][i]}`} data-slide="up">
+            <div className={styles.doorBody}>
+              <strong><InlineNodes nodes={it.lead} /></strong>
+              <p className={styles.body}><InlineNodes nodes={it.rest} /></p>
+            </div>
+            <span className={styles.arrow} aria-hidden="true">→</span>
+          </Link>
+        ))}
       </section>
     </div>
   );
