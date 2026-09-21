@@ -22,5 +22,11 @@
     "rule": "banned: \"under one roof\"",
     "contains": "all under one roof",
     "why": "Founder's ruling 2026-09-21: \"use it even if it's on my never-say list\". Logged in docs/decisions.md."
+  },
+  {
+    "file": "content/forms.json",
+    "rule": "\"I\" or \"my\" outside an owner quote",
+    "contains": "I'm ",
+    "why": "The visitor's own sentence, spoken in the first person by the visitor, not the firm (Talent form) \u2014 docs/decisions.md 2026-09-21."
   }
 ]

@@ -7,7 +7,9 @@ import { getGlobal, inlineToText } from "@/lib/content";
 import styles from "./b.module.css";
 import MotionB from "./MotionB";
 import { Chapters, ChapterButton, ChapterStrip, Door, Panel } from "./Chapter";
-import FormB from "./FormB";
+import FormStrip from "./FormStrip";
+import type { FormDef, Labels } from "./FormStrip";
+import forms from "../../../content/forms.json";
 import { slidesFor } from "./ChapterSlides";
 import { getPageByRoute } from "@/lib/content";
 
@@ -217,7 +219,7 @@ export default function HomeB({ page }: { page: Page }) {
       </section>
       {doors.items.map((it, i) => (
         <Panel key={i} id={`form-${kinds[i]}`} label={inlineToText(it.lead).replace(/\.$/, "")} closeLabel={close}>
-          <FormB kind={kinds[i]} idPrefix={kinds[i]} />
+          <FormStrip id={`form-${kinds[i]}`} form={forms.forms[kinds[i]] as FormDef} labels={forms.labels as Labels} consent={forms.consent} notWired={g.fields.formNotWired} />
         </Panel>
       ))}
     </div>

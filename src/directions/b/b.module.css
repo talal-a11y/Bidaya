@@ -257,3 +257,36 @@ button.door { font: inherit; text-align: start; cursor: pointer; border-block: 0
 .sendRow { display: flex; align-items: center; gap: 20px; padding: 20px 28px; }
 .sendRow button { font: inherit; cursor: pointer; }
 @media (max-width: 900px) { .q { grid-template-columns: 1fr; } .qLabel { border-inline-end: 0; border-block-end: var(--line); padding: 16px 20px; } .tile { min-block-size: 52px; padding-inline: 16px; font-size: 15px; } .field { padding: 14px 20px; } .consentRow, .sendRow { padding-inline: 20px; } }
+
+/* ---- the forms: sideways, one question per slide, the sentence filling in ---- */
+.plumLight { background: #8A79C7; color: var(--ink); }
+.formStrip .track { block-size: min(640px, calc(100svh - 60px - 65px)); }
+.formSlide { grid-template-columns: 1fr 1.1fr; gap: 0; padding: 0; }
+.formSide { padding: 28px; display: flex; flex-direction: column; justify-content: space-between; gap: 24px; border-inline-end: var(--line); }
+.formHint { font-size: 14px; opacity: 0.85; margin-block-start: 6px; }
+.sentence { font-size: clamp(20px, 2vw, 30px); line-height: 1.45; letter-spacing: -0.02em; font-weight: 400; }
+.sentence b { font-weight: 500; border-block-end: 2px solid currentColor; padding-inline: 2px; }
+.sentence u { text-decoration: none; border-block-end: 2px dashed currentColor; opacity: 0.55; padding-inline: 2px; }
+.progress { display: flex; gap: 6px; }
+.progress i { display: block; inline-size: 40px; block-size: 4px; background: currentColor; opacity: 0.25; }
+.progress i.progressOn { opacity: 1; }
+.tileCol { display: grid; grid-auto-rows: 1fr; block-size: 100%; }
+.tileBig { position: relative; display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 0 28px; border-block-end: var(--line); cursor: pointer; font-size: clamp(18px, 1.8vw, 26px); font-weight: 500; letter-spacing: -0.02em; background: var(--paper); transition: background-color 220ms var(--ease-standard), color 220ms var(--ease-standard); min-block-size: 0; }
+.tileBig:nth-child(even) { background: var(--stone); }
+.tileBig:last-child { border-block-end: 0; }
+.tileBig:hover { background: var(--soft); }
+.tileBig input { position: absolute; inset: 0; opacity: 0; margin: 0; cursor: pointer; }
+.tileOn, .tileOn:hover { background: var(--ink) !important; color: var(--paper); }
+.tileBig:has(input:focus-visible) { outline: 3px solid var(--aqua); outline-offset: -3px; }
+.textCol, .contactCol, .sendCol { padding: 28px; display: grid; gap: 22px; align-content: start; background: var(--paper); }
+.contactCol { grid-template-columns: 1fr 1fr; }
+.contactCol .field { padding: 0; border: 0; }
+.sendCol { gap: 28px; }
+@media (max-width: 900px) {
+  .formStrip .track { block-size: auto; }
+  .formSlide { grid-template-columns: 1fr; min-block-size: 0; }
+  .formSide { border-inline-end: 0; border-block-end: var(--line); padding: 20px; }
+  .tileBig { min-block-size: 56px; padding: 0 20px; font-size: 17px; }
+  .textCol, .contactCol, .sendCol { padding: 20px; }
+  .contactCol { grid-template-columns: 1fr; }
+}
