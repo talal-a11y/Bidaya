@@ -1,0 +1,93 @@
+/* Direction C — the method. A light page; a stream of ink dots behind it; three chapters
+   that turn sideways; bracketed labels and a progress mark in mono. Rounded stays. */
+.page {
+  --c-display: "Space Grotesk", var(--font-sans);
+  --c-mono: "Space Mono", ui-monospace, Menlo, monospace;
+  font-family: var(--c-display);
+  color: var(--ink);
+  position: relative; z-index: 1;
+}
+.page p { max-inline-size: none; }
+.mono { font-family: var(--c-mono); font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; }
+.label { font-family: var(--c-mono); font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
+.label::before { content: "[ "; } .label::after { content: " ]"; }
+
+/* header: lockup, nav, Start; a hairline; stays put */
+.bar { position: sticky; inset-block-start: 0; z-index: 20; display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 14px var(--gutter); background: rgb(244 241 236 / 0.86); backdrop-filter: blur(8px); border-block-end: 1px solid var(--soft); }
+.lockup { block-size: 30px; inline-size: auto; }
+.nav ul { display: flex; gap: 4px; list-style: none; margin: 0; padding: 0; align-items: center; }
+.nav a { display: inline-flex; align-items: center; min-block-size: 44px; padding-inline: 12px; color: var(--ink); text-decoration: none; font-size: 15px; border-radius: 999px; }
+.nav a[aria-current="page"] { text-decoration: underline; text-underline-offset: 6px; text-decoration-color: var(--aqua); }
+.start { display: inline-flex; align-items: center; min-block-size: 44px; padding-inline: 22px; background: var(--aqua); color: var(--paper); border-radius: 999px; text-decoration: none; font-weight: 500; font-size: 15px; }
+.progress { position: fixed; inset-inline-end: 20px; inset-block-end: 20px; z-index: 15; font-family: var(--c-mono); font-size: 12px; letter-spacing: 0.1em; color: var(--muted); border-inline-start: 1px solid var(--soft); padding-inline-start: 10px; }
+.menu { display: none; }
+
+/* the hero */
+.hero { min-block-size: calc(100svh - 60px); display: grid; align-content: center; gap: 22px; padding-block: 48px; }
+.h1 { font-size: clamp(38px, 6vw, 96px); line-height: 0.98; font-weight: 500; letter-spacing: -0.035em; max-inline-size: 13ch; }
+.h1 span { display: inline-block; }
+.lead { font-size: clamp(17px, 1.5vw, 22px); line-height: 1.4; max-inline-size: 48ch; }
+.buttons { display: flex; gap: 12px; flex-wrap: wrap; }
+.aside { font-family: var(--c-mono); font-size: 13px; color: var(--muted); }
+
+/* a vertical chapter */
+.chapter { padding-block: 96px 64px; display: grid; gap: 20px; }
+.title { font-size: clamp(34px, 5vw, 76px); line-height: 1; font-weight: 500; letter-spacing: -0.03em; max-inline-size: 16ch; }
+.body { font-size: 17px; line-height: 1.5; max-inline-size: 60ch; }
+
+/* a sideways chapter: pinned; the track slides; each slide a viewport wide */
+.sideways { position: relative; overflow: hidden; block-size: 100svh; }
+.sideways .track { padding-block-start: 0; }
+.track { display: flex; block-size: 100%; will-change: transform; }
+.slide { flex: 0 0 100vw; block-size: 100%; display: grid; align-content: end; gap: 18px; padding: 0 var(--gutter) 72px; position: relative; }
+.head { position: absolute; inset-block-start: 24px; inset-inline-start: var(--gutter); z-index: 2; display: flex; gap: 18px; align-items: center; white-space: nowrap; }
+.counter { font-family: var(--c-mono); font-size: 12px; letter-spacing: 0.1em; color: var(--muted); }
+.word { font-size: clamp(44px, 8.5vw, 150px); line-height: 0.92; font-weight: 500; letter-spacing: -0.04em; max-inline-size: 90vw; }
+.slideText { font-size: clamp(17px, 1.4vw, 21px); line-height: 1.45; max-inline-size: 44ch; }
+.tone { position: absolute; inset-inline: 0; inset-block-end: 0; block-size: 34%; z-index: -1; border-start-start-radius: 48px; border-start-end-radius: 48px; }
+.teal { background: var(--teal); } .aqua { background: var(--aqua); } .plum { background: var(--plum); } .ink { background: var(--ink); }
+.onTone { color: var(--paper); }
+.onTeal .word { color: var(--paper); }
+/* teal carries titles only: the sentence sits on a paper strip */
+.onTeal .slideText { background: var(--paper); color: var(--ink); padding: 12px 16px; border-radius: 16px; }
+
+/* the teal band, the title alone */
+.band { margin-block: 48px; padding: 96px var(--gutter); background: var(--teal); color: var(--paper); border-radius: 48px; }
+.band .title { max-inline-size: none; font-size: clamp(40px, 9vw, 150px); }
+
+/* terms as slides: the short line at scale, the sentence in mono */
+.term { font-size: clamp(40px, 8vw, 130px); line-height: 0.95; font-weight: 500; letter-spacing: -0.04em; max-inline-size: 10ch; }
+.termText { font-family: var(--c-mono); font-size: 15px; line-height: 1.55; max-inline-size: 40ch; }
+
+.story { padding-block: 96px; display: grid; grid-template-columns: 1fr 1.4fr; gap: 48px; align-items: start; }
+.storyText p { font-size: 18px; line-height: 1.5; max-inline-size: 58ch; }
+.storyText p + p { margin-block-start: 1em; }
+.storyText em { font-size: 1.15em; }
+
+.programs { padding: 80px var(--gutter); background: var(--aqua); color: var(--paper); border-radius: 48px; display: grid; gap: 18px; margin-block-end: 48px; }
+.programs .title { max-inline-size: 16ch; }
+.programs p { font-size: 18px; max-inline-size: 48ch; }
+.programs .btn { background: var(--paper); color: var(--ink); }
+
+.foot { border-block-start: 1px solid var(--soft); padding-block: 40px 100px; display: grid; gap: 20px; position: relative; overflow: hidden; }
+.footLinks { display: flex; flex-wrap: wrap; gap: 4px 20px; list-style: none; padding: 0; margin: 0; }
+.footLinks a { color: var(--ink); text-decoration: none; min-block-size: 44px; display: inline-flex; align-items: center; }
+.footSmall { font-family: var(--c-mono); font-size: 12px; color: var(--muted); max-inline-size: 60ch; }
+.watermark { position: absolute; inset-inline-end: -20px; inset-block-end: -40px; inline-size: 200px; opacity: 0.09; }
+
+@media (max-width: 900px) {
+  .nav { display: none; }
+  .menu { display: block; }
+  .menu summary { list-style: none; cursor: pointer; min-block-size: 44px; display: inline-flex; align-items: center; padding-inline: 16px; border: 1.5px solid var(--ink); border-radius: 999px; font-size: 15px; }
+  .menu summary::-webkit-details-marker { display: none; }
+  .menu ul { position: absolute; inset-inline: 0; inset-block-start: 100%; background: var(--paper); list-style: none; margin: 0; padding: 8px var(--gutter) 20px; display: grid; border-block-end: 1px solid var(--soft); border-end-start-radius: 28px; border-end-end-radius: 28px; }
+  .menu li a { display: block; padding-block: 12px; color: var(--ink); text-decoration: none; font-size: 18px; }
+  /* sideways chapters become a swipe row */
+  .sideways { block-size: auto; overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; }
+  .track { block-size: auto; }
+  .slide { flex: 0 0 88vw; scroll-snap-align: start; block-size: 78svh; }
+  .head { position: static; padding: 24px var(--gutter) 0; }
+  .story { grid-template-columns: 1fr; gap: 24px; padding-block: 64px; }
+  .band, .programs { border-radius: 28px; padding: 56px var(--gutter); }
+  .progress { inset-block-end: 14px; inset-inline-end: 14px; }
+}
