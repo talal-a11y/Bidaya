@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "@/styles/tokens.css";
 import "@/styles/fonts.css";
+import "@/styles/fonts-a.css";
 import "@/styles/global.css";
 import { getGlobal } from "@/lib/content";
 import { siteUrl } from "@/lib/site";

@@ -82,7 +82,7 @@ for (const file of files) {
     const n = i + 1;
     if (isInstruction(raw)) return;
     // in code, comments never surface; in content, route names are not copy
-    const t = isContent ? raw.replace(/->\s*\/\S+/g, "").replace(/\]\(\/[^)]+\)/g, "]()") : raw.replace(/\/\/.*$/, "").replace(/\/\*.*?\*\//g, "");
+    const t = isContent ? raw.replace(/->\s*\/\S+/g, "").replace(/\]\(\/[^)]+\)/g, "]()") : raw.replace(/\/\/.*$/, "").replace(/\/\*.*?\*\//g, "").replace(/\b\w*transform\w*\s*[=(]/gi, "");  // code attributes and calls (transform="…", setTransform(…)) never surface
     const low = t.toLowerCase();
     if (/^@(faq|example|rows|terms|quiet|form)$/.test(t.trim())) inGroup = t.trim().slice(1);
     if (t.trim() === "@end") inGroup = null;

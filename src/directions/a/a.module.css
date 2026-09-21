@@ -1,0 +1,101 @@
+/* Direction A — the field. Stone; contour lines drawn live behind everything; the mark as a
+   hill the lines bend around; sections as full screens laid over the field; pills and
+   circles that rise into place. Onest display, IBM Plex Mono for facts. Rounded kept. */
+.page { --a-display: "Onest", var(--font-sans); --a-mono: "IBM Plex Mono", ui-monospace, Menlo, monospace; font-family: var(--a-display); color: var(--ink); position: relative; z-index: 1; }
+.page p { max-inline-size: none; }
+.mono { font-family: var(--a-mono); font-size: 13px; letter-spacing: 0.02em; }
+.eyebrow { font-family: var(--a-mono); font-size: 12px; letter-spacing: 0.06em; color: var(--muted); display: flex; gap: 10px; align-items: center; }
+.eyebrow::before { content: ""; inline-size: 28px; block-size: 1px; background: var(--muted); }
+
+.bar { position: sticky; inset-block-start: 0; z-index: 20; display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 14px var(--gutter); background: rgb(244 241 236 / 0.8); backdrop-filter: blur(10px); border-block-end: 1px solid var(--soft); }
+.lockup { block-size: 30px; inline-size: auto; }
+.nav ul { display: flex; gap: 2px; list-style: none; margin: 0; padding: 0; }
+.nav a { display: inline-flex; align-items: center; min-block-size: 44px; padding-inline: 12px; color: var(--ink); text-decoration: none; font-size: 15px; border-radius: 999px; }
+.nav a:hover { background: var(--paper); }
+.nav a[aria-current="page"] { text-decoration: underline; text-underline-offset: 6px; text-decoration-color: var(--aqua); }
+.start { display: inline-flex; align-items: center; min-block-size: 44px; padding-inline: 22px; background: var(--ink); color: var(--paper); border-radius: 999px; text-decoration: none; font-weight: 600; font-size: 15px; }
+.menu { display: none; }
+
+/* hero: the headline in the left 55%, the mark as the hill on the right */
+.hero { min-block-size: calc(100svh - 60px); display: grid; grid-template-columns: 1.1fr 0.9fr; align-items: center; gap: 40px; padding-block: 40px; }
+.heroText { display: grid; gap: 22px; }
+.h1 { font-size: clamp(40px, 5.6vw, 88px); line-height: 0.98; font-weight: 700; letter-spacing: -0.035em; max-inline-size: 12ch; }
+.line { display: block; overflow: hidden; }
+.line > span { display: block; }
+.lead { font-size: clamp(17px, 1.4vw, 21px); line-height: 1.45; max-inline-size: 44ch; }
+.buttons { display: flex; gap: 12px; flex-wrap: wrap; }
+.aside { font-family: var(--a-mono); font-size: 13px; color: var(--muted); }
+.hill { position: relative; aspect-ratio: 1; inline-size: min(100%, 520px); justify-self: center; }
+.hill svg { inline-size: 100%; block-size: 100%; }
+.hill circle { fill: none; stroke: var(--ink); stroke-width: 3; }
+.hillLabel { position: absolute; inset-block-end: 4%; inset-inline: 0; text-align: center; }
+
+/* chapters: each a full screen, laid over the field */
+.chapter { min-block-size: 100svh; display: grid; align-content: center; gap: 24px; padding-block: 80px; }
+.title { font-size: clamp(34px, 4.6vw, 72px); line-height: 1; font-weight: 700; letter-spacing: -0.03em; max-inline-size: 16ch; }
+.body { font-size: clamp(17px, 1.3vw, 20px); line-height: 1.5; max-inline-size: 52ch; }
+.split { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; }
+
+/* the read: three long pills rising in */
+.pills { display: grid; gap: 14px; }
+.pill { display: grid; grid-template-columns: 34px 1fr; gap: 16px; align-items: baseline; padding: 22px 28px; background: var(--paper); border-radius: 999px; border: 1px solid var(--soft); font-size: 18px; }
+.pill .mono { color: var(--muted); }
+.pill strong { font-weight: 600; }
+
+/* four functions: the mark at centre, the words at its four compass points — a 3x3 grid */
+.compass { display: grid; grid-template-columns: 1fr minmax(200px, 300px) 1fr; grid-template-rows: auto minmax(200px, 300px) auto; gap: 18px; align-items: center; justify-items: center; inline-size: 100%; }
+.ring { grid-column: 2; grid-row: 2; inline-size: 100%; }
+.ring circle { fill: none; stroke-width: 3; }
+.fn { display: grid; gap: 6px; max-inline-size: 22ch; }
+.fn strong { font-size: clamp(20px, 2vw, 28px); font-weight: 700; letter-spacing: -0.02em; }
+.fn p { font-size: 14px; line-height: 1.4; color: var(--muted); }
+.fnTop { grid-column: 2; grid-row: 1; text-align: center; }
+.fnRight { grid-column: 3; grid-row: 2; text-align: start; justify-self: start; }
+.fnBottom { grid-column: 2; grid-row: 3; text-align: center; }
+.fnLeft { grid-column: 1; grid-row: 2; text-align: end; justify-self: end; }
+.setup strong { color: var(--teal); } .operations strong { color: var(--aqua); } .finance strong { color: var(--plum); } .tech strong { color: var(--ink); }
+.fnList { display: none; }
+
+/* teal band: the title alone, the field showing through in paper */
+.band { position: relative; margin-block: 40px; padding: 120px var(--gutter); background: var(--teal); color: var(--paper); border-radius: 48px; overflow: hidden; }
+.band .title { max-inline-size: none; font-size: clamp(44px, 9vw, 150px); position: relative; }
+.bandField { position: absolute; inset: 0; opacity: 0.5; }
+
+/* terms: three circles rising */
+.circles { display: flex; flex-wrap: wrap; gap: 24px; }
+.circle { inline-size: 250px; block-size: 250px; border-radius: 50%; background: var(--paper); border: 1px solid var(--soft); display: grid; align-content: center; justify-items: center; text-align: center; padding: 30px; gap: 8px; }
+.circle strong { font-size: 22px; font-weight: 700; letter-spacing: -0.02em; }
+.circle p { font-family: var(--a-mono); font-size: 13px; line-height: 1.5; max-inline-size: 20ch; }
+
+.story .body em { font-size: 1.1em; }
+.programs { padding: 80px var(--gutter); background: var(--aqua); color: var(--paper); border-radius: 48px; display: grid; gap: 18px; margin-block: 40px; }
+.programs .title { max-inline-size: 18ch; }
+.programs p { font-size: 18px; max-inline-size: 48ch; }
+.programs .btn { background: var(--paper); color: var(--ink); }
+
+.foot { border-block-start: 1px solid var(--soft); padding-block: 40px 90px; display: grid; gap: 18px; position: relative; overflow: hidden; }
+.footLinks { display: flex; flex-wrap: wrap; gap: 4px 20px; list-style: none; padding: 0; margin: 0; }
+.footLinks a { color: var(--ink); text-decoration: none; min-block-size: 44px; display: inline-flex; align-items: center; }
+.footSmall { font-family: var(--a-mono); font-size: 12px; color: var(--muted); max-inline-size: 60ch; }
+.watermark { position: absolute; inset-inline-end: -20px; inset-block-end: -40px; inline-size: 200px; opacity: 0.09; }
+
+@media (max-width: 900px) {
+  .nav { display: none; }
+  .menu { display: block; }
+  .menu summary { list-style: none; cursor: pointer; min-block-size: 44px; display: inline-flex; align-items: center; padding-inline: 16px; border: 1.5px solid var(--ink); border-radius: 999px; font-size: 15px; }
+  .menu summary::-webkit-details-marker { display: none; }
+  .menu ul { position: absolute; inset-inline: 0; inset-block-start: 100%; background: var(--paper); list-style: none; margin: 0; padding: 8px var(--gutter) 20px; display: grid; border-block-end: 1px solid var(--soft); border-end-start-radius: 28px; border-end-end-radius: 28px; }
+  .menu li a { display: block; padding-block: 12px; color: var(--ink); text-decoration: none; font-size: 18px; }
+  .hero { grid-template-columns: 1fr; gap: 24px; padding-block: 24px 48px; }
+  .hill { inline-size: min(70%, 300px); order: -1; }
+  .h1 { max-inline-size: none; }
+  .chapter { min-block-size: auto; padding-block: 64px; }
+  .split { grid-template-columns: 1fr; gap: 28px; }
+  .pill { grid-template-columns: 1fr; gap: 6px; border-radius: 28px; padding: 18px 22px; font-size: 17px; }
+  .compass { display: none; }
+  .fnList { display: grid; gap: 16px; margin-block-start: 8px; }
+  .fnList .fn { max-inline-size: none; }
+  .hillLabel { position: static; margin-block-start: 8px; }
+  .band, .programs { border-radius: 28px; padding: 64px var(--gutter); }
+  .circle { inline-size: 100%; block-size: auto; border-radius: 28px; padding: 22px; justify-items: start; text-align: start; }
+}
