@@ -33,3 +33,17 @@ Doesn't: photography and video (Filmbot, Lando, Rapidkert lean on it; the brief 
 pinned chapter · rising cards and pills · edge-to-edge colour panel · halftone / dither shader · contour-line field · scatter-and-reform particles · 3D card fan · masked strips · split-text word and line reveals · monospace fact layer · page transition · scroll progress indicator · giant single-word type.
 
 Each direction in milestone 3 picks three or four of these and makes them out of Bidaya's own material — the hilal, the flow, the four functions, the three terms — rather than copying a site.
+
+## The founder's notes, site by site (21 September)
+
+**Aspen** — "One of my favorites. Works very well for my line of work. The simplicity of it, its motion, its movement, but it's not photos. Takes advantage of the whole page, but not the whole page is filled with content — the design allows the page to feel full even though the text isn't covering it, easy to read and beautiful to look at. Each section works with the one before and after but still has different sizes, different ways of portraying the message and different graphic and linear visuals. That's the feel I want for Bidaya, maybe different colors, but a similar feel and energy. The font seems too straightforward, but still works. The header stays put and I don't mind it."
+
+**WeEvolveIT** — "A top contender. My favorite part is 'the 5 method': the flow element comes in quickly, and as I scroll down it starts scrolling right like a slideshow presenting the 5 methods. That's what I really liked here — unique and having movement. Too dark at the start, but works well below. Visuals and animations that are easy, simple and make sense for their business. Cannot be 100% replicated for me, but that movement works."
+
+**Lando Norris** — "An excellent design example, beautiful visuals and a storyline that takes us through the whole site so well. Very interactive with the mouse movements, every part flows. Excessive for a B2B business — would have to be toned down."
+
+**Rapidkert** — "A nice way of layering, good animations, flows well, not slow. Similar to Orchid in the photos moving as you scroll — here forward, Orchid upwards. Both are a nice way to move cards / pills for Bidaya."
+
+**Filmbot** — "Beautiful ways of animating the text onto the screen without being super fancy — different motions to present the text as you scroll make it unique. Opening a letter and going into it as a transition to the next section is a really nice one too."
+
+**Orchid** — the rising cards and pills; not the darkness; never a popup.

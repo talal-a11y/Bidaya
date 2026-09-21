@@ -103,3 +103,6 @@ See the proposal put to the founder in this session; recorded here once he rules
 
 2026-09-21 — English only. DECIDED.
 "No need for bilingual readiness anymore — site will be in English only." The bilingual milestone is dropped. بداية stays in the lockups and in the two lines of copy that name it. Logical CSS properties stay because they cost nothing; RTL is not tested or promised.
+
+2026-09-21 — The directions for milestone 3. DECIDED.
+"Replace the stack with whatever weevolveit.com is on… Then also add one more direction — completely up to you to decide and merge: taking different elements from different sites and putting it all into one in a way that you believe works for Bidaya." Four directions: A the field (Lando's light world, toned down) · B the grid (Aspen's discipline) · C the method (WeEvolveIT's scroll-through-the-process, light) · D the synthesis (Claude's call). The founder's site-by-site notes are in docs/12. Storyboards in docs/13.
