@@ -34,11 +34,7 @@ navCta: true
 - 16–50
 - More than 50
 
-@field radio "Budget"
-- Monthly, at or above the published floor on How we work
-- A fixed-scope project, to be quoted
-- Not sure yet
-@assumed the budget wording is assumed — no number on this page; ledger AU.
+@note the Budget question is cut — founder ruling 2026-09-21, docs/decisions.md. Shape and timing qualify; the price is on How we work.
 
 @field radio "When you'd want to begin"
 - This month

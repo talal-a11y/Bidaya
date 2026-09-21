@@ -72,3 +72,9 @@ The three published terms as paper circles (236px, 200px on phones); bands as ro
 
 2026-09-21 — The publishing page is named "Papers". DECIDED.
 "Papers is a good one." Consequence: nav label Papers; title "Papers — Bidaya"; h1 "Papers"; route `/papers` (entries at `/papers/[slug]`); llms.txt updated. The two tracks inside it keep their names, Reports and Notes, and their folders `content/reports/` and `content/notes/`. Overrides deck §6's assumed name (ledger AU). Still open: whether it is hidden from the navigation until the first paper exists.
+
+2026-09-21 — The Budget question on Start is cut. DECIDED.
+"Asking for budget might not be the best one… monthly at the floor but not mentioning is pointless." The founder chose option 1: cut the question. Consequence: Start asks shape, stage, people, timing, the free line and contact details; the price stays on How we work. Overrides deck §8's assumed budget wording (ledger AU) and tool spec 5.6's "budget, timeline and shape" — qualification on Start is now shape and timeline. `content/pages/start.md`.
+
+2026-09-21 — Default branch. NOTED.
+GitHub's default branch is `build/01-skeleton` (main is empty); Vercel imports from it. When the founder approves the preview, this commit becomes `main` and the default switches back.
