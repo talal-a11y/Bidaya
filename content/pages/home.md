@@ -37,9 +37,9 @@ Setup, operations, finance and tech are scopes of one role, not four vendors.
 **Tech.** The systems underneath all of it, built on the tools you already use.
 @end
 
-@note [proposed] rewritten on the founder's instruction 2026-09-21 ("and we manage them — explains but doesn't sound nice"). The deck's line: "Where a need falls outside these four, we know who does it and we manage them." "Under one roof" is on the never-say list, so the sense is carried without it.
+@note [proposed] rewritten on the founder's instruction 2026-09-21 ("and we manage them — explains but doesn't sound nice"). The deck's line: "Where a need falls outside these four, we know who does it and we manage them." "All under one roof" is on the never-say list; the founder ruled to use it anyway (docs/decisions.md 2026-09-21).
 
-Where a need falls outside these four, we bring in the right people and run it for you, inside the same engagement.
+Where a need falls outside these four, we bring in the right people and run it for you, all under one roof.
 
 @note [proposed] the early call to the read, in context — founder: "add a phrase for the reader to understand based on where they are in the site".
 
@@ -126,11 +126,11 @@ For creatives, small businesses and people starting out. We work with cultural a
 @note [proposed] the closing section — founder 2026-09-21: four cards, each opening the form for that reason to reach us. The card names are the founder's words; the one-line descriptions are drafted from his brief and are his to confirm. The email address is not on the site until he gives it. For now each card opens /start.
 
 @rows
-**Start a conversation.** For businesses looking to hire us.
-
-**Become a Bidaya Talent Partner.** For professionals and firms who want to help run Bidaya's clients.
+**Enquire for your business.** For businesses looking to hire us.
 
 **Partnerships and programs.** For educational and creative institutions building entrepreneurship programs and workshops.
+
+**Bidaya Talent Partners.** For professionals and firms who want to help run Bidaya's clients.
 
 **General inquiry.** Anything else: our email, or a short form.
 @end

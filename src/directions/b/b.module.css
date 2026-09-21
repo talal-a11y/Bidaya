@@ -47,6 +47,7 @@
 /* a deeper teal carries small paper text where the token teal cannot (4.7:1) — founder: keep the text on the division colour */
 .tealDeep { background: #237C85; color: var(--paper); }
 .aqua { background: var(--aqua); color: var(--paper); }
+.opsDeep { background: #0A5C66; color: var(--paper); } /* Ops: a deeper aqua, so Setup and Ops read apart — founder, option 1 */
 .plum { background: var(--plum); color: var(--paper); }
 .ink { background: var(--ink); color: var(--paper); }
 .teal a, .aqua a, .plum a, .ink a { color: var(--paper); }

@@ -37,7 +37,7 @@ export default function HomeB({ page }: { page: Page }) {
   const storyT = find(story, "h2")!, storyPs = story.blocks.filter((b) => b.type === "p"), storyBtn = find(story, "buttons")!;
   const readT = find(read, "h2")!, readIntro = find(read, "p", 0)!, readLabels = read.blocks.filter((b) => b.type === "h3"), readPs = read.blocks.filter((b) => b.type === "p").slice(1), readBtn = find(read, "buttons")!;
   const progT = find(programs, "h2")!, progSoon = find(programs, "h3")!, progPs = programs.blocks.filter((b) => b.type === "p"), progBtn = find(programs, "buttons")!;
-  const tones = [styles.tealDeep, styles.aqua, styles.plum, styles.ink];
+  const tones = [styles.tealDeep, styles.opsDeep, styles.plum, styles.ink];
 
   return (
     <div className={styles.page}>
