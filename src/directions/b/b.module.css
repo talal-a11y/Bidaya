@@ -261,7 +261,7 @@ button.door { font: inherit; text-align: start; cursor: pointer; border-block: 0
 /* ---- the forms: sideways, one question per slide, the sentence filling in ---- */
 .plumLight { background: #8A79C7; color: var(--ink); }
 .formStrip .track { block-size: calc(100svh - 60px - 65px); } /* fills the screen, so the panel can scroll into place even at the foot of the page */
-.formSlide { grid-template-columns: 1fr 1.1fr; gap: 0; padding: 0; }
+.formSlide { grid-template-columns: 1fr 1.1fr; grid-template-rows: 1fr; align-content: stretch; gap: 0; padding: 0; }
 .formSide { padding: 28px; display: flex; flex-direction: column; justify-content: space-between; gap: 24px; border-inline-end: var(--line); }
 .formHint { font-size: 14px; opacity: 0.85; margin-block-start: 6px; }
 .sentence { font-size: clamp(20px, 2vw, 30px); line-height: 1.45; letter-spacing: -0.02em; font-weight: 400; }

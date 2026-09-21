@@ -53,7 +53,7 @@ export default function FormStrip({ id, form, labels, consent, notWired, closeLa
     return () => { el.removeEventListener("wheel", onWheel); el.removeEventListener("scroll", onScroll); };
   }, [go, total]);
 
-  const answered = form.steps.filter((s) => s.type === "contact" ? s.fields.every((f) => answers[f]) : s.type === "text" ? true : !!answers[s.id]).length;
+  const answered = form.steps.filter((s) => s.type === "contact" ? s.fields.every((f) => answers[f]) : !!answers[s.id]).length;
 
   const sentence = (
     <p className={styles.sentence}>
