@@ -110,3 +110,6 @@ main { flex: 1; }
 .world { position: fixed; inset: 0; z-index: 0; pointer-events: none; }
 .page { position: relative; z-index: 1; display: flex; flex-direction: column; min-height: 100dvh; }
 .page main { flex: 1; }
+
+/* direction B: Geist everywhere while B is under review */
+body { font-family: "Geist", var(--font-sans); }

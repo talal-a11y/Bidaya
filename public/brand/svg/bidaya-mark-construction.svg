@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="180 192.5 640 640" width="1000" height="1000">
+  <title>Bidaya mark — construction: two circles, the inner offset upward</title>
+  <desc>Raw construction coordinates, no transform: outer circle radius 240 at (500, 530); inner circle radius 200 at (500, 455). Both circles whole, with clear margin. Stroke: muted #6A5F78. Transparent background.</desc>
+  <g fill="none" stroke="#6A5F78" stroke-width="7.5">
+    <circle cx="500" cy="530" r="240"/>
+    <circle cx="500" cy="455" r="200"/>
+  </g>
+</svg>

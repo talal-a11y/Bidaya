@@ -1,6 +1,6 @@
 import type { Page } from "@/lib/content";
-import Header from "./Header";
-import Footer from "./Footer";
+import Header from "@/directions/b/HeaderB";
+import Footer from "@/directions/b/FooterB";
 import Schema from "./Schema";
 import { Sections } from "./Blocks";
 
