@@ -1,15 +1,15 @@
 ---
-route: /reports-and-notes
-title: Reports and notes — Bidaya
+route: /papers
+title: Papers — Bidaya
 description: Bidaya's published work on running a business in the UAE: reports with named sources, and notes on what changed and what to do by when.
 order: 6
-nav: Reports and notes
+nav: Papers
 ---
 
-@assumed the umbrella name "Reports and notes" is assumed — ledger AU.
+@note the umbrella name is "Papers" — founder ruling 2026-09-21, docs/decisions.md. The two tracks inside it stay Reports and Notes.
 @note two tracks on one page; each item dated.
 
-# Reports and notes
+# Papers
 
 @rows
 **Reports** are few and substantial: numbered, dated, on one question about running a business in the UAE, with a named source for every figure. One a quarter.

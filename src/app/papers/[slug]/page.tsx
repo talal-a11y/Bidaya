@@ -18,7 +18,7 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const e = all().find((x) => x.slug === slug);
-  return e ? { title: `${e.title} — Bidaya`, description: e.summary, alternates: { canonical: `/reports-and-notes/${slug}` } } : {};
+  return e ? { title: `${e.title} — Bidaya`, description: e.summary, alternates: { canonical: `/papers/${slug}` } } : {};
 }
 
 export default async function Entry({ params }: { params: Promise<{ slug: string }> }) {
@@ -33,12 +33,12 @@ export default async function Entry({ params }: { params: Promise<{ slug: string
     dateModified: e.date,
     author: { "@type": "Organization", name: "Bidaya" },
     publisher: { "@type": "Organization", name: "Bidaya" },
-    mainEntityOfPage: `${siteUrl()}/reports-and-notes/${slug}`,
+    mainEntityOfPage: `${siteUrl()}/papers/${slug}`,
   });
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: json }} />
-      <Header current="/reports-and-notes" />
+      <Header current="/papers" />
       <main id="main" tabIndex={-1}>
         <article>
           <section className="wrap">

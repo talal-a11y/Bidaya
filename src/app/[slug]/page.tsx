@@ -33,10 +33,10 @@ function EntryList() {
             <p>
               {e.number && <strong>Report {e.number}</strong>}
               {e.number && " · "}
-              <Link href={`/reports-and-notes/${e.slug}`}>{e.title}</Link>
+              <Link href={`/papers/${e.slug}`}>{e.title}</Link>
               {" · "}<time dateTime={e.date}>{month(e.date)}</time>
               {" · "}{e.summary}{" "}
-              <Link href={`/reports-and-notes/${e.slug}`} className="btn btn-text">{g.fields.reportsListRead}</Link>
+              <Link href={`/papers/${e.slug}`} className="btn btn-text">{g.fields.reportsListRead}</Link>
             </p>
           </li>
         ))}
@@ -51,7 +51,7 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
   if (!page) notFound();
   return (
     <PageShell page={page}>
-      {page.route === "/reports-and-notes" && <EntryList />}
+      {page.route === "/papers" && <EntryList />}
     </PageShell>
   );
 }

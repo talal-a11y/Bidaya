@@ -69,3 +69,6 @@ The three published terms as paper circles (236px, 200px on phones); bands as ro
 
 2026-09-21 — The name "Reports and notes". OPEN — founder to name it.
 "Reports should have a different name like publishings or something else that makes it sound less professional but still explaining in one word that these are our publishings." The page is built and stays in the navigation until named; the founder expects to hide it until there is groundwork. Candidate names go to the founder; the nav label, page title, h1, route and llms.txt change together when he rules.
+
+2026-09-21 — The publishing page is named "Papers". DECIDED.
+"Papers is a good one." Consequence: nav label Papers; title "Papers — Bidaya"; h1 "Papers"; route `/papers` (entries at `/papers/[slug]`); llms.txt updated. The two tracks inside it keep their names, Reports and Notes, and their folders `content/reports/` and `content/notes/`. Overrides deck §6's assumed name (ledger AU). Still open: whether it is hidden from the navigation until the first paper exists.
