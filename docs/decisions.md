@@ -78,3 +78,7 @@ The three published terms as paper circles (236px, 200px on phones); bands as ro
 
 2026-09-21 — Default branch. NOTED.
 GitHub's default branch is `build/01-skeleton` (main is empty); Vercel imports from it. When the founder approves the preview, this commit becomes `main` and the default switches back.
+
+2026-09-21 — Milestone 1 approved on the preview. DECIDED, with the scope stated.
+"I will say yes to the words, titles, phrasing, and where everything will be placed and titles. Colors are also acceptable, semi locked, but still open to explore others. Header, footer, fonts, etc. are not locked, these CAN be changed and will be assumed open for now. Works on the phone, but looks too crowded so not finalizing for the phone. Animations, font type, font color, font size may need to be changed."
+Consequence: the copy, the page titles, the navigation order and the placement of sections are approved. Colours: acceptable, semi-locked, open to exploration (softens ledger AX's lock — a change is still a token proposal here, then the founder's word). Header, footer, type family, type sizes and colours of type: open. The phone layout is not approved — it is too crowded and is reworked with the motion. `build/01-skeleton` becomes `main`.
