@@ -15,6 +15,8 @@ import styles from "./b.module.css";
 type Ctx = { open: Record<string, boolean>; toggle: (id: string) => void };
 const ChapterContext = createContext<Ctx>({ open: {}, toggle: () => {} });
 
+export const useChapter = () => useContext(ChapterContext);
+
 export function Chapters({ children }: { children: ReactNode }) {
   const [open, setOpen] = useState<Record<string, boolean>>({});
   const toggle = useCallback((id: string) => setOpen((o) => ({ ...o, [id]: !o[id] })), []);
@@ -107,19 +109,12 @@ export function Door({ id, className, children }: { id: string; className: strin
 }
 
 // A panel that unfolds beneath its row; used for the forms behind the doors.
-export function Panel({ id, label, closeLabel, children }: { id: string; label: string; closeLabel: string; children: ReactNode }) {
-  const { open, toggle } = useContext(ChapterContext);
+export function Panel({ id, label, children }: { id: string; label: string; children: ReactNode }) {
+  const { open } = useContext(ChapterContext);
   const isOpen = !!open[id];
   return (
     <section id={id} className={styles.chapterShell} data-open={isOpen || undefined} aria-hidden={!isOpen} inert={!isOpen} aria-label={label}>
-      <div className={styles.chapterInner}>
-        <div className={styles.chapterHead}>
-          <span className={styles.mono}>[ {label} ]</span>
-          <span />
-          <span className={styles.chapterNav}><button type="button" className={styles.chapterBtn} onClick={() => toggle(id)}>{closeLabel}</button></span>
-        </div>
-        {children}
-      </div>
+      <div className={styles.chapterInner}>{children}</div>
     </section>
   );
 }

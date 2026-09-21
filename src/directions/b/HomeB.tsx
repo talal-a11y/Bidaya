@@ -218,8 +218,8 @@ export default function HomeB({ page }: { page: Page }) {
         ))}
       </section>
       {doors.items.map((it, i) => (
-        <Panel key={i} id={`form-${kinds[i]}`} label={inlineToText(it.lead).replace(/\.$/, "")} closeLabel={close}>
-          <FormStrip id={`form-${kinds[i]}`} form={forms.forms[kinds[i]] as FormDef} labels={forms.labels as Labels} consent={forms.consent} notWired={g.fields.formNotWired} />
+        <Panel key={i} id={`form-${kinds[i]}`} label={inlineToText(it.lead).replace(/\.$/, "")}>
+          <FormStrip id={`form-${kinds[i]}`} form={forms.forms[kinds[i]] as FormDef} labels={forms.labels as Labels} consent={forms.consent} notWired={g.fields.formNotWired} closeLabel={close} />
         </Panel>
       ))}
     </div>

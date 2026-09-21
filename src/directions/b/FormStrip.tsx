@@ -5,6 +5,7 @@
 // Nothing is sent yet; Send is disabled and says so. No storage; closing the panel clears it.
 import { useCallback, useEffect, useRef, useState } from "react";
 import styles from "./b.module.css";
+import { useChapter } from "./Chapter";
 
 export type Step =
   | { id: string; label: string; type: "choice"; options: string[]; hint?: string }
@@ -17,7 +18,8 @@ export type Labels = { back: string; next: string; send: string; answered: strin
 const pad = (n: number) => String(n).padStart(2, "0");
 const toneClass: Record<string, string> = { plum: styles.plum, aqua: styles.aqua, teal: styles.tealDeep, plumLight: styles.plumLight, ink: styles.ink };
 
-export default function FormStrip({ id, form, labels, consent, notWired }: { id: string; form: FormDef; labels: Labels; consent: string; notWired: string }) {
+export default function FormStrip({ id, form, labels, consent, notWired, closeLabel }: { id: string; form: FormDef; labels: Labels; consent: string; notWired: string; closeLabel: string }) {
+  const { toggle } = useChapter();
   const [answers, setAnswers] = useState<Record<string, string>>({});
   const [index, setIndex] = useState(0);
   const track = useRef<HTMLDivElement>(null);
@@ -80,6 +82,7 @@ export default function FormStrip({ id, form, labels, consent, notWired }: { id:
         <span className={styles.chapterNav}>
           <button type="button" className={styles.chapterBtn} onClick={() => go(index - 1)} disabled={index === 0}>← {labels.back}</button>
           <button type="button" className={styles.chapterBtn} onClick={() => go(index + 1)} disabled={index === total - 1}>{labels.next} →</button>
+          <button type="button" className={styles.chapterBtn} onClick={() => toggle(id)}>{closeLabel}</button>
         </span>
       </div>
       <div ref={track} className={styles.track}>
