@@ -31,9 +31,11 @@ export default function MotionB() {
         gsap.from(spans, { yPercent: 110, duration: 0.9, ease: "power4.out", stagger: 0.05, delay: 0.15 });
       });
       // arcs draw themselves
-      document.querySelectorAll<SVGCircleElement>("[data-draw] circle").forEach((c, i) => {
-        const len = 2 * Math.PI * c.r.baseVal.value;
-        gsap.fromTo(c, { strokeDasharray: len, strokeDashoffset: len }, { strokeDashoffset: 0, duration: 1.3, ease: "power2.inOut", delay: 0.3 + i * 0.25 });
+      document.querySelectorAll<SVGSVGElement>("[data-draw]").forEach((svg) => {
+        svg.querySelectorAll("circle").forEach((c, i) => {
+          const len = 2 * Math.PI * c.r.baseVal.value;
+          gsap.fromTo(c, { strokeDasharray: len, strokeDashoffset: len }, { strokeDashoffset: 0, duration: 1.3, ease: "power2.inOut", delay: 0.3 + i * 0.25, scrollTrigger: { trigger: svg, start: "top 90%", once: true } });
+        });
       });
       // panels slide in from their side, once, when they reach the viewport
       document.querySelectorAll<HTMLElement>("[data-slide]").forEach((el) => {

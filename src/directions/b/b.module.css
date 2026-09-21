@@ -19,7 +19,7 @@
 /* ---- header bar ---- */
 .bar {
   position: sticky; inset-block-start: 0; z-index: 20;
-  display: grid; grid-template-columns: 240px 1fr auto auto;
+  display: grid; grid-template-columns: 240px 1fr auto;
   border-block-end: var(--line);
   background: var(--stone);
   min-block-size: 60px;
@@ -28,12 +28,12 @@
 .bar > *:last-child { border-inline-end: 0; }
 .bar .lockup { block-size: 28px; inline-size: auto; }
 .barHome { text-decoration: none; }
-.barTime { justify-content: flex-start; background: var(--paper); }
-.barNav ul { display: flex; gap: 22px; list-style: none; margin: 0; padding: 0; }
-.barNav a { color: var(--ink); text-decoration: none; font-size: 15px; padding-block: 8px; }
+.barNav { justify-content: flex-end; }
+.barNav ul { display: flex; gap: 26px; list-style: none; margin: 0; padding: 0; }
+.barNav a { color: var(--ink); text-decoration: none; font-size: 15px; padding-block: 8px; font-weight: 600; }
 .barNav a[aria-current="page"] { text-decoration: underline; text-underline-offset: 6px; }
 .barStart { background: var(--aqua); color: var(--paper); padding-inline: 32px; }
-.barStart a { color: var(--paper); text-decoration: none; font-weight: 500; font-size: 15px; display: inline-flex; align-items: center; gap: 14px; min-block-size: 44px; }
+.barStart a { color: var(--paper); text-decoration: none; font-weight: 600; font-size: 15px; display: inline-flex; align-items: center; gap: 14px; min-block-size: 44px; }
 .barStart a::after { content: "→"; }
 .menuToggle { display: none; }
 
@@ -50,7 +50,6 @@
 .plum { background: var(--plum); color: var(--paper); }
 .ink { background: var(--ink); color: var(--paper); }
 .teal a, .aqua a, .plum a, .ink a { color: var(--paper); }
-.soft { background: var(--soft); }
 
 /* type at screen scale */
 .word { font-size: 13.5vw; white-space: nowrap; line-height: 0.95; padding-block-end: 0.06em; font-weight: 500; letter-spacing: -0.045em; margin-inline-start: -0.06em; overflow: hidden; }
@@ -60,7 +59,7 @@
 .titleHuge { font-size: clamp(56px, 14vw, 240px); line-height: 0.85; font-weight: 500; letter-spacing: -0.05em; max-inline-size: none; }
 .big { font-size: clamp(36px, 6.5vw, 110px); line-height: 0.9; font-weight: 500; letter-spacing: -0.045em; writing-mode: vertical-rl; margin-inline-start: -0.12em; }
 .number { font-family: var(--b-mono); font-size: clamp(40px, 5.6vw, 96px); line-height: 0.9; letter-spacing: -0.05em; font-weight: 500; }
-.lead { font-size: clamp(20px, 2vw, 30px); line-height: 1.25; letter-spacing: -0.02em; font-weight: 500; }
+.lead { font-size: clamp(18px, 1.75vw, 26px); line-height: 1.3; letter-spacing: -0.015em; font-weight: 400; }
 .body { font-size: 18px; line-height: 1.45; }
 .bodySm { font-size: 16px; line-height: 1.45; }
 .quiet { color: var(--muted); }
@@ -77,7 +76,7 @@
 .arcsSmall svg { inline-size: 110%; inset-inline-start: 38%; inset-block-start: -20%; }
 
 /* buttons in the grid: square, full-height, arrow */
-.action { display: inline-flex; align-items: center; justify-content: space-between; gap: 24px; min-block-size: 56px; padding: 0 20px; border: var(--line); text-decoration: none; color: var(--ink); font-weight: 500; font-size: 15px; }
+.action { display: inline-flex; align-items: center; justify-content: space-between; gap: 24px; min-block-size: 56px; padding: 0 20px; border: var(--line); text-decoration: none; color: var(--ink); font-weight: 600; font-size: 15px; }
 .action::after { content: "→"; }
 .actionFill { background: var(--ink); color: var(--paper); }
 .aqua .action, .plum .action, .ink .action { border-color: var(--paper); color: var(--paper); }
@@ -119,7 +118,6 @@
 /* ---- phone ---- */
 @media (max-width: 900px) {
   .bar { grid-template-columns: 1fr auto auto; }
-  .barTime { display: none; }
   .barNav { display: none; }
   .barStart { padding-inline: 20px; }
   .menuToggle { display: flex; }
@@ -153,3 +151,7 @@
 .readCell { display: grid; gap: 0; align-content: start; }
 .comingSoon { font-family: var(--b-mono); font-size: 13px; border: 1px solid currentColor; padding: 8px 12px; inline-size: max-content; }
 @media (max-width: 900px) { .readIntro .panel { flex-direction: column; align-items: flex-start; } }
+
+/* the arcs, in ink, on a light panel */
+.arcsInk { color: var(--ink); }
+.arcsInk svg { inline-size: 130%; inset-inline-start: -15%; inset-block-start: -25%; }

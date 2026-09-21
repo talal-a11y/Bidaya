@@ -10,10 +10,10 @@ import MotionB from "./MotionB";
 const find = <T extends Block["type"]>(s: Section, type: T, n = 0) =>
   s.blocks.filter((b) => b.type === type)[n] as Extract<Block, { type: T }> | undefined;
 
-function Arcs({ small = false }: { small?: boolean }) {
-  // the construction mark, as the founder supplied it: two stroked circles, no fill
+function Arcs({ small = false, ink = false }: { small?: boolean; ink?: boolean }) {
+  // the construction mark, as the founder supplied it: two stroked circles, no fill — always drawn in, never still
   return (
-    <div className={`${styles.arcs} ${small ? styles.arcsSmall : ""}`} aria-hidden="true">
+    <div className={`${styles.arcs} ${small ? styles.arcsSmall : ""} ${ink ? styles.arcsInk : ""}`} aria-hidden="true">
       <svg viewBox="180 192.5 640 640" data-draw>
         <circle cx="500" cy="530" r="240" />
         <circle cx="500" cy="455" r="200" />
@@ -72,7 +72,7 @@ export default function HomeB({ page }: { page: Page }) {
       <section className={`${styles.row} ${styles.lineRow}`}>
         <div className={`${styles.panel} ${styles.stone}`}>
           <h2 className={styles.title}><InlineNodes nodes={fourT.text} /></h2>
-          <p className={styles.lead} style={{ maxInlineSize: "22ch" }}><InlineNodes nodes={fourP.text} /></p>
+          <p className={styles.lead}><InlineNodes nodes={fourP.text} /></p>
         </div>
       </section>
       <section className={`${styles.row} ${styles.four}`}>
@@ -98,7 +98,7 @@ export default function HomeB({ page }: { page: Page }) {
       </section>
       <section className={`${styles.row} ${styles.lineRow}`}>
         <div className={`${styles.panel} ${styles.stone}`}>
-          <p className={styles.lead} style={{ maxInlineSize: "40ch" }}><InlineNodes nodes={lineP.text} /></p>
+          <p className={styles.lead}><InlineNodes nodes={lineP.text} /></p>
         </div>
       </section>
 
@@ -106,7 +106,7 @@ export default function HomeB({ page }: { page: Page }) {
       <section className={`${styles.row} ${styles.lineRow}`}>
         <div className={`${styles.panel} ${styles.paper}`}>
           <h2 className={styles.title}><InlineNodes nodes={termsT.text} /></h2>
-          <p className={styles.lead} style={{ maxInlineSize: "24ch" }}><InlineNodes nodes={termsP.text} /></p>
+          <p className={styles.lead}><InlineNodes nodes={termsP.text} /></p>
         </div>
       </section>
       <section className={`${styles.row} ${styles.terms}`}>
@@ -138,12 +138,12 @@ export default function HomeB({ page }: { page: Page }) {
       <section className={`${styles.row} ${styles.readIntro}`}>
         <div className={`${styles.panel} ${styles.stone}`}>
           <h2 className={styles.title}><InlineNodes nodes={readT.text} /></h2>
-          <p className={styles.lead} style={{ maxInlineSize: "30ch" }}><InlineNodes nodes={readIntro.text} /></p>
+          <p className={styles.lead} style={{ maxInlineSize: "38ch" }}><InlineNodes nodes={readIntro.text} /></p>
         </div>
       </section>
       <section className={`${styles.row} ${styles.read}`}>
         {readPs.map((p, i) => (
-          <div key={i} className={`${styles.panel} ${[styles.paper, styles.soft][i]} ${styles.readCell}`} data-slide={["left", "right"][i]}>
+          <div key={i} className={`${styles.panel} ${[styles.paper, styles.stone][i]} ${styles.readCell}`} data-slide={["left", "right"][i]}>
             <div>
               {readLabels[i]?.type === "h3" && <p className={styles.label}><InlineNodes nodes={readLabels[i].text} /></p>}
               <p className={styles.body}>{p.type === "p" && <InlineNodes nodes={p.text} />}</p>
@@ -168,6 +168,7 @@ export default function HomeB({ page }: { page: Page }) {
           <div className={styles.stack}>{progPs.map((p, i) => p.type === "p" && <p key={i} className={styles.lead} style={{ maxInlineSize: "34ch" }}><InlineNodes nodes={p.text} /></p>)}</div>
         </div>
         <div className={`${styles.panel} ${styles.stone}`} data-slide="right">
+          <Arcs ink />
           <span />
           {progBtn.buttons.map((b, i) => <Action key={i} href={b.href} label={b.label} fill />)}
         </div>

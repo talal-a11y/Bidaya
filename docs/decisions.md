@@ -122,3 +122,6 @@ Rulings: the four-function panels smaller, above all on the phone; the Setup tex
 
 2026-09-21 — Direction C is off. DECIDED.
 "Discard working on C after you're done with B — ignore that completely unless I explicitly ask you to again." B is iterated on the founder's notes; nothing else is built until he says so.
+
+2026-09-21 — Founder's notes on direction B, round two. DECIDED.
+The connecting lines (the "next filing" line, "where a need falls outside", the terms' intro, the read's framing) at full width, regular weight, a touch smaller — all of them alike. The empty panel beside Programs carries the construction mark, drawn in as it arrives. No clock in the header. Colours: the hairline token (`--soft`) is no longer used as a panel surface; the only colour outside the nine is the deeper teal (#237C85) under small paper text on the Setup panel and the hero's teal panel — kept for contrast, flagged to the founder. Type: buttons and nav tried at 600 weight; the face (Geist) is the body face too, so it is not changed without the founder's word.
