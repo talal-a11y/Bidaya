@@ -14,6 +14,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   // dir is set here, never assumed in CSS; Arabic content follows later (CLAUDE.md §6).
   return (
     <html lang="en" dir="ltr">
+      <head>
+        {/* the Latin face is on every page above the fold; fetching it first stops the swap from shifting the layout */}
+        <link rel="preload" href="/fonts/readex-pro-var-latin.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+      </head>
       <body>
         <a href="#main" className="skip">{g.fields.skipLink}</a>
         {children}

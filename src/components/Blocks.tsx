@@ -1,22 +1,9 @@
 import Link from "next/link";
 import type { Block, Button, FormField, Inline, Item, Section } from "@/lib/content";
 import { getGlobal } from "@/lib/content";
+import { InlineNodes } from "./Inline";
+export { InlineNodes };
 import styles from "./Blocks.module.css";
-
-export function InlineNodes({ nodes }: { nodes: Inline[] }) {
-  return (
-    <>
-      {nodes.map((n, i) => {
-        switch (n.kind) {
-          case "text": return <span key={i}>{n.text}</span>;
-          case "strong": return <strong key={i}><InlineNodes nodes={n.children} /></strong>;
-          case "em": return <em key={i}><InlineNodes nodes={n.children} /></em>;
-          case "link": return <Link key={i} href={n.href}><InlineNodes nodes={n.children} /></Link>;
-        }
-      })}
-    </>
-  );
-}
 
 function ButtonLink({ b }: { b: Button }) {
   const cls = b.style === "cta" ? "btn btn-cta" : b.style === "ghost" ? "btn btn-ghost" : "btn btn-text";

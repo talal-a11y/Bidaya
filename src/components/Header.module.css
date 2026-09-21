@@ -1,7 +1,7 @@
 .header {
   padding-block: 18px;
   border-block-end: 1px solid var(--soft);
-  background: var(--bg-page);
+  background: transparent;
 }
 .inner {
   display: flex;

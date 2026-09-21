@@ -81,8 +81,11 @@ for (const file of files) {
   lines.forEach((raw, i) => {
     const n = i + 1;
     if (isInstruction(raw)) return;
-    // in code, comments never surface; in content, route names are not copy
-    const t = isContent ? raw.replace(/->\s*\/\S+/g, "").replace(/\]\(\/[^)]+\)/g, "]()") : raw.replace(/\/\/.*$/, "").replace(/\/\*.*?\*\//g, "");
+    // in content, route names are not copy. In code, only what can reach a reader is copy:
+    // quoted strings and JSX text — never identifiers, comments or CSS.
+    const t = isContent
+      ? raw.replace(/->\s*\/\S+/g, "").replace(/\]\(\/[^)]+\)/g, "]()")
+      : [...raw.matchAll(/"([^"]*)"|'([^']*)'|`([^`]*)`|>([^<>{}]+)</g)].map((m) => m[1] ?? m[2] ?? m[3] ?? m[4]).join(" ");
     const low = t.toLowerCase();
     if (/^@(faq|example|rows|terms|quiet|form)$/.test(t.trim())) inGroup = t.trim().slice(1);
     if (t.trim() === "@end") inGroup = null;
