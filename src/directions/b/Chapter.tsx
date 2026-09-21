@@ -28,7 +28,7 @@ export function ChapterButton({ id, openLabel, closeLabel, fill = true }: { id: 
   const isOpen = !!open[id];
   const onClick = () => {
     toggle(id);
-    if (!isOpen) requestAnimationFrame(() => document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" }));
+    if (!isOpen) reveal(id);
   };
   return (
     <button type="button" className={`${styles.action} ${fill ? styles.actionFill : ""}`} aria-expanded={isOpen} aria-controls={id} onClick={onClick}>
@@ -38,6 +38,14 @@ export function ChapterButton({ id, openLabel, closeLabel, fill = true }: { id: 
 }
 
 const pad = (n: number) => String(n).padStart(2, "0");
+
+// Bring an unfolding panel into place: once as it starts to open, once more when the
+// unfold has finished — at the foot of the page the first call cannot reach it yet.
+const reveal = (id: string) => {
+  const to = () => document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
+  requestAnimationFrame(to);
+  setTimeout(to, 680);
+};
 
 type StripProps = { id: string; label: string; closeLabel: string; prevLabel: string; nextLabel: string; slides: ReactNode[]; tone?: string };
 
@@ -104,7 +112,7 @@ export function ChapterStrip({ id, label, closeLabel, prevLabel, nextLabel, slid
 export function Door({ id, className, children }: { id: string; className: string; children: ReactNode }) {
   const { open, toggle } = useContext(ChapterContext);
   const isOpen = !!open[id];
-  const onClick = () => { toggle(id); if (!isOpen) requestAnimationFrame(() => document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" })); };
+  const onClick = () => { toggle(id); if (!isOpen) reveal(id); };
   return <button type="button" className={className} aria-expanded={isOpen} aria-controls={id} onClick={onClick}>{children}</button>;
 }
 
