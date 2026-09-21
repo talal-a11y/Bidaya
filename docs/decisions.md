@@ -63,3 +63,9 @@ Canonical URLs and the sitemap use `NEXT_PUBLIC_SITE_URL` when set, otherwise Ve
 
 2026-09-21 — Shape and layout choices, provisional (CLAUDE.md §5). NOTED.
 The three published terms as paper circles (236px, 200px on phones); bands as rounded panels inside the content column with paper text; the four-function rows as plain text with a hairline on the leading edge, no icons; the worked example as a paper card; About's "At a glance" list set small in muted ink. Any of it may be replaced by the motion work; each replacement is logged here.
+
+2026-09-21 — Navigation order. DECIDED.
+"Where you stand shouldn't be first. It should be What we do, How we work, Where you stand, Programs, and then Reports." Consequence: header and footer now run What we do · How we work · Where you stand · Programs · Reports and notes · About · Start. Overrides the deck §0 order. The homepage's section order is unchanged (Where you stand is still the first section after the hero) — the founder ruled on the navigation, not the page. `content/global.md`.
+
+2026-09-21 — The name "Reports and notes". OPEN — founder to name it.
+"Reports should have a different name like publishings or something else that makes it sound less professional but still explaining in one word that these are our publishings." The page is built and stays in the navigation until named; the founder expects to hide it until there is groundwork. Candidate names go to the founder; the nav label, page title, h1, route and llms.txt change together when he rules.
