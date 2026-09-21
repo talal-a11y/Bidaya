@@ -29,21 +29,40 @@ function titleOf(s: Section) {
   return s.blocks.find((b) => b.type === "h1" || b.type === "h2");
 }
 
+// A long page is folded to at most MAX slides: after the first, neighbouring sections share
+// a slide (founder: "above 5–7 is too many"). Each shared slide keeps every section's heading.
+const MAX = 6;
+
+function group(sections: Section[]): Section[][] {
+  const groups = sections.map((s) => [s]);
+  while (groups.length > MAX) {
+    // merge the pair (never the first slide) whose combined block count is smallest
+    let best = 1, bestSize = Infinity;
+    for (let i = 1; i < groups.length - 1; i++) {
+      const size = groups[i].reduce((n, x) => n + x.blocks.length, 0) + groups[i + 1].reduce((n, x) => n + x.blocks.length, 0);
+      if (size < bestSize) { bestSize = size; best = i; }
+    }
+    groups.splice(best, 2, [...groups[best], ...groups[best + 1]]);
+  }
+  return groups;
+}
+
 export function slidesFor(page: Page) {
-  return page.sections
-    .filter((s) => s.blocks.some((b) => b.type !== "buttons"))
-    .map((s, i) => {
-      const t = titleOf(s);
-      return (
-        <div key={i} style={{ display: "contents" }}>
-          <div>
-            <p className={styles.slideLabel}>{page.nav ?? page.title}</p>
-            {t && (t.type === "h1" || t.type === "h2") && <h2 className={styles.slideTitle}><InlineNodes nodes={t.text} /></h2>}
-          </div>
-          <div className={styles.slideBody}>
+  const sections = page.sections.filter((s) => s.blocks.some((b) => b.type !== "buttons"));
+  return group(sections).map((gs, i) => (
+    <div key={i} style={{ display: "contents" }}>
+      <div>
+        <p className={styles.slideLabel}>{page.nav ?? page.title}</p>
+        {gs.map((s, k) => { const t = titleOf(s); return t && (t.type === "h1" || t.type === "h2") ? <h2 key={k} className={`${styles.slideTitle} ${gs.length > 1 ? styles.slideTitleSmall : ""}`}><InlineNodes nodes={t.text} /></h2> : null; })}
+      </div>
+      <div className={styles.slideBody}>
+        {gs.map((s, k) => (
+          <div key={k} className={styles.slidePart}>
+            {gs.length > 1 && (() => { const t = titleOf(s); return t && (t.type === "h1" || t.type === "h2") ? <h3><InlineNodes nodes={t.text} /></h3> : null; })()}
             {s.blocks.map((b, j) => <BlockView key={j} b={b} />)}
           </div>
-        </div>
-      );
-    });
+        ))}
+      </div>
+    </div>
+  ));
 }

@@ -3,10 +3,11 @@
 import Link from "next/link";
 import type { Block, Page, Section } from "@/lib/content";
 import { InlineNodes } from "@/components/Inline";
-import { getGlobal } from "@/lib/content";
+import { getGlobal, inlineToText } from "@/lib/content";
 import styles from "./b.module.css";
 import MotionB from "./MotionB";
-import { Chapters, ChapterButton, ChapterStrip } from "./Chapter";
+import { Chapters, ChapterButton, ChapterStrip, Door, Panel } from "./Chapter";
+import FormB from "./FormB";
 import { slidesFor } from "./ChapterSlides";
 import { getPageByRoute } from "@/lib/content";
 
@@ -35,9 +36,10 @@ export default function HomeB({ page }: { page: Page }) {
   const h1 = find(hero, "h1")!, tagline = find(hero, "tagline")!, lead = find(hero, "lead")!, heroBtns = find(hero, "buttons")!, aside = find(hero, "aside")!;
   const fourT = find(four, "h2")!, fourP = find(four, "p", 0)!, fourRows = find(four, "rows")!, fourOut = find(four, "p", 1)!, fourAside = find(four, "aside")!, fourBtn = find(four, "buttons")!;
   const startT = find(start, "h2")!, doors = find(start, "rows")!;
+  const kinds = ["business", "partners", "talent", "general"] as const;
   const bandT = find(band, "h2")!, lineP = find(line, "p")!;
   const termsT = find(terms, "h2")!, termsP = find(terms, "p")!, termsItems = find(terms, "terms")!, termsBtn = find(terms, "buttons")!;
-  const storyT = find(story, "h2")!, storyPs = story.blocks.filter((b) => b.type === "p"), storyBtn = find(story, "buttons")!;
+  const storyT = find(story, "h2")!, storyPs = story.blocks.filter((b) => b.type === "p");
   const readT = find(read, "h2")!, readIntro = find(read, "p", 0)!, readLabels = read.blocks.filter((b) => b.type === "h3"), readPs = read.blocks.filter((b) => b.type === "p").slice(1), readBtn = find(read, "buttons")!;
   const progT = find(programs, "h2")!, progSoon = find(programs, "h3")!, progPs = programs.blocks.filter((b) => b.type === "p"), progBtn = find(programs, "buttons")!;
   const tones = [styles.tealDeep, styles.opsDeep, styles.plum, styles.ink];
@@ -46,7 +48,7 @@ export default function HomeB({ page }: { page: Page }) {
     const pg = getPageByRoute(route)!;
     return { label: pg.nav ?? pg.title, slides: slidesFor(pg), tone, id: `chapter-${route.slice(1)}` };
   };
-  const chWhat = chapter("/what-we-do", styles.ink), chHow = chapter("/how-we-work", styles.plum), chRead = chapter("/where-you-stand", styles.tealDeep), chProg = chapter("/programs", styles.aqua);
+  const chWhat = chapter("/what-we-do", styles.ink), chHow = chapter("/how-we-work", styles.plum), chAbout = chapter("/about", styles.tealDeep), chProg = chapter("/programs", styles.aqua);
   const close = g.fields.menuClose, prevLabel = g.fields.chapterPrev, nextLabel = g.fields.chapterNext;
 
   return (
@@ -75,10 +77,11 @@ export default function HomeB({ page }: { page: Page }) {
         <div className={`${styles.panel} ${styles.stone}`} data-slide="right">
           <p className={styles.lead}><InlineNodes nodes={lead.text} /></p>
           <div className={styles.actions} style={{ marginInline: -28, marginBlockEnd: -28 }}>
-            {heroBtns.buttons.map((b, i) => <Action key={i} href={b.href} label={b.label} fill={b.style === "cta"} />)}
+            <ChapterButton id={chAbout.id} openLabel={heroBtns.buttons[0].label} closeLabel={close} />
           </div>
         </div>
       </section>
+      <ChapterStrip {...chAbout} closeLabel={close} prevLabel={prevLabel} nextLabel={nextLabel} />
 
       {/* 3 — One firm, four functions: four panels, four colours */}
       <section className={`${styles.row} ${styles.lineRow}`}>
@@ -151,7 +154,6 @@ export default function HomeB({ page }: { page: Page }) {
         </div>
         <div className={`${styles.panel} ${styles.paper}`} data-slide="right">
           <div className={styles.storyText}>{storyPs.map((p, i) => p.type === "p" && <p key={i}><InlineNodes nodes={p.text} /></p>)}</div>
-          {storyBtn.buttons.map((b, i) => <Action key={i} href={b.href} label={b.label} />)}
         </div>
       </section>
 
@@ -173,10 +175,11 @@ export default function HomeB({ page }: { page: Page }) {
         ))}
         <div className={`${styles.panel} ${styles.ink}`} data-slide="up">
           <span />
-          <div><ChapterButton id={chRead.id} openLabel={readBtn.buttons[0].label} closeLabel={close} /></div>
+          <div className={styles.actions} style={{ marginInline: -28, marginBlockEnd: -28, borderColor: "var(--paper)" }}>
+            {readBtn.buttons.map((b, i) => <Action key={i} href={b.href} label={b.label} />)}
+          </div>
         </div>
       </section>
-      <ChapterStrip {...chRead} closeLabel={close} prevLabel={prevLabel} nextLabel={nextLabel} />
 
       {/* 8 — Programs: aqua, coming soon */}
       <section id="programs" className={`${styles.row} ${styles.programs}`}>
@@ -203,32 +206,20 @@ export default function HomeB({ page }: { page: Page }) {
       </section>
       <section className={`${styles.row} ${styles.doors}`}>
         {doors.items.map((it, i) => (
-          <Link key={i} href="/start" className={`${styles.door} ${[styles.paper, styles.stone, styles.paper, styles.stone][i]}`} data-slide="up">
+          <Door key={i} id={`form-${kinds[i]}`} className={`${styles.door} ${[styles.doorBusiness, styles.doorPartners, styles.doorTalent, styles.doorGeneral][i]}`}>
             <div className={styles.doorBody}>
               <strong><InlineNodes nodes={it.lead} /></strong>
               <p className={styles.body}><InlineNodes nodes={it.rest} /></p>
             </div>
             <span className={styles.arrow} aria-hidden="true">→</span>
-          </Link>
+          </Door>
         ))}
       </section>
-      {/* 9 — Start a conversation: four doors, each to its own form (for now, all to /start) */}
-      <section id="start" className={`${styles.row} ${styles.lineRow}`}>
-        <div className={`${styles.panel} ${styles.stone}`}>
-          <h2 className={styles.title}><InlineNodes nodes={startT.text} /></h2>
-        </div>
-      </section>
-      <section className={`${styles.row} ${styles.doors}`}>
-        {doors.items.map((it, i) => (
-          <Link key={i} href="/start" className={`${styles.door} ${[styles.paper, styles.stone, styles.paper, styles.stone][i]}`} data-slide="up">
-            <div className={styles.doorBody}>
-              <strong><InlineNodes nodes={it.lead} /></strong>
-              <p className={styles.body}><InlineNodes nodes={it.rest} /></p>
-            </div>
-            <span className={styles.arrow} aria-hidden="true">→</span>
-          </Link>
-        ))}
-      </section>
+      {doors.items.map((it, i) => (
+        <Panel key={i} id={`form-${kinds[i]}`} label={inlineToText(it.lead).replace(/\.$/, "")} closeLabel={close}>
+          <FormB kind={kinds[i]} idPrefix={kinds[i]} />
+        </Panel>
+      ))}
     </div>
     </Chapters>
   );

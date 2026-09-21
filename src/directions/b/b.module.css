@@ -185,7 +185,7 @@
 
 /* ---- chapters: a strip that unfolds beneath a section and scrolls sideways ---- */
 .chapterShell { border-block-end: var(--line); background: var(--stone); scroll-margin-block-start: 60px; }
-.chapterHead { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 12px 28px; border-block-end: var(--line); background: var(--paper); position: sticky; inset-block-start: 60px; z-index: 5; }
+.chapterHead { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 12px 28px; border-block-end: var(--line); background: var(--paper); }
 .chapterNav { display: flex; gap: 8px; }
 .chapterBtn { min-block-size: 40px; min-inline-size: 44px; padding: 0 14px; border: var(--line); background: var(--paper); color: var(--ink); font: inherit; font-size: 14px; font-weight: 600; cursor: pointer; transition: background-color 200ms var(--ease-standard), color 200ms var(--ease-standard); }
 .chapterBtn:hover:not(:disabled) { background: var(--ink); color: var(--paper); }
@@ -208,3 +208,52 @@
   .slide { grid-template-columns: 1fr; gap: 20px; padding: 20px; min-block-size: 70svh; }
   .slideBody { overflow: visible; max-block-size: none; }
 }
+
+/* the strip unfolds and folds with motion — a grid row growing from nothing */
+.chapterShell { display: grid; grid-template-rows: 0fr; transition: grid-template-rows 620ms var(--ease-standard), visibility 0s 620ms; visibility: hidden; border-block-end: 0; }
+.chapterShell[data-open] { grid-template-rows: 1fr; visibility: visible; transition: grid-template-rows 620ms var(--ease-standard); border-block-end: var(--line); }
+.chapterInner { min-block-size: 0; overflow: hidden; }
+.chapterShell[data-open] .slide > * { animation: slideIn 600ms var(--ease-standard) 240ms both; }
+@keyframes slideIn { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: reduce) { .chapterShell { transition: none; } .chapterShell[data-open] .slide > * { animation: none; } }
+.slideTitleSmall { font-size: clamp(22px, 2.6vw, 44px); }
+.slideTitleSmall + .slideTitleSmall { margin-block-start: 0.5em; opacity: 0.55; }
+.slidePart + .slidePart { border-block-start: 1px solid currentColor; padding-block-start: 18px; margin-block-start: 6px; }
+
+/* anchors land under the sticky bar, not behind it */
+.row, .chapterShell { scroll-margin-block-start: 60px; }
+
+/* the four doors, each with its own colour */
+.door { background: var(--paper); }
+.doorBusiness::before { background: var(--plum); }
+.doorPartners::before { background: var(--aqua); }
+.doorTalent::before { background: var(--teal); }
+.doorGeneral::before { background: #8A79C7; } /* a lighter plum, off the nine — ink text on it */
+.doorGeneral:hover, .doorGeneral:focus-visible { color: var(--ink); }
+.door[aria-expanded="true"]::before { transform: scaleY(1); }
+.door[aria-expanded="true"] { color: var(--paper); }
+.doorGeneral[aria-expanded="true"] { color: var(--ink); }
+button.door { font: inherit; text-align: start; cursor: pointer; border-block: 0; border-inline-start: 0; }
+
+/* the form, as a grid: a question per row, the choices as tiles that fill when chosen */
+.formPanel { padding: 0; }
+.q { display: grid; grid-template-columns: 300px 1fr; border-block-end: var(--line); }
+.qLabel { padding: 24px 28px; border-inline-end: var(--line); font-weight: 600; display: grid; gap: 6px; align-content: start; }
+.qHint { font-weight: 400; font-size: 14px; color: var(--muted); }
+.tiles { display: flex; flex-wrap: wrap; }
+.tile { position: relative; display: inline-flex; align-items: center; min-block-size: 64px; padding: 0 24px; border-inline-end: var(--line); cursor: pointer; font-size: 16px; transition: background-color 220ms var(--ease-standard), color 220ms var(--ease-standard); }
+.tile:hover { background: var(--stone); }
+.tile input { position: absolute; inset: 0; opacity: 0; cursor: pointer; margin: 0; }
+.tile:has(input:checked) { background: var(--ink); color: var(--paper); }
+.tile:has(input:focus-visible) { outline: 3px solid var(--aqua); outline-offset: -3px; }
+.fields { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+.field { display: grid; gap: 6px; padding: 18px 28px; border-inline-end: var(--line); }
+.field:last-child { border-inline-end: 0; }
+.field span { font-size: 13px; font-family: var(--b-mono); }
+.field input, .field textarea { inline-size: 100%; border: 0; border-block-end: var(--line); background: transparent; padding: 8px 0; font: inherit; font-size: 18px; }
+.field input:focus-visible, .field textarea:focus-visible { outline: none; border-block-end: 2px solid var(--aqua); }
+.consentRow { display: flex; align-items: center; gap: 14px; padding: 18px 28px; border-block-end: var(--line); min-block-size: 56px; }
+.consentRow input { inline-size: 22px; block-size: 22px; accent-color: var(--aqua); margin: 0; }
+.sendRow { display: flex; align-items: center; gap: 20px; padding: 20px 28px; }
+.sendRow button { font: inherit; cursor: pointer; }
+@media (max-width: 900px) { .q { grid-template-columns: 1fr; } .qLabel { border-inline-end: 0; border-block-end: var(--line); padding: 16px 20px; } .tile { min-block-size: 52px; padding-inline: 16px; font-size: 15px; } .field { padding: 14px 20px; } .consentRow, .sendRow { padding-inline: 20px; } }

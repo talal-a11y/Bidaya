@@ -75,7 +75,8 @@ export function ChapterStrip({ id, label, closeLabel, prevLabel, nextLabel, slid
   }, [isOpen, go, index, slides.length]);
 
   return (
-    <section id={id} className={styles.chapterShell} hidden={!isOpen} aria-label={label}>
+    <section id={id} className={styles.chapterShell} data-open={isOpen || undefined} aria-hidden={!isOpen} inert={!isOpen} aria-label={label}>
+      <div className={styles.chapterInner}>
       <div className={styles.chapterHead}>
         <span className={styles.mono}>[ {label} ]</span>
         <span className={styles.mono} aria-live="polite">{pad(index + 1)} / {pad(slides.length)}</span>
@@ -91,6 +92,33 @@ export function ChapterStrip({ id, label, closeLabel, prevLabel, nextLabel, slid
             {s}
           </div>
         ))}
+      </div>
+      </div>
+    </section>
+  );
+}
+
+// A door: a card that opens a panel beneath the row (the forms). Same state as the chapters.
+export function Door({ id, className, children }: { id: string; className: string; children: ReactNode }) {
+  const { open, toggle } = useContext(ChapterContext);
+  const isOpen = !!open[id];
+  const onClick = () => { toggle(id); if (!isOpen) requestAnimationFrame(() => document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" })); };
+  return <button type="button" className={className} aria-expanded={isOpen} aria-controls={id} onClick={onClick}>{children}</button>;
+}
+
+// A panel that unfolds beneath its row; used for the forms behind the doors.
+export function Panel({ id, label, closeLabel, children }: { id: string; label: string; closeLabel: string; children: ReactNode }) {
+  const { open, toggle } = useContext(ChapterContext);
+  const isOpen = !!open[id];
+  return (
+    <section id={id} className={styles.chapterShell} data-open={isOpen || undefined} aria-hidden={!isOpen} inert={!isOpen} aria-label={label}>
+      <div className={styles.chapterInner}>
+        <div className={styles.chapterHead}>
+          <span className={styles.mono}>[ {label} ]</span>
+          <span />
+          <span className={styles.chapterNav}><button type="button" className={styles.chapterBtn} onClick={() => toggle(id)}>{closeLabel}</button></span>
+        </div>
+        {children}
       </div>
     </section>
   );

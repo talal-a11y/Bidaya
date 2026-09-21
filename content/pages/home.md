@@ -14,7 +14,8 @@ order: 1
 @lead Most businesses run for years before they can justify three senior hires. Until then, Bidaya runs setup, operations, finance and tech inside the business the way an executive would, monthly or for one defined piece of work, a few steps ahead of the owner.
 
 @note [proposed] the hero's "See where you stand" button is cut — founder 2026-09-21: the read now closes the page with its own call.
-@ghost How we work -> /how-we-work
+@note the hero's button opens the About chapter — founder 2026-09-21: "instead of How we work at the start it should be About".
+@ghost About -> /about
 
 @aside بداية means beginning. A business is decided at its start.
 
@@ -86,7 +87,7 @@ Two sentences reach us more than any others: *I have an idea and no idea where t
 
 Bidaya is that layer, from the beginning. Not because an owner can't, but because an owner shouldn't have to.
 
-@ghost About -> /about
+@note the deck's "About" button here is cut — no button is repeated (founder 2026-09-21); About opens from the hero.
 
 ---
 
