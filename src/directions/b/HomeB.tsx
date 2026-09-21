@@ -6,6 +6,9 @@ import { InlineNodes } from "@/components/Inline";
 import { getGlobal } from "@/lib/content";
 import styles from "./b.module.css";
 import MotionB from "./MotionB";
+import { Chapters, ChapterButton, ChapterStrip } from "./Chapter";
+import { slidesFor } from "./ChapterSlides";
+import { getPageByRoute } from "@/lib/content";
 
 const find = <T extends Block["type"]>(s: Section, type: T, n = 0) =>
   s.blocks.filter((b) => b.type === type)[n] as Extract<Block, { type: T }> | undefined;
@@ -38,8 +41,16 @@ export default function HomeB({ page }: { page: Page }) {
   const readT = find(read, "h2")!, readIntro = find(read, "p", 0)!, readLabels = read.blocks.filter((b) => b.type === "h3"), readPs = read.blocks.filter((b) => b.type === "p").slice(1), readBtn = find(read, "buttons")!;
   const progT = find(programs, "h2")!, progSoon = find(programs, "h3")!, progPs = programs.blocks.filter((b) => b.type === "p"), progBtn = find(programs, "buttons")!;
   const tones = [styles.tealDeep, styles.opsDeep, styles.plum, styles.ink];
+  // the four chapters: each section's button unfolds its page as sideways slides
+  const chapter = (route: string, tone: string) => {
+    const pg = getPageByRoute(route)!;
+    return { label: pg.nav ?? pg.title, slides: slidesFor(pg), tone, id: `chapter-${route.slice(1)}` };
+  };
+  const chWhat = chapter("/what-we-do", styles.ink), chHow = chapter("/how-we-work", styles.plum), chRead = chapter("/where-you-stand", styles.tealDeep), chProg = chapter("/programs", styles.aqua);
+  const close = g.fields.menuClose, prevLabel = g.fields.chapterPrev, nextLabel = g.fields.chapterNext;
 
   return (
+    <Chapters>
     <div className={styles.page}>
       <MotionB />
 
@@ -90,11 +101,13 @@ export default function HomeB({ page }: { page: Page }) {
           <div>
             <p className={styles.mono} style={{ marginBlockEnd: 14 }}><InlineNodes nodes={fourAside.text} /></p>
             <div style={{ display: "flex", flexWrap: "wrap", gap: 12 }}>
-              {fourBtn.buttons.map((b, i) => <Action key={i} href={b.href} label={b.label} fill={b.style === "cta"} />)}
+              <ChapterButton id={chWhat.id} openLabel={fourBtn.buttons[0].label} closeLabel={close} />
+              <Action href={fourBtn.buttons[1].href} label={fourBtn.buttons[1].label} fill />
             </div>
           </div>
         </div>
       </section>
+      <ChapterStrip {...chWhat} closeLabel={close} prevLabel={prevLabel} nextLabel={nextLabel} />
 
       {/* 4 — A few steps ahead: teal, the title alone */}
       <section className={`${styles.row} ${styles.band}`}>
@@ -126,9 +139,10 @@ export default function HomeB({ page }: { page: Page }) {
       </section>
       <section className={`${styles.row} ${styles.lineRow}`}>
         <div className={`${styles.panel} ${styles.stone}`}>
-          {termsBtn.buttons.map((b, i) => <Action key={i} href={b.href} label={b.label} />)}
+          <div><ChapterButton id={chHow.id} openLabel={termsBtn.buttons[0].label} closeLabel={close} /></div>
         </div>
       </section>
+      <ChapterStrip {...chHow} closeLabel={close} prevLabel={prevLabel} nextLabel={nextLabel} />
 
       {/* 6 — Before it's big: the story */}
       <section id="about" className={`${styles.row} ${styles.story}`}>
@@ -159,11 +173,10 @@ export default function HomeB({ page }: { page: Page }) {
         ))}
         <div className={`${styles.panel} ${styles.ink}`} data-slide="up">
           <span />
-          <div className={styles.actions} style={{ marginInline: -28, marginBlockEnd: -28, borderColor: "var(--paper)" }}>
-            {readBtn.buttons.map((b, i) => <Action key={i} href={b.href} label={b.label} />)}
-          </div>
+          <div><ChapterButton id={chRead.id} openLabel={readBtn.buttons[0].label} closeLabel={close} /></div>
         </div>
       </section>
+      <ChapterStrip {...chRead} closeLabel={close} prevLabel={prevLabel} nextLabel={nextLabel} />
 
       {/* 8 — Programs: aqua, coming soon */}
       <section id="programs" className={`${styles.row} ${styles.programs}`}>
@@ -177,9 +190,10 @@ export default function HomeB({ page }: { page: Page }) {
         <div className={`${styles.panel} ${styles.stone}`} data-slide="right">
           <Arcs ink />
           <span />
-          {progBtn.buttons.map((b, i) => <Action key={i} href={b.href} label={b.label} fill />)}
+          <div style={{ position: "relative" }}><ChapterButton id={chProg.id} openLabel={progBtn.buttons[0].label} closeLabel={close} /></div>
         </div>
       </section>
+      <ChapterStrip {...chProg} closeLabel={close} prevLabel={prevLabel} nextLabel={nextLabel} />
 
       {/* 9 — Start a conversation: four doors, each to its own form (for now, all to /start) */}
       <section id="start" className={`${styles.row} ${styles.lineRow}`}>
@@ -216,5 +230,6 @@ export default function HomeB({ page }: { page: Page }) {
         ))}
       </section>
     </div>
+    </Chapters>
   );
 }

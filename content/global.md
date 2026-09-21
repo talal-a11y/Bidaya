@@ -20,3 +20,5 @@ navOrder: /what-we-do, /how-we-work, /where-you-stand, /programs, /about, /start
 @field optional optional
 @field formNotWired The form is not connected yet. It sends nothing until it is.
 @field reportsListRead Read
+@field chapterPrev Previous
+@field chapterNext Next

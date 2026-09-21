@@ -182,3 +182,29 @@
 .door .arrow { font-size: 28px; }
 .doorBody { display: grid; gap: 14px; }
 @media (max-width: 900px) { .doors { grid-template-columns: 1fr; } .door { min-block-size: 0; border-inline-end: 0; border-block-end: var(--line); padding: 20px; gap: 20px; } }
+
+/* ---- chapters: a strip that unfolds beneath a section and scrolls sideways ---- */
+.chapterShell { border-block-end: var(--line); background: var(--stone); scroll-margin-block-start: 60px; }
+.chapterHead { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 12px 28px; border-block-end: var(--line); background: var(--paper); position: sticky; inset-block-start: 60px; z-index: 5; }
+.chapterNav { display: flex; gap: 8px; }
+.chapterBtn { min-block-size: 40px; min-inline-size: 44px; padding: 0 14px; border: var(--line); background: var(--paper); color: var(--ink); font: inherit; font-size: 14px; font-weight: 600; cursor: pointer; transition: background-color 200ms var(--ease-standard), color 200ms var(--ease-standard); }
+.chapterBtn:hover:not(:disabled) { background: var(--ink); color: var(--paper); }
+.chapterBtn:disabled { opacity: 0.35; cursor: default; }
+.track { display: flex; overflow-x: auto; overflow-y: hidden; scroll-snap-type: x mandatory; scrollbar-width: none; block-size: calc(100svh - 60px - 65px); }
+.track::-webkit-scrollbar { display: none; }
+.slide { flex: 0 0 100%; scroll-snap-align: start; padding: 32px 28px; display: grid; grid-template-columns: 1fr 1.4fr; gap: 40px; align-content: start; overflow: hidden; border-inline-end: var(--line); }
+.slide h2, .slide h3 { max-inline-size: none; }
+.slideTitle { font-size: clamp(30px, 4.6vw, 76px); line-height: 0.98; font-weight: 500; letter-spacing: -0.035em; }
+.slideBody { display: grid; gap: 18px; align-content: start; overflow-y: auto; max-block-size: 100%; padding-inline-end: 8px; }
+.slideBody p, .slideBody li { font-size: clamp(16px, 1.25vw, 20px); line-height: 1.45; }
+.slideBody ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; }
+.slideBody li { padding-inline-start: 18px; border-inline-start: 2px solid currentColor; }
+.slideBody h3 { font-size: clamp(18px, 1.5vw, 24px); font-weight: 600; margin-block-start: 4px; }
+.slideLabel { font-family: var(--b-mono); font-size: 13px; opacity: 0.8; }
+.slideActions { display: flex; flex-wrap: wrap; gap: 12px; margin-block-start: 8px; }
+@media (max-width: 900px) {
+  .chapterHead { padding: 10px 20px; flex-wrap: wrap; }
+  .track { block-size: auto; }
+  .slide { grid-template-columns: 1fr; gap: 20px; padding: 20px; min-block-size: 70svh; }
+  .slideBody { overflow: visible; max-block-size: none; }
+}
