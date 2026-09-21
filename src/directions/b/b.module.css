@@ -290,3 +290,6 @@ button.door { font: inherit; text-align: start; cursor: pointer; border-block: 0
   .textCol, .contactCol, .sendCol { padding: 20px; }
   .contactCol { grid-template-columns: 1fr; }
 }
+
+/* grid children may shrink below their content — no column ever pushes the page wider */
+.row > *, .doors > *, .formSlide > * { min-inline-size: 0; }
