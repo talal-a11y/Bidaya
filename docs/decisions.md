@@ -85,3 +85,12 @@ Consequence: the copy, the page titles, the navigation order and the placement o
 
 2026-09-21 — Motion piece 1: the hero. BUILT on `build/04-hero` — awaiting the founder's yes.
 The predictable version named first (text fades up, a blob drifts); the built version: the world canvas (a flow field of fine ink and aqua lines, 2D canvas, trails fading to transparent, paused when the tab is hidden, nothing under reduced motion) behind the whole page; the mark formed once from ink particles arriving out of the flow and settling into the master SVG, which is what stays; the tagline and headline written in word by word as it lands. Measured 60fps at 390px and 1440px in headless Chromium; the real test is the founder's phone. The hero takes the first screen; phone sections were given more air in answer to "too crowded". `gsap` installed (CLAUDE.md §6); `lenis` and `three` not yet — not needed for this piece.
+
+2026-09-21 — The header lockup on phones. DECIDED.
+"The logo there is only in English not both, why? Didn't ask for that." Consequence: the full header lockup — mark · Bidaya · hairline · بداية — at every width. Overrides CLAUDE.md §5 and deck §0 ("on phones the mark and Bidaya only"). The derived phone file is removed. The header is now sticky, so the menu cannot scroll away.
+
+2026-09-21 — Motion and visual direction: exploration opened. DECIDED.
+"I want to explore different ones than what you see in the files… the point of all these connectors is to explore different ways to create a unique page with animations and a lot more motion than previously expected. We need to explore how to make this the most visually appealing and unique experience, while remaining professional and a B2B service website. Visuals should be the priority… before locking in the rest." Consequence: docs/05 §6's two builds are no longer the only concept on record; they are one candidate. Motion piece 1 (the hero mark from the flow) is not approved: "I only see the logo one, and I don't like it so far." Directions are explored as whole home-page prototypes, each on its own branch and preview, before anything else is locked. §8 and the copy still bind; colours semi-locked; type, layout, header, footer open.
+
+2026-09-21 — Milestones reordered. PROPOSED — awaiting the founder.
+See the proposal put to the founder in this session; recorded here once he rules.
