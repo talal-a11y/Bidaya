@@ -28,30 +28,30 @@ function Action({ href, label, fill = false }: { href: string; label: string; fi
 
 export default function HomeB({ page }: { page: Page }) {
   const g = getGlobal();
-  const [hero, read, four, band, line, terms, story, programs] = page.sections;
+  const [hero, four, band, line, terms, story, read, programs] = page.sections;
   const h1 = find(hero, "h1")!, tagline = find(hero, "tagline")!, lead = find(hero, "lead")!, heroBtns = find(hero, "buttons")!, aside = find(hero, "aside")!;
-  const readT = find(read, "h2")!, readP = find(read, "p", 0)!, readLine = find(read, "p", 1)!, readBtn = find(read, "buttons")!;
   const fourT = find(four, "h2")!, fourP = find(four, "p", 0)!, fourRows = find(four, "rows")!, fourOut = find(four, "p", 1)!, fourBtn = find(four, "buttons")!;
   const bandT = find(band, "h2")!, lineP = find(line, "p")!;
   const termsT = find(terms, "h2")!, termsP = find(terms, "p")!, termsItems = find(terms, "terms")!, termsBtn = find(terms, "buttons")!;
   const storyT = find(story, "h2")!, storyPs = story.blocks.filter((b) => b.type === "p"), storyBtn = find(story, "buttons")!;
-  const progT = find(programs, "h2")!, progPs = programs.blocks.filter((b) => b.type === "p"), progBtn = find(programs, "buttons")!;
-  const tones = [styles.teal, styles.aqua, styles.plum, styles.ink];
+  const readT = find(read, "h2")!, readIntro = find(read, "p", 0)!, readLabels = read.blocks.filter((b) => b.type === "h3"), readPs = read.blocks.filter((b) => b.type === "p").slice(1), readBtn = find(read, "buttons")!;
+  const progT = find(programs, "h2")!, progSoon = find(programs, "h3")!, progPs = programs.blocks.filter((b) => b.type === "p"), progBtn = find(programs, "buttons")!;
+  const tones = [styles.tealDeep, styles.aqua, styles.plum, styles.ink];
 
   return (
     <div className={styles.page}>
       <MotionB />
 
-      {/* 1 — the split: the name at screen scale; the mark's arcs in teal */}
+      {/* 1 — the split: the name at screen scale; the mark's arcs drawn in on teal */}
       <section className={`${styles.row} ${styles.hero}`} aria-label={g.siteName}>
         <div className={`${styles.panel} ${styles.stone}`}>
           <p className={styles.mono}><InlineNodes nodes={tagline.text} /></p>
           <p className={styles.word} data-letters>{g.siteName}</p>
         </div>
-        <div className={`${styles.panel} ${styles.teal}`}>
+        <div className={`${styles.panel} ${styles.tealDeep}`}>
           <Arcs />
           <span />
-          <p className={`${styles.mono} ${styles.strip}`}><InlineNodes nodes={aside.text} /></p>
+          <p className={styles.mono} style={{ position: "relative", fontSize: 15 }}><InlineNodes nodes={aside.text} /></p>
         </div>
       </section>
 
@@ -68,23 +68,7 @@ export default function HomeB({ page }: { page: Page }) {
         </div>
       </section>
 
-      {/* 3 — Where you stand: title in paper, the read in three cells */}
-      <section className={`${styles.row} ${styles.read}`}>
-        <div className={`${styles.panel} ${styles.paper}`} data-slide="left">
-          <h2 className={styles.title}><InlineNodes nodes={readT.text} /></h2>
-          <div style={{ marginInline: -28, marginBlockEnd: -28 }} className={styles.actions}>
-            {readBtn.buttons.map((b, i) => <Action key={i} href={b.href} label={b.label} fill />)}
-          </div>
-        </div>
-        <div className={`${styles.panel} ${styles.stone}`} data-slide="up">
-          <p className={styles.body}><InlineNodes nodes={readP.text} /></p>
-        </div>
-        <div className={`${styles.panel} ${styles.soft}`} data-slide="right">
-          <p className={`${styles.mono}`} style={{ fontSize: 15, lineHeight: 1.5 }}><InlineNodes nodes={readLine.text} /></p>
-        </div>
-      </section>
-
-      {/* 4 — One firm, four functions: four panels, four colours */}
+      {/* 3 — One firm, four functions: four panels, four colours */}
       <section className={`${styles.row} ${styles.lineRow}`}>
         <div className={`${styles.panel} ${styles.stone}`}>
           <h2 className={styles.title}><InlineNodes nodes={fourT.text} /></h2>
@@ -95,7 +79,7 @@ export default function HomeB({ page }: { page: Page }) {
         {fourRows.items.map((it, i) => (
           <div key={i} className={`${styles.panel} ${tones[i]}`} data-slide="up">
             <p className={styles.big} data-rise><InlineNodes nodes={it.lead} /></p>
-            <p className={`${styles.mono} ${i === 0 ? styles.strip : ""}`} style={{ fontSize: 14, lineHeight: 1.5 }}><InlineNodes nodes={it.rest} /></p>
+            <p className={styles.mono} style={{ fontSize: 14, lineHeight: 1.5 }}><InlineNodes nodes={it.rest} /></p>
           </div>
         ))}
       </section>
@@ -106,11 +90,10 @@ export default function HomeB({ page }: { page: Page }) {
         </div>
       </section>
 
-      {/* 5 — A few steps ahead: teal, the title alone */}
+      {/* 4 — A few steps ahead: teal, the title alone */}
       <section className={`${styles.row} ${styles.band}`}>
         <div className={`${styles.panel} ${styles.teal}`}>
-          <Arcs small />
-          <h2 className={styles.titleHuge} style={{ position: "relative" }} data-rise><InlineNodes nodes={bandT.text} /></h2>
+          <h2 className={styles.titleHuge} data-rise><InlineNodes nodes={bandT.text} /></h2>
         </div>
       </section>
       <section className={`${styles.row} ${styles.lineRow}`}>
@@ -119,7 +102,7 @@ export default function HomeB({ page }: { page: Page }) {
         </div>
       </section>
 
-      {/* 6 — How we work: three terms, three panels, the numbers in mono */}
+      {/* 5 — How we work: three terms, three panels */}
       <section className={`${styles.row} ${styles.lineRow}`}>
         <div className={`${styles.panel} ${styles.paper}`}>
           <h2 className={styles.title}><InlineNodes nodes={termsT.text} /></h2>
@@ -140,7 +123,7 @@ export default function HomeB({ page }: { page: Page }) {
         </div>
       </section>
 
-      {/* 7 — Before it's big: the story as a broadsheet */}
+      {/* 6 — Before it's big: the story */}
       <section className={`${styles.row} ${styles.story}`}>
         <div className={`${styles.panel} ${styles.plum}`} data-slide="left">
           <h2 className={styles.title}><InlineNodes nodes={storyT.text} /></h2>
@@ -151,11 +134,38 @@ export default function HomeB({ page }: { page: Page }) {
         </div>
       </section>
 
-      {/* 8 — Programs: aqua */}
+      {/* 7 — Where you stand: the reader knows the firm now; the read closes the page */}
+      <section className={`${styles.row} ${styles.readIntro}`}>
+        <div className={`${styles.panel} ${styles.stone}`}>
+          <h2 className={styles.title}><InlineNodes nodes={readT.text} /></h2>
+          <p className={styles.lead} style={{ maxInlineSize: "30ch" }}><InlineNodes nodes={readIntro.text} /></p>
+        </div>
+      </section>
+      <section className={`${styles.row} ${styles.read}`}>
+        {readPs.map((p, i) => (
+          <div key={i} className={`${styles.panel} ${[styles.paper, styles.soft][i]} ${styles.readCell}`} data-slide={["left", "right"][i]}>
+            <div>
+              {readLabels[i]?.type === "h3" && <p className={styles.label}><InlineNodes nodes={readLabels[i].text} /></p>}
+              <p className={styles.body}>{p.type === "p" && <InlineNodes nodes={p.text} />}</p>
+            </div>
+          </div>
+        ))}
+        <div className={`${styles.panel} ${styles.ink}`} data-slide="up">
+          <span />
+          <div className={styles.actions} style={{ marginInline: -28, marginBlockEnd: -28, borderColor: "var(--paper)" }}>
+            {readBtn.buttons.map((b, i) => <Action key={i} href={b.href} label={b.label} />)}
+          </div>
+        </div>
+      </section>
+
+      {/* 8 — Programs: aqua, coming soon */}
       <section className={`${styles.row} ${styles.programs}`}>
         <div className={`${styles.panel} ${styles.aqua}`} data-slide="left">
-          <h2 className={styles.titleHuge} data-rise><InlineNodes nodes={progT.text} /></h2>
-          <div className={styles.stack}>{progPs.map((p, i) => p.type === "p" && <p key={i} className={styles.lead} style={{ maxInlineSize: "30ch" }}><InlineNodes nodes={p.text} /></p>)}</div>
+          <div>
+            <h2 className={styles.titleHuge} data-rise><InlineNodes nodes={progT.text} /></h2>
+            <p className={styles.comingSoon} style={{ marginBlockStart: 20 }}><InlineNodes nodes={progSoon.text} /></p>
+          </div>
+          <div className={styles.stack}>{progPs.map((p, i) => p.type === "p" && <p key={i} className={styles.lead} style={{ maxInlineSize: "34ch" }}><InlineNodes nodes={p.text} /></p>)}</div>
         </div>
         <div className={`${styles.panel} ${styles.stone}`} data-slide="right">
           <span />

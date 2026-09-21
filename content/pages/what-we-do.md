@@ -42,9 +42,7 @@ Neither is the lesser version of the other. Which shape fits is what the first c
 
 ---
 
-## What we don't do
-
-We don't do marketing, design or PR as sold work. We don't do one-off brand projects. We don't do formation on its own, in competition with the formation mills. We don't touch client funds. And we turn down work that isn't ready: a business that wants to move without looking is not one we can help.
+@note the deck's "What we don't do" section is cut on the founder's ruling 2026-09-21: "should not be anywhere on any copy moving forward". The line "Where a need sits outside these four, we know who does it and we manage them" stays.
 
 ---
 

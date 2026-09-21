@@ -113,3 +113,6 @@ main { flex: 1; }
 
 /* direction B: Geist everywhere while B is under review */
 body { font-family: "Geist", var(--font-sans); }
+
+/* Arabic inside Latin copy: the one face that carries it, bold, a touch larger, no tracking */
+.ar { font-family: "Readex Pro", system-ui, sans-serif; font-weight: 700; font-size: 1.3em; letter-spacing: 0; line-height: 1; }

@@ -7,9 +7,11 @@ export default function FooterB() {
   return (
     <footer className={`${styles.foot} ${styles.page}`} style={{ borderBlockStart: "1px solid var(--ink)" }}>
       <div className={styles.footMark}><img src="/brand/svg/bidaya-mark-construction.svg" alt="" width="1000" height="1000" /></div>
-      <ul className={`${styles.footLinks} ${styles.mono}`} style={{ fontSize: 14 }}>
-        {getNav().map((n) => <li key={n.href}><Link href={n.href}>{n.label}</Link></li>)}
-      </ul>
+      <div>
+        <ul className={`${styles.footLinks} ${styles.mono}`} style={{ fontSize: 14 }}>
+          {getNav().map((n) => <li key={n.href}><Link href={n.href}>{n.label}</Link></li>)}
+        </ul>
+      </div>
       <div className={`${styles.mono} ${styles.footLines}`}>
         <p>{g.fields.basedIn}</p>
         <p className={styles.quiet}>{g.fields.legal}</p>
