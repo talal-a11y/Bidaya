@@ -12,6 +12,10 @@ Started 22 September 2026 on the founder's instruction: "Keep log of all the cha
 - **Bilingual readiness dropped** — English only. 2026-09-21.
 - **Start's Budget question cut**; the form is four in-page forms behind doors (Enquire for your business · Partnerships and programs · Bidaya Talent Partners · General inquiry), not the deck's one Start page. 2026-09-21/22.
 
+## Coming (logged, not built — details owed by the founder)
+- "We consult" → "We consult for"; a new "We focus on" section listing what Bidaya does (Setup & support, Executive management, Financial advisory, Programs & events, Workshops & trainings, more to come). 2026-09-22.
+- One "reach us" questionnaire in place of four doors: the first questions route to one of the four forms behind it; same sideways format. 2026-09-22.
+
 ## Copy (docs/02, docs/04)
 - **The founder rewrote About, What we do, Programs, the three terms and the story** in his own words (2026-09-22); the deck's versions are in git history. Titles set in sentence case.
 - **"How we work" → "How Bidaya works"** — decided, not yet applied. 2026-09-22.
