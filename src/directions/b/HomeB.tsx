@@ -104,7 +104,7 @@ export default function HomeB({ page }: { page: Page }) {
       </section>
       <section className={`${styles.row} ${styles.four}`}>
         {functions.functions.map((f) => (
-          <FunctionCard key={f.id} className={`${styles.panel} ${styles.fn} ${toneClass[f.tone]}`}>
+          <FunctionCard key={f.id} href={f.href} label={`${f.word}: ${functions.learnMore}`} className={`${styles.panel} ${styles.fn} ${toneClass[f.tone]}`}>
             <div className={styles.fnDefault}>
               <p className={styles.big} data-rise>{f.word}.</p>
               <p className={styles.mono} style={{ fontSize: 14, lineHeight: 1.5 }}>{f.short}</p>

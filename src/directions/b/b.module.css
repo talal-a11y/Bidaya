@@ -311,10 +311,16 @@ button.door { font: inherit; text-align: start; cursor: pointer; border-block: 0
 .fnLong { font-size: clamp(15px, 1.05vw, 17px); line-height: 1.45; color: var(--ink); margin-block: auto; }
 .fnCta { color: var(--paper); align-self: flex-start; }
 .fnCta::before { background: var(--ink); }
-.fn:hover, .fn[data-open] { background: var(--paper) !important; }
-.fn:hover .fnDefault > *, .fn[data-open] .fnDefault > * { opacity: 0; transform: translateY(-24px); }
-.fn:hover .fnOpen, .fn[data-open] .fnOpen { opacity: 1; transform: none; pointer-events: auto; }
-@media (hover: none) { .fn { cursor: pointer; } }
+.fn { cursor: pointer; }
+.fn[data-open] { background: var(--paper) !important; }
+.fn[data-open] .fnDefault > * { opacity: 0; transform: translateY(-24px); }
+.fn[data-open] .fnOpen { opacity: 1; transform: none; pointer-events: auto; }
+/* hover opens the card only where hover exists — a touch must not leave it blank */
+@media (hover: hover) {
+  .fn:hover, .fn:focus-visible { background: var(--paper) !important; }
+  .fn:hover .fnDefault > *, .fn:focus-visible .fnDefault > * { opacity: 0; transform: translateY(-24px); }
+  .fn:hover .fnOpen, .fn:focus-visible .fnOpen { opacity: 1; transform: none; pointer-events: auto; }
+}
 
 /* ---- the intent pages: a small typed hero, then cards ---- */
 .intentHero { grid-template-columns: 1fr 1fr; min-block-size: 56svh; }
