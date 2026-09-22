@@ -7,50 +7,44 @@ nav: About
 organizationSchema: true
 ---
 
-# Why Bidaya exists
+@note rewritten in the founder's words, 2026-09-22 (docs/decisions.md). Headings set in sentence case; nothing else changed. Each card: the title on the left, the titled paragraphs on the right.
 
-@lead Two sentences reach us more than any others. *I have an idea and no idea where to begin.* And, from people further along: *It's getting too big to handle on my own.*
+# At a glance
 
-They sound like different problems. They aren't. In both cases the business is outgrowing what one person can carry, and the people saying them are not short of ability. They are short of hours, and of the layer of a company that established companies take for granted: someone whose job is the structure, the process, the numbers and the systems, so the owner's time goes to the work the business exists to do.
+### The name
 
-Most businesses in the UAE run for years without it, until they can justify three senior salaries. Until then the owner does it, at night, between everything else; or a junior hire does it badly; or it waits, and the cost arrives later: a fine for a filing nobody flagged, a quarter that lost money without anyone being able to say why, a hire that should have happened a year earlier. None of that is a failure of the owner. It is what happens when the operating side of a company has no one whose job it is.
+بداية, Bidaya, is the Arabic word for *beginning*, and we chose it because a business is decided at its beginning. Setting you up right from day one is our commitment, because a business without the right structure is not a bug to patch but a cost that compounds.
 
-Bidaya was started with the people least likely to be offered serious support and most likely to need it in mind: freelancers in the creative field, young aspiring entrepreneurs, and studios. What became clear quickly is that the same gap existed at funded companies too, where the cost of its absence was larger and the owner's time more expensive. So the firm was built to do one thing at both scales: be the executive layer for businesses that don't have one yet. For funded startups and established SMEs, that is our work. For the creative sector, it is our programs.
+### The firm
 
----
-
-## The name
-
-بداية, Bidaya, is the Arabic word for *beginning*, and we chose it because a business is decided at its beginning: by whether the structure exists before the growth does, whether the numbers are visible before the decision is made, whether the study happens before the launch. The market is impatient about this. Build first and find out later is the prevailing advice, and it works for software. It does not work for a contracting company, a clinic or a studio, where the missed step is not a bug to patch but a cost that compounds. We would rather lose the client who wants to move without looking than build on a foundation we haven't seen.
+Bidaya is a management and tech consultancy based in the UAE. It acts as the executive layer for funded startups and established SMEs: CEO, CFO and COO scope across company setup, operations, finance and tech, engaged monthly or for fixed-scope projects. Bidaya also works on programs teaching business acumen to young entrepreneurs and supporting existing and aspiring business owners who are in creative industries or still pursuing an education. Co-delivering with cultural and educational institutions, Bidaya aims to lower the barriers of entry for small creators and young entrepreneurs looking to build a business in the UAE.
 
 ---
 
-## What we do inside a business
+## Who we're for
 
-We take the load an executive would take, so the owner's time goes back to what matters. We run the operating side: structure and setup, operations and hiring, finance and reporting, the tech underneath. Where a need sits outside our scope, we know who does it and we manage them. The owner keeps every decision that counts: pricing, clients, quality, money. We prepare the ground so those decisions are made on numbers, earlier, with less on the owner's desk. A few steps ahead is the standard we hold ourselves to: the next filing, the next hire, the next requirement, surfaced before anyone has to ask. None of this is because an owner can't. It's because an owner shouldn't have to, at the expense of the business.
+### Startups & small businesses
 
-We publish our terms, because a firm that couldn't deliver wouldn't. They are written for the client's confidence rather than ours: when a business doesn't need us monthly, we say so in writing and hand over what to do instead, and everything we build is documented, owned by the client, and left in a form that runs with or without us.
+We take the load an executive would take, so the owner's time goes back to what matters. Whether on a monthly basis or a one-time project, we come in to make running your business easier, and make sure you have all the necessary tools to run it without us before we're done. A few steps ahead is the standard we hold ourselves to: the next filing, the next hire, the next requirement, surfaced before anyone has to ask. None of this is because an owner can't, it's because an owner shouldn't have to, at the expense of the business.
+
+@cta Enquire for your business -> #form-business
+
+### Creative and educational institutions
+
+We want to work with institutions across the UAE to create programs that support and promote young and creative entrepreneurs who want to build their businesses. Through trainings, workshops, idea sharing, and ongoing support through our very own talent network, Bidaya aims to support independent workers, aspiring artists, and creative entrepreneurs unlock the doors required to build and grow their businesses sustainably. If you're an organization looking to build a supportive program or community to grow business acumen across different industries, consider Bidaya as your partner for growth.
+
+@cta Partnerships and programs -> #form-partners
+
+### Boutique firms & independent workers
+
+We run the operating side of businesses for the founders and owners. Where a need sits outside our scope, we reach out to our Talent Network for support. From tax & bookkeeping, photography, marketing, event management, to legal, advisory, and compliance, Bidaya's Talent network currently runs with 50+ agencies and independent workers across 10+ different specialties. Register your details today, and be the first Bidaya reaches out to once our clients need support.
+
+@cta Bidaya Talent Partners -> #form-talent
 
 ---
 
-## The firm
+## Why Bidaya exists
 
-Bidaya was founded by Talal Abdel-Hamid and runs with a small team and a bench of licensed specialists. The firm is built to outgrow its founder: the credibility we're interested in is the firm's, earned inside the businesses it works with.
+Bidaya was built to do one thing that solves three separate, yet similar, problems: be the executive layer for businesses that are too small to have one yet. For startups and SMEs that is our work that builds an affordable executive function into the business making it easier to run. For youth and the creative sector, it is our programs that support building and growing businesses with the right tools. And for the established B2B founders and independent freelancers, it is the opportunity to provide them more meaningful work for people in earlier stages.
 
-We're based in the UAE. If you're carrying a business alone and want the operating side off your desk, or you're building something for the creative sector and want a partner in it, the beginning is when to talk.
-
-@cta Start a conversation -> /start
-
----
-
-@note machine-readable block, visually quiet, schema-marked. This is the one place on the site the category noun may appear — docs/04 §08.
-
-## At a glance
-
-@quiet
-- Bidaya (بداية, Arabic for beginning) is a management and tech consultancy based in the UAE.
-- It acts as the executive layer for funded startups and established SMEs: CEO, CFO and COO scope across company setup, operations, finance and tech, engaged monthly or for fixed-scope projects.
-- Programs: partnership structures co-delivered with cultural and educational institutions and businesses, supporting creative businesses and independent practitioners.
-- Terms are published on the How we work page.
-- Founded by Talal Abdel-Hamid.
-@end
+Two sentences reach us more than any others. *"I have an amazing business idea and no clue where to begin."* And, from people further along: *"This is harder than I thought and is too big to handle on my own."* Bidaya was born to solve these two problems.

@@ -5,6 +5,7 @@ description: Feasibility studies before a business is set up, and a study of how
 order: 12
 intent: Feasibility and advisory
 faqSchema: true
+function: setup
 serviceSchema: true
 serviceName: Feasibility and advisory
 ---
@@ -43,8 +44,7 @@ When the question is one *Where you stand* can answer in ten minutes. Try that f
 
 ## How it starts
 
-@cta See where you stand -> /where-you-stand
-@ghost Start a conversation -> /start
+@cta Start a conversation -> /#form-business
 
 ---
 

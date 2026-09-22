@@ -28,5 +28,65 @@
     "rule": "\"I\" or \"my\" outside an owner quote",
     "contains": "I'm ",
     "why": "The visitor's own sentence, spoken in the first person by the visitor, not the firm (Talent form) \u2014 docs/decisions.md 2026-09-21."
+  },
+  {
+    "file": "content/pages/about.md",
+    "rule": "banned word: \"unlock\"",
+    "contains": "unlock the doors",
+    "why": "The founder's own words, 2026-09-22 (About, What we do, Programs rewritten by him). Word on the never-say list; flagged to him in docs/decisions.md; kept until he strikes it."
+  },
+  {
+    "file": "content/pages/about.md",
+    "rule": "banned: \"affordable\"",
+    "contains": "affordable executive function",
+    "why": "The founder's own words, 2026-09-22 (About, What we do, Programs rewritten by him). Word on the never-say list; flagged to him in docs/decisions.md; kept until he strikes it."
+  },
+  {
+    "file": "content/pages/programs.md",
+    "rule": "banned word: \"space\"",
+    "contains": "provided us the space",
+    "why": "The founder's own words, 2026-09-22 (About, What we do, Programs rewritten by him). Word on the never-say list; flagged to him in docs/decisions.md; kept until he strikes it."
+  },
+  {
+    "file": "content/pages/programs.md",
+    "rule": "banned: \"journey\"",
+    "contains": "early in their journey",
+    "why": "The founder's own words, 2026-09-22 (About, What we do, Programs rewritten by him). Word on the never-say list; flagged to him in docs/decisions.md; kept until he strikes it."
+  },
+  {
+    "file": "content/pages/what-we-do.md",
+    "rule": "\"fractional/outsourced/part-time\" outside the intent pages",
+    "contains": "fractional executive services",
+    "why": "The founder's own words, 2026-09-22 (About, What we do, Programs rewritten by him). Word on the never-say list; flagged to him in docs/decisions.md; kept until he strikes it."
+  },
+  {
+    "file": "content/pages/what-we-do.md",
+    "rule": "self-description: \"young\" / \"fresh\"",
+    "contains": "a young entrepreneur",
+    "why": "The founder's own words, 2026-09-22 (About, What we do, Programs rewritten by him). Word on the never-say list; flagged to him in docs/decisions.md; kept until he strikes it."
+  },
+  {
+    "file": "content/pages/what-we-do.md",
+    "rule": "banned: \"journey\"",
+    "contains": "early in their journey",
+    "why": "The founder's own words, 2026-09-22 (About, What we do, Programs rewritten by him). Word on the never-say list; flagged to him in docs/decisions.md; kept until he strikes it."
+  },
+  {
+    "file": "content/pages/what-we-do.md",
+    "rule": "banned word: \"space\"",
+    "contains": "provided us the space",
+    "why": "The founder's own words, 2026-09-22 (About, What we do, Programs rewritten by him). Word on the never-say list; flagged to him in docs/decisions.md; kept until he strikes it."
+  },
+  {
+    "file": "content/functions.json",
+    "rule": "\"fractional/outsourced/part-time\" outside the intent pages",
+    "contains": "\"href\": \"/fractional",
+    "why": "A route name, not copy."
+  },
+  {
+    "file": "src/directions/b/HomeB.tsx",
+    "rule": "banned word: \"scale\"",
+    "contains": "scale(1.9417)",
+    "why": "An SVG transform, not copy."
   }
 ]

@@ -5,6 +5,7 @@ description: The systems under a UAE business: accounting stack, records, automa
 order: 11
 intent: Tech and one-time projects
 faqSchema: true
+function: tech
 serviceSchema: true
 serviceName: Tech and one-time projects
 ---
@@ -43,8 +44,7 @@ When the tools you have already do the job and the problem is that nobody runs t
 
 ## How it starts
 
-@cta Start a conversation -> /start
-@ghost See where you stand -> /where-you-stand
+@cta Start a conversation -> /#form-business
 
 ---
 

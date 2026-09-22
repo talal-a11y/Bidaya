@@ -12,6 +12,16 @@ import { createContext, useCallback, useContext, useEffect, useRef, useState } f
 import type { ReactNode } from "react";
 import styles from "./b.module.css";
 
+const pad = (n: number) => String(n).padStart(2, "0");
+
+// Bring an unfolding panel into place: once as it starts to open, once more when the
+// unfold has finished — at the foot of the page the first call cannot reach it yet.
+const reveal = (id: string) => {
+  const to = () => document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
+  requestAnimationFrame(to);
+  setTimeout(to, 680);
+};
+
 type Ctx = { open: Record<string, boolean>; toggle: (id: string) => void };
 const ChapterContext = createContext<Ctx>({ open: {}, toggle: () => {} });
 
@@ -20,6 +30,13 @@ export const useChapter = () => useContext(ChapterContext);
 export function Chapters({ children }: { children: ReactNode }) {
   const [open, setOpen] = useState<Record<string, boolean>>({});
   const toggle = useCallback((id: string) => setOpen((o) => ({ ...o, [id]: !o[id] })), []);
+  // a link from another page — /#form-business, /#chapter-programs — opens that panel on arrival
+  useEffect(() => {
+    const id = window.location.hash.slice(1);
+    if (!/^(form|chapter)-/.test(id) || !document.getElementById(id)) return;
+    const t = setTimeout(() => { setOpen((o) => ({ ...o, [id]: true })); reveal(id); }, 200);
+    return () => clearTimeout(t);
+  }, []);
   return <ChapterContext.Provider value={{ open, toggle }}>{children}</ChapterContext.Provider>;
 }
 
@@ -37,15 +54,7 @@ export function ChapterButton({ id, openLabel, closeLabel, fill = true }: { id: 
   );
 }
 
-const pad = (n: number) => String(n).padStart(2, "0");
 
-// Bring an unfolding panel into place: once as it starts to open, once more when the
-// unfold has finished — at the foot of the page the first call cannot reach it yet.
-const reveal = (id: string) => {
-  const to = () => document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
-  requestAnimationFrame(to);
-  setTimeout(to, 680);
-};
 
 type StripProps = { id: string; label: string; closeLabel: string; prevLabel: string; nextLabel: string; slides: ReactNode[]; tone?: string };
 
@@ -61,7 +70,7 @@ export function ChapterStrip({ id, label, closeLabel, prevLabel, nextLabel, slid
     const el = strip.current; if (!el) return;
     const next = Math.max(0, Math.min(slides.length - 1, i));
     el.scrollTo({ left: next * el.clientWidth, behavior: "smooth" });
-    busy.current = true; setTimeout(() => { busy.current = false; }, 650);
+    busy.current = true; setTimeout(() => { busy.current = false; }, 900);
   }, [slides.length]);
 
   useEffect(() => {
@@ -74,7 +83,9 @@ export function ChapterStrip({ id, label, closeLabel, prevLabel, nextLabel, slid
       e.preventDefault(); e.stopPropagation();
       if (busy.current) return;
       acc.current += delta;
-      if (Math.abs(acc.current) > 40) { go(i + (acc.current > 0 ? 1 : -1)); acc.current = 0; }
+      // a vertical wheel needs a deliberate push (founder: too sensitive); a sideways swipe moves at once
+      const vertical = Math.abs(e.deltaY) > Math.abs(e.deltaX);
+      if (Math.abs(acc.current) > (vertical ? 160 : 40)) { go(i + (acc.current > 0 ? 1 : -1)); acc.current = 0; }
     };
     const onScroll = () => setIndex(Math.round(el.scrollLeft / el.clientWidth));
     const onKey = (e: KeyboardEvent) => { if (e.key === "ArrowRight") go(index + 1); if (e.key === "ArrowLeft") go(index - 1); };

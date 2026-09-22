@@ -1,46 +1,93 @@
 {
-  "$comment": "The four forms behind the doors on the home page. Each is a sideways strip: one question per slide, every option shown at once on full-height tiles, and a sentence that fills in as the visitor answers. 'sentence' is that sentence: strings and {field} slots. Business questions and options are the deck's Start form (docs/02 §8), verbatim; the other three are drafted from the founder's brief 2026-09-21 and marked proposed. Nothing is sent until the forms are wired (milestone 8).",
-  "labels": { "back": "Back", "next": "Next", "send": "Send", "answered": "answered", "email": "Email" },
+  "$comment": "The four forms behind the doors on the home page. Each is a sideways strip: one question per slide, every option shown at once on full-height tiles, and a sentence on the left that fills in as the visitor answers. Options carry a 'phrase' — the words the sentence uses for that answer, so it always reads as a sentence. The last slide holds the contact details, the consent line and Send. Name, email and phone are required; company is optional. Business questions are the deck's Start form (docs/02 §8); the other three are drafted from the founder's brief and marked proposed. Nothing is sent until the forms are wired (milestone 8).",
+  "labels": { "back": "Back", "next": "Next", "send": "Send", "answered": "answered", "email": "Email", "optional": "optional", "invalidEmail": "Check the email address", "invalidPhone": "Check the number", "required": "Needed to send" },
   "consent": "I'm happy for Bidaya to contact me about this enquiry.",
-  "afterSending": "We reply within two working days with a time for the call, or with the reason we're not the right firm. Nothing you've told us is shared, and nothing is stored beyond this enquiry unless you ask for the files.",
   "forms": {
     "business": {
       "title": "Enquire for your business",
       "tone": "plum",
       "steps": [
-        { "id": "shape", "label": "What you have in mind", "type": "choice", "hint": "Neither shape is the lesser one. The call decides which fits.", "options": ["The executive layer inside the business, monthly", "One defined piece of work", "Not sure yet"] },
-        { "id": "stage", "label": "Where the business stands", "type": "choice", "options": ["Not registered yet", "Setting up", "Trading under a year", "One to three years", "More than three years"] },
-        { "id": "people", "label": "People, including you", "type": "choice", "options": ["1", "2–5", "6–15", "16–50", "More than 50"] },
-        { "id": "when", "label": "When you'd want to begin", "type": "choice", "options": ["This month", "Within three months", "Later; I'm planning"] },
+        { "id": "shape", "label": "What you have in mind", "type": "choice", "hint": "Neither shape is the lesser one. The call decides which fits.",
+          "options": [
+            { "label": "The executive layer inside the business, monthly", "phrase": "the executive layer inside the business, monthly" },
+            { "label": "One defined piece of work", "phrase": "one defined piece of work" },
+            { "label": "Not sure yet", "phrase": "something we haven't settled yet" } ] },
+        { "id": "stage", "label": "Where the business stands", "type": "choice",
+          "options": [
+            { "label": "Not registered yet", "phrase": "not registered yet" },
+            { "label": "Setting up", "phrase": "setting up" },
+            { "label": "Trading under a year", "phrase": "trading under a year" },
+            { "label": "One to three years", "phrase": "one to three years in" },
+            { "label": "More than three years", "phrase": "more than three years in" } ] },
+        { "id": "people", "label": "People, including you", "type": "choice",
+          "options": [
+            { "label": "1", "phrase": "just me" },
+            { "label": "2–5", "phrase": "two to five people" },
+            { "label": "6–15", "phrase": "six to fifteen people" },
+            { "label": "16–50", "phrase": "sixteen to fifty people" },
+            { "label": "More than 50", "phrase": "more than fifty people" } ] },
+        { "id": "when", "label": "When you'd want to begin", "type": "choice",
+          "options": [
+            { "label": "This month", "phrase": "this month" },
+            { "label": "Within three months", "phrase": "within three months" },
+            { "label": "Later; I'm planning", "phrase": "later, once the plan is set" } ] },
         { "id": "words", "label": "In your words", "type": "text", "hint": "the one thing you'd fix first.", "optional": true },
-        { "id": "contact", "label": "Your name · Company · Email · Phone or WhatsApp", "type": "contact", "fields": ["Your name", "Company", "Email", "Phone or WhatsApp"] }
+        { "id": "contact", "label": "How to reach you", "type": "contact",
+          "fields": [ { "label": "Your name", "type": "text" }, { "label": "Company", "type": "text", "optional": true }, { "label": "Email", "type": "email" }, { "label": "Phone or WhatsApp", "type": "tel" } ] }
       ],
-      "sentence": ["We have ", { "field": "shape", "blank": "a shape" }, " in mind. The business is ", { "field": "stage", "blank": "at a stage" }, ", with ", { "field": "people", "blank": "some" }, " people including me. We'd want to begin ", { "field": "when", "blank": "when" }, ". The one thing we'd fix first: ", { "field": "words", "blank": "…" }, ". Reach ", { "field": "Your name", "blank": "name" }, " at ", { "field": "Company", "blank": "company" }, ", ", { "field": "Email", "blank": "email" }, ", ", { "field": "Phone or WhatsApp", "blank": "phone or WhatsApp" }, "."]
+      "sentence": ["We have ", { "field": "shape", "blank": "a shape" }, " in mind. The business is ", { "field": "stage", "blank": "at a stage" }, ", with ", { "field": "people", "blank": "some people" }, " on the team. We'd want to begin ", { "field": "when", "blank": "when" }, ".", { "field": "words", "blank": "", "prefix": " The one thing we'd fix first: ", "optional": true }, " Reach ", { "field": "Your name", "blank": "name" }, { "field": "Company", "blank": "", "prefix": " at ", "optional": true }, " on ", { "field": "Email", "blank": "email" }, " or ", { "field": "Phone or WhatsApp", "blank": "phone or WhatsApp" }, "."]
     },
     "partners": {
       "title": "Partnerships and programs",
       "tone": "aqua",
-      "$proposed": "questions and options drafted from the Programs page (docs/02 §5); founder to confirm",
+      "$proposed": "questions and options drafted from the Programs page; founder to confirm",
       "steps": [
-        { "id": "runs", "label": "What you run", "type": "choice", "options": ["A residency or a cohort", "A clinic series", "A competition or a challenge", "An initiative with a partner", "Something else"] },
-        { "id": "who", "label": "Who you are", "type": "choice", "options": ["A cultural institution or foundation", "A university or an educational institution", "A creative zone or a studio", "A business that wants to back a program"] },
+        { "id": "who", "label": "Who you are", "type": "choice",
+          "options": [
+            { "label": "A cultural institution or foundation", "phrase": "a cultural institution" },
+            { "label": "A university or an educational institution", "phrase": "an educational institution" },
+            { "label": "A creative zone or a studio", "phrase": "a creative zone or a studio" },
+            { "label": "A business that wants to back a program", "phrase": "a business that wants to back a program" } ] },
+        { "id": "runs", "label": "What you run", "type": "choice",
+          "options": [
+            { "label": "A residency or a cohort", "phrase": "a residency or a cohort" },
+            { "label": "A clinic series", "phrase": "a clinic series" },
+            { "label": "A competition or a challenge", "phrase": "a competition or a challenge" },
+            { "label": "An initiative with a partner", "phrase": "an initiative with a partner" },
+            { "label": "Something else", "phrase": "something of our own" } ] },
         { "id": "words", "label": "In your words", "type": "text", "hint": "what your practitioners leave without.", "optional": true },
-        { "id": "contact", "label": "Your name · Institution · Email · Phone or WhatsApp", "type": "contact", "fields": ["Your name", "Institution", "Email", "Phone or WhatsApp"] }
+        { "id": "contact", "label": "How to reach you", "type": "contact",
+          "fields": [ { "label": "Your name", "type": "text" }, { "label": "Institution", "type": "text", "optional": true }, { "label": "Email", "type": "email" }, { "label": "Phone or WhatsApp", "type": "tel" } ] }
       ],
-      "sentence": ["We are ", { "field": "who", "blank": "an institution" }, " and we run ", { "field": "runs", "blank": "a program" }, ". What our practitioners leave without: ", { "field": "words", "blank": "…" }, ". Reach ", { "field": "Your name", "blank": "name" }, " at ", { "field": "Institution", "blank": "institution" }, ", ", { "field": "Email", "blank": "email" }, ", ", { "field": "Phone or WhatsApp", "blank": "phone or WhatsApp" }, "."]
+      "sentence": ["We are ", { "field": "who", "blank": "an institution" }, " and we run ", { "field": "runs", "blank": "a program" }, ".", { "field": "words", "blank": "", "prefix": " What our practitioners leave without: ", "optional": true }, " Reach ", { "field": "Your name", "blank": "name" }, { "field": "Institution", "blank": "", "prefix": " at ", "optional": true }, " on ", { "field": "Email", "blank": "email" }, " or ", { "field": "Phone or WhatsApp", "blank": "phone or WhatsApp" }, "."]
     },
     "talent": {
       "title": "Bidaya Talent Partners",
       "tone": "teal",
       "$proposed": "questions and options drafted from the four functions and the two shapes of engagement; founder to confirm",
       "steps": [
-        { "id": "function", "label": "What you'd hold", "type": "choice", "options": ["Setup", "Operations", "Finance", "Tech", "More than one of these"] },
-        { "id": "shape", "label": "How you'd work", "type": "choice", "options": ["Monthly, alongside Bidaya inside a client", "On defined pieces of work", "Not sure yet"] },
-        { "id": "you", "label": "Who you are", "type": "choice", "options": ["An independent professional", "A firm", "A licensed specialist"] },
+        { "id": "you", "label": "Who you are", "type": "choice",
+          "options": [
+            { "label": "An independent professional", "phrase": "an independent professional" },
+            { "label": "A firm", "phrase": "a firm" },
+            { "label": "A licensed specialist", "phrase": "a licensed specialist" } ] },
+        { "id": "function", "label": "What you'd hold", "type": "choice",
+          "options": [
+            { "label": "Setup", "phrase": "setup" },
+            { "label": "Operations", "phrase": "operations" },
+            { "label": "Finance", "phrase": "finance" },
+            { "label": "Tech", "phrase": "tech" },
+            { "label": "More than one of these", "phrase": "more than one function" } ] },
+        { "id": "shape", "label": "How you'd work", "type": "choice",
+          "options": [
+            { "label": "Monthly, alongside Bidaya inside a client", "phrase": "monthly, alongside Bidaya inside a client" },
+            { "label": "On defined pieces of work", "phrase": "on defined pieces of work" },
+            { "label": "Not sure yet", "phrase": "in a shape we'd work out together" } ] },
         { "id": "words", "label": "In your words", "type": "text", "hint": "what you've run before.", "optional": true },
-        { "id": "contact", "label": "Your name · Company · Email · Phone or WhatsApp", "type": "contact", "fields": ["Your name", "Company", "Email", "Phone or WhatsApp"] }
+        { "id": "contact", "label": "How to reach you", "type": "contact",
+          "fields": [ { "label": "Your name", "type": "text" }, { "label": "Company", "type": "text", "optional": true }, { "label": "Email", "type": "email" }, { "label": "Phone or WhatsApp", "type": "tel" } ] }
       ],
-      "sentence": ["I'm ", { "field": "you", "blank": "who" }, " who could hold ", { "field": "function", "blank": "a function" }, " for Bidaya's clients, ", { "field": "shape", "blank": "in some shape" }, ". What I've run before: ", { "field": "words", "blank": "…" }, ". Reach ", { "field": "Your name", "blank": "name" }, " at ", { "field": "Company", "blank": "company" }, ", ", { "field": "Email", "blank": "email" }, ", ", { "field": "Phone or WhatsApp", "blank": "phone or WhatsApp" }, "."]
+      "sentence": ["I'm ", { "field": "you", "blank": "someone" }, " who could hold ", { "field": "function", "blank": "a function" }, " for Bidaya's clients, ", { "field": "shape", "blank": "in some shape" }, ".", { "field": "words", "blank": "", "prefix": " What I've run before: ", "optional": true }, " Reach ", { "field": "Your name", "blank": "name" }, { "field": "Company", "blank": "", "prefix": " at ", "optional": true }, " on ", { "field": "Email", "blank": "email" }, " or ", { "field": "Phone or WhatsApp", "blank": "phone or WhatsApp" }, "."]
     },
     "general": {
       "title": "General inquiry",
@@ -48,11 +95,16 @@
       "email": "hello@bidayahub.ae",
       "$proposed": "founder to confirm the two lines",
       "steps": [
-        { "id": "about", "label": "What it's about", "type": "choice", "options": ["A question about how we work", "Press or speaking", "Something else"] },
+        { "id": "about", "label": "What it's about", "type": "choice",
+          "options": [
+            { "label": "A question about how we work", "phrase": "a question about how we work" },
+            { "label": "Press or speaking", "phrase": "about press or speaking" },
+            { "label": "Something else", "phrase": "about something else" } ] },
         { "id": "words", "label": "In your words", "type": "text", "hint": "the question, in a line or two.", "optional": false },
-        { "id": "contact", "label": "Your name · Email", "type": "contact", "fields": ["Your name", "Email"] }
+        { "id": "contact", "label": "How to reach you", "type": "contact",
+          "fields": [ { "label": "Your name", "type": "text" }, { "label": "Email", "type": "email" }, { "label": "Phone or WhatsApp", "type": "tel" } ] }
       ],
-      "sentence": ["This is ", { "field": "about", "blank": "about something" }, ": ", { "field": "words", "blank": "…" }, " Reach ", { "field": "Your name", "blank": "name" }, " at ", { "field": "Email", "blank": "email" }, "."]
+      "sentence": ["This is ", { "field": "about", "blank": "about something" }, ": ", { "field": "words", "blank": "…" }, " Reach ", { "field": "Your name", "blank": "name" }, " on ", { "field": "Email", "blank": "email" }, " or ", { "field": "Phone or WhatsApp", "blank": "phone or WhatsApp" }, "."]
     }
   }
 }

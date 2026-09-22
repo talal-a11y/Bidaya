@@ -59,7 +59,7 @@
 .title { font-size: clamp(36px, 7vw, 120px); line-height: 0.92; font-weight: 500; letter-spacing: -0.04em; max-inline-size: none; }
 .titleHuge { font-size: clamp(56px, 14vw, 240px); line-height: 0.85; font-weight: 500; letter-spacing: -0.05em; max-inline-size: none; }
 .big { font-size: clamp(36px, 6.5vw, 110px); line-height: 0.9; font-weight: 500; letter-spacing: -0.045em; writing-mode: vertical-rl; margin-inline-start: -0.12em; }
-.number { font-family: var(--b-mono); font-size: clamp(40px, 5.6vw, 96px); line-height: 0.9; letter-spacing: -0.05em; font-weight: 500; }
+.number { font-family: var(--b-mono); font-size: clamp(30px, 3.4vw, 54px); line-height: 0.9; letter-spacing: -0.05em; font-weight: 500; }
 .lead { font-size: clamp(18px, 1.75vw, 26px); line-height: 1.3; letter-spacing: -0.015em; font-weight: 400; }
 .body { font-size: 18px; line-height: 1.45; }
 .bodySm { font-size: 16px; line-height: 1.45; }
@@ -103,12 +103,12 @@
 .hero { grid-template-columns: 1fr 1fr; min-block-size: calc(100svh - 61px); }
 .flip { grid-template-columns: 1fr 1fr; min-block-size: 70svh; }
 .read { grid-template-columns: 1fr 1fr 1fr; }
-.four { grid-template-columns: repeat(4, 1fr); min-block-size: 62svh; }
+.four { grid-template-columns: repeat(4, 1fr); min-block-size: 64svh; }
 .four .panel { justify-content: flex-end; gap: 28px; }
 .four .big { margin-block-end: auto; }
 .band { grid-template-columns: 1fr; min-block-size: 56svh; }
 .band .panel { justify-content: center; }
-.terms { grid-template-columns: 1.3fr 1fr 1fr; min-block-size: 70svh; }
+.terms { grid-template-columns: 1fr 1fr 1fr; min-block-size: 40svh; }
 .story { grid-template-columns: 1fr 1.4fr; }
 .storyText { display: grid; gap: 28px; font-size: clamp(18px, 1.5vw, 24px); line-height: 1.35; max-inline-size: 34em; margin-block: auto; }
 .programs { grid-template-columns: 2fr 1fr; min-block-size: 60svh; }
@@ -190,16 +190,18 @@
 .chapterBtn { min-block-size: 40px; min-inline-size: 44px; padding: 0 14px; border: var(--line); background: var(--paper); color: var(--ink); font: inherit; font-size: 14px; font-weight: 600; cursor: pointer; transition: background-color 200ms var(--ease-standard), color 200ms var(--ease-standard); }
 .chapterBtn:hover:not(:disabled) { background: var(--ink); color: var(--paper); }
 .chapterBtn:disabled { opacity: 0.35; cursor: default; }
-.track { position: relative; display: flex; overflow-x: auto; overflow-y: hidden; scroll-snap-type: x mandatory; scrollbar-width: none; block-size: calc(100svh - 60px - 65px); }
+.track { position: relative; display: flex; overflow-x: auto; overflow-y: hidden; scroll-snap-type: x mandatory; scrollbar-width: none; block-size: min(680px, calc(100svh - 60px - 65px)); }
 .track::-webkit-scrollbar { display: none; }
-.slide { flex: 0 0 100%; scroll-snap-align: start; padding: 32px 28px; display: grid; grid-template-columns: 1fr 1.4fr; gap: 40px; align-content: start; overflow: hidden; border-inline-end: var(--line); }
+.slide { flex: 0 0 100%; scroll-snap-align: start; padding: 28px; display: grid; grid-template-columns: 0.8fr 1.5fr; gap: 40px; align-content: start; overflow: hidden; border-inline-end: var(--line); }
 .slide h2, .slide h3 { max-inline-size: none; }
-.slideTitle { font-size: clamp(30px, 4.6vw, 76px); line-height: 0.98; font-weight: 500; letter-spacing: -0.035em; }
+.slideTitle { font-size: clamp(26px, 3.4vw, 54px); line-height: 1; font-weight: 500; letter-spacing: -0.03em; }
 .slideBody { display: grid; gap: 18px; align-content: start; overflow-y: auto; max-block-size: 100%; padding-inline-end: 8px; }
-.slideBody p, .slideBody li { font-size: clamp(16px, 1.25vw, 20px); line-height: 1.45; }
+.slideBody p, .slideBody li { font-size: clamp(15px, 1.1vw, 18px); line-height: 1.45; }
 .slideBody ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; }
-.slideBody li { padding-inline-start: 18px; border-inline-start: 2px solid currentColor; }
-.slideBody h3 { font-size: clamp(18px, 1.5vw, 24px); font-weight: 600; margin-block-start: 4px; }
+.slideBody li { padding: 0; }
+.slideBody h3 { font-size: clamp(17px, 1.3vw, 21px); font-weight: 600; margin-block-start: 4px; }
+/* the divider from At a glance, between every titled paragraph */
+.slideBody h3:not(:first-child) { border-block-start: 1px solid currentColor; padding-block-start: 18px; margin-block-start: 8px; }
 .slideLabel { font-family: var(--b-mono); font-size: 13px; opacity: 0.8; }
 .slideActions { display: flex; flex-wrap: wrap; gap: 12px; margin-block-start: 8px; }
 @media (max-width: 900px) {
@@ -228,11 +230,9 @@
 .doorBusiness::before { background: var(--plum); }
 .doorPartners::before { background: var(--aqua); }
 .doorTalent::before { background: var(--teal); }
-.doorGeneral::before { background: #8A79C7; } /* a lighter plum, off the nine — ink text on it */
-.doorGeneral:hover, .doorGeneral:focus-visible { color: var(--ink); }
+.doorGeneral::before { background: #7462B8; } /* a lighter plum, off the nine; the lightest that carries paper text (4.9:1) */
 .door[aria-expanded="true"]::before { transform: scaleY(1); }
 .door[aria-expanded="true"] { color: var(--paper); }
-.doorGeneral[aria-expanded="true"] { color: var(--ink); }
 button.door { font: inherit; text-align: start; cursor: pointer; border-block: 0; border-inline-start: 0; }
 
 /* the form, as a grid: a question per row, the choices as tiles that fill when chosen */
@@ -259,7 +259,7 @@ button.door { font: inherit; text-align: start; cursor: pointer; border-block: 0
 @media (max-width: 900px) { .q { grid-template-columns: 1fr; } .qLabel { border-inline-end: 0; border-block-end: var(--line); padding: 16px 20px; } .tile { min-block-size: 52px; padding-inline: 16px; font-size: 15px; } .field { padding: 14px 20px; } .consentRow, .sendRow { padding-inline: 20px; } }
 
 /* ---- the forms: sideways, one question per slide, the sentence filling in ---- */
-.plumLight { background: #8A79C7; color: var(--ink); }
+.plumLight { background: #7462B8; color: var(--paper); }
 .formStrip .track { block-size: calc(100svh - 60px - 65px); } /* fills the screen, so the panel can scroll into place even at the foot of the page */
 .formSlide { grid-template-columns: 1fr 1.1fr; grid-template-rows: 1fr; align-content: stretch; gap: 0; padding: 0; }
 .formSide { padding: 28px; display: flex; flex-direction: column; justify-content: space-between; gap: 24px; border-inline-end: var(--line); }
@@ -293,3 +293,56 @@ button.door { font: inherit; text-align: start; cursor: pointer; border-block: 0
 
 /* grid children may shrink below their content — no column ever pushes the page wider */
 .row > *, .doors > *, .formSlide > * { min-inline-size: 0; }
+
+/* ---- typed text ---- */
+.caret { display: inline-block; inline-size: 0.08em; block-size: 0.9em; margin-inline-start: 0.06em; background: currentColor; vertical-align: -0.1em; animation: blink 900ms steps(2) infinite; }
+@keyframes blink { 50% { opacity: 0; } }
+.monoLg { font-size: 17px; }
+.asideTyped { position: relative; }
+@media (prefers-reduced-motion: reduce) { .caret { display: none; } }
+
+/* ---- the four function cards: colour by default; on hover, paper with the mark in the function's colour ---- */
+.fn { position: relative; transition: background-color 420ms var(--ease-standard), color 420ms var(--ease-standard); cursor: default; }
+.fnDefault { display: contents; }
+.fnDefault > * { transition: opacity 320ms var(--ease-standard), transform 420ms var(--ease-standard); }
+.fnOpen { position: absolute; inset: 0; padding: 28px; display: flex; flex-direction: column; justify-content: space-between; gap: 20px; opacity: 0; transform: translateY(18px); transition: opacity 360ms var(--ease-standard) 120ms, transform 460ms var(--ease-standard) 120ms; pointer-events: none; }
+.fnHead { display: flex; align-items: center; gap: 12px; font-size: clamp(22px, 2vw, 32px); font-weight: 500; letter-spacing: -0.02em; }
+.fnMark { inline-size: 1.4em; block-size: 1.4em; flex: none; }
+.fnLong { font-size: clamp(15px, 1.05vw, 17px); line-height: 1.45; color: var(--ink); margin-block: auto; }
+.fnCta { color: var(--paper); align-self: flex-start; }
+.fnCta::before { background: var(--ink); }
+.fn:hover, .fn[data-open] { background: var(--paper) !important; }
+.fn:hover .fnDefault > *, .fn[data-open] .fnDefault > * { opacity: 0; transform: translateY(-24px); }
+.fn:hover .fnOpen, .fn[data-open] .fnOpen { opacity: 1; transform: none; pointer-events: auto; }
+@media (hover: none) { .fn { cursor: pointer; } }
+
+/* ---- the intent pages: a small typed hero, then cards ---- */
+.intentHero { grid-template-columns: 1fr 1fr; min-block-size: 56svh; }
+.intentSmall { font-size: 17px; }
+.intentMark { inline-size: clamp(90px, 10vw, 150px); margin-block: 20px auto; }
+.intentMark circle { fill: none; stroke: currentColor; stroke-width: 6; }
+.intentName { font-size: clamp(34px, 5vw, 80px); line-height: 1; font-weight: 500; letter-spacing: -0.04em; max-inline-size: none; }
+.intentHero .h1 { font-size: clamp(22px, 2.4vw, 36px); }
+.card { grid-template-columns: 0.8fr 1.5fr; }
+.cardBody { display: grid; gap: 18px; align-content: start; justify-content: stretch; }
+.cardBody h3:not(:first-child) { border-block-start: 1px solid currentColor; padding-block-start: 18px; margin-block-start: 8px; }
+.cardBody p, .cardBody li { font-size: clamp(15px, 1.1vw, 18px); line-height: 1.45; max-inline-size: 66ch; }
+.cardBody ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; }
+
+/* ---- the forms: the question above its options ---- */
+.ask { display: grid; grid-template-rows: auto 1fr; min-block-size: 0; }
+.askHead { padding: 18px 28px; border-block-end: var(--line); background: var(--paper); }
+.askHead h3 { font-size: clamp(18px, 1.5vw, 24px); font-weight: 600; margin: 0; }
+.askHead .qHint { margin-block-start: 4px; }
+.bad { color: var(--error); font-family: var(--b-mono); font-size: 12px; }
+.field input[aria-invalid="true"] { border-block-end-color: var(--error); }
+.contactCol { grid-template-columns: 1fr 1fr; gap: 18px; padding: 0; background: transparent; }
+@media (max-width: 900px) {
+  .intentHero { grid-template-columns: 1fr; }
+  .card { grid-template-columns: 1fr; }
+  .fnOpen { position: static; opacity: 1; transform: none; pointer-events: auto; display: none; padding: 0; }
+  .fn[data-open] .fnOpen { display: flex; }
+  .fn[data-open] .fnDefault > * { display: none; }
+  .askHead { padding: 14px 20px; }
+  .contactCol { grid-template-columns: 1fr; }
+}

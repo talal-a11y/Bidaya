@@ -5,6 +5,7 @@ description: What a fractional CFO covers in a UAE business, what it costs again
 order: 10
 intent: Finance leadership
 faqSchema: true
+function: finance
 serviceSchema: true
 serviceName: Finance leadership — the executive layer
 ---
@@ -41,8 +42,7 @@ When the business isn't trading yet, or trades with one person and no payroll. T
 
 ## How it starts
 
-@cta See where you stand -> /where-you-stand
-@ghost Start a conversation -> /start
+@cta Start a conversation -> /#form-business
 
 ---
 

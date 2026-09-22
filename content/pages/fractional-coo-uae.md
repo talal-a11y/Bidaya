@@ -5,6 +5,7 @@ description: What a fractional COO covers in a UAE business, what it costs, and 
 order: 9
 intent: Operations leadership
 faqSchema: true
+function: ops
 serviceSchema: true
 serviceName: Operations leadership — the executive layer
 ---
@@ -38,8 +39,7 @@ When the business has fewer than a handful of people and the owner can still hol
 
 ## How it starts
 
-@cta See where you stand -> /where-you-stand
-@ghost Start a conversation -> /start
+@cta Start a conversation -> /#form-business
 
 ---
 

@@ -52,6 +52,8 @@ export type Page = {
   serviceSchema: boolean;
   serviceName?: string;
   organizationSchema: boolean;
+  hidden: boolean;
+  fn?: string;
   sections: Section[];
   notes: string[];
   assumed: string[];
@@ -258,6 +260,8 @@ function loadPage(file: string): Page {
     serviceSchema: data.serviceSchema === "true",
     serviceName: data.serviceName || undefined,
     organizationSchema: data.organizationSchema === "true",
+    hidden: data.hidden === "true",
+    fn: data.function || undefined,
     sections: [],
     notes: [],
     assumed: [],

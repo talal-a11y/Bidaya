@@ -3,7 +3,7 @@ siteName: Bidaya
 alternateName: بداية
 areaServed: UAE
 founder: Talal Abdel-Hamid
-navOrder: /what-we-do, /how-we-work, /where-you-stand, /programs, /about, /start
+navOrder: /what-we-do, /how-we-work, /programs, /about, /start
 ---
 
 @note the header: the mark, Bidaya, the hairline, بداية. On phones: the mark and Bidaya.
@@ -22,3 +22,4 @@ navOrder: /what-we-do, /how-we-work, /where-you-stand, /programs, /about, /start
 @field reportsListRead Read
 @field chapterPrev Previous
 @field chapterNext Next
+@field learnMore Learn more
