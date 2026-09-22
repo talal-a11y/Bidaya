@@ -1,6 +1,6 @@
 ---
 route: /feasibility-and-advisory
-title: Feasibility and advisory — Bidaya
+title: Feasibility and advisory — Bidaya Consulting
 description: Feasibility studies before a business is set up, and a study of how an existing business actually runs before anything is changed. Research before commitment.
 order: 12
 intent: Feasibility and advisory

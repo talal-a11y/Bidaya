@@ -5,7 +5,15 @@ import { useEffect, useState } from "react";
 import { useReducedMotion } from "@/lib/useReducedMotion";
 import styles from "./b.module.css";
 
-export default function Typed({ text, delay = 0, speed = 60, className, as: Tag = "span" }: { text: string; delay?: number; speed?: number; className?: string; as?: "span" | "p" | "h1" | "h2" }) {
+export type Part = { text: string; className?: string };
+
+export default function Typed({ text, parts, delay = 0, speed = 60, className, as: Tag = "span" }: { text?: string; parts?: Part[]; delay?: number; speed?: number; className?: string; as?: "span" | "p" | "h1" | "h2" }) {
+  const list: Part[] = parts ?? [{ text: text ?? "" }];
+  const full = list.map((p) => p.text).join("");
+  return <TypedInner list={list} text={full} delay={delay} speed={speed} className={className} Tag={Tag} />;
+}
+
+function TypedInner({ list, text, delay, speed, className, Tag }: { list: Part[]; text: string; delay: number; speed: number; className?: string; Tag: "span" | "p" | "h1" | "h2" }) {
   const reduced = useReducedMotion();
   const [n, setN] = useState(0);
   const [done, setDone] = useState(false);
@@ -18,10 +26,15 @@ export default function Typed({ text, delay = 0, speed = 60, className, as: Tag 
     }, delay);
     return () => { clearTimeout(t); clearInterval(iv); };
   }, [text, delay, speed, reduced]);
+  // the typed characters, handed out to the parts in order so each keeps its own style
+  const starts = list.map((_, i) => list.slice(0, i).reduce((a, p) => a + p.text.length, 0));
   return (
     <Tag className={className}>
       <span className="visually-hidden">{text}</span>
-      <span aria-hidden="true">{text.slice(0, n)}{!done && <span className={styles.caret} />}</span>
+      <span aria-hidden="true">
+        {list.map((p, i) => <span key={i} className={p.className}>{p.text.slice(0, Math.max(0, Math.min(p.text.length, n - starts[i])))}</span>)}
+        {!done && <span className={styles.caret} />}
+      </span>
     </Tag>
   );
 }

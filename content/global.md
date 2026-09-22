@@ -1,9 +1,10 @@
 ---
-siteName: Bidaya
+siteName: Bidaya Consulting
+shortName: Bidaya
 alternateName: بداية
 areaServed: UAE
 founder: Talal Abdel-Hamid
-navOrder: /what-we-do, /how-we-work, /about, /programs, /start
+navOrder: /founders, /creatives-and-pre-preneurs, /institutions, /about, /start
 ---
 
 @note the header: the mark, Bidaya, the hairline, بداية. On phones: the mark and Bidaya.
@@ -25,3 +26,4 @@ navOrder: /what-we-do, /how-we-work, /about, /programs, /start
 @field learnMore Learn more
 @field explorePrev Previous
 @field exploreNext Next
+@field weConsult We consult

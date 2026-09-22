@@ -1,6 +1,6 @@
 ---
 route: /tech-and-projects
-title: Tech and one-time projects — Bidaya
+title: Tech and one-time projects — Bidaya Consulting
 description: The systems under a UAE business: accounting stack, records, automation, and one-time technical projects from websites to custom platforms. Built on the tools you already use.
 order: 11
 intent: Tech and one-time projects

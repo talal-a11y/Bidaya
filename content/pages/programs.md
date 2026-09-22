@@ -1,9 +1,9 @@
 ---
 route: /programs
-title: Programs — Bidaya
+title: Programs — Bidaya Consulting
 description: Business support inside the programs cultural and educational institutions already run, co-delivered with Bidaya, so practitioners leave with a company as well as a portfolio.
+hidden: true
 order: 5
-nav: Programs
 ---
 
 @note rewritten in the founder's words, 2026-09-22 (docs/decisions.md). No price, no "services" (Rule 14). The closing button is proposed.

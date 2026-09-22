@@ -1,0 +1,15 @@
+{
+  "$comment": "The three audiences Bidaya Consulting consults for — the founder's restructure of 2026-09-22. Each card on the home page opens on hover with 'long' and Learn more to its page. 'short' and 'long' are drafted from the founder's copy and are proposed until he confirms.",
+  "learnMore": "Learn more",
+  "audiences": [
+    { "id": "founders", "word": "Founders", "name": "Bidaya for Founders", "tone": "ink", "color": "#241B2E", "href": "/founders",
+      "short": "The executive layer inside your business: setup, operations, finance and tech, run by one firm.",
+      "long": "We operate at CEO, CFO and COO scope across setup, operations, finance and tech, inside the business, monthly or as one defined piece of work, until it runs without us." },
+    { "id": "creatives", "word": "Creatives & Pre-preneurs", "name": "Bidaya for Creatives & Pre-preneurs", "tone": "plum", "color": "#5A47A3", "href": "/creatives-and-pre-preneurs",
+      "short": "The support a first business needs: workshops, programs, a community and a talent network.",
+      "long": "For young, creative and aspiring entrepreneurs still preparing to take their first steps: workshops, trainings and advisory, programs built with institutions, a community of small businesses that share costs, and a talent network to grow with." },
+    { "id": "institutions", "word": "Institutions", "name": "Bidaya for Institutions", "tone": "opsDeep", "color": "#0A5C66", "href": "/institutions",
+      "short": "Programs, partnerships and project management for entrepreneurship across the UAE.",
+      "long": "Business support inside the programs you already run: trainings, workshops, competitions and events built with you, from ideation to launch, for the entrepreneurs you host." }
+  ]
+}

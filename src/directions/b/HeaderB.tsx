@@ -3,7 +3,7 @@ import AnchorLink from "./AnchorLink";
 import { getGlobal, getNav } from "@/lib/content";
 
 // While the site is this one page, the navigation goes to its sections (founder, 2026-09-21).
-const anchor = (href: string) => `/#${href.replace(/^\//, "")}`;
+const anchor = (href: string) => (href === "/start" ? "/#start" : href);
 import styles from "./b.module.css";
 
 // Direction B's header: a bar of panels — lockup · nav · Start.

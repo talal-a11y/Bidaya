@@ -14,7 +14,7 @@ A block of settings at the top between two `---` lines, then the page's blocks.
 ```
 ---
 route: /how-we-work
-title: How we work — Bidaya
+title: How we work — Bidaya Consulting
 description: One sentence for search results and link previews.
 ---
 

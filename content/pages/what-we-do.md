@@ -1,9 +1,9 @@
 ---
 route: /what-we-do
-title: What we do — Bidaya
+title: What we do — Bidaya Consulting
 description: One firm operating at CEO, CFO and COO scope across setup, operations, finance and tech. Engaged monthly, or for one defined piece of work.
+hidden: true
 order: 2
-nav: What we do
 ---
 
 @note rewritten in the founder's words, 2026-09-22 (docs/decisions.md). Each card: the title on the left, "What we do" and "How we do it" on the right.

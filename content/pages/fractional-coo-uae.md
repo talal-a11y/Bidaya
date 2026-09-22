@@ -1,6 +1,6 @@
 ---
 route: /fractional-coo-uae
-title: Fractional COO in the UAE — Bidaya
+title: Fractional COO in the UAE — Bidaya Consulting
 description: What a fractional COO covers in a UAE business, what it costs, and when you don't need one. Operations leadership inside the business, on published terms.
 order: 9
 intent: Operations leadership

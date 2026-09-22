@@ -94,5 +94,71 @@
     "rule": "\"fractional/outsourced/part-time\" outside the intent pages",
     "contains": "\"pages\": [",
     "why": "Route names, not copy."
+  },
+  {
+    "file": "content/pages/creatives-and-pre-preneurs.md",
+    "rule": "self-description: \"young\" / \"fresh\"",
+    "contains": "a young entrepreneur",
+    "why": "The founder's own words (2026-09-22 restructure: the same copy moved to the audience pages). Flagged in docs/14-deviations.md; kept until he strikes it."
+  },
+  {
+    "file": "content/pages/creatives-and-pre-preneurs.md",
+    "rule": "banned: \"journey\"",
+    "contains": "**Programs and partnerships.**",
+    "why": "The founder's own words (2026-09-22 restructure: the same copy moved to the audience pages). Flagged in docs/14-deviations.md; kept until he strikes it."
+  },
+  {
+    "file": "content/pages/founders.md",
+    "rule": "banned: \"under one roof\"",
+    "contains": "under one roof",
+    "why": "The founder's own words (2026-09-22 restructure: the same copy moved to the audience pages). Flagged in docs/14-deviations.md; kept until he strikes it."
+  },
+  {
+    "file": "content/pages/founders.md",
+    "rule": "banned: \"one roof\"",
+    "contains": "under one roof",
+    "why": "The founder's own words (2026-09-22 restructure: the same copy moved to the audience pages). Flagged in docs/14-deviations.md; kept until he strikes it."
+  },
+  {
+    "file": "content/pages/founders.md",
+    "rule": "\"fractional/outsourced/part-time\" outside the intent pages",
+    "contains": "fractional executive services",
+    "why": "The founder's own words (2026-09-22 restructure: the same copy moved to the audience pages). Flagged in docs/14-deviations.md; kept until he strikes it."
+  },
+  {
+    "file": "content/pages/institutions.md",
+    "rule": "banned word: \"space\"",
+    "contains": "the space",
+    "why": "The founder's own words (2026-09-22 restructure: the same copy moved to the audience pages). Flagged in docs/14-deviations.md; kept until he strikes it."
+  },
+  {
+    "file": "content/pages/institutions.md",
+    "rule": "banned word: \"unlock\"",
+    "contains": "We want to work with instituti",
+    "why": "The founder's own words (2026-09-22 restructure: the same copy moved to the audience pages). Flagged in docs/14-deviations.md; kept until he strikes it."
+  },
+  {
+    "file": "content/pages/institutions.md",
+    "rule": "banned: \"journey\"",
+    "contains": "**Programs and partnerships.**",
+    "why": "The founder's own words (2026-09-22 restructure: the same copy moved to the audience pages). Flagged in docs/14-deviations.md; kept until he strikes it."
+  },
+  {
+    "file": "content/summaries.json",
+    "rule": "\"fractional/outsourced/part-time\" outside the intent pages",
+    "contains": "\"/fractional",
+    "why": "Route names, not copy."
+  },
+  {
+    "file": "content/summaries.json",
+    "rule": "\"fractional/outsourced/part-time\" outside the intent pages",
+    "contains": "\"/fractional",
+    "why": "Route names, not copy."
+  },
+  {
+    "file": "src/directions/b/PageB.tsx",
+    "rule": "banned word: \"scale\"",
+    "contains": "scale(1.9417)",
+    "why": "An SVG transform, not copy."
   }
 ]

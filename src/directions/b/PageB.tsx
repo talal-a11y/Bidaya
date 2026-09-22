@@ -13,9 +13,15 @@ import styles from "./b.module.css";
 import Typed from "./Typed";
 import MotionB from "./MotionB";
 
+// the mark's own path (brand/svg/bidaya-mark.svg) — never redrawn
+const MARK = "M260 530a240 240 0 1 0 480 0a240 240 0 1 0-480 0ZM300 455a200 200 0 1 0 400 0a200 200 0 1 0-400 0Z";
+export function Mark({ className }: { className?: string }) {
+  return <svg className={className} viewBox="0 0 1000 1000" aria-hidden="true"><path fill="currentColor" fillRule="evenodd" transform="translate(-470.8,-495.1) scale(1.9417)" d={MARK} /></svg>;
+}
+
 const toneClass: Record<string, string> = { tealDeep: styles.tealDeep, opsDeep: styles.opsDeep, plum: styles.plum, ink: styles.ink, aqua: styles.aqua };
 
-function BlockView({ b }: { b: Block }) {
+export function BlockView({ b }: { b: Block }) {
   switch (b.type) {
     case "h1": case "h2": return null;
     case "h3": return <h3><InlineNodes nodes={b.text} /></h3>;
@@ -44,7 +50,7 @@ function nameOf(p: Page) {
 }
 
 // the ring: arrows to the previous and next page, and the dropdown
-function Ring({ page }: { page: Page }) {
+export function Ring({ page }: { page: Page }) {
   const g = getGlobal();
   const pages = getPages();
   const ring = summaries.ring.pages.map((r) => pages.find((p) => p.route === r)!).filter(Boolean);
@@ -69,6 +75,7 @@ function Ring({ page }: { page: Page }) {
 }
 
 export default function PageB({ page }: { page: Page }) {
+  const g = getGlobal();
   const fn = functions.functions.find((f) => f.id === page.fn);
   const tone = fn ? (toneClass[fn.tone] ?? styles.ink) : styles.ink;
   const h1 = page.sections[0].blocks.find((b) => b.type === "h1");
@@ -79,7 +86,7 @@ export default function PageB({ page }: { page: Page }) {
       <Ring page={page} />
       <section className={`${styles.row} ${styles.intentHero}`}>
         <div className={`${styles.panel} ${styles.stone}`}>
-          <Typed text="Bidaya" delay={200} speed={90} className={`${styles.mono} ${styles.intentSmall}`} as="p" />
+          <Typed text={g.shortName} delay={200} speed={90} className={`${styles.mono} ${styles.intentSmall}`} as="p" />
           {fn ? (
             <>
               <div className={styles.intentMark} style={{ color: fn.color }} aria-hidden="true">

@@ -32,7 +32,7 @@
 .barNav ul { display: flex; gap: 26px; list-style: none; margin: 0; padding: 0; }
 .barNav a { color: var(--ink); text-decoration: none; font-size: 15px; padding-block: 8px; font-weight: 600; }
 .barNav a[aria-current="page"] { text-decoration: underline; text-underline-offset: 6px; }
-.barStart { background: var(--aqua); color: var(--paper); padding-inline: 32px; }
+.barStart { background: #237C85; color: var(--paper); padding-inline: 32px; } /* the hero panel's teal, so the bar and the panel read as one on landing */
 .barStart a { color: var(--paper); text-decoration: none; font-weight: 600; font-size: 15px; display: inline-flex; align-items: center; gap: 14px; min-block-size: 44px; }
 .barStart a::after { content: "→"; }
 .menuToggle { display: none; }
@@ -53,7 +53,7 @@
 .teal a, .aqua a, .plum a, .ink a { color: var(--paper); }
 
 /* type at screen scale */
-.word { font-size: 13.5vw; white-space: nowrap; line-height: 0.95; padding-block-end: 0.06em; font-weight: 500; letter-spacing: -0.045em; margin-inline-start: -0.06em; overflow: hidden; }
+.word { font-size: 6.4vw; white-space: nowrap; line-height: 0.95; padding-block-end: 0.06em; font-weight: 500; letter-spacing: -0.045em; margin-inline-start: -0.06em; overflow: hidden; }
 .word span { display: inline-block; }
 .h1 { font-size: clamp(30px, 4.2vw, 62px); line-height: 1.02; font-weight: 500; letter-spacing: -0.03em; max-inline-size: none; }
 .title { font-size: clamp(36px, 7vw, 120px); line-height: 0.92; font-weight: 500; letter-spacing: -0.04em; max-inline-size: none; }
@@ -147,7 +147,7 @@
   .four { min-block-size: 0; }
   .row > .panel:last-child { border-block-end: 0; }
   .panel { padding: 20px; border-inline-end: 0; border-block-end: var(--line); }
-  .word { font-size: 17vw; }
+  .word { font-size: 9.6vw; }
   .big { writing-mode: horizontal-tb; font-size: 12vw; margin: 0; }
   .storyText { columns: 1; }
   .readCols { grid-template-columns: 1fr; }
@@ -398,3 +398,13 @@ button.door { font: inherit; text-align: start; cursor: pointer; border-block: 0
   .cardFlip .cardTitlePanel { order: 1; text-align: start; align-items: flex-start; border-inline-start: 0; }
   .cardFlip .cardBody { order: 2; }
 }
+
+/* the divider between the Arabic and its meaning in the hero line */
+.pipe { display: inline-block; inline-size: 1px; block-size: 1.1em; background: currentColor; opacity: 0.55; margin-inline: 0.5em; vertical-align: -0.2em; overflow: hidden; color: transparent; }
+
+/* the three audiences on the home page */
+.three { grid-template-columns: repeat(3, 1fr); min-block-size: 60svh; }
+.three .panel { justify-content: flex-end; gap: 28px; }
+.bigH { font-size: clamp(30px, 3.6vw, 60px); line-height: 1; font-weight: 500; letter-spacing: -0.035em; margin-block-end: auto; }
+@media (max-width: 900px) { .three { grid-template-columns: 1fr; min-block-size: 0; } .three .panel { min-block-size: 0; border-inline-end: 0; border-block-end: var(--line); padding-block: 22px; } }
+.intentHero .lead { color: inherit; }

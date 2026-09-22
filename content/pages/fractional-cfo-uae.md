@@ -1,6 +1,6 @@
 ---
 route: /fractional-cfo-uae
-title: Fractional CFO in the UAE — Bidaya
+title: Fractional CFO in the UAE — Bidaya Consulting
 description: What a fractional CFO covers in a UAE business, what it costs against a full-time hire, and when you don't need one. Finance leadership on published terms.
 order: 10
 intent: Finance leadership

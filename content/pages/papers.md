@@ -1,6 +1,6 @@
 ---
 route: /papers
-title: Papers — Bidaya
+title: Papers — Bidaya Consulting
 description: Bidaya's published work on running a business in the UAE: reports with named sources, and notes on what changed and what to do by when.
 order: 6
 nav: Papers

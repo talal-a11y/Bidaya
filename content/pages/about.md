@@ -1,6 +1,6 @@
 ---
 route: /about
-title: About — Bidaya
+title: About — Bidaya Consulting
 description: Why Bidaya exists: the executive layer for businesses that don't have one yet, started with the creative sector in mind and built to outgrow its founder.
 order: 7
 nav: About

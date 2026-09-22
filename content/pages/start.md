@@ -1,6 +1,6 @@
 ---
 route: /start
-title: Start — Bidaya
+title: Start — Bidaya Consulting
 description: Start a conversation with Bidaya: tell us where the business stands and what shape of engagement you have in mind, and we'll come back with a time for the call.
 order: 8
 nav: Start
