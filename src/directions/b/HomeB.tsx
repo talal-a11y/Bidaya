@@ -10,8 +10,8 @@ import styles from "./b.module.css";
 import MotionB from "./MotionB";
 import Typed from "./Typed";
 import FunctionCard from "./FunctionCard";
-import { Chapters, ChapterButton, ChapterStrip, Door, Panel } from "./Chapter";
-import { slidesFor } from "./ChapterSlides";
+import { Chapters, ChapterButton, Door, Panel, SummaryPanel } from "./Chapter";
+import summaries from "../../../content/summaries.json";
 import FormStrip from "./FormStrip";
 import type { FormDef, Labels } from "./FormStrip";
 
@@ -46,21 +46,21 @@ const toneClass: Record<string, string> = { tealDeep: styles.tealDeep, opsDeep: 
 
 export default function HomeB({ page }: { page: Page }) {
   const g = getGlobal();
-  const [hero, four, band, line, terms, story, programs, start] = page.sections;
+  const [hero, four, terms, story, programs, start] = page.sections;
   const h1 = find(hero, "h1")!, tagline = find(hero, "tagline")!, lead = find(hero, "lead")!, heroBtns = find(hero, "buttons")!, aside = find(hero, "aside")!;
   const fourT = find(four, "h2")!, fourP = find(four, "p", 0)!, fourOut = find(four, "p", 1)!, fourBtn = find(four, "buttons")!;
-  const bandT = find(band, "h2")!, lineP = find(line, "p")!;
   const termsT = find(terms, "h2")!, termsP = find(terms, "p")!, termsItems = find(terms, "terms")!, termsBtns = terms.blocks.filter((b) => b.type === "buttons").flatMap((b) => (b.type === "buttons" ? b.buttons : []));
   const storyT = find(story, "h2")!, storyPs = story.blocks.filter((b) => b.type === "p");
-  const progT = find(programs, "h2")!, progSoon = find(programs, "h3")!, progPs = programs.blocks.filter((b) => b.type === "p"), progBtn = find(programs, "buttons")!;
+  const progT = find(programs, "h2")!, progPs = programs.blocks.filter((b) => b.type === "p"), progBtn = find(programs, "buttons")!;
   const startT = find(start, "h2")!, doors = find(start, "rows")!;
   const kinds = ["business", "partners", "talent", "general"] as const;
-  const close = g.fields.menuClose, prevLabel = g.fields.chapterPrev, nextLabel = g.fields.chapterNext;
-  const chapter = (route: string, tone: string) => {
-    const pg = getPageByRoute(route)!;
-    return { label: pg.nav ?? pg.title, slides: slidesFor(pg), tone, id: `chapter-${route.slice(1)}` };
+  const close = g.fields.menuClose;
+  const toneMap = { ...toneClass, aqua: styles.aqua };
+  const summary = (key: "what-we-do" | "about" | "programs") => {
+    const pg = getPageByRoute(`/${key}`)!;
+    return { id: `chapter-${key}`, label: pg.nav ?? pg.title, cards: summaries.panels[key].cards, learnMore: summaries.learnMore, tones: toneMap, closeLabel: close };
   };
-  const chWhat = chapter("/what-we-do", styles.ink), chHow = chapter("/how-we-work", styles.plum), chAbout = chapter("/about", styles.tealDeep), chProg = chapter("/programs", styles.aqua);
+  const chWhat = summary("what-we-do"), chAbout = summary("about"), chProg = summary("programs");
 
   return (
     <Chapters>
@@ -88,11 +88,12 @@ export default function HomeB({ page }: { page: Page }) {
         <div className={`${styles.panel} ${styles.stone}`} data-slide="right">
           <p className={styles.lead}><InlineNodes nodes={lead.text} /></p>
           <div className={styles.actions} style={{ marginInline: -28, marginBlockEnd: -28 }}>
-            <ChapterButton id={chAbout.id} openLabel={heroBtns.buttons[0].label} closeLabel={close} />
+            <ChapterButton id={chAbout.id} openLabel={heroBtns.buttons[0].label} closeLabel={close} fill={false} />
+            <Btn href={heroBtns.buttons[1].href} label={heroBtns.buttons[1].label} fill close={close} />
           </div>
         </div>
       </section>
-      <ChapterStrip {...chAbout} closeLabel={close} prevLabel={prevLabel} nextLabel={nextLabel} />
+      <SummaryPanel {...chAbout} />
 
       {/* 3 — One firm, four functions: four cards; each opens on hover with the mark, the long line and Learn more */}
       <section className={`${styles.row} ${styles.lineRow}`}>
@@ -124,20 +125,7 @@ export default function HomeB({ page }: { page: Page }) {
           </div>
         </div>
       </section>
-      <ChapterStrip {...chWhat} closeLabel={close} prevLabel={prevLabel} nextLabel={nextLabel} />
-
-      {/* 4 — A few steps ahead: teal, the title alone, the arcs drawn in on the right */}
-      <section className={`${styles.row} ${styles.band}`}>
-        <div className={`${styles.panel} ${styles.teal}`}>
-          <Arcs small />
-          <h2 className={styles.title} style={{ position: "relative" }} data-rise><InlineNodes nodes={bandT.text} /></h2>
-        </div>
-      </section>
-      <section className={`${styles.row} ${styles.lineRow}`}>
-        <div className={`${styles.panel} ${styles.stone}`}>
-          <p className={styles.lead}><InlineNodes nodes={lineP.text} /></p>
-        </div>
-      </section>
+      <SummaryPanel {...chWhat} />
 
       {/* 5 — How we work: three terms, three panels */}
       <section id="how-we-work" className={`${styles.row} ${styles.lineRow}`}>
@@ -157,13 +145,10 @@ export default function HomeB({ page }: { page: Page }) {
       <section className={`${styles.row} ${styles.lineRow}`}>
         <div className={`${styles.panel} ${styles.stone}`}>
           <div style={{ display: "flex", flexWrap: "wrap", gap: 12 }}>
-            {termsBtns.map((b, i) => b.href === "/how-we-work"
-              ? <ChapterButton key={i} id={chHow.id} openLabel={b.label} closeLabel={close} fill={false} />
-              : <Btn key={i} href={b.href} label={b.label} fill close={close} />)}
+            {termsBtns.map((b, i) => <Btn key={i} href={b.href} label={b.label} fill close={close} />)}
           </div>
         </div>
       </section>
-      <ChapterStrip {...chHow} closeLabel={close} prevLabel={prevLabel} nextLabel={nextLabel} />
 
       {/* 6 — Before it's big: the story */}
       <section id="about" className={`${styles.row} ${styles.story}`}>
@@ -180,7 +165,6 @@ export default function HomeB({ page }: { page: Page }) {
         <div className={`${styles.panel} ${styles.aqua}`} data-slide="left">
           <div>
             <h2 className={styles.titleHuge} data-rise><InlineNodes nodes={progT.text} /></h2>
-            <p className={styles.comingSoon} style={{ marginBlockStart: 20 }}><InlineNodes nodes={progSoon.text} /></p>
           </div>
           <div className={styles.stack}>{progPs.map((p, i) => p.type === "p" && <p key={i} className={styles.lead} style={{ maxInlineSize: "34ch" }}><InlineNodes nodes={p.text} /></p>)}</div>
         </div>
@@ -190,7 +174,7 @@ export default function HomeB({ page }: { page: Page }) {
           <div style={{ position: "relative" }}><ChapterButton id={chProg.id} openLabel={progBtn.buttons[0].label} closeLabel={close} /></div>
         </div>
       </section>
-      <ChapterStrip {...chProg} closeLabel={close} prevLabel={prevLabel} nextLabel={nextLabel} />
+      <SummaryPanel {...chProg} />
 
       {/* 8 — Start a conversation: four doors, each to its own form */}
       <section id="start" className={`${styles.row} ${styles.lineRow}`}>

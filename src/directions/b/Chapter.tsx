@@ -137,3 +137,32 @@ export function Panel({ id, label, children }: { id: string; label: string; chil
     </section>
   );
 }
+
+// A summary panel: opens beneath its row with three brief cards — who it is for, a line
+// or two, Learn more to the full page — rising in one after another.
+export function SummaryPanel({ id, label, closeLabel, learnMore, cards, tones }: { id: string; label: string; closeLabel: string; learnMore: string; cards: { for: string; brief: string; href: string; tone: string }[]; tones: Record<string, string> }) {
+  const { open, toggle } = useContext(ChapterContext);
+  const isOpen = !!open[id];
+  return (
+    <section id={id} className={styles.chapterShell} data-open={isOpen || undefined} aria-hidden={!isOpen} inert={!isOpen} aria-label={label}>
+      <div className={styles.chapterInner}>
+        <div className={styles.chapterHead}>
+          <span className={styles.mono}>[ {label} ]</span>
+          <span />
+          <span className={styles.chapterNav}><button type="button" className={styles.chapterBtn} onClick={() => toggle(id)}>{closeLabel}</button></span>
+        </div>
+        <div className={styles.summary}>
+          {cards.map((c, i) => (
+            <div key={i} className={`${styles.mini} ${tones[c.tone] ?? styles.ink}`} style={{ animationDelay: `${180 + i * 140}ms` }}>
+              <div className={styles.miniBody}>
+                <h3 className={styles.miniFor}>{c.for}</h3>
+                <p>{c.brief}</p>
+              </div>
+              <a href={c.href} className={`${styles.action} ${styles.miniCta}`}>{learnMore}</a>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import AnchorLink from "./AnchorLink";
 import { getGlobal, getNav } from "@/lib/content";
 
 // While the site is this one page, the navigation goes to its sections (founder, 2026-09-21).
@@ -12,7 +13,7 @@ export default function FooterB() {
       <div className={styles.footMark}><img src="/brand/svg/bidaya-mark-construction.svg" alt="" width="1000" height="1000" /></div>
       <div>
         <ul className={`${styles.footLinks} ${styles.mono}`} style={{ fontSize: 14 }}>
-          {getNav().map((n) => <li key={n.href}><Link href={anchor(n.href)}>{n.label}</Link></li>)}
+          {getNav().map((n) => <li key={n.href}><AnchorLink href={anchor(n.href)}>{n.label}</AnchorLink></li>)}
         </ul>
       </div>
       <div className={`${styles.mono} ${styles.footLines}`}>

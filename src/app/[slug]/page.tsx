@@ -3,7 +3,7 @@ import Link from "next/link";
 import { getGlobal, getNotes, getPageByRoute, getPages, getReports } from "@/lib/content";
 import { pageMetadata } from "@/lib/meta";
 import PageShell from "@/components/PageShell";
-import IntentB from "@/directions/b/IntentB";
+import PageB from "@/directions/b/PageB";
 import HeaderB from "@/directions/b/HeaderB";
 import FooterB from "@/directions/b/FooterB";
 import Schema from "@/components/Schema";
@@ -53,12 +53,12 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
   const { slug } = await params;
   const page = getPageByRoute(`/${slug}`);
   if (!page) notFound();
-  if (page.fn) {
+  if (page.route !== "/start" && !page.hidden) {
     return (
       <>
         <Schema page={page} />
         <HeaderB current={page.route} />
-        <main id="main" tabIndex={-1}><IntentB page={page} /></main>
+        <main id="main" tabIndex={-1}><PageB page={page} /></main>
         <FooterB />
       </>
     );

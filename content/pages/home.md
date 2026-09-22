@@ -16,6 +16,7 @@ order: 1
 @note [proposed] the hero's "See where you stand" button is cut — founder 2026-09-21: the read now closes the page with its own call.
 @note the hero's button opens the About chapter — founder 2026-09-21: "instead of How we work at the start it should be About".
 @ghost About -> /about
+@cta Enquire for your business -> #form-business
 
 @aside بداية means beginning. A business is decided at its start.
 
@@ -44,16 +45,7 @@ Where a need falls outside these four, we bring in the right people and run it f
 
 @ghost What we do -> /what-we-do
 
----
-
-@band teal
-@note the band carries the title alone. The line beneath sits on stone.
-
-## A few steps ahead
-
----
-
-The next filing, the next hire, the next requirement, surfaced before anyone has to ask. It is the standard the firm holds itself to.
+@note "A few steps ahead" and its line removed — founder 2026-09-22.
 
 ---
 
@@ -74,25 +66,19 @@ Terms a firm that couldn't deliver would never publish.
 **Discovery first, in writing.** If the business doesn't need us monthly, we say so in writing. Our 30 minute discovery call is free, and will provide you with recommendations on where to take your business first.
 @end
 
-@cta Enquire for your business -> #form-business
+@note the "How we work" button replaced by the enquiry — founder 2026-09-22.
 
-@ghost How we work -> /how-we-work
+@cta Enquire for your business -> #form-business
 
 ---
 
-## Before it's big, run it like it is.
+## Beyond the executive layer
 
-@note the right side replaced in the founder's words, 2026-09-22.
+@note [proposed] title and the short version, from the founder's paragraph, 2026-09-22 — his to confirm. His full paragraph is on the About page ("Why Bidaya exists").
 
-Two sentences reach us more than any others.
+One thing, three audiences: the executive layer for businesses too small to have one yet.
 
-*"I have an amazing business idea and no clue where to begin."* And, from people further along: *"This is harder than I thought and is too big to handle on my own."*
-
-Bidaya was born to solve these two problems.
-
-@note the deck's "About" button here is cut — no button is repeated (founder 2026-09-21); About opens from the hero.
-
-@note the Where you stand section is removed — founder 2026-09-22: "remove the where you stand part and CTAs for now from everywhere on the site". The tool is built after launch.
+For startups and SMEs, an executive function built into the business so it runs more easily. For youth and the creative sector, programs that build and grow businesses with the right tools. For established founders and independent professionals, meaningful work with businesses at an earlier stage.
 
 ---
 
@@ -101,7 +87,7 @@ Bidaya was born to solve these two problems.
 
 ## Programs
 
-### Coming soon
+@note "Coming soon" removed — founder 2026-09-22.
 
 For creatives, small businesses and people starting out. We work with cultural and educational institutions to take care of the business side for young entrepreneurs and practitioners in the creative sectors.
 

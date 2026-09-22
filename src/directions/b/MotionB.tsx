@@ -15,6 +15,7 @@ export default function MotionB() {
     const idle = (window as Window & { requestIdleCallback?: (cb: () => void) => number }).requestIdleCallback ?? ((cb: () => void) => window.setTimeout(cb, 600));
     idle(() => {
       lenis = new Lenis({ lerp: 0.11, smoothWheel: true });
+      (window as Window & { __lenis?: Lenis }).__lenis = lenis;
       lenis.on("scroll", ScrollTrigger.update);
       gsap.ticker.add(tick);
       gsap.ticker.lagSmoothing(0);

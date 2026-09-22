@@ -346,3 +346,49 @@ button.door { font: inherit; text-align: start; cursor: pointer; border-block: 0
   .askHead { padding: 14px 20px; }
   .contactCol { grid-template-columns: 1fr; }
 }
+
+/* ---- summary panels: three brief cards rising in ---- */
+.summary { display: grid; grid-template-columns: repeat(3, 1fr); }
+.mini { display: flex; flex-direction: column; justify-content: space-between; gap: 28px; min-block-size: 44svh; padding: 28px; border-inline-end: var(--line); opacity: 0; transform: translateY(28px); }
+.mini:last-child { border-inline-end: 0; }
+.chapterShell[data-open] .mini { animation: slideIn 620ms var(--ease-standard) both; }
+.miniBody { display: grid; gap: 14px; }
+.miniFor { font-size: clamp(22px, 2vw, 32px); line-height: 1.08; font-weight: 500; letter-spacing: -0.025em; max-inline-size: none; }
+.mini p { font-size: clamp(15px, 1.1vw, 18px); line-height: 1.45; }
+.miniCta { color: var(--paper); border-color: var(--paper); align-self: flex-start; }
+.miniCta::before { background: var(--paper); }
+.miniCta:hover { color: var(--ink); }
+@media (prefers-reduced-motion: reduce) { .mini { opacity: 1; transform: none; } .chapterShell[data-open] .mini { animation: none; } }
+@media (max-width: 900px) { .summary { grid-template-columns: 1fr; } .mini { min-block-size: 0; border-inline-end: 0; border-block-end: var(--line); padding: 20px; } }
+
+/* ---- the ring bar on learn-more pages ---- */
+.ring { display: grid; grid-template-columns: 1fr auto 1fr; border-block-end: var(--line); background: var(--paper); }
+.ringArrow { display: flex; align-items: center; gap: 16px; padding: 14px 28px; text-decoration: none; color: var(--ink); font-weight: 600; font-size: 15px; line-height: 1.25; border-inline-end: var(--line); transition: background-color 220ms var(--ease-standard), color 220ms var(--ease-standard); }
+.ringArrow:hover { background: var(--ink); color: var(--paper); }
+.ringNext { justify-content: flex-end; text-align: end; border-inline-end: 0; border-inline-start: var(--line); }
+.ringGlyph { font-size: 28px; }
+.ringMenu { position: relative; }
+.ringMenu summary { list-style: none; cursor: pointer; display: flex; align-items: center; gap: 8px; min-block-size: 100%; padding: 14px 28px; font-weight: 600; font-size: 15px; }
+.ringMenu summary::-webkit-details-marker { display: none; }
+.ringMenu ul { position: absolute; inset-inline-start: 0; inset-block-start: 100%; z-index: 30; min-inline-size: 280px; list-style: none; margin: 0; padding: 8px 0; background: var(--paper); border: var(--line); }
+.ringMenu li a { display: block; padding: 12px 20px; color: var(--ink); text-decoration: none; }
+.ringMenu li a:hover, .ringMenu li a[aria-current="page"] { background: var(--ink); color: var(--paper); }
+
+/* ---- learn-more pages: stacked cards, the title left then right, three title sizes ---- */
+.card { grid-template-columns: 0.8fr 1.5fr; }
+.cardFlip { grid-template-columns: 1.5fr 0.8fr; }
+.cardFlip .cardTitlePanel { order: 2; text-align: end; align-items: flex-end; border-inline-end: 0; border-inline-start: var(--line); }
+.cardFlip .cardBody { order: 1; border-inline-end: 0; }
+.cardTitlePanel { display: flex; flex-direction: column; justify-content: flex-start; }
+.cardTitle { line-height: 1; font-weight: 500; letter-spacing: -0.035em; max-inline-size: none; }
+.cardTitleL { font-size: clamp(34px, 5vw, 84px); }
+.cardTitleM { font-size: clamp(28px, 3.4vw, 54px); }
+.cardTitleS { font-size: clamp(22px, 2.2vw, 34px); font-family: var(--b-mono); letter-spacing: -0.01em; }
+@media (max-width: 900px) {
+  .ring { grid-template-columns: 1fr 1fr; }
+  .ringMenu { grid-column: 1 / -1; order: 3; border-block-start: var(--line); }
+  .ringArrow { padding: 12px 20px; font-size: 14px; }
+  .cardFlip { grid-template-columns: 1fr; }
+  .cardFlip .cardTitlePanel { order: 1; text-align: start; align-items: flex-start; border-inline-start: 0; }
+  .cardFlip .cardBody { order: 2; }
+}

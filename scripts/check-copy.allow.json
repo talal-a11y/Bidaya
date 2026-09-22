@@ -88,5 +88,11 @@
     "rule": "banned word: \"scale\"",
     "contains": "scale(1.9417)",
     "why": "An SVG transform, not copy."
+  },
+  {
+    "file": "content/summaries.json",
+    "rule": "\"fractional/outsourced/part-time\" outside the intent pages",
+    "contains": "\"pages\": [",
+    "why": "Route names, not copy."
   }
 ]
