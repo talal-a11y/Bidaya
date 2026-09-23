@@ -1,0 +1,106 @@
+/* Explorations for "We focus on" and "We consult for" — branch build/03b-explorations. Each block
+   is self-contained; the site's tokens, faces and lines; motion is transform and opacity only. */
+.wrap { font-family: "Geist", system-ui, sans-serif; color: var(--ink); }
+.mono { font-family: "Geist Mono", ui-monospace, monospace; font-size: 13px; }
+.label { padding: 14px 28px; border-block: 1px solid var(--ink); background: var(--paper); display: flex; justify-content: space-between; align-items: center; }
+.label strong { font-weight: 600; }
+.block { border-block-end: 1px solid var(--ink); }
+.ink { background: var(--ink); color: var(--paper); }
+.plum { background: var(--plum); color: var(--paper); }
+.aqua { background: var(--aqua); color: var(--paper); }
+.teal { background: #237C85; color: var(--paper); }
+.ops { background: #0A5C66; color: var(--paper); }
+.stone { background: var(--stone); }
+.paper { background: var(--paper); }
+.arcs { fill: none; stroke: currentColor; stroke-width: 6; }
+.go { display: inline-flex; align-items: center; gap: 14px; min-block-size: 48px; padding: 0 18px; border: 1px solid currentColor; text-decoration: none; color: inherit; font-weight: 600; font-size: 14px; }
+.go::after { content: "→"; }
+.line { font-size: clamp(16px, 1.25vw, 20px); line-height: 1.45; max-inline-size: 48ch; }
+
+/* ---- F1: list and stage — the founder's own idea: titles on the left, the line slides in on the right */
+.f1 { display: grid; grid-template-columns: 1fr 1.2fr; min-block-size: 70svh; }
+.f1 ul { list-style: none; margin: 0; padding: 0; display: grid; }
+.f1 li a { display: flex; justify-content: space-between; align-items: center; padding: 18px 28px; border-block-end: 1px solid var(--soft); color: var(--ink); text-decoration: none; font-size: clamp(22px, 2.2vw, 34px); font-weight: 500; letter-spacing: -0.025em; transition: padding-inline-start 320ms var(--ease-standard), background-color 320ms var(--ease-standard), color 320ms var(--ease-standard); }
+.f1 li a::after { content: "→"; opacity: 0; transform: translateX(-10px); transition: opacity 260ms, transform 320ms var(--ease-standard); }
+.f1 li a:hover, .f1 li a[data-on] { padding-inline-start: 44px; background: var(--ink); color: var(--paper); }
+.f1 li a:hover::after, .f1 li a[data-on]::after { opacity: 1; transform: none; }
+.f1Stage { position: relative; overflow: hidden; border-inline-start: 1px solid var(--ink); }
+.f1Card { position: absolute; inset: 0; padding: 36px; display: flex; flex-direction: column; justify-content: space-between; opacity: 0; transform: translateX(40px); transition: opacity 360ms var(--ease-standard), transform 480ms var(--ease-standard); }
+.f1Card[data-on] { opacity: 1; transform: none; }
+.f1Card h3 { font-size: clamp(30px, 3.4vw, 54px); font-weight: 500; letter-spacing: -0.03em; line-height: 1; max-inline-size: none; }
+.f1Card svg { position: absolute; inset-inline-end: -20%; inset-block-start: -10%; inline-size: 70%; opacity: 0.35; }
+
+/* ---- F2: expanding columns — seven strips, the hovered one opens */
+.f2 { display: flex; min-block-size: 62svh; }
+.f2 a { flex: 1 1 0; display: flex; flex-direction: column; justify-content: space-between; padding: 24px; border-inline-end: 1px solid var(--ink); text-decoration: none; color: inherit; overflow: hidden; transition: flex-grow 520ms var(--ease-standard); position: relative; }
+.f2 a:last-child { border-inline-end: 0; }
+.f2 a:hover, .f2 a[data-on] { flex-grow: 3.6; }
+.f2Title { writing-mode: vertical-rl; transform: rotate(180deg); font-size: clamp(22px, 2vw, 32px); font-weight: 500; letter-spacing: -0.02em; white-space: nowrap; transition: transform 520ms var(--ease-standard), writing-mode 0s 520ms; }
+.f2 a:hover .f2Title, .f2 a[data-on] .f2Title { writing-mode: horizontal-tb; transform: none; }
+.f2Body { opacity: 0; transform: translateY(16px); transition: opacity 360ms var(--ease-standard) 200ms, transform 420ms var(--ease-standard) 200ms; display: grid; gap: 16px; }
+.f2 a:hover .f2Body, .f2 a[data-on] .f2Body { opacity: 1; transform: none; }
+
+/* ---- F3: the ring — seven around the outlined mark; the hovered one speaks from the centre */
+.f3 { position: relative; min-block-size: 78svh; display: grid; place-items: center; overflow: hidden; }
+.f3Mark { position: absolute; inline-size: min(52vw, 560px); opacity: 0.9; }
+.f3Centre { position: relative; z-index: 2; inline-size: min(34vw, 380px); text-align: center; display: grid; gap: 14px; justify-items: center; }
+.f3Centre h3 { font-size: clamp(24px, 2.4vw, 38px); font-weight: 500; letter-spacing: -0.03em; line-height: 1; max-inline-size: none; transition: opacity 300ms; }
+.f3Centre p { font-size: 15px; line-height: 1.45; }
+.f3 ul { list-style: none; margin: 0; padding: 0; position: absolute; inset: 0; }
+.f3 li { position: absolute; transform: translate(-50%, -50%); }
+.f3 li a { display: inline-block; padding: 10px 16px; border: 1px solid var(--ink); background: var(--stone); color: var(--ink); text-decoration: none; font-weight: 600; font-size: 14px; white-space: nowrap; transition: background-color 260ms, color 260ms, transform 320ms var(--ease-standard); }
+.f3 li a:hover, .f3 li a[data-on] { background: var(--ink); color: var(--paper); transform: scale(1.06); }
+
+/* ---- F4: rows that open — full-width rows, the hovered one grows and its colour sweeps in */
+.f4 a { display: grid; grid-template-columns: 1.2fr 2fr auto; align-items: start; gap: 40px; padding: 22px 28px; border-block-end: 1px solid var(--ink); text-decoration: none; color: var(--ink); position: relative; z-index: 0; overflow: hidden; transition: color 300ms var(--ease-standard); }
+.f4 a::before { content: ""; position: absolute; inset: 0; z-index: -1; background: var(--ink); transform: translateX(-100%); transition: transform 460ms var(--ease-standard); }
+.f4 a:hover, .f4 a[data-on] { color: var(--paper); }
+.f4 a:hover::before, .f4 a[data-on]::before { transform: none; }
+.f4 h3 { font-size: clamp(22px, 2.2vw, 34px); font-weight: 500; letter-spacing: -0.025em; line-height: 1.05; max-inline-size: none; }
+.f4Line { max-block-size: 0; opacity: 0; overflow: hidden; transition: max-block-size 480ms var(--ease-standard), opacity 360ms var(--ease-standard) 120ms; }
+.f4 a:hover .f4Line, .f4 a[data-on] .f4Line { max-block-size: 200px; opacity: 1; }
+.f4 .arrow { font-size: 28px; transition: transform 320ms var(--ease-standard); }
+.f4 a:hover .arrow, .f4 a[data-on] .arrow { transform: translateX(8px); }
+
+/* ---- C2: big names — the three stacked large; the whole panel takes the audience's colour */
+.c2 { display: grid; grid-template-columns: 1fr 1fr; min-block-size: 70svh; transition: background-color 520ms var(--ease-standard), color 520ms var(--ease-standard); }
+.c2 ul { list-style: none; margin: 0; padding: 28px; display: grid; align-content: center; gap: 6px; }
+.c2 li a { display: block; font-size: clamp(34px, 5vw, 84px); line-height: 1; font-weight: 500; letter-spacing: -0.04em; color: inherit; text-decoration: none; opacity: 0.45; transition: opacity 300ms, transform 420ms var(--ease-standard); }
+.c2 li a:hover, .c2 li a[data-on] { opacity: 1; transform: translateX(18px); }
+.c2Stage { position: relative; padding: 36px; border-inline-start: 1px solid currentColor; display: flex; flex-direction: column; justify-content: space-between; overflow: hidden; }
+.c2Stage svg { position: absolute; inset-inline-end: -25%; inset-block-end: -25%; inline-size: 80%; opacity: 0.3; }
+.c2Text { position: relative; display: grid; gap: 18px; opacity: 0; transform: translateY(16px); transition: opacity 360ms var(--ease-standard) 120ms, transform 460ms var(--ease-standard) 120ms; }
+.c2Text[data-on] { opacity: 1; transform: none; }
+
+/* ---- C3: tabs and a typed line — three tabs; the chosen one types its line as the mark draws in */
+.c3 { display: grid; grid-template-rows: auto 1fr; min-block-size: 64svh; }
+.c3Tabs { display: grid; grid-template-columns: repeat(3, 1fr); border-block-end: 1px solid var(--ink); }
+.c3Tabs button { font: inherit; font-weight: 600; font-size: clamp(18px, 1.8vw, 26px); letter-spacing: -0.02em; padding: 22px; border: 0; border-inline-end: 1px solid var(--ink); background: var(--stone); color: var(--ink); cursor: pointer; transition: background-color 300ms, color 300ms; }
+.c3Tabs button:last-child { border-inline-end: 0; }
+.c3Tabs button[aria-selected="true"] { color: var(--paper); }
+.c3Stage { display: grid; grid-template-columns: 1fr 1.3fr; transition: background-color 520ms var(--ease-standard), color 520ms var(--ease-standard); }
+.c3Stage > div { padding: 36px; display: flex; flex-direction: column; justify-content: space-between; }
+.c3Stage svg { inline-size: clamp(120px, 14vw, 200px); }
+.c3Typed { font-size: clamp(22px, 2.2vw, 34px); line-height: 1.3; letter-spacing: -0.02em; font-weight: 400; min-block-size: 5em; }
+.caret { display: inline-block; inline-size: 0.08em; block-size: 0.9em; margin-inline-start: 0.06em; background: currentColor; vertical-align: -0.1em; animation: blink 900ms steps(2) infinite; }
+@keyframes blink { 50% { opacity: 0; } }
+
+/* ---- C4: the diagonal accordion — three panels with slanted edges, the hovered one widens */
+.c4 { display: flex; min-block-size: 68svh; overflow: hidden; }
+.c4 a { flex: 1 1 0; position: relative; display: flex; flex-direction: column; justify-content: flex-end; padding: 32px 44px; text-decoration: none; color: var(--paper); clip-path: polygon(0 0, 100% 0, calc(100% - 60px) 100%, 0 100%); margin-inline-end: -60px; transition: flex-grow 560ms var(--ease-standard); }
+.c4 a:last-child { clip-path: none; margin-inline-end: 0; }
+.c4 a:hover, .c4 a[data-on] { flex-grow: 2.4; }
+.c4Word { font-size: clamp(30px, 4vw, 64px); line-height: 1; font-weight: 500; letter-spacing: -0.035em; max-inline-size: none; }
+.c4Body { max-block-size: 0; opacity: 0; overflow: hidden; transition: max-block-size 520ms var(--ease-standard), opacity 360ms var(--ease-standard) 160ms; display: grid; gap: 16px; }
+.c4 a:hover .c4Body, .c4 a[data-on] .c4Body { max-block-size: 320px; opacity: 1; margin-block-start: 18px; }
+
+@media (max-width: 900px) {
+  .f1, .c2, .c3Stage { grid-template-columns: 1fr; }
+  .f2, .c4 { flex-direction: column; }
+  .f2Title { writing-mode: horizontal-tb; transform: none; }
+  .c4 a { clip-path: none; margin: 0; }
+  .f3 { min-block-size: auto; padding: 24px 0; }
+  .f3 ul { position: static; display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; padding: 16px; }
+  .f3 li { position: static; transform: none; }
+  .f3Mark { display: none; }
+}
