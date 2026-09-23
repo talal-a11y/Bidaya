@@ -148,8 +148,8 @@ export function C2() {
     const el = list.current; if (!el) return;
     const fit = () => {
       const spans = Array.from(el.querySelectorAll("span"));
+      const avail = el.clientWidth - 2 * 28 - 18; // read before the names are enlarged
       spans.forEach((sp) => { sp.style.fontSize = "100px"; sp.style.whiteSpace = "nowrap"; });
-      const avail = el.clientWidth - 2 * 28 - 18;
       const widest = Math.max(...spans.map((sp) => sp.offsetWidth));
       const size = Math.max(22, Math.floor((100 * avail) / widest));
       spans.forEach((sp) => { sp.style.fontSize = `${size}px`; sp.style.whiteSpace = ""; });

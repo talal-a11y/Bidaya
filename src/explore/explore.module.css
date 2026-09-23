@@ -63,8 +63,8 @@
 .f4 a:hover .arrow, .f4 a[data-on] .arrow { transform: translateX(8px); }
 
 /* ---- C2: big names — the three stacked large; the whole panel takes the audience's colour */
-.c2 { display: grid; grid-template-columns: 1fr 1fr; min-block-size: 70svh; transition: background-color 520ms var(--ease-standard), color 520ms var(--ease-standard); }
-.c2 ul { list-style: none; margin: 0; padding: 28px; display: grid; align-content: space-evenly; }
+.c2 { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); min-block-size: 70svh; transition: background-color 520ms var(--ease-standard), color 520ms var(--ease-standard); }
+.c2 ul { list-style: none; margin: 0; padding: 28px; display: grid; align-content: space-evenly; min-inline-size: 0; overflow: hidden; }
 .c2 li a { display: block; white-space: nowrap; font-size: clamp(26px, 3.1vw, 50px); line-height: 1; font-weight: 500; letter-spacing: -0.04em; color: inherit; text-decoration: none; opacity: 0.45; transition: opacity 300ms, transform 420ms var(--ease-standard); }
 .c2 li a:hover, .c2 li a[data-on] { opacity: 1; transform: translateX(18px); }
 .c2Stage { position: relative; padding: 36px; border-inline-start: 1px solid currentColor; display: flex; flex-direction: column; justify-content: space-between; overflow: hidden; }
@@ -132,7 +132,7 @@
   .c2 li a { white-space: nowrap; }
   .f5Title { writing-mode: horizontal-tb; transform: none; white-space: normal; }
   .f5 a:hover .f5Title, .f5 a[data-on] .f5Title { font-size: clamp(24px, 6vw, 32px); }
-  .f1, .c2, .c3Stage { grid-template-columns: 1fr; }
+  .f1, .c2, .c3Stage { grid-template-columns: minmax(0, 1fr); }
   .f2, .c4 { flex-direction: column; }
   .f2Title { writing-mode: horizontal-tb; transform: none; }
   .c4 a { clip-path: none; margin: 0; }
