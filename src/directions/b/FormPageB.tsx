@@ -9,7 +9,7 @@ import MotionB from "./MotionB";
 import Typed from "./Typed";
 import { Chapters, Panel } from "./Chapter";
 import FormStrip from "./FormStrip";
-import type { FormDef, Labels, Routing } from "./FormStrip";
+import type { Field, FormDef, Labels, Routing } from "./FormStrip";
 import WriteForm from "./WriteForm";
 import { Ring } from "./PageB";
 
@@ -33,10 +33,10 @@ export default function FormPageB({ page }: { page: Page }) {
       </section>
       {page.form === "talent" ? (
         <Panel id="form-talent" label={forms.forms.talent.title}>
-          <FormStrip id="form-talent" forms={{ talent: forms.forms.talent as FormDef }} routing={{ id: "who", label: "", type: "choice", options: [], sentence: [] } as Routing} title={forms.forms.talent.title} labels={labels} consent={forms.consent} consentNote={forms.consentNote} notWired={g.fields.formNotWired} closeLabel={g.fields.menuClose} startWith="talent" />
+          <FormStrip id="form-talent" forms={{ talent: forms.forms.talent as FormDef }} routing={{ id: "who", label: "", type: "choice", options: [], sentence: [] } as Routing} title={forms.forms.talent.title} labels={labels} consent={forms.consent} consentNote={forms.consentNote} privacy={forms.privacy} mail={forms.mail} closeLabel={g.fields.menuClose} startWith="talent" />
         </Panel>
       ) : (
-        <WriteForm fields={forms.write.fields as { label: string; type: "text" | "tel" | "email" }[]} box={forms.write.box} email={forms.write.email} labels={labels} consent={forms.consent} consentNote={forms.consentNote} notWired={g.fields.formNotWired} />
+        <WriteForm fields={forms.write.fields as Field[]} box={forms.write.box} title={forms.write.title} labels={labels} consentNote={forms.consentNote} privacy={forms.privacy} mail={forms.mail} />
       )}
       <Ring page={page} />
     </div>

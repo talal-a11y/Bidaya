@@ -3,7 +3,7 @@
 // beside the current cards (C1). Hover or focus opens; a click goes to the page. Each variant
 // is one block; the words are content/focus.json and content/audiences.json, unchanged.
 import Link from "next/link";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import focus from "../../content/focus.json";
 import audiences from "../../content/audiences.json";
 import s from "./explore.module.css";
@@ -95,21 +95,42 @@ export function F4() {
   );
 }
 
-// F5: the seven as a diagonal accordion (the founder's pick, from C4): each panel in its division's
-// colour; the hovered one widens, lays its title flat and opens its line. Earlier panels sit above
-// later ones so the slanted edge shows.
-export function F5() {
-  const [on, setOn] = useState(0);
-  const tap = useTap(setOn);
-  const n = focus.items.length;
+// F6, the founder's idea: seven squares in a row; the hovered one takes over most of the row
+// and the rest slide aside as narrow strips; everything fits inside the row's height.
+export function F6() {
+  const [on, setOn] = useState<number | null>(null);
+  const tap = useTap((i) => setOn(i));
   return (
-    <div className={s.f5}>
+    <div className={s.f6} data-open={on !== null || undefined}>
       {focus.items.map((f, i) => (
-        <Link key={f.id} href={f.href} className={toneOf(f)} style={{ zIndex: n - i }} data-on={on === i || undefined} onMouseEnter={() => setOn(i)} onFocus={() => setOn(i)} onClick={tap(i)}>
-          <span className={s.f5Title}>{f.title}</span>
-          <div className={s.f5Body}><p className={s.line}>{f.line}</p><span className={s.go}>{focus.learnMore}</span></div>
+        <Link key={f.id} href={f.href} className={`${s.f6Tile} ${toneOf(f)}`} data-on={on === i || undefined} onMouseEnter={() => setOn(i)} onMouseLeave={() => setOn(null)} onFocus={() => setOn(i)} onClick={tap(i)}>
+          <span className={s.f6Title}>{f.title}</span>
+          <div className={s.f6Body}><p className={s.line}>{f.line}</p><span className={s.go}>{focus.learnMore}</span></div>
         </Link>
       ))}
+    </div>
+  );
+}
+
+// F7, Claude Code's take: the seven squares stay put; the stage beneath them takes the hovered
+// one's colour and speaks its line — nothing shifts, every line fits, the row reads as a set.
+export function F7() {
+  const [on, setOn] = useState(0);
+  const tap = useTap(setOn);
+  const f = focus.items[on];
+  return (
+    <div className={`${s.f7} ${toneOf(f)}`}>
+      <ul className={s.f7Row}>
+        {focus.items.map((x, i) => <li key={x.id}><Link href={x.href} className={toneOf(x)} data-on={on === i || undefined} onMouseEnter={() => setOn(i)} onFocus={() => setOn(i)} onClick={tap(i)}>{x.title}</Link></li>)}
+      </ul>
+      <div className={s.f7Stage}>
+        <Mark />
+        <div key={f.id} className={s.f7Text}>
+          <h3>{f.title}</h3>
+          <p className={s.line}>{f.line}</p>
+          <Link href={f.href} className={s.go}>{focus.learnMore}</Link>
+        </div>
+      </div>
     </div>
   );
 }
@@ -120,9 +141,26 @@ export function C2() {
   const [on, setOn] = useState(0);
   const tap = useTap(setOn);
   const a = audiences.audiences[on];
+  const list = useRef<HTMLUListElement>(null);
+  // the names as big as the column allows, each on one line (founder, 2026-09-23): measure the
+  // widest at a known size and scale all three to fit the column less its padding and the shift
+  useLayoutEffect(() => {
+    const el = list.current; if (!el) return;
+    const fit = () => {
+      const spans = Array.from(el.querySelectorAll("span"));
+      spans.forEach((sp) => { sp.style.fontSize = "100px"; sp.style.whiteSpace = "nowrap"; });
+      const avail = el.clientWidth - 2 * 28 - 18;
+      const widest = Math.max(...spans.map((sp) => sp.offsetWidth));
+      const size = Math.max(22, Math.floor((100 * avail) / widest));
+      spans.forEach((sp) => { sp.style.fontSize = `${size}px`; sp.style.whiteSpace = ""; });
+    };
+    fit();
+    window.addEventListener("resize", fit);
+    return () => window.removeEventListener("resize", fit);
+  }, []);
   return (
     <div className={`${s.c2} ${aTone[a.tone]}`}>
-      <ul>{audiences.audiences.map((x, i) => <li key={x.id}><Link href={x.href} data-on={on === i || undefined} onMouseEnter={() => setOn(i)} onFocus={() => setOn(i)} onClick={tap(i)}>{x.word}</Link></li>)}</ul>
+      <ul ref={list}>{audiences.audiences.map((x, i) => <li key={x.id}><Link href={x.href} data-on={on === i || undefined} onMouseEnter={() => setOn(i)} onFocus={() => setOn(i)} onClick={tap(i)}><span>{x.word}</span></Link></li>)}</ul>
       <div className={s.c2Stage}>
         <Mark />
         {audiences.audiences.map((x, i) => on === i && (

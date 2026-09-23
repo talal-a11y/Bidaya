@@ -64,7 +64,7 @@
 
 /* ---- C2: big names — the three stacked large; the whole panel takes the audience's colour */
 .c2 { display: grid; grid-template-columns: 1fr 1fr; min-block-size: 70svh; transition: background-color 520ms var(--ease-standard), color 520ms var(--ease-standard); }
-.c2 ul { list-style: none; margin: 0; padding: 28px; display: grid; align-content: center; gap: 6px; }
+.c2 ul { list-style: none; margin: 0; padding: 28px; display: grid; align-content: space-evenly; }
 .c2 li a { display: block; white-space: nowrap; font-size: clamp(26px, 3.1vw, 50px); line-height: 1; font-weight: 500; letter-spacing: -0.04em; color: inherit; text-decoration: none; opacity: 0.45; transition: opacity 300ms, transform 420ms var(--ease-standard); }
 .c2 li a:hover, .c2 li a[data-on] { opacity: 1; transform: translateX(18px); }
 .c2Stage { position: relative; padding: 36px; border-inline-start: 1px solid currentColor; display: flex; flex-direction: column; justify-content: space-between; overflow: hidden; }
@@ -96,23 +96,40 @@
 .c4Body { max-block-size: 0; opacity: 0; overflow: hidden; transition: max-block-size 520ms var(--ease-standard), opacity 360ms var(--ease-standard) 160ms; display: grid; gap: 16px; }
 .c4 a:hover .c4Body, .c4 a[data-on] .c4Body { max-block-size: 320px; opacity: 1; margin-block-start: 18px; }
 
-/* ---- F5: the seven as a diagonal accordion — each panel its division's colour; the hovered one widens */
-.f5 { display: flex; min-block-size: 66svh; overflow: hidden; }
-.f5 a { flex: 1 1 0; position: relative; display: flex; flex-direction: column; justify-content: flex-end; align-items: flex-start; padding: 28px 28px 28px 68px; text-decoration: none; color: var(--paper); clip-path: polygon(0 0, 100% 0, calc(100% - 40px) 100%, 0 100%); margin-inline-end: -40px; overflow: hidden; transition: flex-grow 560ms var(--ease-standard); }
-.f5 a:first-child { padding-inline-start: 28px; }
-.f5 a:last-child { clip-path: none; margin-inline-end: 0; }
-.f5 a:hover, .f5 a[data-on] { flex-grow: 4.2; }
-.f5Title { writing-mode: vertical-rl; transform: rotate(180deg); font-size: clamp(20px, 1.8vw, 28px); font-weight: 500; letter-spacing: -0.02em; white-space: nowrap; line-height: 1; transition: font-size 400ms var(--ease-standard); }
-.f5 a:hover .f5Title, .f5 a[data-on] .f5Title { writing-mode: horizontal-tb; transform: none; font-size: clamp(28px, 2.8vw, 46px); letter-spacing: -0.03em; }
-.f5Body { max-block-size: 0; opacity: 0; overflow: hidden; display: grid; gap: 16px; transition: max-block-size 520ms var(--ease-standard), opacity 360ms var(--ease-standard) 160ms; }
-.f5 a:hover .f5Body, .f5 a[data-on] .f5Body { max-block-size: 360px; opacity: 1; margin-block-start: 18px; }
+/* ---- F6: seven squares; the hovered one takes over the row, the rest slide aside as strips */
+.f6 { display: flex; block-size: max(240px, calc(100vw / 7)); overflow: hidden; }
+.f6Tile { flex: 1 1 0; min-inline-size: 0; position: relative; display: flex; flex-direction: column; justify-content: flex-end; padding: 20px; text-decoration: none; color: var(--paper); overflow: hidden; border-inline-end: 1px solid rgb(252 251 249 / 0.2); transition: flex-grow 520ms var(--ease-standard), flex-basis 520ms var(--ease-standard), padding 400ms var(--ease-standard); }
+.f6Tile:last-child { border-inline-end: 0; }
+.f6[data-open] .f6Tile { flex-grow: 0; flex-basis: 64px; padding: 12px; }
+.f6[data-open] .f6Tile[data-on] { flex-grow: 1; flex-basis: 0; padding: 20px; }
+.f6Title { font-size: clamp(16px, 1.4vw, 22px); font-weight: 500; letter-spacing: -0.02em; line-height: 1.1; }
+.f6[data-open] .f6Tile:not([data-on]) .f6Title { writing-mode: vertical-rl; transform: rotate(180deg); white-space: nowrap; font-size: 12.5px; max-block-size: 100%; overflow: hidden; }
+.f6Tile[data-on] .f6Title { font-size: clamp(22px, 2vw, 30px); }
+.f6Body { max-block-size: 0; opacity: 0; overflow: hidden; display: grid; gap: 12px; transition: max-block-size 480ms var(--ease-standard), opacity 320ms var(--ease-standard) 140ms; }
+.f6Tile[data-on] .f6Body { max-block-size: 100%; opacity: 1; margin-block-start: 12px; }
+.f6 .line { font-size: 14px; line-height: 1.4; max-inline-size: none; }
+.f6 .go { min-block-size: 40px; font-size: 13px; padding: 0 14px; }
+
+/* ---- F7: the squares stay put; the stage beneath takes the hovered one's colour and speaks */
+.f7 { display: grid; grid-template-rows: auto 1fr; min-block-size: 60svh; transition: background-color 520ms var(--ease-standard); }
+.f7Row { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(7, 1fr); }
+.f7Row a { display: flex; align-items: flex-end; aspect-ratio: 1; padding: 16px; text-decoration: none; color: var(--paper); font-size: clamp(14px, 1.3vw, 20px); font-weight: 500; letter-spacing: -0.02em; line-height: 1.1; opacity: 0.85; box-shadow: inset 0 0 0 0 var(--paper); transition: opacity 300ms, box-shadow 320ms var(--ease-standard), transform 320ms var(--ease-standard); }
+.f7Row a:hover, .f7Row a[data-on] { opacity: 1; box-shadow: inset 0 0 0 3px var(--paper); transform: translateY(-6px); }
+.f7Stage { position: relative; padding: 36px; overflow: hidden; display: grid; align-content: center; }
+.f7Stage svg { position: absolute; inset-inline-end: -18%; inset-block-end: -40%; inline-size: 56%; opacity: 0.25; }
+.f7Text { position: relative; display: grid; gap: 16px; max-inline-size: 60ch; animation: f7rise 480ms var(--ease-standard) both; }
+.f7Text h3 { font-size: clamp(30px, 3.2vw, 52px); font-weight: 500; letter-spacing: -0.03em; line-height: 1; max-inline-size: none; }
+@keyframes f7rise { from { opacity: 0; transform: translateY(14px); } }
+@media (prefers-reduced-motion: reduce) { .f7Text { animation: none; } }
 
 @media (max-width: 900px) {
-  .f5 { flex-direction: column; min-block-size: auto; }
-  .f5 a { flex: none; clip-path: none; margin: 0; padding: 22px 24px; border-block-end: 1px solid rgb(252 251 249 / 0.25); }
+  .f6 { flex-direction: column; block-size: auto; }
+  .f6Tile, .f6[data-open] .f6Tile, .f6[data-open] .f6Tile[data-on] { flex: none; padding: 20px 24px; border-inline-end: 0; border-block-end: 1px solid rgb(252 251 249 / 0.25); }
+  .f6[data-open] .f6Tile:not([data-on]) .f6Title { writing-mode: horizontal-tb; transform: none; white-space: normal; font-size: clamp(16px, 1.4vw, 22px); }
+  .f7Row { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }
   .c2Stage { border-inline-start: 0; border-block-start: 1px solid currentColor; }
   .c2 ul { padding: 24px; }
-  .c2 li a { white-space: normal; }
+  .c2 li a { white-space: nowrap; }
   .f5Title { writing-mode: horizontal-tb; transform: none; white-space: normal; }
   .f5 a:hover .f5Title, .f5 a[data-on] .f5Title { font-size: clamp(24px, 6vw, 32px); }
   .f1, .c2, .c3Stage { grid-template-columns: 1fr; }

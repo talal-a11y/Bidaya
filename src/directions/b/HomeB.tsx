@@ -11,7 +11,7 @@ import summaries from "../../../content/summaries.json";
 import booking from "../../../content/booking.json";
 import nav from "../../../content/nav.json";
 import styles from "./b.module.css";
-import { C2, F5 } from "@/explore/Variants";
+import { C2, F6 } from "@/explore/Variants";
 import MotionB from "./MotionB";
 import Typed from "./Typed";
 import { Chapters, ChapterButton, Door, Panel, SummaryPanel } from "./Chapter";
@@ -71,9 +71,9 @@ export default function HomeB({ page }: { page: Page }) {
         </div>
       </section>
 
-      {/* 2 — the flip: the headline in ink; "Bidaya was born to:" and its three lines on stone */}
+      {/* 2 — the flip: the headline on plum (ink would run into the block below — founder, 2026-09-23); "Bidaya was born to" and its three lines on stone */}
       <section id="what-we-do" className={`${styles.row} ${styles.flip}`}>
-        <div className={`${styles.panel} ${styles.ink}`} data-slide="left">
+        <div className={`${styles.panel} ${styles.plum}`} data-slide="left">
           <h1 className={styles.h1}><InlineNodes nodes={h1.text} /></h1>
         </div>
         <div className={`${styles.panel} ${styles.stone}`} data-slide="right">
@@ -104,8 +104,8 @@ export default function HomeB({ page }: { page: Page }) {
           <h2 className={styles.title}>{focus.title}</h2>
         </div>
       </section>
-      {/* exploration branch: F5, the founder's pick — the seven as a diagonal accordion, each in its division's colour */}
-      <section className={styles.row}><F5 /></section>
+      {/* exploration branch: F6, the founder's idea — seven squares; the hovered one takes over the row and moves the rest aside */}
+      <section className={styles.row}><F6 /></section>
 
       {/* 6 — Start a conversation: one form, or a booking */}
       <section id="enquire" className={`${styles.row} ${styles.lineRow}`}>
@@ -125,7 +125,7 @@ export default function HomeB({ page }: { page: Page }) {
         ))}
       </section>
       <Panel id="form-reach" label={forms.reach.title}>
-        <FormStrip id="form-reach" forms={forms.forms as unknown as Record<string, FormDef>} routing={forms.routing as unknown as Routing} title={forms.reach.title} labels={forms.labels as Labels} consent={forms.consent} consentNote={forms.consentNote} notWired={g.fields.formNotWired} closeLabel={close} />
+        <FormStrip id="form-reach" forms={forms.forms as unknown as Record<string, FormDef>} routing={forms.routing as unknown as Routing} title={forms.reach.title} labels={forms.labels as Labels} consent={forms.consent} consentNote={forms.consentNote} privacy={forms.privacy} mail={forms.mail} closeLabel={close} />
       </Panel>
       <Panel id="booking" label={booking.label} closeLabel={close}>
         {booking.url ? (

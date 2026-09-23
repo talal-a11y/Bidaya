@@ -557,18 +557,11 @@
     "write": {
       "title": "General inquiry",
       "tone": "plumLight",
-      "email": "contact@bidaya.consulting",
       "steps": [
         {
           "id": "box",
           "label": "What you want to tell us",
-          "type": "text",
-          "optional": false
-        },
-        {
-          "id": "contact",
-          "label": "How to reach you",
-          "type": "contact",
+          "type": "write",
           "fields": [
             {
               "label": "Your name",
@@ -582,7 +575,8 @@
               "label": "Email",
               "type": "email"
             }
-          ]
+          ],
+          "$comment": "one slide: the box and the reach fields together, then Send (founder, 2026-09-23: 'no need for another page after they write')"
         }
       ],
       "sentence": [
@@ -676,9 +670,7 @@
         "type": "email"
       }
     ],
-    "box": "What you want to tell us",
-    "email": "contact@bidaya.consulting",
-    "$open": "settled 2026-09-23: contact@bidaya.consulting is the public address"
+    "box": "What you want to tell us"
   },
   "delivery": {
     "$comment": "For the wiring (milestone 8), the founder's routing of 2026-09-23: every questionnaire submission goes to info@bidaya.consulting (and later to a Google form); talent submissions (/work-with-us) go to talent@bidaya.consulting; contact@bidaya.consulting is the public address, no forms behind it, with an auto-reply acknowledging the email. Confirmations to the sender come from the receiving address: talent@ for talent, info@ for the rest.",
@@ -686,6 +678,19 @@
     "talent": "talent@bidaya.consulting",
     "public": "contact@bidaya.consulting"
   },
-  "consentNote": "By sending, you agree that Bidaya uses these details to reply. See the privacy notice.",
-  "$consent": "2026-09-23: the founder removed the consent checkbox from the enquiry — replying to an enquiry is a pre-contractual step the person asked for, which the PDPL allows without separate consent; a one-line notice (proposed) stays. The Talent Network keeps the checkbox: those details are stored for later, which needs consent."
+  "consentNote": "By sending, you agree that Bidaya uses these details to reply.",
+  "$consent": "2026-09-23: the founder removed the consent checkbox from the enquiry — replying to an enquiry is a pre-contractual step the person asked for, which the PDPL allows without separate consent; a one-line notice (proposed) stays. The Talent Network keeps the checkbox: those details are stored for later, which needs consent.",
+  "privacy": {
+    "label": "Privacy notice",
+    "href": "/privacy"
+  },
+  "mail": {
+    "$comment": "proposed — Claude Code, 2026-09-23, milestone 8: the words the wired forms show and send. {title} {name} {sentence} are filled in.",
+    "sending": "Sending…",
+    "sent": "Sent. Bidaya will reply to the email address you gave.",
+    "failed": "It did not send. Try again, or write to contact@bidaya.consulting.",
+    "subject": "{title}: {name}",
+    "confirmSubject": "Your message to Bidaya",
+    "confirmBody": "Thank you. This is what you sent Bidaya:\n\n{sentence}\n\nBidaya will reply from this address."
+  }
 }

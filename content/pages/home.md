@@ -1,7 +1,7 @@
 ---
 route: /
 title: Bidaya Consulting
-description: The executive layer for UAE businesses that don't have one yet. Setup, operations, finance and tech, run inside your business by one firm. Terms published.
+description: Start your business right, from day one.
 order: 1
 ---
 
@@ -14,7 +14,8 @@ order: 1
 # Support where you need it, managed right from day one.
 
 @note the headline and the lead are the founder's (Vercel comments, 2026-09-23).
-@lead Bidaya was born to:
+@note the description is the founder's (Vercel comment, 2026-09-23), a working read; the lead in bold without the colon (his comment, 2026-09-23).
+@lead **Bidaya was born to**
 
 - Be the executive layer for businesses that are too small to have one yet.
 - Build programs that lower the barrier of entry for creatives and entrepreneurs looking to start a businesses.

@@ -1,38 +1,38 @@
 "use client";
-// General inquiry: one box, then name, phone and email, then Send. Nothing else is asked.
-import { useState } from "react";
+// General inquiry on its own page: one box, name, phone and email, then Send — one page,
+// nothing else asked. Send posts to /api/enquire like the strip (milestone 8).
+import { useEffect, useRef, useState } from "react";
 import styles from "./b.module.css";
-import type { Labels } from "./FormStrip";
+import { Fields, Honeypot, SendBlock, deliver, fieldOk } from "./FormStrip";
+import type { Field, Labels, Mail, Privacy, Status } from "./FormStrip";
 
-const emailOk = (v: string) => /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v.trim());
-const phoneOk = (v: string) => /^\+?[\d\s().-]+$/.test(v.trim()) && v.replace(/\D/g, "").length >= 7;
-
-export default function WriteForm({ fields, box, email, labels, consentNote, notWired }: { fields: { label: string; type: "text" | "tel" | "email" }[]; box: string; email: string; labels: Labels; consent?: string; consentNote: string; notWired: string }) {
+export default function WriteForm({ fields, box, title, labels, consentNote, privacy, mail }: { fields: Field[]; box: string; title: string; labels: Labels; consentNote: string; privacy: Privacy; mail: Mail }) {
   const [v, setV] = useState<Record<string, string>>({});
-  const ok = (f: { label: string; type: string }) => { const x = v[f.label] ?? ""; return f.type === "email" ? emailOk(x) : f.type === "tel" ? phoneOk(x) : x.trim().length > 1; };
-  const ready = !!v.box?.trim() && fields.every(ok);
+  const [status, setStatus] = useState<Status>("idle");
+  const [hp, setHp] = useState("");
+  const opened = useRef(0);
+  useEffect(() => { opened.current = Date.now(); }, []); // when the form was opened, for the minimum time to fill
+  const set = (k: string, x: string) => setV((a) => ({ ...a, [k]: x }));
+  const ready = !!v.box?.trim() && fields.every((f) => fieldOk(f, v[f.label]));
+  const onSend = async () => {
+    if (!ready || status === "sending") return;
+    setStatus("sending");
+    const name = v["Your name"] ?? "", email = v["Email"] ?? "";
+    const sentence = `${v.box.trim()} Reach ${name} on ${email}${v["Phone or WhatsApp"] ? ` or ${v["Phone or WhatsApp"]}` : ""}.`;
+    const answers = [{ label: box, value: v.box }, ...fields.map((f) => ({ label: f.label, value: v[f.label] ?? "" }))];
+    const ok = await deliver({ form: "write", title, answers, sentence, name, email, hp, t: Date.now() - opened.current });
+    setStatus(ok ? "sent" : "failed");
+  };
   return (
     <section className={`${styles.row} ${styles.lineRow}`}>
-      <form className={`${styles.panel} ${styles.paper} ${styles.writeForm}`} onSubmit={(e) => e.preventDefault()}>
+      <form className={`${styles.panel} ${styles.paper} ${styles.writeForm}`} onSubmit={(e) => { e.preventDefault(); onSend(); }}>
         <label className={styles.field} style={{ padding: 0, border: 0 }}>
           <span>{box}</span>
-          <textarea rows={7} maxLength={2000} value={v.box ?? ""} onChange={(e) => setV({ ...v, box: e.target.value })} />
+          <textarea rows={7} maxLength={2000} value={v.box ?? ""} onChange={(e) => set("box", e.target.value)} disabled={status === "sent"} />
         </label>
-        <div className={styles.contactCol}>
-          {fields.map((f) => { const x = v[f.label] ?? ""; const bad = x.trim() ? !ok(f) : false; return (
-            <label key={f.label} className={styles.field}>
-              <span>{f.label}</span>
-              <input type={f.type} inputMode={f.type === "tel" ? "tel" : f.type === "email" ? "email" : undefined} spellCheck={f.type === "email" ? false : undefined} value={x} aria-invalid={bad || undefined} onChange={(e) => setV({ ...v, [f.label]: e.target.value })} autoComplete={f.type === "email" ? "email" : f.type === "tel" ? "tel" : "name"} />
-              {bad && <span className={styles.bad}>{f.type === "email" ? labels.invalidEmail : f.type === "tel" ? labels.invalidPhone : labels.required}</span>}
-            </label>
-          ); })}
-        </div>
-        <p className={styles.qHint}>{consentNote}</p>
-        <p className={styles.body}>{labels.email}: <a href={`mailto:${email}`}>{email}</a></p>
-        <div>
-          <button type="submit" className={`${styles.action} ${styles.actionFill}`} disabled aria-disabled="true" data-ready={ready || undefined}>{labels.send}</button>
-          <p className={styles.qHint} style={{ marginBlockStart: 10 }}>{notWired}</p>
-        </div>
+        <Fields fields={fields} values={v} set={set} labels={labels} />
+        <Honeypot value={hp} set={setHp} />
+        <SendBlock needsConsent={false} agreed={false} setAgreed={() => {}} consent="" consentNote={consentNote} privacy={privacy} ready={ready} status={status} onSend={onSend} labels={labels} mail={mail} />
       </form>
     </section>
   );

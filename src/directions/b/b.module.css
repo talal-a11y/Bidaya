@@ -103,7 +103,7 @@
 
 /* rows */
 .hero { grid-template-columns: 1fr 1fr; min-block-size: calc(100svh - 61px); }
-.flip { grid-template-columns: 1fr 1fr; min-block-size: 70svh; }
+.flip { grid-template-columns: 1fr 1fr; } /* sits to its content — founder, 2026-09-23: "the section is too big" */
 .read { grid-template-columns: 1fr 1fr 1fr; }
 .four { grid-template-columns: repeat(4, 1fr); min-block-size: 64svh; }
 .four .panel { justify-content: flex-end; gap: 28px; }
