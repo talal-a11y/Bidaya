@@ -1,9 +1,9 @@
 ---
 route: /creatives-and-pre-preneurs
-title: Creatives & Pre-Preneurs — Bidaya Consulting
+title: Creatives & pre-preneurs — Bidaya Consulting
 description: The support a first business needs, from day one: workshops, trainings and advisory, programs with institutions, a community of small businesses and a talent network.
 order: 3
-nav: Creatives & Pre-Preneurs
+nav: Creatives & pre-preneurs
 audience: creatives
 ---
 

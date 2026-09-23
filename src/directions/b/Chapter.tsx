@@ -80,15 +80,14 @@ export function ChapterStrip({ id, label, closeLabel, prevLabel, nextLabel, slid
     const el = strip.current;
     if (!el || !isOpen) return;
     const onWheel = (e: WheelEvent) => {
-      const delta = Math.abs(e.deltaY) > Math.abs(e.deltaX) ? e.deltaY : e.deltaX;
+      if (Math.abs(e.deltaY) >= Math.abs(e.deltaX)) return; // a vertical wheel scrolls the page (founder, 2026-09-23)
+      const delta = e.deltaX;
       const i = Math.round(el.scrollLeft / el.clientWidth);
-      if ((i === 0 && delta < 0) || (i === slides.length - 1 && delta > 0)) return; // the page takes over
+      if ((i === 0 && delta < 0) || (i === slides.length - 1 && delta > 0)) return;
       e.preventDefault(); e.stopPropagation();
       if (busy.current) return;
       acc.current += delta;
-      // a vertical wheel needs a deliberate push (founder: too sensitive); a sideways swipe moves at once
-      const vertical = Math.abs(e.deltaY) > Math.abs(e.deltaX);
-      if (Math.abs(acc.current) > (vertical ? 160 : 40)) { go(i + (acc.current > 0 ? 1 : -1)); acc.current = 0; }
+      if (Math.abs(acc.current) > 40) { go(i + (acc.current > 0 ? 1 : -1)); acc.current = 0; }
     };
     const onScroll = () => setIndex(Math.round(el.scrollLeft / el.clientWidth));
     const onKey = (e: KeyboardEvent) => { if (e.key === "ArrowRight") go(index + 1); if (e.key === "ArrowLeft") go(index - 1); };
@@ -123,19 +122,28 @@ export function ChapterStrip({ id, label, closeLabel, prevLabel, nextLabel, slid
 }
 
 // A door: a card that opens a panel beneath the row (the forms). Same state as the chapters.
-export function Door({ id, preset, className, children }: { id: string; preset: string; className: string; children: ReactNode }) {
-  const { openWith } = useContext(ChapterContext);
-  const onClick = () => { openWith(id, preset); reveal(id); };
+export function Door({ id, preset, className, children }: { id: string; preset?: string; className: string; children: ReactNode }) {
+  const { openWith, open, toggle } = useContext(ChapterContext);
+  const onClick = () => { if (preset) openWith(id, preset); else if (!open[id]) toggle(id); reveal(id); };
   return <button type="button" className={className} aria-controls={id} onClick={onClick}>{children}</button>;
 }
 
 // A panel that unfolds beneath its row; used for the forms behind the doors.
-export function Panel({ id, label, children }: { id: string; label: string; children: ReactNode }) {
-  const { open } = useContext(ChapterContext);
+export function Panel({ id, label, closeLabel, children }: { id: string; label: string; closeLabel?: string; children: ReactNode }) {
+  const { open, toggle } = useContext(ChapterContext);
   const isOpen = !!open[id];
   return (
     <section id={id} className={styles.chapterShell} data-open={isOpen || undefined} aria-hidden={!isOpen} inert={!isOpen} aria-label={label}>
-      <div className={styles.chapterInner}>{children}</div>
+      <div className={styles.chapterInner}>
+        {closeLabel && (
+          <div className={styles.chapterHead}>
+            <span className={styles.mono}>[ {label} ]</span>
+            <span />
+            <span className={styles.chapterNav}><button type="button" className={styles.chapterBtn} onClick={() => toggle(id)}>{closeLabel}</button></span>
+          </div>
+        )}
+        {children}
+      </div>
     </section>
   );
 }

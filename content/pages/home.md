@@ -54,13 +54,10 @@ We were built to do one thing that solves three separate - yet similar - problem
 
 ## Start a conversation
 
-@note one questionnaire behind three doors (rework/rulings §9, §11); Bidaya Talent Partners is its own page, /work-with-us.
-@note [proposed] the closing section — founder 2026-09-21: four cards, each opening the form for that reason to reach us. The card names are the founder's words; the one-line descriptions are drafted from his brief and are his to confirm. The email address is not on the site until he gives it. For now each card opens /start.
+@note one form and one booking — the founder 2026-09-23: "two options — fill in a form or book a 30 minute discovery session". The card lines are proposed. Booking embeds when he shares the link (content/booking.json); until then the card says so.
 
 @rows
-**Enquire for your business.** For businesses looking to hire us.
+**Fill in a form.** A few questions; they change with your answers.
 
-**Partnerships and programs.** For educational and creative institutions building entrepreneurship programs and workshops.
-
-**General inquiry.** Anything else: our email, or a short form.
+**Book a 30-minute discovery session.** Free. Pick a time that suits you.
 @end

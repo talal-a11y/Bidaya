@@ -1,0 +1,5 @@
+{
+  "$comment": "The booking option on the home page. Put the Calendly (or other) embed URL in 'url' and the card opens it; empty means the card says booking opens soon. The founder prefers booking on the site from his Google Calendar; Calendly is the fallback he will share.",
+  "url": "",
+  "label": "Book a 30-minute discovery session"
+}

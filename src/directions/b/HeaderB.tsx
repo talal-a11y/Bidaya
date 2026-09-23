@@ -27,7 +27,7 @@ export default function HeaderB({ current }: { current: string }) {
   return (
     <header className={styles.bar}>
       <Link href="/" className={styles.barHome} aria-label={g.siteName}>
-        <img className={styles.lockup} src="/brand/svg/bidaya-lockup-3-header.svg" alt="" width="1659" height="392" />
+        <img className={styles.lockup} src="/brand/svg/outlined/bidaya-lockup-3-header-outlined.svg" alt="" width="1659" height="392" />
       </Link>
       <nav className={styles.barNav} aria-label={g.fields.navLabel}>
         <ul>

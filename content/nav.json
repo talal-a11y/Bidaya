@@ -1,11 +1,50 @@
 {
   "$comment": "The header: About | Consulting For ▾ | Consulting On ▾ | Resources ▾ | Enquire (the founder's Vercel comment, 2026-09-23). Groups open as dropdowns; the seven of 'Consulting On' are content/focus.json; the Resources group's two entries are his (2026-09-23). The footer lists every group flat, plus the 'From the firm' group (name OPEN — proposed placeholder).",
   "items": [
-    { "label": "About", "href": "/about" },
-    { "label": "Consulting For", "group": "audiences" },
-    { "label": "Consulting On", "group": "focus" },
-    { "label": "Resources", "children": [ { "label": "Work with us", "href": "/work-with-us" }, { "label": "Useful tools", "href": "/useful-tools" } ] }
+    {
+      "label": "About",
+      "href": "/about"
+    },
+    {
+      "label": "Consulting for",
+      "group": "audiences"
+    },
+    {
+      "label": "Consulting on",
+      "group": "focus"
+    },
+    {
+      "label": "Resources",
+      "children": [
+        {
+          "label": "Work with us",
+          "href": "/work-with-us"
+        },
+        {
+          "label": "Useful tools",
+          "href": "/useful-tools"
+        }
+      ]
+    }
   ],
-  "cta": { "label": "Enquire", "href": "/#enquire" },
-  "footerGroup": { "label": "From the firm", "proposed": true, "children": [ { "label": "Work with us", "href": "/work-with-us" }, { "label": "Useful tools", "href": "/useful-tools" } ] }
+  "cta": {
+    "label": "Enquire",
+    "href": "/#enquire"
+  },
+  "footerGroup": {
+    "label": "More",
+    "open": true,
+    "$comment": "the name is OPEN — 'More' for now (founder 2026-09-23)",
+    "children": [
+      {
+        "label": "Work with us",
+        "href": "/work-with-us"
+      },
+      {
+        "label": "Useful tools",
+        "href": "/useful-tools"
+      }
+    ]
+  },
+  "contactEmail": "contact@bidaya.consulting"
 }

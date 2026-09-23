@@ -1,14 +1,76 @@
 {
-  "$comment": "We focus on — the seven, in the founder's words (rework/we-focus-on.md, 2026-09-23, FOUNDER'S WORDS, PROVISIONAL). Not a word changed. 'href' is Claude Code's call until the copy deck v2: each opens the page that best matches it. 'audiences' is the file's own mapping, for the 'Explore our work on' blocks.",
+  "$comment": "We focus on — the seven, in the founder's words (rework/we-focus-on.md, 2026-09-23, FOUNDER'S WORDS, PROVISIONAL). Not a word changed. 'href' is Claude Code's call until the copy deck v2: each opens the page that best matches it. 'audiences' is the file's own mapping, for the 'Explore our work on' blocks. Titles set in sentence case — the site's rule; the founder: 'capitalization ... fix' (2026-09-23).",
   "title": "We focus on",
   "exploreOn": "Explore our work on:",
   "items": [
-    { "id": "executive-management", "title": "Executive management", "line": "fractional executives running your business' setup, operations, finance, and tech all under one roof.", "href": "/founders", "audiences": ["founders"] },
-    { "id": "setup-and-structure", "title": "Setup & Structure", "line": "feasibility assessments, strategy builds, digital setup, process documentation, operational support, built right from day one.", "href": "/feasibility-and-advisory", "audiences": ["founders", "creatives"] },
-    { "id": "finance-and-accounting", "title": "Finance & Accounting", "line": "Reporting, budgeting, cash flow, financial setup and advisory, valuations, tax registration and filings, managed by licensed professionals.", "href": "/fractional-cfo-uae", "audiences": ["founders", "creatives"] },
-    { "id": "tech-and-automation", "title": "Tech & Automation", "line": "Websites, system integrations, automation, process optimization, AI tooling, software implementations, and AI productivity trainings, provided based on your firm's tailored needs.", "href": "/tech-and-projects", "audiences": ["founders", "creatives", "institutions"] },
-    { "id": "programs-events-campaigns", "title": "Programs, events, campaigns", "line": "Building and managing programs, campaigns, and events that promote entrepreneurship efforts across the UAE. Leveraging a network of multinationals, creative businesses, and aspiring entrepreneurs to support the development and launch of sustainable initiatives for aspiring entrepreneurs and creatives.", "href": "/institutions", "audiences": ["institutions", "creatives"] },
-    { "id": "workshops-and-training", "title": "Workshops & training", "line": "Growing business acumen and AI literacy across the UAE for creatives, youths, and institutions, improving productivity and lowering barriers to entry for homegrown businesses.", "href": "/creatives-and-pre-preneurs", "audiences": ["creatives", "institutions"] },
-    { "id": "community-and-networking", "title": "Community & Networking", "line": "Building a collective for businesses, boutique firms, and freelance professionals to promote the sustainable growth of homegrown and small businesses and lower the cost and other barriers to entry for creatives and young entrepreneurs.", "href": "/creatives-and-pre-preneurs", "audiences": ["creatives"] }
+    {
+      "id": "executive-management",
+      "title": "Executive management",
+      "line": "fractional executives running your business' setup, operations, finance, and tech all under one roof.",
+      "href": "/founders",
+      "audiences": [
+        "founders"
+      ]
+    },
+    {
+      "id": "setup-and-structure",
+      "title": "Setup & structure",
+      "line": "feasibility assessments, strategy builds, digital setup, process documentation, operational support, built right from day one.",
+      "href": "/feasibility-and-advisory",
+      "audiences": [
+        "founders",
+        "creatives"
+      ]
+    },
+    {
+      "id": "finance-and-accounting",
+      "title": "Finance & accounting",
+      "line": "Reporting, budgeting, cash flow, financial setup and advisory, valuations, tax registration and filings, managed by licensed professionals.",
+      "href": "/fractional-cfo-uae",
+      "audiences": [
+        "founders",
+        "creatives"
+      ]
+    },
+    {
+      "id": "tech-and-automation",
+      "title": "Tech & automation",
+      "line": "Websites, system integrations, automation, process optimization, AI tooling, software implementations, and AI productivity trainings, provided based on your firm's tailored needs.",
+      "href": "/tech-and-projects",
+      "audiences": [
+        "founders",
+        "creatives",
+        "institutions"
+      ]
+    },
+    {
+      "id": "programs-events-campaigns",
+      "title": "Programs, events, campaigns",
+      "line": "Building and managing programs, campaigns, and events that promote entrepreneurship efforts across the UAE. Leveraging a network of multinationals, creative businesses, and aspiring entrepreneurs to support the development and launch of sustainable initiatives for aspiring entrepreneurs and creatives.",
+      "href": "/institutions",
+      "audiences": [
+        "institutions",
+        "creatives"
+      ]
+    },
+    {
+      "id": "workshops-and-training",
+      "title": "Workshops & training",
+      "line": "Growing business acumen and AI literacy across the UAE for creatives, youths, and institutions, improving productivity and lowering barriers to entry for homegrown businesses.",
+      "href": "/creatives-and-pre-preneurs",
+      "audiences": [
+        "creatives",
+        "institutions"
+      ]
+    },
+    {
+      "id": "community-and-networking",
+      "title": "Community & networking",
+      "line": "Building a collective for businesses, boutique firms, and freelance professionals to promote the sustainable growth of homegrown and small businesses and lower the cost and other barriers to entry for creatives and young entrepreneurs.",
+      "href": "/creatives-and-pre-preneurs",
+      "audiences": [
+        "creatives"
+      ]
+    }
   ]
 }

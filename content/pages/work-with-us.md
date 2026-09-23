@@ -4,6 +4,7 @@ title: Work with us — Bidaya Consulting
 description: Bidaya's Talent Network: boutique firms and independent workers Bidaya brings in when a client's need sits outside its scope.
 order: 72
 form: talent
+email: talent@bidaya.consulting
 ---
 
 @note rework/rulings §9: the Talent Partners form on its own page, titled "Work with us" (his phrase), linked from the footer and the Resources dropdown, not the main navigation. The paragraph is his (About).

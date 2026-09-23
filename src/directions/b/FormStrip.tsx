@@ -6,7 +6,6 @@
 // answered before the strip moves on; name, email and phone are checked before Send.
 // Data: content/forms.json. Nothing is sent yet; closing the panel keeps nothing.
 import { useCallback, useEffect, useRef, useState } from "react";
-import { useRouter } from "next/navigation";
 import styles from "./b.module.css";
 import { useChapter } from "./Chapter";
 
@@ -28,14 +27,12 @@ const phoneOk = (v: string) => /^\+?[\d\s().-]+$/.test(v.trim()) && v.replace(/\
 const fieldOk = (f: Field, v = "") => (f.optional && !v.trim()) || (f.type === "email" ? emailOk(v) : f.type === "tel" ? phoneOk(v) : v.trim().length > 1);
 
 export default function FormStrip({ id, forms, routing, title, labels, consent, notWired, closeLabel, startWith }: { id: string; forms: Record<string, FormDef>; routing: Routing; title: string; labels: Labels; consent: string; notWired: string; closeLabel: string; startWith?: string }) {
-  const { toggle, presets } = useChapter();
-  const router = useRouter();
+  const { toggle } = useChapter();
   const [chosen, setChosen] = useState<string | null>(startWith ?? null);
   const routed = routing.options.length > 0; // a page that is one form has no routing question
   const form: FormDef = chosen && forms[chosen]
     ? (routed ? { ...forms[chosen], steps: [routing as unknown as Step, ...forms[chosen].steps], sentence: [...routing.sentence, ...forms[chosen].sentence] } : forms[chosen])
     : { title, tone: "ink", steps: [routing as unknown as Step], sentence: routing.sentence };
-  const preset = presets[id];
   const [answers, setAnswers] = useState<Record<string, string>>({});
   const [agreed, setAgreed] = useState(false);
   const [index, setIndex] = useState(0);
@@ -59,32 +56,20 @@ export default function FormStrip({ id, forms, routing, title, labels, consent, 
     busy.current = true; setTimeout(() => { busy.current = false; }, 900);
   }, [total]);
 
-  // a door's preset answers the routing question and moves on
-  useEffect(() => {
-    if (!preset) return;
-    const o = routing.options.find((x) => x.form === preset);
-    if (!o) return;
-    // answer at once; move on once the panel has unfolded (620ms) and the strip has its width
-    const r = requestAnimationFrame(() => { setAnswers((a) => ({ ...a, [routing.id]: o.label })); setChosen(preset); });
-    const t = setTimeout(() => { const el = track.current; if (el) el.scrollTo({ left: el.clientWidth, behavior: "smooth" }); }, 760);
-    return () => { cancelAnimationFrame(r); clearTimeout(t); };
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [preset]);
 
   useEffect(() => {
     const el = track.current; if (!el) return;
     const onWheel = (e: WheelEvent) => {
       if ((e.target as HTMLElement).closest("textarea, input")) return;
-      const vertical = Math.abs(e.deltaY) > Math.abs(e.deltaX);
-      const delta = vertical ? e.deltaY : e.deltaX;
+      if (Math.abs(e.deltaY) >= Math.abs(e.deltaX)) return; // a vertical wheel scrolls the page (founder, 2026-09-23)
+      const delta = e.deltaX;
       const i = Math.round(el.scrollLeft / el.clientWidth);
       if ((i === 0 && delta < 0) || (i === total - 1 && delta > 0)) return;
       e.preventDefault(); e.stopPropagation();
       if (busy.current) return;
       if (delta > 0 && !canLeave(i)) return; // answer first
       acc.current += delta;
-      // a vertical wheel needs a deliberate push; a sideways swipe moves at once
-      if (Math.abs(acc.current) > (vertical ? 160 : 40)) { go(i + (acc.current > 0 ? 1 : -1)); acc.current = 0; }
+      if (Math.abs(acc.current) > 40) { go(i + (acc.current > 0 ? 1 : -1)); acc.current = 0; }
     };
     const onScroll = () => setIndex(Math.round(el.scrollLeft / el.clientWidth));
     el.addEventListener("wheel", onWheel, { passive: false });
@@ -110,11 +95,11 @@ export default function FormStrip({ id, forms, routing, title, labels, consent, 
       })}
     </p>
   );
-  const side = (n: number) => (
+  const side = () => (
     <div className={`${styles.formSide} ${toneClass[chosen ? form.tone : "ink"] ?? styles.ink}`}>
       <p className={styles.mono} style={{ opacity: 0.8 }}>{chosen ? form.title : title}</p>
       {sentence}
-      <div className={styles.progress} aria-hidden="true">{Array.from({ length: total }, (_, i) => <i key={i} className={i <= n ? styles.progressOn : ""} />)}</div>
+      <span />
     </div>
   );
   const ready = form.steps.every(done) && agreed;
@@ -123,17 +108,18 @@ export default function FormStrip({ id, forms, routing, title, labels, consent, 
     <div className={styles.formStrip}>
       <div className={styles.chapterHead}>
         <span className={styles.mono}>[ {chosen ? form.title : title} ]</span>
-        <span className={styles.mono} aria-live="polite">{pad(index + 1)} / {pad(total)} · {answered}/{total} {labels.answered}</span>
+        <span className="visually-hidden" aria-live="polite">{pad(index + 1)} / {pad(total)} · {answered}/{total} {labels.answered}</span><span />
         <span className={styles.chapterNav}>
           <button type="button" className={styles.chapterBtn} onClick={() => go(index - 1)} disabled={index === 0}>← {labels.back}</button>
           <button type="button" className={styles.chapterBtn} onClick={() => go(index + 1)} disabled={index === total - 1 || !canLeave(index)}>{labels.next} →</button>
           <button type="button" className={styles.chapterBtn} onClick={() => toggle(id)}>{closeLabel}</button>
         </span>
       </div>
+      <div className={styles.fill} aria-hidden="true"><i style={{ transform: `scaleX(${Math.max(0.04, (index + (chosen ? 0 : 0)) / Math.max(1, total - 1))})` }} /></div>
       <div ref={track} className={styles.track}>
         {form.steps.map((step, n) => (
           <div key={step.id} className={`${styles.slide} ${styles.formSlide}`}>
-            {side(n)}
+            {side()}
             <div className={styles.ask}>
               <div className={styles.askHead}>
                 <h3>{step.label}{step.type === "text" && step.optional ? <span className={styles.qHint}> ({labels.optional})</span> : ""}</h3>
@@ -144,7 +130,7 @@ export default function FormStrip({ id, forms, routing, title, labels, consent, 
                   <legend className="visually-hidden">{step.label}</legend>
                   {step.options.map((o, k) => (
                     <label key={o.label} className={`${styles.tileBig} ${answers[step.id] === o.label ? styles.tileOn : ""}`}>
-                      <input type="radio" name={`${id}-${step.id}`} value={o.label} checked={answers[step.id] === o.label} onChange={() => { if (step.id === routing.id) { if (o.href) { router.push(o.href); return; } setChosen(o.form ?? null); } set(step.id, o.label); setTimeout(() => go(n + 1), 320); }} />
+                      <input type="radio" name={`${id}-${step.id}`} value={o.label} checked={answers[step.id] === o.label} onChange={() => { if (step.id === routing.id) setChosen(o.form ?? null); set(step.id, o.label); setTimeout(() => { const el = track.current; if (el) { el.scrollTo({ left: (n + 1) * el.clientWidth, behavior: "smooth" }); busy.current = true; setTimeout(() => { busy.current = false; }, 900); } }, 320); }} />
                       <span>{o.label}</span><span className={styles.mono}>{pad(k + 1)}</span>
                     </label>
                   ))}

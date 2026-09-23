@@ -18,7 +18,9 @@ Started 22 September 2026 on the founder's instruction: "Keep log of all the cha
 - Prices off every linked page: the floors live on /fees and /how-we-work, unlisted but indexable (pack: the one number on How we work and the intent pages).
 - The terms cut: no "we say so in writing", no promised recommendations; two terms' titles OPEN.
 - The header: About | Consulting For ▾ | Consulting On ▾ | Resources ▾ | Enquire. Labels "Founders & SME's", "Creatives & Pre-Preneurs".
-- The outlined (construction) mark is the founder's preferred logo; the footer uses it; the lockup and favicon wait for the identity spec v2.
+- The outlined (construction) mark is the founder's preferred logo; the footer, the header lockup and the favicon now use it (public/brand/svg/outlined/) — the pack allowed only the filled mark and never outlined; rework/rulings §13 said to wait for the identity spec v2, the founder said yes now.
+- Sentence case applied to his labels and titles; apostrophes and spellings corrected in his copy; grammar left for his review.
+- Two floors more on /fees: founders' project work from AED 7,000, creatives from AED 3,500 (unlisted, indexable).
 - The five skills now live in .claude/skills/.
 
 ## Copy (docs/02, docs/04)

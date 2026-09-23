@@ -475,7 +475,7 @@
     "general": {
       "title": "General inquiry",
       "tone": "plumLight",
-      "email": "hello@bidayahub.ae",
+      "email": "contact@bidaya.consulting",
       "$proposed": "founder to confirm the two lines",
       "steps": [
         {
@@ -552,10 +552,64 @@
         },
         "."
       ]
+    },
+    "write": {
+      "title": "General inquiry",
+      "tone": "plumLight",
+      "email": "contact@bidaya.consulting",
+      "steps": [
+        {
+          "id": "box",
+          "label": "What you want to tell us",
+          "type": "text",
+          "optional": false
+        },
+        {
+          "id": "contact",
+          "label": "How to reach you",
+          "type": "contact",
+          "fields": [
+            {
+              "label": "Your name",
+              "type": "text"
+            },
+            {
+              "label": "Phone or WhatsApp",
+              "type": "tel"
+            },
+            {
+              "label": "Email",
+              "type": "email"
+            }
+          ]
+        }
+      ],
+      "sentence": [
+        "I'd rather just write: ",
+        {
+          "field": "box",
+          "blank": "…"
+        },
+        " Reach ",
+        {
+          "field": "Your name",
+          "blank": "name"
+        },
+        " on ",
+        {
+          "field": "Email",
+          "blank": "email"
+        },
+        " or ",
+        {
+          "field": "Phone or WhatsApp",
+          "blank": "phone or WhatsApp"
+        },
+        "."
+      ]
     }
   },
   "routing": {
-    "$proposed": "the three audience options are placeholders until the audience profiles exist; the fourth is the founder's (rework/rulings §10)",
     "id": "who",
     "label": "Who you are",
     "type": "choice",
@@ -578,7 +632,7 @@
       {
         "label": "I'd rather just write.",
         "phrase": "",
-        "href": "/general-inquiry"
+        "form": "write"
       }
     ],
     "sentence": [
@@ -588,7 +642,8 @@
         "blank": "who I am"
       },
       ". "
-    ]
+    ],
+    "$decided": "the founder, 2026-09-23: the options stand for now; the site is audited once the three audiences are final"
   },
   "reach": {
     "title": "Enquire",
@@ -611,7 +666,13 @@
       }
     ],
     "box": "What you want to tell us",
-    "email": "hello@bidayahub.ae",
-    "$open": "the address changes when the founder gives the bidaya.consulting one (rework/rulings §15)"
+    "email": "contact@bidaya.consulting",
+    "$open": "settled 2026-09-23: contact@bidaya.consulting is the public address"
+  },
+  "delivery": {
+    "$comment": "For the wiring (milestone 8), the founder's routing of 2026-09-23: every questionnaire submission goes to info@bidaya.consulting (and later to a Google form); talent submissions (/work-with-us) go to talent@bidaya.consulting; contact@bidaya.consulting is the public address, no forms behind it, with an auto-reply acknowledging the email. Confirmations to the sender come from the receiving address: talent@ for talent, info@ for the rest.",
+    "questionnaire": "info@bidaya.consulting",
+    "talent": "talent@bidaya.consulting",
+    "public": "contact@bidaya.consulting"
   }
 }

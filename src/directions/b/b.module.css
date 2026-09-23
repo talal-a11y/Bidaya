@@ -26,10 +26,12 @@
 }
 .bar > * { display: flex; align-items: center; padding-inline: 20px; border-inline-end: var(--line); min-block-size: 60px; }
 .bar > *:last-child { border-inline-end: 0; }
-.bar .lockup { block-size: 28px; inline-size: auto; }
+.bar .lockup { block-size: 42px; inline-size: auto; }
 .barHome { text-decoration: none; }
 .barNav { justify-content: flex-end; }
-.barNav > ul { display: flex; gap: 26px; list-style: none; margin: 0; padding: 0; }
+.barNav > ul { display: flex; align-items: center; gap: 26px; list-style: none; margin: 0; padding: 0; }
+.barNav > ul > li { display: flex; align-items: center; }
+.barNav > ul > li > a { display: inline-flex; align-items: center; min-block-size: 44px; }
 .barNav a { color: var(--ink); text-decoration: none; font-size: 15px; padding-block: 8px; font-weight: 600; }
 .barNav a[aria-current="page"] { text-decoration: underline; text-underline-offset: 6px; }
 .barStart { background: #237C85; color: var(--paper); padding-inline: 32px; } /* the hero panel's teal, so the bar and the panel read as one on landing */
@@ -120,7 +122,7 @@
 .readCols > div:last-child { border-inline-end: 0; }
 
 /* footer as the mirror of the bar */
-.foot { display: grid; grid-template-columns: 240px 1fr auto; align-items: stretch; }
+.foot { display: grid; grid-template-columns: 120px 1fr auto; align-items: stretch; }
 .foot > * { padding: 20px; border-inline-end: var(--line); display: flex; align-items: center; }
 .foot > *:last-child { border-inline-end: 0; }
 .footLinks { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 6px 22px; }
@@ -425,7 +427,8 @@ button.door { font: inherit; text-align: start; cursor: pointer; border-block: 0
 /* "Bidaya was born to:" */
 .bornTo { list-style: none; margin: 14px 0 0; padding: 0; display: grid; gap: 10px; }
 .bornTo li { padding-inline-start: 18px; position: relative; font-size: clamp(16px, 1.3vw, 20px); line-height: 1.4; max-inline-size: 40em; }
-.bornTo li::before { content: "—"; position: absolute; inset-inline-start: 0; }
+.bornTo li { padding-inline-start: 26px; }
+.bornTo li::before { content: ""; position: absolute; inset-inline-start: 0; inset-block-start: 0.42em; inline-size: 11px; block-size: 11px; border: 2px solid var(--aqua); border-radius: 50%; }
 
 /* We focus on: seven cards */
 .focus { grid-template-columns: repeat(4, 1fr); }
@@ -452,7 +455,7 @@ button.door { font: inherit; text-align: start; cursor: pointer; border-block: 0
 .footGroups { display: flex; flex-wrap: wrap; gap: 24px 40px; align-items: flex-start; }
 .footGroup p { margin-block-end: 6px; }
 .footGroup p a { color: var(--ink); text-decoration: none; }
-.footLinks { flex-direction: column; gap: 0; }
+.footLinks { flex-direction: row; flex-wrap: wrap; gap: 0 22px; }
 .footArcs { inline-size: 64px; block-size: 64px; }
 .footArcs circle { fill: none; stroke: currentColor; stroke-width: 6; }
 
@@ -495,3 +498,11 @@ button.door { font: inherit; text-align: start; cursor: pointer; border-block: 0
 /* footer links and the email link: 44px tap targets */
 .footLinks a, .footGroup p a { display: inline-block; padding-block: 10px; }
 .writeForm .body a, .sendCol .body a { display: inline-block; padding-block: 10px; }
+
+/* the strips' progress: a bar that fills, no numbers */
+.fill { position: relative; block-size: 4px; background: var(--soft); }
+.fill i { display: block; block-size: 100%; background: var(--aqua); transform-origin: 0 50%; transition: transform 420ms var(--ease-standard); }
+.doorsTwo { grid-template-columns: 1fr 1fr; }
+.bookingFrame { inline-size: 100%; block-size: min(760px, 90svh); border: 0; background: var(--paper); }
+.footRow { display: flex; align-items: center; padding: 16px 20px; }
+@media (max-width: 900px) { .doorsTwo { grid-template-columns: 1fr; } .bar .lockup { block-size: 34px; } }

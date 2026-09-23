@@ -9,6 +9,8 @@ import audiences from "../../../content/audiences.json";
 import focus from "../../../content/focus.json";
 import forms from "../../../content/forms.json";
 import summaries from "../../../content/summaries.json";
+import booking from "../../../content/booking.json";
+import nav from "../../../content/nav.json";
 import styles from "./b.module.css";
 import MotionB from "./MotionB";
 import Typed from "./Typed";
@@ -36,7 +38,7 @@ export function Arcs({ small = false, ink = false }: { small?: boolean; ink?: bo
 }
 
 function Btn({ href, label, fill = false, close }: { href: string; label: string; fill?: boolean; close: string }) {
-  if (FORM_PRESETS[href]) return <Door id="form-reach" preset={FORM_PRESETS[href]} className={`${styles.action} ${fill ? styles.actionFill : ""}`}>{label}</Door>;
+  if (FORM_PRESETS[href]) return <Door id="form-reach" className={`${styles.action} ${fill ? styles.actionFill : ""}`}>{label}</Door>;
   if (/^#(form|chapter)-/.test(href)) return <ChapterButton id={href.slice(1)} openLabel={label} closeLabel={close} fill={fill} />;
   return <Link href={href} className={`${styles.action} ${fill ? styles.actionFill : ""}`}>{label}</Link>;
 }
@@ -50,7 +52,6 @@ export default function HomeB({ page }: { page: Page }) {
   const consultT = find(consult, "h2")!;
   const exploreP = find(explore, "p")!;
   const startT = find(start, "h2")!, doors = find(start, "rows")!;
-  const kinds = ["business", "partners", "general"] as const;
   const close = g.fields.menuClose;
   const about = getPageByRoute("/about")!;
   const chAbout = { id: "chapter-about", label: about.nav ?? about.title, cards: summaries.panels.about.cards, learnMore: summaries.learnMore, tones: toneClass, closeLabel: close };
@@ -140,15 +141,15 @@ export default function HomeB({ page }: { page: Page }) {
         </div>
       </section>
 
-      {/* 6 — Start a conversation: three doors into one questionnaire */}
+      {/* 6 — Start a conversation: one form, or a booking */}
       <section id="enquire" className={`${styles.row} ${styles.lineRow}`}>
         <div className={`${styles.panel} ${styles.stone}`}>
           <h2 className={styles.title}><InlineNodes nodes={startT.text} /></h2>
         </div>
       </section>
-      <section id="start" className={`${styles.row} ${styles.doors} ${styles.doorsThree}`}>
+      <section id="start" className={`${styles.row} ${styles.doors} ${styles.doorsTwo}`}>
         {doors.items.map((it, i) => (
-          <Door key={i} id="form-reach" preset={kinds[i]} className={`${styles.door} ${[styles.doorBusiness, styles.doorPartners, styles.doorGeneral][i]}`}>
+          <Door key={i} id={i === 0 ? "form-reach" : "booking"} className={`${styles.door} ${i === 0 ? styles.doorBusiness : styles.doorPartners}`}>
             <div className={styles.doorBody}>
               <strong><InlineNodes nodes={it.lead} /></strong>
               <p className={styles.body}><InlineNodes nodes={it.rest} /></p>
@@ -159,6 +160,13 @@ export default function HomeB({ page }: { page: Page }) {
       </section>
       <Panel id="form-reach" label={forms.reach.title}>
         <FormStrip id="form-reach" forms={forms.forms as unknown as Record<string, FormDef>} routing={forms.routing as unknown as Routing} title={forms.reach.title} labels={forms.labels as Labels} consent={forms.consent} notWired={g.fields.formNotWired} closeLabel={close} />
+      </Panel>
+      <Panel id="booking" label={booking.label} closeLabel={close}>
+        {booking.url ? (
+          <iframe src={booking.url} title={booking.label} className={styles.bookingFrame} loading="lazy" />
+        ) : (
+          <div className={`${styles.panel} ${styles.paper}`}><p className={styles.lead}>{g.fields.bookingSoon}</p><p className={styles.body}><a href={`mailto:${nav.contactEmail}`}>{nav.contactEmail}</a></p></div>
+        )}
       </Panel>
     </div>
     </Chapters>

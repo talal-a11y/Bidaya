@@ -5,7 +5,7 @@ export const PAGE_FORMS: Record<string, string> = { "#form-talent": "/work-with-
 
 export function resolveHref(href: string, onHome: boolean): string {
   if (PAGE_FORMS[href]) return PAGE_FORMS[href];
-  if (FORM_PRESETS[href]) return `${onHome ? "" : "/"}#form-reach:${FORM_PRESETS[href]}`;
+  if (FORM_PRESETS[href]) return `${onHome ? "" : "/"}#form-reach`; // every entry starts at the first question (founder, 2026-09-23)
   if (/^#(form|chapter)-/.test(href)) return onHome ? href : `/${href}`;
   return href;
 }

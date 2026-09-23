@@ -29,3 +29,4 @@ navOrder: /founders, /creatives-and-pre-preneurs, /institutions, /about
 @field weConsult We consult
 @field exploreOn Explore our work on:
 @field writeLabel What you want to tell us
+@field bookingSoon Booking opens here soon. Until then, write to us.

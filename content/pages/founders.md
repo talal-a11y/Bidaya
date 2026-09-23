@@ -1,9 +1,9 @@
 ---
 route: /founders
-title: Founders & SME's — Bidaya Consulting
+title: Founders & SMEs — Bidaya Consulting
 description: The executive layer for funded startups and established SMEs: setup, operations, finance and tech, run inside the business by one firm, on published terms.
 order: 2
-nav: Founders & SME's
+nav: Founders & SMEs
 audience: founders
 ---
 
@@ -52,7 +52,7 @@ Neither is the lesser version of the other. Which shape fits is what the first c
 ---
 
 @kind terms
-@note the two terms' titles are OPEN — the founder rewrites them (rework/rulings §6).
+@note the terms' titles are the founder's (2026-09-23). The second term's line repeats its title's notice — his words, kept; noted for his review.
 
 ## How Bidaya works
 
@@ -61,9 +61,9 @@ Terms a firm that couldn't deliver would never publish.
 @terms
 **Trial month, no notice.** Paid at full rate, delivering functional tools that can be managed without us.
 
-**Pay monthly, cancel anytime.** Bringing the subscription model to professional services. Cancel with a 30-day notice.
+**Pay monthly, cancel with a 30-day notice.** Bringing the subscription model to professional services. Cancel with a 30-day notice.
 
-**Discovery first, in writing.** Our 30 minute discovery call is free.
+**Discovery first, proposal in writing.** Our 30 minute discovery call is free.
 @end
 
 @cta Enquire for your business -> #form-business
