@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import HeaderB from "@/directions/b/HeaderB";
 import FooterB from "@/directions/b/FooterB";
-import { F1, F2, F3, F4, C2, C3, C4 } from "@/explore/Variants";
+import { F1, F2, F3, F4, F5, C2, C3, C4 } from "@/explore/Variants";
 import s from "@/explore/explore.module.css";
 
 export const metadata: Metadata = { title: "Explorations — Bidaya Consulting", robots: { index: false, follow: false } };
@@ -9,6 +9,7 @@ export const metadata: Metadata = { title: "Explorations — Bidaya Consulting",
 // The explorations page (branch build/03b-explorations): four ways to show "We focus on",
 // three new ways for "We consult for". Not linked from the site.
 const blocks: { id: string; name: string; note: string; el: React.ReactNode }[] = [
+  { id: "f5", name: "We focus on — F5, the seven as a diagonal accordion", note: "Your pick, from C4: each panel in its division's colour; the hovered one widens, lays its title flat and opens its line. This one is on the home page.", el: <F5 /> },
   { id: "f1", name: "We focus on — F1, list and stage", note: "Your idea: the seven on the left; hovering one slides its line into the stage on the right in its colour; click goes to the page.", el: <F1 /> },
   { id: "f2", name: "We focus on — F2, expanding columns", note: "Seven strips side by side, titles standing; the hovered strip opens wide and lays its title flat with the line beneath.", el: <F2 /> },
   { id: "f3", name: "We focus on — F3, the ring", note: "The seven around the outlined mark; the hovered one speaks from the centre. No order implied.", el: <F3 /> },

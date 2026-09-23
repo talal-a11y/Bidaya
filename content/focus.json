@@ -1,11 +1,13 @@
 {
-  "$comment": "We focus on — the seven, in the founder's words (rework/we-focus-on.md, 2026-09-23, FOUNDER'S WORDS, PROVISIONAL). Not a word changed. 'href' is Claude Code's call until the copy deck v2: each opens the page that best matches it. 'audiences' is the file's own mapping, for the 'Explore our work on' blocks. Titles set in sentence case — the site's rule; the founder: 'capitalization ... fix' (2026-09-23).",
+  "$comment": "We focus on — the seven, in the founder's words (rework/we-focus-on.md, 2026-09-23, FOUNDER'S WORDS, PROVISIONAL). Not a word changed. 'href' is Claude Code's call until the copy deck v2: each opens the page that best matches it. 'audiences' is the file's own mapping, for the 'Explore our work on' blocks. Titles set in sentence case — the site's rule; the founder: 'capitalization ... fix' (2026-09-23). 'function' is the division whose colour the item carries everywhere (founder, 2026-09-23): Finance & accounting = Finance; Tech & automation and Workshops & training = Tech; Executive management and Programs, events, campaigns = Ops; Setup & structure and Community & networking = Setup.",
   "title": "We focus on",
   "exploreOn": "Explore our work on:",
+  "learnMore": "Learn more",
   "items": [
     {
       "id": "executive-management",
       "title": "Executive management",
+      "function": "ops",
       "line": "fractional executives running your business' setup, operations, finance, and tech all under one roof.",
       "href": "/founders",
       "audiences": [
@@ -15,6 +17,7 @@
     {
       "id": "setup-and-structure",
       "title": "Setup & structure",
+      "function": "setup",
       "line": "feasibility assessments, strategy builds, digital setup, process documentation, operational support, built right from day one.",
       "href": "/feasibility-and-advisory",
       "audiences": [
@@ -25,6 +28,7 @@
     {
       "id": "finance-and-accounting",
       "title": "Finance & accounting",
+      "function": "finance",
       "line": "Reporting, budgeting, cash flow, financial setup and advisory, valuations, tax registration and filings, managed by licensed professionals.",
       "href": "/fractional-cfo-uae",
       "audiences": [
@@ -35,6 +39,7 @@
     {
       "id": "tech-and-automation",
       "title": "Tech & automation",
+      "function": "tech",
       "line": "Websites, system integrations, automation, process optimization, AI tooling, software implementations, and AI productivity trainings, provided based on your firm's tailored needs.",
       "href": "/tech-and-projects",
       "audiences": [
@@ -46,6 +51,7 @@
     {
       "id": "programs-events-campaigns",
       "title": "Programs, events, campaigns",
+      "function": "ops",
       "line": "Building and managing programs, campaigns, and events that promote entrepreneurship efforts across the UAE. Leveraging a network of multinationals, creative businesses, and aspiring entrepreneurs to support the development and launch of sustainable initiatives for aspiring entrepreneurs and creatives.",
       "href": "/institutions",
       "audiences": [
@@ -56,6 +62,7 @@
     {
       "id": "workshops-and-training",
       "title": "Workshops & training",
+      "function": "tech",
       "line": "Growing business acumen and AI literacy across the UAE for creatives, youths, and institutions, improving productivity and lowering barriers to entry for homegrown businesses.",
       "href": "/creatives-and-pre-preneurs",
       "audiences": [
@@ -66,6 +73,7 @@
     {
       "id": "community-and-networking",
       "title": "Community & networking",
+      "function": "setup",
       "line": "Building a collective for businesses, boutique firms, and freelance professionals to promote the sustainable growth of homegrown and small businesses and lower the cost and other barriers to entry for creatives and young entrepreneurs.",
       "href": "/creatives-and-pre-preneurs",
       "audiences": [

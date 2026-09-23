@@ -27,7 +27,7 @@ export default function FormPageB({ page }: { page: Page }) {
           <Typed text={g.shortName} delay={200} speed={90} className={`${styles.mono} ${styles.intentSmall}`} as="p" />
           {h1 && h1.type === "h1" && <Typed text={page.title.replace(/ — .*$/, "")} delay={900} speed={70} className={styles.intentName} as="h1" />}
         </div>
-        <div className={`${styles.panel} ${page.form === "talent" ? styles.tealDeep : styles.plumLight}`}>
+        <div className={`${styles.panel} ${page.form === "talent" ? styles.teal : styles.plumLight}`}>
           {lead && lead.type === "lead" && <p className={styles.lead}><InlineNodes nodes={lead.text} /></p>}
         </div>
       </section>

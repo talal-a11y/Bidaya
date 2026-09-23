@@ -20,7 +20,8 @@ audience: creatives
 
 ---
 
-@kind card
+@kind tabs
+@note the founder, 2026-09-23: this section in the manner of exploration C3 — three tabs, the chosen one takes its division's colour and types its title; the paragraph follows.
 
 ## How we do it
 
@@ -42,7 +43,9 @@ Residencies, cohorts, incubators and competitions teach craft well. What their p
 
 ---
 
-@kind card
+@kind story
+@band teal
+@note the founder, 2026-09-23: the Talent Network "should always be the light aqua color background", with the outlined mark; laid out like the story above it.
 
 ## The Talent Network
 

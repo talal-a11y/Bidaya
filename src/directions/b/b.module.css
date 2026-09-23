@@ -509,3 +509,21 @@ button.door { font: inherit; text-align: start; cursor: pointer; border-block: 0
 
 .stripFoot { display: flex; justify-content: space-between; gap: 10px; padding: 10px 28px; border-block-start: var(--line); background: var(--paper); }
 @media (max-width: 900px) { .focusCard, .focusCard:nth-child(n+5) { grid-column: span 12; } .stripFoot { padding: 10px 12px; } }
+
+/* tabs — a section's rows as tabs (exploration C3): the chosen one takes its division's colour */
+.tabs { display: grid; grid-template-rows: auto 1fr; min-inline-size: 0; }
+.tabList { display: grid; grid-auto-flow: column; grid-auto-columns: 1fr; border-block-end: var(--line); }
+.tab { font: inherit; font-weight: 600; font-size: clamp(15px, 1.3vw, 19px); letter-spacing: -0.01em; text-align: start; padding: 18px 20px; min-block-size: 56px; border: 0; border-inline-end: var(--line); background: var(--paper); color: var(--ink); cursor: pointer; transition: background-color 300ms var(--ease-standard), color 300ms var(--ease-standard); }
+.tab:last-child { border-inline-end: 0; }
+.tabStage { min-block-size: 46svh; justify-content: flex-start; gap: 22px; transition: background-color 520ms var(--ease-standard); }
+.tabTitle { font-size: clamp(24px, 2.4vw, 40px); font-weight: 500; letter-spacing: -0.03em; line-height: 1.05; max-inline-size: none; min-block-size: 1.1em; }
+.tabBody { font-size: clamp(16px, 1.2vw, 19px); line-height: 1.5; max-inline-size: 60ch; opacity: 0; transform: translateY(14px); animation: tabRise 480ms var(--ease-standard) forwards; }
+.tabBody p { margin: 0; }
+@keyframes tabRise { to { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: reduce) { .tabBody { animation: none; opacity: 1; transform: none; } }
+@media (max-width: 720px) { .tabsRow { grid-template-columns: 1fr; } .tabsRow .cardTitlePanel { border-inline-end: 0; border-block-end: var(--line); } .tabList { grid-auto-flow: row; grid-auto-columns: auto; } .tab { border-inline-end: 0; border-block-end: var(--line); } }
+
+/* a story on a band: the title panel carries the outlined mark, drawn large */
+.storyMark { position: absolute; inset-inline-end: -18%; inset-block-end: -22%; inline-size: 70%; opacity: 0.55; pointer-events: none; }
+.storyMark circle { fill: none; stroke: currentColor; stroke-width: 6; }
+.teal .storyMark { color: var(--paper); }

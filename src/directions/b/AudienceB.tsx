@@ -15,8 +15,16 @@ import FunctionCard from "./FunctionCard";
 import { Chapters } from "./Chapter";
 import { Ring, BlockView, Mark } from "./PageB";
 import ExploreOn from "./ExploreOn";
+import TabsBlock from "./TabsBlock";
+import focus from "../../../content/focus.json";
 
-const toneClass: Record<string, string> = { tealDeep: styles.tealDeep, opsDeep: styles.opsDeep, plum: styles.plum, ink: styles.ink, aqua: styles.aqua };
+const toneClass: Record<string, string> = { tealDeep: styles.tealDeep, opsDeep: styles.opsDeep, plum: styles.plum, ink: styles.ink, aqua: styles.aqua, teal: styles.teal };
+// a row's division: the "We focus on" item whose title opens with the same word (Workshops…, Programs…, Community…)
+const divisionOf = (title: string) => {
+  const w = title.split(/[\s,]+/)[0].toLowerCase();
+  const item = focus.items.find((f) => f.title.toLowerCase().startsWith(w));
+  return item ? functions.functions.find((x) => x.id === item.function) : undefined;
+};
 const find = <T extends Block["type"]>(s: Section, type: T, n = 0) => s.blocks.filter((b) => b.type === type)[n] as Extract<Block, { type: T }> | undefined;
 
 // a button in copy: #form-… goes to the home page and opens that form; anything else is a link
@@ -118,16 +126,35 @@ export default function AudienceB({ page }: { page: Page }) {
               </div>
             );
           }
-          case "story":
+          case "tabs": {
+            const rows = find(s, "rows");
+            const items = (rows?.items ?? []).map((it) => {
+              const title = inlineToText(it.lead).replace(/[.:]\s*$/, "");
+              const d = divisionOf(title);
+              return { title, body: <p><InlineNodes nodes={it.rest} /></p>, tone: d?.tone ?? au.tone, color: d?.color ?? au.color };
+            });
+            return (
+              <section key={i} className={`${styles.row} ${styles.card} ${styles.tabsRow}`} data-slide="left">
+                <div className={`${styles.panel} ${styles.stone} ${styles.cardTitlePanel}`}>{t && <h2 className={`${styles.cardTitle} ${styles.cardTitleM}`}><InlineNodes nodes={t.text} /></h2>}</div>
+                <div className={`${styles.panel} ${styles.paper}`} style={{ padding: 0 }}><TabsBlock items={items} /></div>
+              </section>
+            );
+          }
+          case "story": {
+            const band = s.band ? toneClass[s.band] ?? styles.plum : styles.plum;
             return (
               <section key={i} className={`${styles.row} ${styles.story}`}>
-                <div className={`${styles.panel} ${styles.plum}`} data-slide="left">{t && <h2 className={styles.title}><InlineNodes nodes={t.text} /></h2>}</div>
+                <div className={`${styles.panel} ${band}`} data-slide="left">
+                  {t && <h2 className={styles.title}><InlineNodes nodes={t.text} /></h2>}
+                  {s.band && <svg className={styles.storyMark} viewBox="180 192.5 640 640" data-draw aria-hidden="true"><circle cx="500" cy="530" r="240" /><circle cx="500" cy="455" r="200" /></svg>}
+                </div>
                 <div className={`${styles.panel} ${styles.paper}`} data-slide="right">
-                  <div className={styles.storyText}>{ps.map((p, k) => p.type === "p" && <p key={k}><InlineNodes nodes={p.text} /></p>)}</div>
+                  <div className={styles.storyText}>{body.map((b, k) => b.type === "h3" ? <h3 key={k} className={styles.mono}><InlineNodes nodes={b.text} /></h3> : b.type === "p" ? <p key={k}><InlineNodes nodes={b.text} /></p> : null)}</div>
                   <Buttons s={s} />
                 </div>
               </section>
             );
+          }
           default: {
             const flip = i % 2 === 1;
             return (

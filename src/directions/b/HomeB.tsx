@@ -5,16 +5,15 @@ import Link from "next/link";
 import type { Block, Page, Section } from "@/lib/content";
 import { InlineNodes } from "@/components/Inline";
 import { getGlobal, getPageByRoute, inlineToText } from "@/lib/content";
-import audiences from "../../../content/audiences.json";
 import focus from "../../../content/focus.json";
 import forms from "../../../content/forms.json";
 import summaries from "../../../content/summaries.json";
 import booking from "../../../content/booking.json";
 import nav from "../../../content/nav.json";
 import styles from "./b.module.css";
+import { C2, F5 } from "@/explore/Variants";
 import MotionB from "./MotionB";
 import Typed from "./Typed";
-import FunctionCard from "./FunctionCard";
 import { Chapters, ChapterButton, Door, Panel, SummaryPanel } from "./Chapter";
 import FormStrip from "./FormStrip";
 import type { FormDef, Labels, Routing } from "./FormStrip";
@@ -97,21 +96,8 @@ export default function HomeB({ page }: { page: Page }) {
           <h2 className={styles.title}><InlineNodes nodes={consultT.text} /></h2>
         </div>
       </section>
-      <section className={`${styles.row} ${styles.three}`}>
-        {audiences.audiences.map((a) => (
-          <FunctionCard key={a.id} href={a.href} label={`${a.word}: ${audiences.learnMore}`} className={`${styles.panel} ${styles.fn} ${toneClass[a.tone] ?? styles.ink}`}>
-            <div className={styles.fnDefault}>
-              <p className={styles.bigH} data-rise>{a.word.split(" & ").map((w, i, arr) => <span key={i} className={styles.noBreak}>{w}{i < arr.length - 1 ? " &" : ""}{i < arr.length - 1 && <br />}</span>)}</p>
-              <p className={styles.mono} style={{ fontSize: 14, lineHeight: 1.5 }}>{a.short}</p>
-            </div>
-            <div className={styles.fnOpen} style={{ color: a.color }}>
-              <div className={styles.fnHead}><Mark className={styles.fnMark} /><span className={styles.noBreak}>{a.word}</span></div>
-              <p className={styles.fnLong}>{a.long}</p>
-              <span className={`${styles.action} ${styles.fnCta}`} style={{ background: a.color, borderColor: a.color }}>{audiences.learnMore}</span>
-            </div>
-          </FunctionCard>
-        ))}
-      </section>
+      {/* exploration branch: C2, the founder's pick — the three names large, the block takes the hovered audience's colour */}
+      <section className={styles.row}><C2 /></section>
 
       {/* 4 — We focus on: the seven, in the founder's words; each opens the page that best matches it */}
       <section id="we-focus-on" className={`${styles.row} ${styles.lineRow}`}>
@@ -119,15 +105,8 @@ export default function HomeB({ page }: { page: Page }) {
           <h2 className={styles.title}>{focus.title}</h2>
         </div>
       </section>
-      <section className={`${styles.row} ${styles.focus}`}>
-        {focus.items.map((f, i) => (
-          <Link key={f.id} href={f.href} className={`${styles.panel} ${styles.focusCard} ${i % 2 ? styles.stone : styles.paper}`} data-slide="up">
-            <h3 className={styles.focusTitle}>{f.title}</h3>
-            <p className={styles.focusLine}>{f.line}</p>
-            <span className={styles.focusMore} aria-hidden="true">→</span>
-          </Link>
-        ))}
-      </section>
+      {/* exploration branch: F5, the founder's pick — the seven as a diagonal accordion, each in its division's colour */}
+      <section className={styles.row}><F5 /></section>
 
       {/* 6 — Start a conversation: one form, or a booking */}
       <section id="enquire" className={`${styles.row} ${styles.lineRow}`}>

@@ -20,9 +20,9 @@
 /* ---- F1: list and stage — the founder's own idea: titles on the left, the line slides in on the right */
 .f1 { display: grid; grid-template-columns: 1fr 1.2fr; min-block-size: 70svh; }
 .f1 ul { list-style: none; margin: 0; padding: 0; display: grid; }
-.f1 li a { display: flex; justify-content: space-between; align-items: center; padding: 18px 28px; border-block-end: 1px solid var(--soft); color: var(--ink); text-decoration: none; font-size: clamp(22px, 2.2vw, 34px); font-weight: 500; letter-spacing: -0.025em; transition: padding-inline-start 320ms var(--ease-standard), background-color 320ms var(--ease-standard), color 320ms var(--ease-standard); }
+.f1 li a { display: flex; justify-content: space-between; align-items: center; padding: 18px 28px; border-block-end: 1px solid rgb(252 251 249 / 0.25); text-decoration: none; font-size: clamp(22px, 2.2vw, 34px); font-weight: 500; letter-spacing: -0.025em; opacity: 0.82; transition: padding-inline-start 320ms var(--ease-standard), opacity 320ms var(--ease-standard); }
 .f1 li a::after { content: "→"; opacity: 0; transform: translateX(-10px); transition: opacity 260ms, transform 320ms var(--ease-standard); }
-.f1 li a:hover, .f1 li a[data-on] { padding-inline-start: 44px; background: var(--ink); color: var(--paper); }
+.f1 li a:hover, .f1 li a[data-on] { padding-inline-start: 44px; opacity: 1; }
 .f1 li a:hover::after, .f1 li a[data-on]::after { opacity: 1; transform: none; }
 .f1Stage { position: relative; overflow: hidden; border-inline-start: 1px solid var(--ink); }
 .f1Card { position: absolute; inset: 0; padding: 36px; display: flex; flex-direction: column; justify-content: space-between; opacity: 0; transform: translateX(40px); transition: opacity 360ms var(--ease-standard), transform 480ms var(--ease-standard); }
@@ -65,7 +65,7 @@
 /* ---- C2: big names — the three stacked large; the whole panel takes the audience's colour */
 .c2 { display: grid; grid-template-columns: 1fr 1fr; min-block-size: 70svh; transition: background-color 520ms var(--ease-standard), color 520ms var(--ease-standard); }
 .c2 ul { list-style: none; margin: 0; padding: 28px; display: grid; align-content: center; gap: 6px; }
-.c2 li a { display: block; font-size: clamp(34px, 5vw, 84px); line-height: 1; font-weight: 500; letter-spacing: -0.04em; color: inherit; text-decoration: none; opacity: 0.45; transition: opacity 300ms, transform 420ms var(--ease-standard); }
+.c2 li a { display: block; white-space: nowrap; font-size: clamp(26px, 3.1vw, 50px); line-height: 1; font-weight: 500; letter-spacing: -0.04em; color: inherit; text-decoration: none; opacity: 0.45; transition: opacity 300ms, transform 420ms var(--ease-standard); }
 .c2 li a:hover, .c2 li a[data-on] { opacity: 1; transform: translateX(18px); }
 .c2Stage { position: relative; padding: 36px; border-inline-start: 1px solid currentColor; display: flex; flex-direction: column; justify-content: space-between; overflow: hidden; }
 .c2Stage svg { position: absolute; inset-inline-end: -25%; inset-block-end: -25%; inline-size: 80%; opacity: 0.3; }
@@ -88,14 +88,33 @@
 
 /* ---- C4: the diagonal accordion — three panels with slanted edges, the hovered one widens */
 .c4 { display: flex; min-block-size: 68svh; overflow: hidden; }
-.c4 a { flex: 1 1 0; position: relative; display: flex; flex-direction: column; justify-content: flex-end; padding: 32px 44px; text-decoration: none; color: var(--paper); clip-path: polygon(0 0, 100% 0, calc(100% - 60px) 100%, 0 100%); margin-inline-end: -60px; transition: flex-grow 560ms var(--ease-standard); }
+.c4 a { flex: 1 1 0; position: relative; display: flex; flex-direction: column; justify-content: flex-end; padding: 32px 44px 32px 92px; text-decoration: none; color: var(--paper); clip-path: polygon(0 0, 100% 0, calc(100% - 60px) 100%, 0 100%); margin-inline-end: -60px; transition: flex-grow 560ms var(--ease-standard); }
+.c4 a:first-child { padding-inline-start: 44px; }
 .c4 a:last-child { clip-path: none; margin-inline-end: 0; }
 .c4 a:hover, .c4 a[data-on] { flex-grow: 2.4; }
 .c4Word { font-size: clamp(30px, 4vw, 64px); line-height: 1; font-weight: 500; letter-spacing: -0.035em; max-inline-size: none; }
 .c4Body { max-block-size: 0; opacity: 0; overflow: hidden; transition: max-block-size 520ms var(--ease-standard), opacity 360ms var(--ease-standard) 160ms; display: grid; gap: 16px; }
 .c4 a:hover .c4Body, .c4 a[data-on] .c4Body { max-block-size: 320px; opacity: 1; margin-block-start: 18px; }
 
+/* ---- F5: the seven as a diagonal accordion — each panel its division's colour; the hovered one widens */
+.f5 { display: flex; min-block-size: 66svh; overflow: hidden; }
+.f5 a { flex: 1 1 0; position: relative; display: flex; flex-direction: column; justify-content: flex-end; align-items: flex-start; padding: 28px 28px 28px 68px; text-decoration: none; color: var(--paper); clip-path: polygon(0 0, 100% 0, calc(100% - 40px) 100%, 0 100%); margin-inline-end: -40px; overflow: hidden; transition: flex-grow 560ms var(--ease-standard); }
+.f5 a:first-child { padding-inline-start: 28px; }
+.f5 a:last-child { clip-path: none; margin-inline-end: 0; }
+.f5 a:hover, .f5 a[data-on] { flex-grow: 4.2; }
+.f5Title { writing-mode: vertical-rl; transform: rotate(180deg); font-size: clamp(20px, 1.8vw, 28px); font-weight: 500; letter-spacing: -0.02em; white-space: nowrap; line-height: 1; transition: font-size 400ms var(--ease-standard); }
+.f5 a:hover .f5Title, .f5 a[data-on] .f5Title { writing-mode: horizontal-tb; transform: none; font-size: clamp(28px, 2.8vw, 46px); letter-spacing: -0.03em; }
+.f5Body { max-block-size: 0; opacity: 0; overflow: hidden; display: grid; gap: 16px; transition: max-block-size 520ms var(--ease-standard), opacity 360ms var(--ease-standard) 160ms; }
+.f5 a:hover .f5Body, .f5 a[data-on] .f5Body { max-block-size: 360px; opacity: 1; margin-block-start: 18px; }
+
 @media (max-width: 900px) {
+  .f5 { flex-direction: column; min-block-size: auto; }
+  .f5 a { flex: none; clip-path: none; margin: 0; padding: 22px 24px; border-block-end: 1px solid rgb(252 251 249 / 0.25); }
+  .c2Stage { border-inline-start: 0; border-block-start: 1px solid currentColor; }
+  .c2 ul { padding: 24px; }
+  .c2 li a { white-space: normal; }
+  .f5Title { writing-mode: horizontal-tb; transform: none; white-space: normal; }
+  .f5 a:hover .f5Title, .f5 a[data-on] .f5Title { font-size: clamp(24px, 6vw, 32px); }
   .f1, .c2, .c3Stage { grid-template-columns: 1fr; }
   .f2, .c4 { flex-direction: column; }
   .f2Title { writing-mode: horizontal-tb; transform: none; }

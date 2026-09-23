@@ -39,6 +39,8 @@ export default function HeaderB({ current }: { current: string }) {
           ) : (
             <li key={grp.label}><Link href={grp.href!} aria-current={grp.href === current ? "page" : undefined}>{grp.label}</Link></li>
           ))}
+          {/* temporary, exploration branch only: the founder's shortcut to /explore */}
+          <li><Link href="/explore" aria-current={current === "/explore" ? "page" : undefined}>Explore</Link></li>
         </ul>
       </nav>
       <details className={styles.menuToggle}>
@@ -52,6 +54,7 @@ export default function HeaderB({ current }: { current: string }) {
           ) : (
             <li key={grp.label}><AnchorLink href={grp.href!}>{grp.label}</AnchorLink></li>
           ))}
+          <li><AnchorLink href="/explore">Explore</AnchorLink></li>
         </ul>
       </details>
       <div className={styles.barStart}><AnchorLink href={nav.cta.href}>{nav.cta.label}</AnchorLink></div>
