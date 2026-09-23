@@ -72,6 +72,7 @@ const isInstruction = (t) => /^\s*@(note|assumed|verify)\b/.test(t) || /"\$comme
 
 for (const file of files) {
   const rel = path.relative(root, file);
+  if (rel === "content/pages/resources.md") continue; // the founder's raw notes, verbatim, temporary — not site copy
   const base = path.basename(file);
   const isContent = rel.startsWith("content/");
   const lines = fs.readFileSync(file, "utf8").split("\n");

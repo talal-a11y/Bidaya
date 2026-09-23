@@ -6,6 +6,7 @@ export function pageMetadata(page: Page): Metadata {
     title: page.title,
     description: page.description,
     alternates: { canonical: page.route },
+    robots: page.hidden ? { index: false, follow: false } : undefined,
     openGraph: { title: page.title, description: page.description, url: page.route, type: "website", siteName: "Bidaya" },
   };
 }

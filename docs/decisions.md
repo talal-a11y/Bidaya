@@ -177,3 +177,6 @@ The founder takes the restructure to the chat that built the brand systems, to r
 
 2026-09-23 — The tagline. DECIDED (Vercel comment on the preview).
 "Change to just 'From day one'." The tagline is "From day one." The deck's "Executive management, from the beginning." — and with it the only place "executive management" appeared — is gone from the site.
+
+2026-09-23 — /resources. NOTED, temporary.
+"Add a page, call it RESOURCES for now, and on it should be every single thing I wrote… in one place, split how I split them, for me to read from." Built at /resources from `content/pages/resources.md`: his words verbatim, out of the navigation and the sitemap, noindex, exempt from the copy checklist. To be removed when he says so.
