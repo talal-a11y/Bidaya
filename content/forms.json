@@ -200,7 +200,7 @@
       "$proposed": "questions and options drafted from the Programs page; founder to confirm",
       "steps": [
         {
-          "id": "who",
+          "id": "institution",
           "label": "Who you are",
           "type": "choice",
           "options": [
@@ -284,7 +284,7 @@
       "sentence": [
         "We are ",
         {
-          "field": "who",
+          "field": "institution",
           "blank": "an institution"
         },
         " and we run ",
@@ -470,7 +470,8 @@
           "blank": "phone or WhatsApp"
         },
         "."
-      ]
+      ],
+      "consent": true
     },
     "general": {
       "title": "General inquiry",
@@ -620,14 +621,24 @@
         "form": "business"
       },
       {
-        "label": "A creative, freelancer or someone starting out",
-        "phrase": "a creative, freelancer or someone starting out",
+        "label": "A creative or freelancer setting up a business",
+        "phrase": "a creative or freelancer setting up a business",
         "form": "general"
+      },
+      {
+        "label": "A creative or freelancer who could work with Bidaya's clients",
+        "phrase": "a creative or freelancer who could work with Bidaya's clients",
+        "form": "talent"
       },
       {
         "label": "An institution, university or organisation",
         "phrase": "an institution, university or organisation",
         "form": "partners"
+      },
+      {
+        "label": "Not sure, or both",
+        "phrase": "not sure yet, or both",
+        "form": "general"
       },
       {
         "label": "I'd rather just write.",
@@ -643,7 +654,7 @@
       },
       ". "
     ],
-    "$decided": "the founder, 2026-09-23: the options stand for now; the site is audited once the three audiences are final"
+    "$decided": "2026-09-23: the first question also tells a creative or freelancer who wants to work with Bidaya's clients (→ the talent questions, delivered to talent@, a different pipeline) from one setting up a business (→ the general questions, then the discovery call); 'Not sure, or both' → the general questions and the discovery call. Wording proposed."
   },
   "reach": {
     "title": "Enquire",
@@ -674,5 +685,7 @@
     "questionnaire": "info@bidaya.consulting",
     "talent": "talent@bidaya.consulting",
     "public": "contact@bidaya.consulting"
-  }
+  },
+  "consentNote": "By sending, you agree that Bidaya uses these details to reply. See the privacy notice.",
+  "$consent": "2026-09-23: the founder removed the consent checkbox from the enquiry — replying to an enquiry is a pre-contractual step the person asked for, which the PDPL allows without separate consent; a one-line notice (proposed) stays. The Talent Network keeps the checkbox: those details are stored for later, which needs consent."
 }

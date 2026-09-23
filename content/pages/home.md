@@ -44,7 +44,7 @@ order: 1
 ---
 
 @kind explore
-@note "Beyond the executive layer" moved to the foot of /founders; here, his words (Vercel comment 2026-09-23) and the seven of "We focus on" as buttons.
+@note the "Explore our work on" block is off the home page (founder 2026-09-23); it lives near the foot of every other page, filtered to what that page's reader is likely to want next. His line stays here for the record.
 
 ## Explore our work
 

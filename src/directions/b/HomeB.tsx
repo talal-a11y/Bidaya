@@ -19,7 +19,6 @@ import { Chapters, ChapterButton, Door, Panel, SummaryPanel } from "./Chapter";
 import FormStrip from "./FormStrip";
 import type { FormDef, Labels, Routing } from "./FormStrip";
 import { Mark } from "./PageB";
-import ExploreOn from "./ExploreOn";
 import { FORM_PRESETS } from "./hrefs";
 
 const find = <T extends Block["type"]>(s: Section, type: T, n = 0) =>
@@ -47,10 +46,9 @@ export const toneClass: Record<string, string> = { tealDeep: styles.tealDeep, op
 
 export default function HomeB({ page }: { page: Page }) {
   const g = getGlobal();
-  const [hero, consult, explore, start] = page.sections;
+  const [hero, consult, , start] = page.sections;
   const h1 = find(hero, "h1")!, tagline = find(hero, "tagline")!, lead = find(hero, "lead")!, leadList = find(hero, "list"), heroBtns = find(hero, "buttons")!, aside = find(hero, "aside")!;
   const consultT = find(consult, "h2")!;
-  const exploreP = find(explore, "p")!;
   const startT = find(start, "h2")!, doors = find(start, "rows")!;
   const close = g.fields.menuClose;
   const about = getPageByRoute("/about")!;
@@ -124,21 +122,11 @@ export default function HomeB({ page }: { page: Page }) {
       <section className={`${styles.row} ${styles.focus}`}>
         {focus.items.map((f, i) => (
           <Link key={f.id} href={f.href} className={`${styles.panel} ${styles.focusCard} ${i % 2 ? styles.stone : styles.paper}`} data-slide="up">
-            <span className={styles.mono}>{String(i + 1).padStart(2, "0")}</span>
             <h3 className={styles.focusTitle}>{f.title}</h3>
             <p className={styles.focusLine}>{f.line}</p>
             <span className={styles.focusMore} aria-hidden="true">→</span>
           </Link>
         ))}
-      </section>
-
-      {/* 5 — Explore our work on: his line, and the seven as buttons */}
-      <section id="about" className={`${styles.row} ${styles.story}`}>
-        <div className={`${styles.panel} ${styles.plum}`} data-slide="left"><Arcs /></div>
-        <div className={`${styles.panel} ${styles.paper}`} data-slide="right">
-          <div className={styles.storyText}><p><InlineNodes nodes={exploreP.text} /></p></div>
-          <ExploreOn />
-        </div>
       </section>
 
       {/* 6 — Start a conversation: one form, or a booking */}
@@ -159,7 +147,7 @@ export default function HomeB({ page }: { page: Page }) {
         ))}
       </section>
       <Panel id="form-reach" label={forms.reach.title}>
-        <FormStrip id="form-reach" forms={forms.forms as unknown as Record<string, FormDef>} routing={forms.routing as unknown as Routing} title={forms.reach.title} labels={forms.labels as Labels} consent={forms.consent} notWired={g.fields.formNotWired} closeLabel={close} />
+        <FormStrip id="form-reach" forms={forms.forms as unknown as Record<string, FormDef>} routing={forms.routing as unknown as Routing} title={forms.reach.title} labels={forms.labels as Labels} consent={forms.consent} consentNote={forms.consentNote} notWired={g.fields.formNotWired} closeLabel={close} />
       </Panel>
       <Panel id="booking" label={booking.label} closeLabel={close}>
         {booking.url ? (

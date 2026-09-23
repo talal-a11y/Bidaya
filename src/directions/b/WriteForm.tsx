@@ -7,11 +7,10 @@ import type { Labels } from "./FormStrip";
 const emailOk = (v: string) => /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v.trim());
 const phoneOk = (v: string) => /^\+?[\d\s().-]+$/.test(v.trim()) && v.replace(/\D/g, "").length >= 7;
 
-export default function WriteForm({ fields, box, email, labels, consent, notWired }: { fields: { label: string; type: "text" | "tel" | "email" }[]; box: string; email: string; labels: Labels; consent: string; notWired: string }) {
+export default function WriteForm({ fields, box, email, labels, consentNote, notWired }: { fields: { label: string; type: "text" | "tel" | "email" }[]; box: string; email: string; labels: Labels; consent?: string; consentNote: string; notWired: string }) {
   const [v, setV] = useState<Record<string, string>>({});
-  const [agreed, setAgreed] = useState(false);
   const ok = (f: { label: string; type: string }) => { const x = v[f.label] ?? ""; return f.type === "email" ? emailOk(x) : f.type === "tel" ? phoneOk(x) : x.trim().length > 1; };
-  const ready = !!v.box?.trim() && fields.every(ok) && agreed;
+  const ready = !!v.box?.trim() && fields.every(ok);
   return (
     <section className={`${styles.row} ${styles.lineRow}`}>
       <form className={`${styles.panel} ${styles.paper} ${styles.writeForm}`} onSubmit={(e) => e.preventDefault()}>
@@ -28,7 +27,7 @@ export default function WriteForm({ fields, box, email, labels, consent, notWire
             </label>
           ); })}
         </div>
-        <label className={styles.consentRow} style={{ borderBlockEnd: 0, padding: 0 }}><input type="checkbox" checked={agreed} onChange={(e) => setAgreed(e.target.checked)} /><span>{consent}</span></label>
+        <p className={styles.qHint}>{consentNote}</p>
         <p className={styles.body}>{labels.email}: <a href={`mailto:${email}`}>{email}</a></p>
         <div>
           <button type="submit" className={`${styles.action} ${styles.actionFill}`} disabled aria-disabled="true" data-ready={ready || undefined}>{labels.send}</button>

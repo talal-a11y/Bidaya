@@ -16,7 +16,7 @@ export type Step =
   | { id: string; label: string; type: "text"; hint?: string; optional?: boolean }
   | { id: string; label: string; type: "contact"; fields: Field[] };
 export type Slot = string | { field: string; blank: string; prefix?: string; optional?: boolean };
-export type FormDef = { title: string; tone: string; email?: string; steps: Step[]; sentence: Slot[] };
+export type FormDef = { title: string; tone: string; email?: string; consent?: boolean; steps: Step[]; sentence: Slot[] };
 export type Routing = { id: string; label: string; type: "choice"; options: Option[]; sentence: Slot[] };
 export type Labels = { back: string; next: string; send: string; answered: string; email: string; optional: string; invalidEmail: string; invalidPhone: string; required: string };
 
@@ -26,7 +26,7 @@ const emailOk = (v: string) => /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v.trim());
 const phoneOk = (v: string) => /^\+?[\d\s().-]+$/.test(v.trim()) && v.replace(/\D/g, "").length >= 7;
 const fieldOk = (f: Field, v = "") => (f.optional && !v.trim()) || (f.type === "email" ? emailOk(v) : f.type === "tel" ? phoneOk(v) : v.trim().length > 1);
 
-export default function FormStrip({ id, forms, routing, title, labels, consent, notWired, closeLabel, startWith }: { id: string; forms: Record<string, FormDef>; routing: Routing; title: string; labels: Labels; consent: string; notWired: string; closeLabel: string; startWith?: string }) {
+export default function FormStrip({ id, forms, routing, title, labels, consent, consentNote, notWired, closeLabel, startWith }: { id: string; forms: Record<string, FormDef>; routing: Routing; title: string; labels: Labels; consent: string; consentNote: string; notWired: string; closeLabel: string; startWith?: string }) {
   const { toggle } = useChapter();
   const [chosen, setChosen] = useState<string | null>(startWith ?? null);
   const routed = routing.options.length > 0; // a page that is one form has no routing question
@@ -102,7 +102,8 @@ export default function FormStrip({ id, forms, routing, title, labels, consent, 
       <span />
     </div>
   );
-  const ready = form.steps.every(done) && agreed;
+  const needsConsent = !!form.consent;
+  const ready = form.steps.every(done) && (!needsConsent || agreed);
 
   return (
     <div className={styles.formStrip}>
@@ -156,7 +157,7 @@ export default function FormStrip({ id, forms, routing, title, labels, consent, 
                       );
                     })}
                   </div>
-                  <label className={styles.consentRow} style={{ borderBlockEnd: 0, padding: 0 }}><input type="checkbox" checked={agreed} onChange={(e) => setAgreed(e.target.checked)} /><span>{consent}</span></label>
+                  {needsConsent ? <label className={styles.consentRow} style={{ borderBlockEnd: 0, padding: 0 }}><input type="checkbox" checked={agreed} onChange={(e) => setAgreed(e.target.checked)} /><span>{consent}</span></label> : <p className={styles.qHint}>{consentNote}</p>}
                   {form.email && <p className={styles.body}>{labels.email}: <a href={`mailto:${form.email}`}>{form.email}</a></p>}
                   <div>
                     {/* disabled until wired (milestone 8); once wired: disabled={!ready} */}
@@ -168,6 +169,10 @@ export default function FormStrip({ id, forms, routing, title, labels, consent, 
             </div>
           </div>
         ))}
+      </div>
+      <div className={styles.stripFoot}>
+        <button type="button" className={styles.chapterBtn} onClick={() => go(index - 1)} disabled={index === 0}>← {labels.back}</button>
+        <button type="button" className={styles.chapterBtn} onClick={() => go(index + 1)} disabled={index === total - 1 || !canLeave(index)}>{labels.next} →</button>
       </div>
     </div>
   );

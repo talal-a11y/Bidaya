@@ -33,10 +33,10 @@ export default function FormPageB({ page }: { page: Page }) {
       </section>
       {page.form === "talent" ? (
         <Panel id="form-talent" label={forms.forms.talent.title}>
-          <FormStrip id="form-talent" forms={{ talent: forms.forms.talent as FormDef }} routing={{ id: "who", label: "", type: "choice", options: [], sentence: [] } as Routing} title={forms.forms.talent.title} labels={labels} consent={forms.consent} notWired={g.fields.formNotWired} closeLabel={g.fields.menuClose} startWith="talent" />
+          <FormStrip id="form-talent" forms={{ talent: forms.forms.talent as FormDef }} routing={{ id: "who", label: "", type: "choice", options: [], sentence: [] } as Routing} title={forms.forms.talent.title} labels={labels} consent={forms.consent} consentNote={forms.consentNote} notWired={g.fields.formNotWired} closeLabel={g.fields.menuClose} startWith="talent" />
         </Panel>
       ) : (
-        <WriteForm fields={forms.write.fields as { label: string; type: "text" | "tel" | "email" }[]} box={forms.write.box} email={forms.write.email} labels={labels} consent={forms.consent} notWired={g.fields.formNotWired} />
+        <WriteForm fields={forms.write.fields as { label: string; type: "text" | "tel" | "email" }[]} box={forms.write.box} email={forms.write.email} labels={labels} consent={forms.consent} consentNote={forms.consentNote} notWired={g.fields.formNotWired} />
       )}
       <Ring page={page} />
     </div>

@@ -120,7 +120,7 @@ export default function PageB({ page }: { page: Page }) {
           </section>
         );
       })}
-      {fn && <section className={`${styles.row} ${styles.lineRow}`}><div className={`${styles.panel} ${styles.paper}`}><ExploreOn withLine /></div></section>}
+      {fn && <section className={`${styles.row} ${styles.lineRow}`}><div className={`${styles.panel} ${styles.paper}`}><ExploreOn audience="founders" exclude={page.route} withLine /></div></section>}
       <Ring page={page} />
     </div>
   );
