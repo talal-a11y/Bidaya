@@ -171,3 +171,6 @@ The question now sits in an ink band above its options, larger and marked "Q", s
 1. The home page will explain what Bidaya does: "We consult" becomes "We consult for" (who), followed by a new section "We focus on" (what) listing the things Bidaya focuses on — Setup & support, Executive management, Financial advisory, Programs & events, Workshops & trainings, and more he will add; Claude may suggest others from what it knows of the firm.
 2. The four forms merge into one "reach us" questionnaire: the first questions decide which of the four forms follows, so the front reads as one form and the back keeps four. Same sideways format as now (he likes it); the questions and the sentence on the left to be reworded.
 3. He will share more later. REMINDER OWED: ask him for the details on both before building.
+
+2026-09-23 — Handoff to the brand-systems chat. NOTED.
+The founder takes the restructure to the chat that built the brand systems, to rework the strategy and the record. Written for it: `docs/15-restructure-brief.md` (the structure, every change, the intent, what is open, how to see the site) with `docs/screens/` for its eyes. It is asked to say back what it understood and to list what is unclear before proposing anything.
