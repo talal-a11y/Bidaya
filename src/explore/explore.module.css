@@ -78,6 +78,7 @@
 .c3Tabs button { font: inherit; font-weight: 600; font-size: clamp(18px, 1.8vw, 26px); letter-spacing: -0.02em; padding: 22px; border: 0; border-inline-end: 1px solid var(--ink); background: var(--stone); color: var(--ink); cursor: pointer; transition: background-color 300ms, color 300ms; }
 .c3Tabs button:last-child { border-inline-end: 0; }
 .c3Tabs button[aria-selected="true"] { color: var(--paper); }
+.c3Tabs .ink { background: var(--ink); } .c3Tabs .plum { background: var(--plum); } .c3Tabs .teal { background: #237C85; } .c3Tabs .aqua { background: var(--aqua); }
 .c3Stage { display: grid; grid-template-columns: 1fr 1.3fr; transition: background-color 520ms var(--ease-standard), color 520ms var(--ease-standard); }
 .c3Stage > div { padding: 36px; display: flex; flex-direction: column; justify-content: space-between; }
 .c3Stage svg { inline-size: clamp(120px, 14vw, 200px); }
