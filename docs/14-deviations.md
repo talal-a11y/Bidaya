@@ -22,6 +22,10 @@ Started 22 September 2026 on the founder's instruction: "Keep log of all the cha
 - Sentence case applied to his labels and titles; apostrophes and spellings corrected in his copy; grammar left for his review.
 - Two floors more on /fees: founders' project work from AED 7,000, creatives from AED 3,500 (unlisted, indexable).
 - The five skills now live in .claude/skills/.
+- Later the same day: the routing question splits creatives who are setting up a business (→ the general questions and the discovery call) from those who could work with Bidaya's clients (→ the talent questions, delivered to talent@, a separate pipeline); "Not sure, or both" → the general questions. Wording proposed.
+- The consent checkbox is off the enquiry (a reply to an enquiry needs no consent under the PDPL; a one-line notice stays); it remains on the Talent Network form, where details are kept. Privacy notice and terms pages still to be drafted.
+- The booking door embeds the founder's Google Calendar appointment schedule (content/booking.json) — a third-party iframe, the pack's "no third-party script" rule bent for it with his approval.
+- "Explore our work on" is off the home page and filtered on every other page; "We focus on" carries no numbers; explorations for both home sections sit on branch build/03b-explorations at /explore (F1–F4, C2–C4) awaiting his pick.
 
 ## Copy (docs/02, docs/04)
 - **The founder rewrote About, What we do, Programs, the three terms and the story** in his own words (2026-09-22); the deck's versions are in git history. Titles set in sentence case.

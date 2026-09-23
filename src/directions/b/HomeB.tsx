@@ -17,7 +17,6 @@ import Typed from "./Typed";
 import { Chapters, ChapterButton, Door, Panel, SummaryPanel } from "./Chapter";
 import FormStrip from "./FormStrip";
 import type { FormDef, Labels, Routing } from "./FormStrip";
-import { Mark } from "./PageB";
 import { FORM_PRESETS } from "./hrefs";
 
 const find = <T extends Block["type"]>(s: Section, type: T, n = 0) =>
