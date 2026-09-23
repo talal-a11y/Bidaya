@@ -1,15 +1,17 @@
 ---
 route: /founders
-title: Founders — Bidaya Consulting
+title: Founders & SME's — Bidaya Consulting
 description: The executive layer for funded startups and established SMEs: setup, operations, finance and tech, run inside the business by one firm, on published terms.
 order: 2
-nav: Founders
+nav: Founders & SME's
 audience: founders
 ---
 
 @note the founder's restructure of 2026-09-22: everything that sat under the home page's logo down to "Beyond the executive layer" lives here. Every word is the deck's or his; only the order is this page's.
 
 @kind flip
+@note the header, his words (rework/rulings §2).
+@tagline Executive management, from day one.
 
 # Setup, operations, finance and tech — run inside your business by one firm.
 
@@ -50,18 +52,27 @@ Neither is the lesser version of the other. Which shape fits is what the first c
 ---
 
 @kind terms
-@note "How we work" becomes "How Bidaya works" in a later pass — docs/decisions.md 2026-09-22.
+@note the two terms' titles are OPEN — the founder rewrites them (rework/rulings §6).
 
-## How we work
+## How Bidaya works
 
 Terms a firm that couldn't deliver would never publish.
 
 @terms
 **Trial month, no notice.** Paid at full rate, delivering functional tools that can be managed without us.
 
-**Pay monthly, cancel anytime.** Bringing the subscription model to professional services. Cancel anytime, with a 30-day notice.
+**Pay monthly, cancel anytime.** Bringing the subscription model to professional services. Cancel with a 30-day notice.
 
-**Discovery first, in writing.** If the business doesn't need us monthly, we say so in writing. Our 30 minute discovery call is free, and will provide you with recommendations on where to take your business first.
+**Discovery first, in writing.** Our 30 minute discovery call is free.
 @end
 
 @cta Enquire for your business -> #form-business
+
+---
+
+@kind story
+@note moved here from the home page (his Vercel comment, 2026-09-23); the paragraph is his (About, "Why Bidaya exists").
+
+## Beyond the executive layer
+
+Bidaya was built to do one thing that solves three separate, yet similar, problems: be the executive layer for businesses that are too small to have one yet. For startups and SMEs that is our work that builds an affordable executive function into the business making it easier to run. For youth and the creative sector, it is our programs that support building and growing businesses with the right tools. And for the established B2B founders and independent freelancers, it is the opportunity to provide them more meaningful work for people in earlier stages.

@@ -5,6 +5,7 @@ import { pageMetadata } from "@/lib/meta";
 import PageShell from "@/components/PageShell";
 import PageB from "@/directions/b/PageB";
 import AudienceB from "@/directions/b/AudienceB";
+import FormPageB from "@/directions/b/FormPageB";
 import HeaderB from "@/directions/b/HeaderB";
 import FooterB from "@/directions/b/FooterB";
 import Schema from "@/components/Schema";
@@ -59,7 +60,7 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
       <>
         <Schema page={page} />
         <HeaderB current={page.route} />
-        <main id="main" tabIndex={-1}>{page.audience ? <AudienceB page={page} /> : <PageB page={page} />}</main>
+        <main id="main" tabIndex={-1}>{page.form ? <FormPageB page={page} /> : page.audience ? <AudienceB page={page} /> : <PageB page={page} />}</main>
         <FooterB />
       </>
     );

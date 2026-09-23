@@ -32,7 +32,9 @@ How the business actually runs: finances, teams, sales, process, systems. Every 
 
 ## What it costs
 
-Both are fixed-scope work, quoted after the call, paid at milestones, with discovery as the first phase inside the fee. Where a study leads to a monthly engagement, monthly engagements are from AED 12,000, scope-dependent above that.
+@note the floor line moved to /fees (rework/rulings §8).
+
+Both are fixed-scope work, quoted after the call, paid at milestones, with discovery as the first phase inside the fee.
 
 ---
 

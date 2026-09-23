@@ -160,5 +160,95 @@
     "rule": "banned word: \"scale\"",
     "contains": "scale(1.9417)",
     "why": "An SVG transform, not copy."
+  },
+  {
+    "file": "content/focus.json",
+    "rule": "banned: \"under one roof\"",
+    "contains": "all under one roof",
+    "why": "The founder's words \u2014 rework/we-focus-on.md (FOUNDER'S WORDS, PROVISIONAL): flagged once, not changed."
+  },
+  {
+    "file": "content/focus.json",
+    "rule": "banned: \"one roof\"",
+    "contains": "all under one roof",
+    "why": "The founder's words \u2014 rework/we-focus-on.md (FOUNDER'S WORDS, PROVISIONAL): flagged once, not changed."
+  },
+  {
+    "file": "content/focus.json",
+    "rule": "\"fractional/outsourced/part-time\" outside the intent pages",
+    "contains": "fractional executives",
+    "why": "The founder's words \u2014 rework/we-focus-on.md (FOUNDER'S WORDS, PROVISIONAL): flagged once, not changed."
+  },
+  {
+    "file": "content/focus.json",
+    "rule": "banned: \"assessment\"",
+    "contains": "feasibility assessments",
+    "why": "The founder's words \u2014 rework/we-focus-on.md (FOUNDER'S WORDS, PROVISIONAL): flagged once, not changed."
+  },
+  {
+    "file": "content/focus.json",
+    "rule": "banned: \"tailored solution\"",
+    "contains": "tailored",
+    "why": "The founder's words \u2014 rework/we-focus-on.md (FOUNDER'S WORDS, PROVISIONAL): flagged once, not changed."
+  },
+  {
+    "file": "content/focus.json",
+    "rule": "banned word: \"leverage\"",
+    "contains": "Leveraging",
+    "why": "The founder's words \u2014 rework/we-focus-on.md (FOUNDER'S WORDS, PROVISIONAL): flagged once, not changed."
+  },
+  {
+    "file": "content/focus.json",
+    "rule": "banned: \"build it right\"",
+    "contains": "built right from day one",
+    "why": "The founder's words \u2014 rework/we-focus-on.md (FOUNDER'S WORDS, PROVISIONAL): flagged once, not changed."
+  },
+  {
+    "file": "content/pages/founders.md",
+    "rule": "banned: \"under one roof\"",
+    "contains": "all under one roof",
+    "why": "Founder's ruling 2026-09-21."
+  },
+  {
+    "file": "content/pages/founders.md",
+    "rule": "banned: \"one roof\"",
+    "contains": "all under one roof",
+    "why": "Founder's ruling 2026-09-21."
+  },
+  {
+    "file": "content/pages/founders.md",
+    "rule": "banned: \"affordable\"",
+    "contains": "affordable executive function",
+    "why": "The founder's own words, moved here 2026-09-23."
+  },
+  {
+    "file": "content/focus.json",
+    "rule": "\"executive management\" outside the tagline and home title",
+    "contains": "Executive management",
+    "why": "The founder's words \u2014 rework/we-focus-on.md."
+  },
+  {
+    "file": "content/focus.json",
+    "rule": "\"fractional/outsourced/part-time\" outside the intent pages",
+    "contains": "fractional executives",
+    "why": "The founder's words \u2014 rework/we-focus-on.md."
+  },
+  {
+    "file": "content/forms.json",
+    "rule": "\"I\" or \"my\" outside an owner quote",
+    "contains": "who I am",
+    "why": "The visitor's own sentence, in the visitor's voice."
+  },
+  {
+    "file": "content/pages/founders.md",
+    "rule": "\"executive management\" outside the tagline and home title",
+    "contains": "Executive management, from day one.",
+    "why": "The Founders page's header, his words \u2014 rework/rulings \u00a72."
+  },
+  {
+    "file": "content/focus.json",
+    "rule": "\"fractional/outsourced/part-time\" outside the intent pages",
+    "contains": "\"/fractional-cfo-uae\"",
+    "why": "A route name, not copy."
   }
 ]

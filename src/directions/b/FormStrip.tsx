@@ -6,10 +6,11 @@
 // answered before the strip moves on; name, email and phone are checked before Send.
 // Data: content/forms.json. Nothing is sent yet; closing the panel keeps nothing.
 import { useCallback, useEffect, useRef, useState } from "react";
+import { useRouter } from "next/navigation";
 import styles from "./b.module.css";
 import { useChapter } from "./Chapter";
 
-export type Option = { label: string; phrase: string };
+export type Option = { label: string; phrase: string; form?: string; href?: string };
 export type Field = { label: string; type: "text" | "email" | "tel"; optional?: boolean };
 export type Step =
   | { id: string; label: string; type: "choice"; options: Option[]; hint?: string }
@@ -17,6 +18,7 @@ export type Step =
   | { id: string; label: string; type: "contact"; fields: Field[] };
 export type Slot = string | { field: string; blank: string; prefix?: string; optional?: boolean };
 export type FormDef = { title: string; tone: string; email?: string; steps: Step[]; sentence: Slot[] };
+export type Routing = { id: string; label: string; type: "choice"; options: Option[]; sentence: Slot[] };
 export type Labels = { back: string; next: string; send: string; answered: string; email: string; optional: string; invalidEmail: string; invalidPhone: string; required: string };
 
 const pad = (n: number) => String(n).padStart(2, "0");
@@ -25,8 +27,15 @@ const emailOk = (v: string) => /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v.trim());
 const phoneOk = (v: string) => /^\+?[\d\s().-]+$/.test(v.trim()) && v.replace(/\D/g, "").length >= 7;
 const fieldOk = (f: Field, v = "") => (f.optional && !v.trim()) || (f.type === "email" ? emailOk(v) : f.type === "tel" ? phoneOk(v) : v.trim().length > 1);
 
-export default function FormStrip({ id, form, labels, consent, notWired, closeLabel }: { id: string; form: FormDef; labels: Labels; consent: string; notWired: string; closeLabel: string }) {
-  const { toggle } = useChapter();
+export default function FormStrip({ id, forms, routing, title, labels, consent, notWired, closeLabel, startWith }: { id: string; forms: Record<string, FormDef>; routing: Routing; title: string; labels: Labels; consent: string; notWired: string; closeLabel: string; startWith?: string }) {
+  const { toggle, presets } = useChapter();
+  const router = useRouter();
+  const [chosen, setChosen] = useState<string | null>(startWith ?? null);
+  const routed = routing.options.length > 0; // a page that is one form has no routing question
+  const form: FormDef = chosen && forms[chosen]
+    ? (routed ? { ...forms[chosen], steps: [routing as unknown as Step, ...forms[chosen].steps], sentence: [...routing.sentence, ...forms[chosen].sentence] } : forms[chosen])
+    : { title, tone: "ink", steps: [routing as unknown as Step], sentence: routing.sentence };
+  const preset = presets[id];
   const [answers, setAnswers] = useState<Record<string, string>>({});
   const [agreed, setAgreed] = useState(false);
   const [index, setIndex] = useState(0);
@@ -49,6 +58,18 @@ export default function FormStrip({ id, form, labels, consent, notWired, closeLa
     el.scrollTo({ left: next * el.clientWidth, behavior: "smooth" });
     busy.current = true; setTimeout(() => { busy.current = false; }, 900);
   }, [total]);
+
+  // a door's preset answers the routing question and moves on
+  useEffect(() => {
+    if (!preset) return;
+    const o = routing.options.find((x) => x.form === preset);
+    if (!o) return;
+    // answer at once; move on once the panel has unfolded (620ms) and the strip has its width
+    const r = requestAnimationFrame(() => { setAnswers((a) => ({ ...a, [routing.id]: o.label })); setChosen(preset); });
+    const t = setTimeout(() => { const el = track.current; if (el) el.scrollTo({ left: el.clientWidth, behavior: "smooth" }); }, 760);
+    return () => { cancelAnimationFrame(r); clearTimeout(t); };
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [preset]);
 
   useEffect(() => {
     const el = track.current; if (!el) return;
@@ -89,20 +110,19 @@ export default function FormStrip({ id, form, labels, consent, notWired, closeLa
       })}
     </p>
   );
-  const side = (n: number, step: Step) => (
-    <div className={`${styles.formSide} ${toneClass[form.tone] ?? styles.ink}`}>
-      <p className={styles.mono} style={{ opacity: 0.8 }}>{form.title}</p>
+  const side = (n: number) => (
+    <div className={`${styles.formSide} ${toneClass[chosen ? form.tone : "ink"] ?? styles.ink}`}>
+      <p className={styles.mono} style={{ opacity: 0.8 }}>{chosen ? form.title : title}</p>
       {sentence}
       <div className={styles.progress} aria-hidden="true">{Array.from({ length: total }, (_, i) => <i key={i} className={i <= n ? styles.progressOn : ""} />)}</div>
     </div>
   );
-  const last = form.steps[total - 1];
   const ready = form.steps.every(done) && agreed;
 
   return (
     <div className={styles.formStrip}>
       <div className={styles.chapterHead}>
-        <span className={styles.mono}>[ {form.title} ]</span>
+        <span className={styles.mono}>[ {chosen ? form.title : title} ]</span>
         <span className={styles.mono} aria-live="polite">{pad(index + 1)} / {pad(total)} · {answered}/{total} {labels.answered}</span>
         <span className={styles.chapterNav}>
           <button type="button" className={styles.chapterBtn} onClick={() => go(index - 1)} disabled={index === 0}>← {labels.back}</button>
@@ -113,7 +133,7 @@ export default function FormStrip({ id, form, labels, consent, notWired, closeLa
       <div ref={track} className={styles.track}>
         {form.steps.map((step, n) => (
           <div key={step.id} className={`${styles.slide} ${styles.formSlide}`}>
-            {side(n, step)}
+            {side(n)}
             <div className={styles.ask}>
               <div className={styles.askHead}>
                 <h3>{step.label}{step.type === "text" && step.optional ? <span className={styles.qHint}> ({labels.optional})</span> : ""}</h3>
@@ -124,7 +144,7 @@ export default function FormStrip({ id, form, labels, consent, notWired, closeLa
                   <legend className="visually-hidden">{step.label}</legend>
                   {step.options.map((o, k) => (
                     <label key={o.label} className={`${styles.tileBig} ${answers[step.id] === o.label ? styles.tileOn : ""}`}>
-                      <input type="radio" name={`${id}-${step.id}`} value={o.label} checked={answers[step.id] === o.label} onChange={() => { set(step.id, o.label); setTimeout(() => go(n + 1), 320); }} />
+                      <input type="radio" name={`${id}-${step.id}`} value={o.label} checked={answers[step.id] === o.label} onChange={() => { if (step.id === routing.id) { if (o.href) { router.push(o.href); return; } setChosen(o.form ?? null); } set(step.id, o.label); setTimeout(() => go(n + 1), 320); }} />
                       <span>{o.label}</span><span className={styles.mono}>{pad(k + 1)}</span>
                     </label>
                   ))}
@@ -144,7 +164,7 @@ export default function FormStrip({ id, form, labels, consent, notWired, closeLa
                       return (
                         <label key={f.label} className={styles.field}>
                           <span>{f.label}{f.optional ? ` (${labels.optional})` : ""}</span>
-                          <input type={f.type} value={v} aria-invalid={bad || undefined} required={!f.optional} onChange={(e) => set(f.label, e.target.value)} autoComplete={f.type === "email" ? "email" : f.type === "tel" ? "tel" : /name/i.test(f.label) ? "name" : "organization"} />
+                          <input type={f.type} inputMode={f.type === "tel" ? "tel" : f.type === "email" ? "email" : undefined} spellCheck={f.type === "email" ? false : undefined} value={v} aria-invalid={bad || undefined} required={!f.optional} onChange={(e) => set(f.label, e.target.value)} autoComplete={f.type === "email" ? "email" : f.type === "tel" ? "tel" : /name/i.test(f.label) ? "name" : "organization"} />
                           {bad && <span className={styles.bad}>{f.type === "email" ? labels.invalidEmail : f.type === "tel" ? labels.invalidPhone : labels.required}</span>}
                         </label>
                       );
@@ -163,7 +183,6 @@ export default function FormStrip({ id, form, labels, consent, notWired, closeLa
           </div>
         ))}
       </div>
-      {last.type === "contact" && null}
     </div>
   );
 }

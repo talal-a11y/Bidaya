@@ -11,9 +11,14 @@ order: 1
 
 @note [proposed] the restructure of 2026-09-22: the home page says what Bidaya Consulting does and who it consults for. This headline and lead are drafted; the founder's to confirm. The earlier headline and lead ("Setup, operations, finance and tech — run inside your business by one firm." / "Most businesses run for years…") moved to /founders.
 
-# Consulting for founders, creatives and the institutions that back them.
+# Support where you need it, managed right from day one.
 
-@lead For founders, the executive layer their business is too small to have yet. For creatives and pre-preneurs, the tools, programs and network to build a business from day one. For institutions, the programs and partnerships that make that happen.
+@note the headline and the lead are the founder's (Vercel comments, 2026-09-23).
+@lead Bidaya was born to:
+
+- Be the executive layer for businesses that are too small to have one yet.
+- Build programs that lower the barrier of entry for creatives and entrepreneurs looking to start a businesses.
+- Create opportunities that provide meaningful work to independent professionals and boutique firms.
 
 @note the hero's button opens the About chapter — founder 2026-09-21: "instead of How we work at the start it should be About".
 @ghost About -> /about
@@ -25,11 +30,12 @@ order: 1
 ---
 
 @kind audiences
+@note "We focus on" follows this section, from content/focus.json (rework/we-focus-on.md).
 @note the three audiences — founder 2026-09-22: "Instead of saying divisions, it should be 'We consult' and then Founders, Creatives & Pre-preneurs, Institutions." The cards' words are in content/audiences.json (proposed). The four functions moved to /founders.
 
-## We consult
+## We consult for
 
-One firm, three audiences: the businesses, the people and the institutions building the UAE's next companies.
+@note the line beneath was removed — his Vercel comment "Remove", 2026-09-23. His comment wrote "We consult for:"; rework/rulings §3 writes it without the colon and the founder ruled that the files win where they overlap.
 
 ---
 
@@ -37,28 +43,24 @@ One firm, three audiences: the businesses, the people and the institutions build
 
 ---
 
-## Beyond the executive layer
+@kind explore
+@note "Beyond the executive layer" moved to the foot of /founders; here, his words (Vercel comment 2026-09-23) and the seven of "We focus on" as buttons.
 
-@note [proposed] title and the short version, from the founder's paragraph, 2026-09-22 — his to confirm. His full paragraph is on the About page ("Why Bidaya exists"). Since the restructure this repeats the lead above; the founder may cut one.
+## Explore our work
 
-One thing, three audiences: the executive layer for businesses too small to have one yet.
-
-For startups and SMEs, an executive function built into the business so it runs more easily. For youth and the creative sector, programs that build and grow businesses with the right tools. For established founders and independent professionals, meaningful work with businesses at an earlier stage.
-
-@note the Programs panel is gone from the home page — Programs and partnerships fall under Institutions (founder 2026-09-22).
+We were built to do one thing that solves three separate - yet similar - problems. Explore our work on:
 
 ---
 
 ## Start a conversation
 
+@note one questionnaire behind three doors (rework/rulings §9, §11); Bidaya Talent Partners is its own page, /work-with-us.
 @note [proposed] the closing section — founder 2026-09-21: four cards, each opening the form for that reason to reach us. The card names are the founder's words; the one-line descriptions are drafted from his brief and are his to confirm. The email address is not on the site until he gives it. For now each card opens /start.
 
 @rows
 **Enquire for your business.** For businesses looking to hire us.
 
 **Partnerships and programs.** For educational and creative institutions building entrepreneurship programs and workshops.
-
-**Bidaya Talent Partners.** For professionals and firms who want to help run Bidaya's clients.
 
 **General inquiry.** Anything else: our email, or a short form.
 @end

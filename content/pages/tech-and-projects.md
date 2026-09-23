@@ -32,7 +32,9 @@ A website. A custom system for the business, a database, an internal tool. An au
 
 ## What it costs
 
-Project work is scoped and quoted after the call. Tech inside a monthly engagement sits within the engagement's fee: monthly engagements from AED 12,000, scope-dependent above that.
+@note the floor line moved to /fees (rework/rulings §8).
+
+Project work is scoped and quoted after the call.
 
 ---
 

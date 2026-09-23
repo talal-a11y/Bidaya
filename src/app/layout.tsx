@@ -17,6 +17,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en" dir="ltr">
       <head>
         {/* the Latin face is on every page above the fold; fetching it first stops the swap from shifting the layout */}
+        <meta name="theme-color" content="#F4F1EC" />
         <link rel="preload" href="/fonts/readex-pro-var-latin.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
       </head>
       <body>

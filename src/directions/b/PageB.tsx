@@ -9,7 +9,10 @@ import { getGlobal, getPages } from "@/lib/content";
 import { InlineNodes } from "@/components/Inline";
 import functions from "../../../content/functions.json";
 import summaries from "../../../content/summaries.json";
+import audiences from "../../../content/audiences.json";
+import ExploreOn from "./ExploreOn";
 import styles from "./b.module.css";
+import { resolveHref } from "./hrefs";
 import Typed from "./Typed";
 import MotionB from "./MotionB";
 
@@ -37,7 +40,7 @@ export function BlockView({ b }: { b: Block }) {
     case "inline": return <ul>{b.links.map((l, i) => <li key={i}><Link href={l.href}>{l.label}</Link></li>)}</ul>;
     case "buttons":
       // a button to a panel on the home page goes there and opens it on arrival
-      return <div className={styles.slideActions}>{b.buttons.map((x, i) => <Link key={i} href={/^#(form|chapter)-/.test(x.href) ? `/${x.href}` : x.href} className={`${styles.action} ${x.style === "cta" ? styles.actionFill : ""}`}>{x.label}</Link>)}</div>;
+      return <div className={styles.slideActions}>{b.buttons.map((x, i) => <Link key={i} href={resolveHref(x.href, false)} className={`${styles.action} ${x.style === "cta" ? styles.actionFill : ""}`}>{x.label}</Link>)}</div>;
     case "form": return null;
   }
 }
@@ -46,7 +49,8 @@ const titleOf = (s: Section) => s.blocks.find((b) => b.type === "h1" || b.type =
 
 function nameOf(p: Page) {
   const fn = functions.functions.find((f) => f.id === p.fn);
-  return fn ? fn.name : (p.nav ?? p.title);
+  const au = audiences.audiences.find((a) => a.id === p.audience);
+  return fn ? fn.name : au ? au.word : (p.nav ?? p.title.replace(/ — .*$/, ""));
 }
 
 // the ring: arrows to the previous and next page, and the dropdown
@@ -116,6 +120,7 @@ export default function PageB({ page }: { page: Page }) {
           </section>
         );
       })}
+      {fn && <section className={`${styles.row} ${styles.lineRow}`}><div className={`${styles.panel} ${styles.paper}`}><ExploreOn withLine /></div></section>}
       <Ring page={page} />
     </div>
   );

@@ -26,7 +26,7 @@ Management reporting every month: profit, cash, margins by line of work, in a pa
 
 ## What it costs
 
-Monthly engagements from AED 12,000, scope-dependent above that.
+@note the floor line moved to /fees (rework/rulings §8).
 
 For comparison, the Cooper Fitch *UAE Salary Guide 2025* puts a chief financial officer at a small or medium enterprise at AED 61,000 to 92,000 a month in salary, and a financial controller at AED 51,000 to 66,000, before visas, end-of-service and recruitment cost. A fractional engagement is a fraction of the time and the cost, and it ends on thirty days' notice, where a hire is a fixed cost.
 
@@ -57,5 +57,4 @@ When the business isn't trading yet, or trades with one person and no payroll. T
 
 **Can a fractional CFO handle corporate tax and VAT?** The positions, the calendar and the reporting, yes. The filings and the advice on your specific position are done with the licensed tax consultants on our bench, inside the engagement.
 
-**What does a fractional CFO cost in Dubai?** At Bidaya, monthly engagements start at AED 12,000 and depend on scope above that. The published salary benchmark above is what the full-time alternative costs.
 @end

@@ -27,7 +27,9 @@ The way the business runs when the owner isn't in the room. Process written down
 
 ## What it costs
 
-Monthly engagements from AED 12,000. What sits above the floor depends on scope: operations alone, or operations with finance and tech inside one engagement. Project work, such as writing the process and the registers for a business and handing them over, is scoped and quoted after the call.
+@note the floor line moved to /fees (rework/rulings §8).
+
+Project work, such as writing the process and the registers for a business and handing them over, is scoped and quoted after the call.
 
 ---
 

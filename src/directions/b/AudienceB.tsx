@@ -3,23 +3,25 @@
 // terms, story — with the ring bar above and below. Every word is the page file's.
 import Link from "next/link";
 import type { Block, Page, Section } from "@/lib/content";
-import { getGlobal } from "@/lib/content";
+import { getGlobal, inlineToText } from "@/lib/content";
 import { InlineNodes } from "@/components/Inline";
 import functions from "../../../content/functions.json";
 import audiences from "../../../content/audiences.json";
 import styles from "./b.module.css";
+import { resolveHref } from "./hrefs";
 import Typed from "./Typed";
 import MotionB from "./MotionB";
 import FunctionCard from "./FunctionCard";
 import { Chapters } from "./Chapter";
 import { Ring, BlockView, Mark } from "./PageB";
+import ExploreOn from "./ExploreOn";
 
 const toneClass: Record<string, string> = { tealDeep: styles.tealDeep, opsDeep: styles.opsDeep, plum: styles.plum, ink: styles.ink, aqua: styles.aqua };
 const find = <T extends Block["type"]>(s: Section, type: T, n = 0) => s.blocks.filter((b) => b.type === type)[n] as Extract<Block, { type: T }> | undefined;
 
 // a button in copy: #form-… goes to the home page and opens that form; anything else is a link
 function Btn({ href, label, fill = true }: { href: string; label: string; fill?: boolean }) {
-  return <Link href={/^#(form|chapter)-/.test(href) ? `/${href}` : href} className={`${styles.action} ${fill ? styles.actionFill : ""}`}>{label}</Link>;
+  return <Link href={resolveHref(href, false)} className={`${styles.action} ${fill ? styles.actionFill : ""}`}>{label}</Link>;
 }
 const Buttons = ({ s }: { s: Section }) => {
   const b = s.blocks.filter((x) => x.type === "buttons").flatMap((x) => (x.type === "buttons" ? x.buttons : []));
@@ -31,7 +33,7 @@ export default function AudienceB({ page }: { page: Page }) {
   const au = audiences.audiences.find((a) => a.id === page.audience) ?? audiences.audiences[0];
   const tone = toneClass[au.tone] ?? styles.ink;
   const [hero, ...rest] = page.sections;
-  const h1 = find(hero, "h1"), lead = find(hero, "lead");
+  const h1 = find(hero, "h1"), lead = find(hero, "lead"), tagline = find(hero, "tagline");
   return (
     <Chapters>
     <div className={styles.page}>
@@ -45,6 +47,7 @@ export default function AudienceB({ page }: { page: Page }) {
             <svg viewBox="180 192.5 640 640" data-draw><circle cx="500" cy="530" r="240" /><circle cx="500" cy="455" r="200" /></svg>
           </div>
           <Typed text={au.name} delay={1500} speed={60} className={styles.intentName} as="p" />
+          {tagline && <Typed text={inlineToText(tagline.text)} delay={2600} speed={50} className={`${styles.mono} ${styles.monoLg}`} as="p" />}
         </div>
         <div className={`${styles.panel} ${tone}`}>
           {h1 && <h1 className={styles.h1}><InlineNodes nodes={h1.text} /></h1>}
@@ -79,7 +82,7 @@ export default function AudienceB({ page }: { page: Page }) {
                       <div className={styles.fnOpen} style={{ color: f.color }}>
                         <div className={styles.fnHead}><Mark className={styles.fnMark} /><span>{f.word}</span></div>
                         <p className={styles.fnLong}>{f.long}</p>
-                        <Link href={f.href} className={`${styles.action} ${styles.fnCta}`} style={{ background: f.color, borderColor: f.color }}>{functions.learnMore}</Link>
+                        <span className={`${styles.action} ${styles.fnCta}`} style={{ background: f.color, borderColor: f.color }}>{functions.learnMore}</span>
                       </div>
                     </FunctionCard>
                   ))}
@@ -136,6 +139,7 @@ export default function AudienceB({ page }: { page: Page }) {
           }
         }
       })}
+      <section className={`${styles.row} ${styles.lineRow}`}><div className={`${styles.panel} ${styles.paper}`}><ExploreOn audience={au.id} withLine /></div></section>
       <Ring page={page} />
     </div>
     </Chapters>

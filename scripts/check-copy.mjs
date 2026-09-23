@@ -43,7 +43,7 @@ const bannedWordsExact = ["scale"];
 const selfDescription = /\b(we are|we're|a|the|our) (young|fresh)\b/i;
 
 const intentPages = ["fractional-coo-uae.md", "fractional-cfo-uae.md", "tech-and-projects.md", "feasibility-and-advisory.md"];
-const aedPages = ["how-we-work.md", ...intentPages, "global.md"];
+const aedPages = ["how-we-work.md", "fees.md", ...intentPages, "global.md"]; // fees.md: the unlinked price page (rework/rulings §8)
 
 // ---- helpers ----------------------------------------------------------------
 const hits = [];
@@ -72,7 +72,7 @@ const isInstruction = (t) => /^\s*@(note|assumed|verify)\b/.test(t) || /"\$comme
 
 for (const file of files) {
   const rel = path.relative(root, file);
-  if (rel === "content/pages/resources.md") continue; // the founder's raw notes, verbatim, temporary — not site copy
+  if (rel === "content/pages/my-writings.md") continue; // the founder's raw notes, verbatim, temporary — not site copy
   const base = path.basename(file);
   const isContent = rel.startsWith("content/");
   const lines = fs.readFileSync(file, "utf8").split("\n");

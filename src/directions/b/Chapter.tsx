@@ -22,22 +22,25 @@ const reveal = (id: string) => {
   setTimeout(to, 680);
 };
 
-type Ctx = { open: Record<string, boolean>; toggle: (id: string) => void };
-const ChapterContext = createContext<Ctx>({ open: {}, toggle: () => {} });
+type Ctx = { open: Record<string, boolean>; presets: Record<string, string>; toggle: (id: string) => void; openWith: (id: string, preset: string) => void };
+const ChapterContext = createContext<Ctx>({ open: {}, presets: {}, toggle: () => {}, openWith: () => {} });
 
 export const useChapter = () => useContext(ChapterContext);
 
-export function Chapters({ children }: { children: ReactNode }) {
-  const [open, setOpen] = useState<Record<string, boolean>>({});
+export function Chapters({ children, openIds = [] }: { children: ReactNode; openIds?: string[] }) {
+  const [open, setOpen] = useState<Record<string, boolean>>(() => Object.fromEntries(openIds.map((i) => [i, true])));
+  const [presets, setPresets] = useState<Record<string, string>>({});
   const toggle = useCallback((id: string) => setOpen((o) => ({ ...o, [id]: !o[id] })), []);
+  // a door opens the one questionnaire with its first answer already given
+  const openWith = useCallback((id: string, preset: string) => { setPresets((p) => ({ ...p, [id]: preset })); setOpen((o) => ({ ...o, [id]: true })); }, []);
   // a link from another page — /#form-business, /#chapter-programs — opens that panel on arrival
   useEffect(() => {
-    const id = window.location.hash.slice(1);
+    const [id, preset] = window.location.hash.slice(1).split(":");
     if (!/^(form|chapter)-/.test(id) || !document.getElementById(id)) return;
-    const t = setTimeout(() => { setOpen((o) => ({ ...o, [id]: true })); reveal(id); }, 200);
+    const t = setTimeout(() => { if (preset) setPresets((p) => ({ ...p, [id]: preset })); setOpen((o) => ({ ...o, [id]: true })); reveal(id); }, 200);
     return () => clearTimeout(t);
   }, []);
-  return <ChapterContext.Provider value={{ open, toggle }}>{children}</ChapterContext.Provider>;
+  return <ChapterContext.Provider value={{ open, presets, toggle, openWith }}>{children}</ChapterContext.Provider>;
 }
 
 export function ChapterButton({ id, openLabel, closeLabel, fill = true }: { id: string; openLabel: string; closeLabel: string; fill?: boolean }) {
@@ -120,11 +123,10 @@ export function ChapterStrip({ id, label, closeLabel, prevLabel, nextLabel, slid
 }
 
 // A door: a card that opens a panel beneath the row (the forms). Same state as the chapters.
-export function Door({ id, className, children }: { id: string; className: string; children: ReactNode }) {
-  const { open, toggle } = useContext(ChapterContext);
-  const isOpen = !!open[id];
-  const onClick = () => { toggle(id); if (!isOpen) reveal(id); };
-  return <button type="button" className={className} aria-expanded={isOpen} aria-controls={id} onClick={onClick}>{children}</button>;
+export function Door({ id, preset, className, children }: { id: string; preset: string; className: string; children: ReactNode }) {
+  const { openWith } = useContext(ChapterContext);
+  const onClick = () => { openWith(id, preset); reveal(id); };
+  return <button type="button" className={className} aria-controls={id} onClick={onClick}>{children}</button>;
 }
 
 // A panel that unfolds beneath its row; used for the forms behind the doors.

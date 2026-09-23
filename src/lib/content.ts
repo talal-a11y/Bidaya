@@ -53,6 +53,8 @@ export type Page = {
   serviceName?: string;
   organizationSchema: boolean;
   hidden: boolean;
+  unlisted: boolean;
+  form?: string;
   fn?: string;
   audience?: string;
   sections: Section[];
@@ -263,6 +265,8 @@ function loadPage(file: string): Page {
     serviceName: data.serviceName || undefined,
     organizationSchema: data.organizationSchema === "true",
     hidden: data.hidden === "true",
+    unlisted: data.unlisted === "true",
+    form: data.form || undefined,
     fn: data.function || undefined,
     audience: data.audience || undefined,
     sections: [],

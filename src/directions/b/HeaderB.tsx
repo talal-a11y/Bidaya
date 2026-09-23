@@ -1,30 +1,60 @@
 import Link from "next/link";
 import AnchorLink from "./AnchorLink";
-import { getGlobal, getNav } from "@/lib/content";
-
-// While the site is this one page, the navigation goes to its sections (founder, 2026-09-21).
-const anchor = (href: string) => (href === "/start" ? "/#start" : href);
+import { getGlobal, getPages } from "@/lib/content";
+import nav from "../../../content/nav.json";
+import audiences from "../../../content/audiences.json";
+import focus from "../../../content/focus.json";
 import styles from "./b.module.css";
 
-// Direction B's header: a bar of panels — lockup · nav · Start.
+// The header: About | Consulting For ▾ | Consulting On ▾ | Resources ▾ | Enquire
+// (the founder's Vercel comment, 2026-09-23). Dropdowns open on hover or focus; on the phone
+// the menu lists every group flat and closes when a link is tapped.
+export type NavGroup = { label: string; href?: string; children?: { label: string; href: string }[] };
+
+export function resolveNav(): NavGroup[] {
+  const pages = getPages();
+  return nav.items.map((it) => {
+    if ("group" in it && it.group === "audiences") return { label: it.label, children: audiences.audiences.map((a) => ({ label: a.word, href: a.href })) };
+    if ("group" in it && it.group === "focus") return { label: it.label, children: focus.items.map((f) => ({ label: f.title, href: f.href })) };
+    if ("children" in it && it.children) return { label: it.label, children: it.children.filter((c) => pages.some((p) => p.route === c.href)) };
+    return { label: it.label, href: (it as { href: string }).href };
+  });
+}
+
 export default function HeaderB({ current }: { current: string }) {
   const g = getGlobal();
-  const nav = getNav();
-  const links = nav.filter((n) => !n.cta);
-  const start = nav.find((n) => n.cta)!;
+  const groups = resolveNav();
   return (
     <header className={styles.bar}>
       <Link href="/" className={styles.barHome} aria-label={g.siteName}>
         <img className={styles.lockup} src="/brand/svg/bidaya-lockup-3-header.svg" alt="" width="1659" height="392" />
       </Link>
       <nav className={styles.barNav} aria-label={g.fields.navLabel}>
-        <ul>{links.map((n) => <li key={n.href}><AnchorLink href={anchor(n.href)} aria-current={n.href === current ? "page" : undefined}>{n.label}</AnchorLink></li>)}</ul>
+        <ul>
+          {groups.map((grp) => grp.children ? (
+            <li key={grp.label} className={styles.dd}>
+              <button type="button" className={styles.ddBtn} aria-haspopup="true">{grp.label} <span aria-hidden="true">▾</span></button>
+              <ul className={styles.ddList}>{grp.children.map((c) => <li key={c.href}><Link href={c.href} aria-current={c.href === current ? "page" : undefined}>{c.label}</Link></li>)}</ul>
+            </li>
+          ) : (
+            <li key={grp.label}><Link href={grp.href!} aria-current={grp.href === current ? "page" : undefined}>{grp.label}</Link></li>
+          ))}
+        </ul>
       </nav>
       <details className={styles.menuToggle}>
         <summary>{g.fields.menuOpen}</summary>
-        <ul>{links.map((n) => <li key={n.href}><AnchorLink href={anchor(n.href)}>{n.label}</AnchorLink></li>)}</ul>
+        <ul>
+          {groups.map((grp) => grp.children ? (
+            <li key={grp.label} className={styles.menuGroup}>
+              <span className={styles.mono}>{grp.label}</span>
+              <ul>{grp.children.map((c) => <li key={c.href}><AnchorLink href={c.href}>{c.label}</AnchorLink></li>)}</ul>
+            </li>
+          ) : (
+            <li key={grp.label}><AnchorLink href={grp.href!}>{grp.label}</AnchorLink></li>
+          ))}
+        </ul>
       </details>
-      <div className={styles.barStart}><AnchorLink href={anchor(start.href)}>{start.label}</AnchorLink></div>
+      <div className={styles.barStart}><AnchorLink href={nav.cta.href}>{nav.cta.label}</AnchorLink></div>
     </header>
   );
 }

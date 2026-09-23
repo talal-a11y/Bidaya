@@ -1,15 +1,16 @@
 ---
 route: /creatives-and-pre-preneurs
-title: Creatives & Pre-preneurs — Bidaya Consulting
+title: Creatives & Pre-Preneurs — Bidaya Consulting
 description: The support a first business needs, from day one: workshops, trainings and advisory, programs with institutions, a community of small businesses and a talent network.
 order: 3
-nav: Creatives & Pre-preneurs
+nav: Creatives & Pre-Preneurs
 audience: creatives
 ---
 
 @note the founder's restructure of 2026-09-22. The headline is proposed; the rest is his copy from What we do (the creatives section) and About (the Talent Network), reordered. He will add more.
 
 @kind flip
+@note the header before "…, from day one" is OPEN for this page (rework/rulings §2).
 
 # The support a first business needs, from day one.
 

@@ -5,6 +5,7 @@ import Link from "next/link";
 import type { Block, Page, Section } from "@/lib/content";
 import { InlineNodes } from "@/components/Inline";
 import styles from "./b.module.css";
+import { resolveHref } from "./hrefs";
 import { ChapterButton } from "./Chapter";
 
 function BlockView({ b }: { b: Block }) {
@@ -22,9 +23,9 @@ function BlockView({ b }: { b: Block }) {
     case "inline": return <ul>{b.links.map((l, i) => <li key={i}><Link href={l.href}>{l.label}</Link></li>)}</ul>;
     case "buttons":
       // a button to #form-… or #chapter-… opens that panel on this page; anything else is a link
-      return <div className={styles.slideActions}>{b.buttons.map((x, i) => /^#(form|chapter)-/.test(x.href)
+      return <div className={styles.slideActions}>{b.buttons.map((x, i) => /^#chapter-/.test(x.href)
         ? <ChapterButton key={i} id={x.href.slice(1)} openLabel={x.label} closeLabel={x.label} fill={x.style === "cta"} />
-        : <Link key={i} href={x.href} className={`${styles.action} ${x.style === "cta" ? styles.actionFill : ""}`}>{x.label}</Link>)}</div>;
+        : <Link key={i} href={resolveHref(x.href, true)} className={`${styles.action} ${x.style === "cta" ? styles.actionFill : ""}`}>{x.label}</Link>)}</div>;
     case "form": return null; // the Start form is not a slide
   }
 }

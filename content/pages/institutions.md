@@ -10,6 +10,7 @@ audience: institutions
 @note the founder's restructure of 2026-09-22: Programs and partnerships live here. Every word is his (Programs, What we do, About), reordered. He will add more.
 
 @kind flip
+@note the header before "…, from day one" is OPEN for this page (rework/rulings §2).
 
 # Business support inside the programs you already run.
 

@@ -4,7 +4,7 @@ shortName: Bidaya
 alternateName: بداية
 areaServed: UAE
 founder: Talal Abdel-Hamid
-navOrder: /founders, /creatives-and-pre-preneurs, /institutions, /about, /start
+navOrder: /founders, /creatives-and-pre-preneurs, /institutions, /about
 ---
 
 @note the header: the mark, Bidaya, the hairline, بداية. On phones: the mark and Bidaya.
@@ -27,3 +27,5 @@ navOrder: /founders, /creatives-and-pre-preneurs, /institutions, /about, /start
 @field explorePrev Previous
 @field exploreNext Next
 @field weConsult We consult
+@field exploreOn Explore our work on:
+@field writeLabel What you want to tell us
