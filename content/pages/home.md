@@ -7,7 +7,7 @@ order: 1
 
 @assumed the title tag is assumed — ledger AU; 29 characters.
 @note [proposed] "from the start" for "from the beginning" — founder 2026-09-21. The deck and ledger carried the thesis as "from the beginning".
-@tagline Executive management, from day one.
+@tagline From day one.
 
 @note [proposed] the restructure of 2026-09-22: the home page says what Bidaya Consulting does and who it consults for. This headline and lead are drafted; the founder's to confirm. The earlier headline and lead ("Setup, operations, finance and tech — run inside your business by one firm." / "Most businesses run for years…") moved to /founders.
 

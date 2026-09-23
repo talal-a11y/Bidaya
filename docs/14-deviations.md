@@ -19,7 +19,7 @@ Started 22 September 2026 on the founder's instruction: "Keep log of all the cha
 ## Copy (docs/02, docs/04)
 - **The founder rewrote About, What we do, Programs, the three terms and the story** in his own words (2026-09-22); the deck's versions are in git history. Titles set in sentence case.
 - **"How we work" → "How Bidaya works"** — decided, not yet applied. 2026-09-22.
-- **Tagline** "Executive management, from the beginning." → "from the start" → **"from day one"** (the pack carried the thesis as "from the beginning"). 2026-09-21/22.
+- **Tagline** "Executive management, from the beginning." → "from the start" → "from day one" → **"From day one."** (2026-09-23, his Vercel comment). The pack carried the thesis as "from the beginning" and kept "executive management" for the tagline alone; neither remains.
 - **The Arabic line** "بداية means beginning. A business is decided at its start." → "بداية | means beginning." 2026-09-22.
 - **Never-say words used on the founder's word:** "all under one roof"; "affordable"; "unlock the doors"; "the space"; "journey"; "fractional … at a fraction of the full time cost" outside the intent pages; "a young entrepreneur"; "partner for growth". Each allow-listed in `scripts/check-copy.allow.json` with the ruling as its reason.
 - **Figures beyond the one number:** "50+ agencies … 10+ specialties"; "3 months to 24 months". (Pack: the only number on the site is AED 12,000.)

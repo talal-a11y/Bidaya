@@ -174,3 +174,6 @@ The question now sits in an ink band above its options, larger and marked "Q", s
 
 2026-09-23 — Handoff to the brand-systems chat. NOTED.
 The founder takes the restructure to the chat that built the brand systems, to rework the strategy and the record. Written for it: `docs/15-restructure-brief.md` (the structure, every change, the intent, what is open, how to see the site) with `docs/screens/` for its eyes. It is asked to say back what it understood and to list what is unclear before proposing anything.
+
+2026-09-23 — The tagline. DECIDED (Vercel comment on the preview).
+"Change to just 'From day one'." The tagline is "From day one." The deck's "Executive management, from the beginning." — and with it the only place "executive management" appeared — is gone from the site.
