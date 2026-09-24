@@ -1,0 +1,696 @@
+{
+  "$comment": "One questionnaire behind the three doors (rework/rulings-2026-09-23.md §9–§11). Question one routes: the first three options open the business, partnerships and general question sets; the fourth opens /general-inquiry, one page with one box. The three audience options are placeholders until the audience profiles exist (proposed). The talent form lives on /work-with-us. Each option carries the phrase the sentence uses. Nothing is sent until the forms are wired.",
+  "labels": {
+    "back": "Back",
+    "next": "Next",
+    "send": "Send",
+    "answered": "answered",
+    "email": "Email",
+    "optional": "optional",
+    "invalidEmail": "Check the email address",
+    "invalidPhone": "Check the number",
+    "required": "Needed to send"
+  },
+  "consent": "I'm happy for Bidaya to contact me about this enquiry.",
+  "forms": {
+    "business": {
+      "title": "Enquire for your business",
+      "tone": "plum",
+      "steps": [
+        {
+          "id": "shape",
+          "label": "What you have in mind",
+          "type": "choice",
+          "hint": "Neither shape is the lesser one. The call decides which fits.",
+          "options": [
+            {
+              "label": "The executive layer inside the business, monthly",
+              "phrase": "the executive layer inside the business, monthly"
+            },
+            {
+              "label": "One defined piece of work",
+              "phrase": "one defined piece of work"
+            },
+            {
+              "label": "Not sure yet",
+              "phrase": "something we haven't settled yet"
+            }
+          ]
+        },
+        {
+          "id": "stage",
+          "label": "Where the business stands",
+          "type": "choice",
+          "options": [
+            {
+              "label": "Not registered yet",
+              "phrase": "not registered yet"
+            },
+            {
+              "label": "Setting up",
+              "phrase": "setting up"
+            },
+            {
+              "label": "Trading under a year",
+              "phrase": "trading under a year"
+            },
+            {
+              "label": "One to three years",
+              "phrase": "one to three years in"
+            },
+            {
+              "label": "More than three years",
+              "phrase": "more than three years in"
+            }
+          ]
+        },
+        {
+          "id": "people",
+          "label": "People, including you",
+          "type": "choice",
+          "options": [
+            {
+              "label": "1",
+              "phrase": "just me"
+            },
+            {
+              "label": "2–5",
+              "phrase": "two to five people"
+            },
+            {
+              "label": "6–15",
+              "phrase": "six to fifteen people"
+            },
+            {
+              "label": "16–50",
+              "phrase": "sixteen to fifty people"
+            },
+            {
+              "label": "More than 50",
+              "phrase": "more than fifty people"
+            }
+          ]
+        },
+        {
+          "id": "when",
+          "label": "When you'd want to begin",
+          "type": "choice",
+          "options": [
+            {
+              "label": "This month",
+              "phrase": "this month"
+            },
+            {
+              "label": "Within three months",
+              "phrase": "within three months"
+            },
+            {
+              "label": "Later; I'm planning",
+              "phrase": "later, once the plan is set"
+            }
+          ]
+        },
+        {
+          "id": "words",
+          "label": "In your words",
+          "type": "text",
+          "hint": "the one thing you'd fix first.",
+          "optional": true
+        },
+        {
+          "id": "contact",
+          "label": "How to reach you",
+          "type": "contact",
+          "fields": [
+            {
+              "label": "Your name",
+              "type": "text"
+            },
+            {
+              "label": "Company",
+              "type": "text",
+              "optional": true
+            },
+            {
+              "label": "Email",
+              "type": "email"
+            },
+            {
+              "label": "Phone or WhatsApp",
+              "type": "tel"
+            }
+          ]
+        }
+      ],
+      "sentence": [
+        "We have ",
+        {
+          "field": "shape",
+          "blank": "a shape"
+        },
+        " in mind. The business is ",
+        {
+          "field": "stage",
+          "blank": "at a stage"
+        },
+        ", with ",
+        {
+          "field": "people",
+          "blank": "some people"
+        },
+        " on the team. We'd want to begin ",
+        {
+          "field": "when",
+          "blank": "when"
+        },
+        ".",
+        {
+          "field": "words",
+          "blank": "",
+          "prefix": " The one thing we'd fix first: ",
+          "optional": true
+        },
+        " Reach ",
+        {
+          "field": "Your name",
+          "blank": "name"
+        },
+        {
+          "field": "Company",
+          "blank": "",
+          "prefix": " at ",
+          "optional": true
+        },
+        " on ",
+        {
+          "field": "Email",
+          "blank": "email"
+        },
+        " or ",
+        {
+          "field": "Phone or WhatsApp",
+          "blank": "phone or WhatsApp"
+        },
+        "."
+      ]
+    },
+    "partners": {
+      "title": "Partnerships and programs",
+      "tone": "aqua",
+      "$proposed": "questions and options drafted from the Programs page; founder to confirm",
+      "steps": [
+        {
+          "id": "institution",
+          "label": "Who you are",
+          "type": "choice",
+          "options": [
+            {
+              "label": "A cultural institution or foundation",
+              "phrase": "a cultural institution"
+            },
+            {
+              "label": "A university or an educational institution",
+              "phrase": "an educational institution"
+            },
+            {
+              "label": "A creative zone or a studio",
+              "phrase": "a creative zone or a studio"
+            },
+            {
+              "label": "A business that wants to back a program",
+              "phrase": "a business that wants to back a program"
+            }
+          ]
+        },
+        {
+          "id": "runs",
+          "label": "What you run",
+          "type": "choice",
+          "options": [
+            {
+              "label": "A residency or a cohort",
+              "phrase": "a residency or a cohort"
+            },
+            {
+              "label": "A clinic series",
+              "phrase": "a clinic series"
+            },
+            {
+              "label": "A competition or a challenge",
+              "phrase": "a competition or a challenge"
+            },
+            {
+              "label": "An initiative with a partner",
+              "phrase": "an initiative with a partner"
+            },
+            {
+              "label": "Something else",
+              "phrase": "something of our own"
+            }
+          ]
+        },
+        {
+          "id": "words",
+          "label": "In your words",
+          "type": "text",
+          "hint": "what your practitioners leave without.",
+          "optional": true
+        },
+        {
+          "id": "contact",
+          "label": "How to reach you",
+          "type": "contact",
+          "fields": [
+            {
+              "label": "Your name",
+              "type": "text"
+            },
+            {
+              "label": "Institution",
+              "type": "text",
+              "optional": true
+            },
+            {
+              "label": "Email",
+              "type": "email"
+            },
+            {
+              "label": "Phone or WhatsApp",
+              "type": "tel"
+            }
+          ]
+        }
+      ],
+      "sentence": [
+        "We are ",
+        {
+          "field": "institution",
+          "blank": "an institution"
+        },
+        " and we run ",
+        {
+          "field": "runs",
+          "blank": "a program"
+        },
+        ".",
+        {
+          "field": "words",
+          "blank": "",
+          "prefix": " What our practitioners leave without: ",
+          "optional": true
+        },
+        " Reach ",
+        {
+          "field": "Your name",
+          "blank": "name"
+        },
+        {
+          "field": "Institution",
+          "blank": "",
+          "prefix": " at ",
+          "optional": true
+        },
+        " on ",
+        {
+          "field": "Email",
+          "blank": "email"
+        },
+        " or ",
+        {
+          "field": "Phone or WhatsApp",
+          "blank": "phone or WhatsApp"
+        },
+        "."
+      ]
+    },
+    "talent": {
+      "title": "Bidaya Talent Partners",
+      "tone": "teal",
+      "$proposed": "questions and options drafted from the four functions and the two shapes of engagement; founder to confirm",
+      "steps": [
+        {
+          "id": "you",
+          "label": "Who you are",
+          "type": "choice",
+          "options": [
+            {
+              "label": "An independent professional",
+              "phrase": "an independent professional"
+            },
+            {
+              "label": "A firm",
+              "phrase": "a firm"
+            },
+            {
+              "label": "A licensed specialist",
+              "phrase": "a licensed specialist"
+            }
+          ]
+        },
+        {
+          "id": "function",
+          "label": "What you'd hold",
+          "type": "choice",
+          "options": [
+            {
+              "label": "Setup",
+              "phrase": "setup"
+            },
+            {
+              "label": "Operations",
+              "phrase": "operations"
+            },
+            {
+              "label": "Finance",
+              "phrase": "finance"
+            },
+            {
+              "label": "Tech",
+              "phrase": "tech"
+            },
+            {
+              "label": "More than one of these",
+              "phrase": "more than one function"
+            }
+          ]
+        },
+        {
+          "id": "shape",
+          "label": "How you'd work",
+          "type": "choice",
+          "options": [
+            {
+              "label": "Monthly, alongside Bidaya inside a client",
+              "phrase": "monthly, alongside Bidaya inside a client"
+            },
+            {
+              "label": "On defined pieces of work",
+              "phrase": "on defined pieces of work"
+            },
+            {
+              "label": "Not sure yet",
+              "phrase": "in a shape we'd work out together"
+            }
+          ]
+        },
+        {
+          "id": "words",
+          "label": "In your words",
+          "type": "text",
+          "hint": "what you've run before.",
+          "optional": true
+        },
+        {
+          "id": "contact",
+          "label": "How to reach you",
+          "type": "contact",
+          "fields": [
+            {
+              "label": "Your name",
+              "type": "text"
+            },
+            {
+              "label": "Company",
+              "type": "text",
+              "optional": true
+            },
+            {
+              "label": "Email",
+              "type": "email"
+            },
+            {
+              "label": "Phone or WhatsApp",
+              "type": "tel"
+            }
+          ]
+        }
+      ],
+      "sentence": [
+        "I'm ",
+        {
+          "field": "you",
+          "blank": "someone"
+        },
+        " who could hold ",
+        {
+          "field": "function",
+          "blank": "a function"
+        },
+        " for Bidaya's clients, ",
+        {
+          "field": "shape",
+          "blank": "in some shape"
+        },
+        ".",
+        {
+          "field": "words",
+          "blank": "",
+          "prefix": " What I've run before: ",
+          "optional": true
+        },
+        " Reach ",
+        {
+          "field": "Your name",
+          "blank": "name"
+        },
+        {
+          "field": "Company",
+          "blank": "",
+          "prefix": " at ",
+          "optional": true
+        },
+        " on ",
+        {
+          "field": "Email",
+          "blank": "email"
+        },
+        " or ",
+        {
+          "field": "Phone or WhatsApp",
+          "blank": "phone or WhatsApp"
+        },
+        "."
+      ],
+      "consent": true
+    },
+    "general": {
+      "title": "General inquiry",
+      "tone": "plumLight",
+      "email": "contact@bidaya.consulting",
+      "$proposed": "founder to confirm the two lines",
+      "steps": [
+        {
+          "id": "about",
+          "label": "What it's about",
+          "type": "choice",
+          "options": [
+            {
+              "label": "A question about how we work",
+              "phrase": "a question about how we work"
+            },
+            {
+              "label": "Press or speaking",
+              "phrase": "about press or speaking"
+            },
+            {
+              "label": "Something else",
+              "phrase": "about something else"
+            }
+          ]
+        },
+        {
+          "id": "words",
+          "label": "In your words",
+          "type": "text",
+          "hint": "the question, in a line or two.",
+          "optional": false
+        },
+        {
+          "id": "contact",
+          "label": "How to reach you",
+          "type": "contact",
+          "fields": [
+            {
+              "label": "Your name",
+              "type": "text"
+            },
+            {
+              "label": "Email",
+              "type": "email"
+            },
+            {
+              "label": "Phone or WhatsApp",
+              "type": "tel"
+            }
+          ]
+        }
+      ],
+      "sentence": [
+        "This is ",
+        {
+          "field": "about",
+          "blank": "about something"
+        },
+        ": ",
+        {
+          "field": "words",
+          "blank": "…"
+        },
+        " Reach ",
+        {
+          "field": "Your name",
+          "blank": "name"
+        },
+        " on ",
+        {
+          "field": "Email",
+          "blank": "email"
+        },
+        " or ",
+        {
+          "field": "Phone or WhatsApp",
+          "blank": "phone or WhatsApp"
+        },
+        "."
+      ]
+    },
+    "write": {
+      "title": "General inquiry",
+      "tone": "plumLight",
+      "steps": [
+        {
+          "id": "box",
+          "label": "What you want to tell us",
+          "type": "write",
+          "fields": [
+            {
+              "label": "Your name",
+              "type": "text"
+            },
+            {
+              "label": "Phone or WhatsApp",
+              "type": "tel"
+            },
+            {
+              "label": "Email",
+              "type": "email"
+            }
+          ],
+          "$comment": "one slide: the box and the reach fields together, then Send (founder, 2026-09-23: 'no need for another page after they write')"
+        }
+      ],
+      "sentence": [
+        "I'd rather just write: ",
+        {
+          "field": "box",
+          "blank": "…"
+        },
+        " Reach ",
+        {
+          "field": "Your name",
+          "blank": "name"
+        },
+        " on ",
+        {
+          "field": "Email",
+          "blank": "email"
+        },
+        " or ",
+        {
+          "field": "Phone or WhatsApp",
+          "blank": "phone or WhatsApp"
+        },
+        "."
+      ]
+    }
+  },
+  "routing": {
+    "id": "who",
+    "label": "Who you are",
+    "type": "choice",
+    "options": [
+      {
+        "label": "A founder or business owner",
+        "phrase": "a founder or business owner",
+        "form": "business"
+      },
+      {
+        "label": "A creative or freelancer setting up a business",
+        "phrase": "a creative or freelancer setting up a business",
+        "form": "general"
+      },
+      {
+        "label": "A creative or freelancer who could work with Bidaya's clients",
+        "phrase": "a creative or freelancer who could work with Bidaya's clients",
+        "form": "talent"
+      },
+      {
+        "label": "An institution, university or organisation",
+        "phrase": "an institution, university or organisation",
+        "form": "partners"
+      },
+      {
+        "label": "Not sure, or both",
+        "phrase": "not sure yet, or both",
+        "form": "general"
+      },
+      {
+        "label": "I'd rather just write.",
+        "phrase": "",
+        "form": "write"
+      }
+    ],
+    "sentence": [
+      "I'm reaching Bidaya as ",
+      {
+        "field": "who",
+        "blank": "who I am"
+      },
+      ". "
+    ],
+    "$decided": "2026-09-23: the first question also tells a creative or freelancer who wants to work with Bidaya's clients (→ the talent questions, delivered to talent@, a different pipeline) from one setting up a business (→ the general questions, then the discovery call); 'Not sure, or both' → the general questions and the discovery call. Wording proposed."
+  },
+  "reach": {
+    "title": "Enquire",
+    "$comment": "the one panel's name"
+  },
+  "write": {
+    "title": "General inquiry",
+    "fields": [
+      {
+        "label": "Your name",
+        "type": "text"
+      },
+      {
+        "label": "Phone or WhatsApp",
+        "type": "tel"
+      },
+      {
+        "label": "Email",
+        "type": "email"
+      }
+    ],
+    "box": "What you want to tell us"
+  },
+  "delivery": {
+    "$comment": "For the wiring (milestone 8), the founder's routing of 2026-09-23: every questionnaire submission goes to info@bidaya.consulting (and later to a Google form); talent submissions (/work-with-us) go to talent@bidaya.consulting; contact@bidaya.consulting is the public address, no forms behind it, with an auto-reply acknowledging the email. Confirmations to the sender come from the receiving address: talent@ for talent, info@ for the rest.",
+    "questionnaire": "info@bidaya.consulting",
+    "talent": "talent@bidaya.consulting",
+    "public": "contact@bidaya.consulting"
+  },
+  "consentNote": "By sending, you agree that Bidaya uses these details to reply.",
+  "$consent": "2026-09-23: the founder removed the consent checkbox from the enquiry — replying to an enquiry is a pre-contractual step the person asked for, which the PDPL allows without separate consent; a one-line notice (proposed) stays. The Talent Network keeps the checkbox: those details are stored for later, which needs consent.",
+  "privacy": {
+    "label": "Privacy notice",
+    "href": "/privacy"
+  },
+  "mail": {
+    "$comment": "proposed — Claude Code, 2026-09-23, milestone 8: the words the wired forms show and send. {title} {name} {sentence} are filled in.",
+    "sending": "Sending…",
+    "sent": "Sent. Bidaya will reply to the email address you gave.",
+    "failed": "It did not send. Try again, or write to contact@bidaya.consulting.",
+    "subject": "{title}: {name}",
+    "confirmSubject": "Your message to Bidaya",
+    "confirmBody": "Thank you. This is what you sent Bidaya:\n\n{sentence}\n\nBidaya will reply from this address."
+  }
+}

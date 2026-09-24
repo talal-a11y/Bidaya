@@ -1,7 +1,11 @@
 .header {
-  padding-block: 18px;
+  position: sticky;
+  inset-block-start: 0;
+  z-index: 20;
+  padding-block: 14px;
   border-block-end: 1px solid var(--soft);
-  background: var(--bg-page);
+  background: rgb(244 241 236 / 0.92); /* stone, letting the world show through */
+  backdrop-filter: blur(6px);
 }
 .inner {
   display: flex;
@@ -11,7 +15,6 @@
 }
 .home { display: inline-flex; align-items: center; min-block-size: 44px; border-radius: var(--r-8); }
 .lockup { block-size: 34px; inline-size: auto; }
-.lockupPhone { display: none; block-size: 34px; inline-size: auto; }
 
 .nav { display: flex; align-items: center; }
 .list {
@@ -34,8 +37,7 @@
 .summary::-webkit-details-marker { display: none; }
 
 @media (max-width: 900px) {
-  .lockup { display: none; }
-  .lockupPhone { display: block; }
+  .lockup { block-size: 30px; }
   .toggle { display: block; }
   .summary {
     display: inline-flex; align-items: center; justify-content: center;
@@ -54,7 +56,6 @@
     border-block-end: 1px solid var(--soft);
     border-end-start-radius: var(--r-28); border-end-end-radius: var(--r-28);
   }
-  .header { position: relative; z-index: 5; }
   .link { min-block-size: 48px; padding-inline: 16px; }
   .cta { margin-inline-start: 0; margin-block-start: 8px; }
 }

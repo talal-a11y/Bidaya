@@ -1,13 +1,15 @@
 ---
-siteName: Bidaya
+siteName: Bidaya Consulting
+shortName: Bidaya
 alternateName: بداية
 areaServed: UAE
 founder: Talal Abdel-Hamid
-navOrder: /what-we-do, /how-we-work, /where-you-stand, /programs, /papers, /about, /start
+navOrder: /founders, /creatives-and-pre-preneurs, /institutions, /about
 ---
 
 @note the header: the mark, Bidaya, the hairline, بداية. On phones: the mark and Bidaya.
-@note the footer: the mark alone, watermark bottom-right. Links: the seven in navOrder.
+@note the footer: the mark alone, watermark bottom-right. Links: those in navOrder.
+@note Papers is out of the navigation until the first paper exists — founder 2026-09-21. The page still builds at /papers.
 @note the legal line is the one place "AED" appears outside How we work, the intent pages and FAQ — it is a legal notice, not copy.
 
 @field basedIn Based in the UAE.
@@ -19,3 +21,12 @@ navOrder: /what-we-do, /how-we-work, /where-you-stand, /programs, /papers, /abou
 @field optional optional
 @field formNotWired The form is not connected yet. It sends nothing until it is.
 @field reportsListRead Read
+@field chapterPrev Previous
+@field chapterNext Next
+@field learnMore Learn more
+@field explorePrev Previous
+@field exploreNext Next
+@field weConsult We consult
+@field exploreOn Explore our work on:
+@field writeLabel What you want to tell us
+@field bookingSoon Booking opens here soon. Until then, write to us.

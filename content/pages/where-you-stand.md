@@ -1,9 +1,9 @@
 ---
 route: /where-you-stand
-title: Where you stand — Bidaya
+title: Where you stand — Bidaya Consulting
 description: A free read on your UAE business: what's covered, what needs building, what's yours to do, and what is due with the cost of missing it. Shown in full, no email required.
 order: 4
-nav: Where you stand
+hidden: true
 faqSchema: true
 ---
 

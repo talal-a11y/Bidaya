@@ -3,6 +3,12 @@ import Link from "next/link";
 import { getGlobal, getNotes, getPageByRoute, getPages, getReports } from "@/lib/content";
 import { pageMetadata } from "@/lib/meta";
 import PageShell from "@/components/PageShell";
+import PageB from "@/directions/b/PageB";
+import AudienceB from "@/directions/b/AudienceB";
+import FormPageB from "@/directions/b/FormPageB";
+import HeaderB from "@/directions/b/HeaderB";
+import FooterB from "@/directions/b/FooterB";
+import Schema from "@/components/Schema";
 import styles from "./page.module.css";
 
 export const dynamicParams = false;
@@ -49,6 +55,16 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
   const { slug } = await params;
   const page = getPageByRoute(`/${slug}`);
   if (!page) notFound();
+  if (page.route !== "/start" && !page.hidden) {
+    return (
+      <>
+        <Schema page={page} />
+        <HeaderB current={page.route} />
+        <main id="main" tabIndex={-1}>{page.form ? <FormPageB page={page} /> : page.audience ? <AudienceB page={page} /> : <PageB page={page} />}</main>
+        <FooterB />
+      </>
+    );
+  }
   return (
     <PageShell page={page}>
       {page.route === "/papers" && <EntryList />}

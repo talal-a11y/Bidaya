@@ -1,41 +1,33 @@
 ---
 route: /programs
-title: Programs — Bidaya
+title: Programs — Bidaya Consulting
 description: Business support inside the programs cultural and educational institutions already run, co-delivered with Bidaya, so practitioners leave with a company as well as a portfolio.
+hidden: true
 order: 5
-nav: Programs
 ---
 
-@note no price, no "services," no executive-layer pitch anywhere on this page — Rule 14. Partner marks, when programs exist, follow the partner rule: host first, a hairline between, Bidaya's mark in single colour.
+@note rewritten in the founder's words, 2026-09-22 (docs/decisions.md). No price, no "services" (Rule 14). The closing button is proposed.
 
-# Business support inside the programs you already run, co-delivered.
+# Business support inside the programs you already run.
 
-@lead Residencies, cohorts, incubators and competitions teach craft well. What their practitioners are rarely taught is the company: licensing, pricing, invoicing, the numbers, the first hire. Programs is where Bidaya does that work, inside the structures institutions already run, as a partner in them.
+### What's missing
 
----
+Residencies, cohorts, incubators and competitions teach craft well. What their practitioners are rarely taught is the company: licensing, pricing, invoicing, the numbers, the first hire. Programs is where Bidaya does that work, inside the structures institutions already run, as a partner in them.
 
-## What a program is
+### What we do about it
 
-A partnership structure, built with the institution or the business that hosts it, whose beneficiaries are creative businesses and independent practitioners. It takes the form the host's program already has: a business-foundations track inside a residency or a cohort; a clinic series on setup, pricing, invoicing, licensing and tax basics; a competition or challenge format with a university; an initiative launched together with a business partner.
-
-Bidaya designs the track and delivers it. The host keeps its program, its name on the door and a reportable outcome. Practitioners leave with a company that runs.
+Our network of professionals across all industries has provided us the space to build programs, trainings, workshops, and events that cater to building up aspiring entrepreneurs and the creative field across the UAE. If you're looking to build a program or community supporting entrepreneurship in the UAE, Bidaya manages your project from ideation to launch.
 
 ---
 
-## Why we do this
+## How we do it
 
-Bidaya was started with the people least likely to be offered serious support and most likely to need it in mind: freelancers in the creative field, young aspiring entrepreneurs, and studios. The firm's work with funded companies is what pays for it. Programs is where the founding intent lives, and it is built and funded together with the institutions, partners and sponsors who share it.
+@rows
+**Workshops, trainings, & ongoing advisory.** Aiming to teach better business acumen and provide the tools required to run your work efficiently. Custom built around the needs and the tools used by the audience. Ideal for one-day efficiency trainings for events or corporate programs, or for a multi-part course aimed to increase productivity for a company, community, or collective.
 
----
+**Programs and partnerships.** Bidaya also aims to partner with educational and creative institutions to create events, competitions, and programs that continue to build spaces for aspiring entrepreneurs early in their journey.
 
-## Who it is for
+**Project management.** Bidaya offers project management to institutions setting up independent community events and programs aimed to promote entrepreneurship across the UAE. Our network provides our clients the partners, sponsors, entertainment, speakers, and more, while supporting small independent businesses within the region.
+@end
 
-Cultural institutions and foundations. Universities and educational institutions. Creative zones and the studios inside them. Businesses that want to back a program rather than sponsor a logo. Practitioners reach Programs through the institutions that host them.
-
----
-
-## How a program starts
-
-With a conversation about the program you already run and what its practitioners leave without. From there: a design, a partnership structure, a date.
-
-@cta Start a conversation -> /start
+@cta Partnerships and programs -> #form-partners

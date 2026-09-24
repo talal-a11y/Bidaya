@@ -1,10 +1,11 @@
 ---
 route: /tech-and-projects
-title: Tech and one-time projects — Bidaya
+title: Tech and one-time projects — Bidaya Consulting
 description: The systems under a UAE business: accounting stack, records, automation, and one-time technical projects from websites to custom platforms. Built on the tools you already use.
 order: 11
 intent: Tech and one-time projects
 faqSchema: true
+function: tech
 serviceSchema: true
 serviceName: Tech and one-time projects
 ---
@@ -31,7 +32,9 @@ A website. A custom system for the business, a database, an internal tool. An au
 
 ## What it costs
 
-Project work is scoped and quoted after the call. Tech inside a monthly engagement sits within the engagement's fee: monthly engagements from AED 12,000, scope-dependent above that.
+@note the floor line moved to /fees (rework/rulings §8).
+
+Project work is scoped and quoted after the call.
 
 ---
 
@@ -43,8 +46,7 @@ When the tools you have already do the job and the problem is that nobody runs t
 
 ## How it starts
 
-@cta Start a conversation -> /start
-@ghost See where you stand -> /where-you-stand
+@cta Start a conversation -> /#form-business
 
 ---
 

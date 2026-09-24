@@ -105,3 +105,14 @@ main { flex: 1; }
   overflow: hidden; clip: rect(0 0 0 0); clip-path: inset(50%);
   white-space: nowrap; border: 0;
 }
+
+/* the world canvas sits behind the page; the page's own surfaces stay transparent to it */
+.world { position: fixed; inset: 0; z-index: 0; pointer-events: none; }
+.page { position: relative; z-index: 1; display: flex; flex-direction: column; min-height: 100dvh; }
+.page main { flex: 1; }
+
+/* direction B: Geist everywhere while B is under review */
+body { font-family: "Geist", var(--font-sans); }
+
+/* Arabic inside Latin copy: the one face that carries it, bold, a touch larger, no tracking */
+.ar { font-family: "Readex Pro", system-ui, sans-serif; font-weight: 700; font-size: 1.3em; letter-spacing: 0; line-height: 1; }

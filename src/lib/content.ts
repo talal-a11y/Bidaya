@@ -37,7 +37,7 @@ export type Block =
   | { type: "quiet"; items: Inline[][] }
   | { type: "form"; fields: FormField[]; submit: string };
 
-export type Section = { band?: "aqua" | "teal" | "plum"; blocks: Block[] };
+export type Section = { band?: "aqua" | "teal" | "plum"; kind?: string; blocks: Block[] };
 
 export type Page = {
   slug: string;
@@ -52,6 +52,11 @@ export type Page = {
   serviceSchema: boolean;
   serviceName?: string;
   organizationSchema: boolean;
+  hidden: boolean;
+  unlisted: boolean;
+  form?: string;
+  fn?: string;
+  audience?: string;
   sections: Section[];
   notes: string[];
   assumed: string[];
@@ -171,7 +176,7 @@ function parseBody(body: string, page: Pick<Page, "notes" | "assumed">): Section
   const flushAll = () => { flushPara(); flushList(); flushButtons(); };
   const endSection = () => {
     flushAll();
-    if (current.blocks.length || current.band) sections.push(current);
+    if (current.blocks.length || current.band || current.kind) sections.push(current);
     current = { blocks: [] };
   };
   const closeGroup = () => {
@@ -219,6 +224,7 @@ function parseBody(body: string, page: Pick<Page, "notes" | "assumed">): Section
     if (t.startsWith("@note ")) { flushAll(); page.notes.push(t.slice(6)); continue; }
     if (t.startsWith("@assumed ")) { flushAll(); page.assumed.push(t.slice(9)); continue; }
     if (t.startsWith("@band ")) { flushAll(); current.band = t.slice(6).trim() as Section["band"]; continue; }
+    if (t.startsWith("@kind ")) { flushAll(); current.kind = t.slice(6).trim(); continue; }
     if (/^@(rows|terms|faq|example|quiet|form)$/.test(t)) { flushAll(); group = { type: t.slice(1) as never, lines: [] }; continue; }
 
     if (t.startsWith("# ")) { flushAll(); current.blocks.push({ type: "h1", text: parseInline(t.slice(2)), raw: t.slice(2) }); continue; }
@@ -258,6 +264,11 @@ function loadPage(file: string): Page {
     serviceSchema: data.serviceSchema === "true",
     serviceName: data.serviceName || undefined,
     organizationSchema: data.organizationSchema === "true",
+    hidden: data.hidden === "true",
+    unlisted: data.unlisted === "true",
+    form: data.form || undefined,
+    fn: data.function || undefined,
+    audience: data.audience || undefined,
     sections: [],
     notes: [],
     assumed: [],
@@ -288,6 +299,7 @@ export function getPageByRoute(route: string): Page | undefined {
 
 export type Global = {
   siteName: string;
+  shortName: string;
   alternateName: string;
   areaServed: string;
   founder: string;
@@ -312,6 +324,7 @@ export function getGlobal(): Global {
   }
   globalCache = {
     siteName: data.siteName,
+    shortName: data.shortName || data.siteName,
     alternateName: data.alternateName,
     areaServed: data.areaServed,
     founder: data.founder,

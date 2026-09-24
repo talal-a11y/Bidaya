@@ -1,101 +1,64 @@
 ---
 route: /
-title: Bidaya — executive management
-description: The executive layer for UAE businesses that don't have one yet. Setup, operations, finance and tech, run inside your business by one firm. Terms published.
+title: Bidaya Consulting
+description: Start your business right, from day one.
 order: 1
 ---
 
 @assumed the title tag is assumed — ledger AU; 29 characters.
-@tagline Executive management, from the beginning.
+@note [proposed] "from the start" for "from the beginning" — founder 2026-09-21. The deck and ledger carried the thesis as "from the beginning".
+@tagline From day one.
 
-# Setup, operations, finance and tech — run inside your business by one firm.
+@note [proposed] the restructure of 2026-09-22: the home page says what Bidaya Consulting does and who it consults for. This headline and lead are drafted; the founder's to confirm. The earlier headline and lead ("Setup, operations, finance and tech — run inside your business by one firm." / "Most businesses run for years…") moved to /founders.
 
-@lead Most businesses run for years before they can justify three senior hires. Until then, Bidaya runs setup, operations, finance and tech inside the business the way an executive would, monthly or for one defined piece of work, a few steps ahead of the owner.
+# Support where you need it, managed right from day one.
 
-@cta See where you stand -> /where-you-stand
-@ghost How we work -> /how-we-work
+@note the headline and the lead are the founder's (Vercel comments, 2026-09-23).
+@note the description is the founder's (Vercel comment, 2026-09-23), a working read; the lead in bold without the colon (his comment, 2026-09-23).
+@lead **Bidaya was born to**
 
-@aside بداية means beginning. A business is decided at its start.
+- Be the executive layer for businesses that are too small to have one yet.
+- Build programs that lower the barrier of entry for creatives and entrepreneurs looking to start a businesses.
+- Create opportunities that provide meaningful work to independent professionals and boutique firms.
+
+@note the hero's button opens the About chapter — founder 2026-09-21: "instead of How we work at the start it should be About".
+@ghost About -> /about
+@cta Enquire for your business -> #form-business
+
+@note the Arabic is typed first, then a divider, then the words — founder 2026-09-22.
+@aside بداية | means beginning.
 
 ---
 
-## Where you stand
+@kind audiences
+@note "We focus on" follows this section, from content/focus.json (rework/we-focus-on.md).
+@note the three audiences — founder 2026-09-22: "Instead of saying divisions, it should be 'We consult' and then Founders, Creatives & Pre-preneurs, Institutions." The cards' words are in content/audiences.json (proposed). The four functions moved to /founders.
 
-A read on your business before any conversation: what's covered, what needs building, what's yours to do, and what is due, with the cost of missing it. Ten minutes. Shown in full, no email required.
+## We consult for
 
-*The read* — Covered, needs building, yours to do, by function. Then what is due, what to do first, and one honest line, including "you don't need an executive layer yet."
-
-@cta See where you stand -> /where-you-stand
+@note the line beneath was removed — his Vercel comment "Remove", 2026-09-23. His comment wrote "We consult for:"; rework/rulings §3 writes it without the colon and the founder ruled that the files win where they overlap.
 
 ---
 
-## One firm, four functions
+@note How we work (the terms) moved to /founders — 2026-09-22.
 
-Setup, operations, finance and tech are scopes of one role, not four vendors.
+---
 
-@note the four-functions build sits here; the words arrive with their sectors. Beneath it, four lines, no icons.
+@kind explore
+@note the "Explore our work on" block is off the home page (founder 2026-09-23); it lives near the foot of every other page, filtered to what that page's reader is likely to want next. His line stays here for the record.
+
+## Explore our work
+
+We were built to do one thing that solves three separate - yet similar - problems. Explore our work on:
+
+---
+
+## Start a conversation
+
+@note one form and one booking — the founder 2026-09-23: "two options — fill in a form or book a 30 minute discovery session". The card lines are proposed. Booking embeds when he shares the link (content/booking.json); until then the card says so.
 
 @rows
-**Setup.** Structure, licensing and the foundations a company runs on, decided before the growth arrives.
+**Fill in a form.** A few questions; they change with your answers.
 
-**Operations.** Process, the people plan and the hiring roadmap, so the business runs without the owner in every decision.
-
-**Finance.** Monthly numbers you can trust, cash you can see, and the filings that carry fines when missed.
-
-**Tech.** The systems underneath all of it, built on the tools you already use.
+**Book a 30-minute discovery session.** Free. Pick a time that suits you.
 @end
-
-Where a need falls outside these four, we know who does it and we manage them.
-
-@ghost What we do -> /what-we-do
-
----
-
-@band teal
-@note the band carries the title alone. The line beneath sits on stone.
-
-## A few steps ahead
-
----
-
-The next filing, the next hire, the next requirement, surfaced before anyone has to ask. It is the standard the firm holds itself to.
-
----
-
-## How we work
-
-Terms a firm that couldn't deliver would never publish.
-
-@note three circles, no number on the homepage — ledger Z, checklist 9.
-
-@terms
-**Month one, no notice.** Paid at full rate. Finish it and walk away owing nothing.
-
-**30 days.** Every engagement can end on thirty days' notice.
-
-**In writing.** When a business doesn't need us monthly, we say so, and hand over what to do instead.
-@end
-
-@ghost How we work -> /how-we-work
-
----
-
-## Before it's big, run it like it is.
-
-Two sentences reach us more than any others: *I have an idea and no idea where to begin*, and *it's getting too big to handle on my own.* Both describe the same missing thing: the executive layer of a company, the person whose job is the structure, the process, the numbers and the systems, so the owner's time goes to the work the business exists to do.
-
-Bidaya is that layer, from the beginning. Not because an owner can't, but because an owner shouldn't have to.
-
-@ghost About -> /about
-
----
-
-@band aqua
-
-## Programs
-
-Business support inside the programs you already run, co-delivered.
-
-For cultural and educational institutions and the practitioners they host. Built as a partnership.
-
-@cta Programs -> /programs

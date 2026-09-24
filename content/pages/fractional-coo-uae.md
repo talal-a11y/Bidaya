@@ -1,10 +1,11 @@
 ---
 route: /fractional-coo-uae
-title: Fractional COO in the UAE — Bidaya
+title: Fractional COO in the UAE — Bidaya Consulting
 description: What a fractional COO covers in a UAE business, what it costs, and when you don't need one. Operations leadership inside the business, on published terms.
 order: 9
 intent: Operations leadership
 faqSchema: true
+function: ops
 serviceSchema: true
 serviceName: Operations leadership — the executive layer
 ---
@@ -26,7 +27,9 @@ The way the business runs when the owner isn't in the room. Process written down
 
 ## What it costs
 
-Monthly engagements from AED 12,000. What sits above the floor depends on scope: operations alone, or operations with finance and tech inside one engagement. Project work, such as writing the process and the registers for a business and handing them over, is scoped and quoted after the call.
+@note the floor line moved to /fees (rework/rulings §8).
+
+Project work, such as writing the process and the registers for a business and handing them over, is scoped and quoted after the call.
 
 ---
 
@@ -38,8 +41,7 @@ When the business has fewer than a handful of people and the owner can still hol
 
 ## How it starts
 
-@cta See where you stand -> /where-you-stand
-@ghost Start a conversation -> /start
+@cta Start a conversation -> /#form-business
 
 ---
 

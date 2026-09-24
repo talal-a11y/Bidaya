@@ -2,8 +2,8 @@ import Link from "next/link";
 import { getGlobal, getNav } from "@/lib/content";
 import styles from "./Header.module.css";
 
-// The header lockup: mark · Bidaya · hairline · بداية (brand/svg/bidaya-lockup-3-header.svg).
-// On phones the mark and Bidaya only (CLAUDE.md §5) — the same paths, hairline and Arabic dropped.
+// The header lockup: mark · Bidaya · hairline · بداية (brand/svg/bidaya-lockup-3-header.svg),
+// at every width — the founder ruled against dropping the Arabic on phones (docs/decisions.md 2026-09-21).
 export default function Header({ current }: { current: string }) {
   const g = getGlobal();
   const nav = getNav();
@@ -24,7 +24,6 @@ export default function Header({ current }: { current: string }) {
       <div className={`wrap ${styles.inner}`}>
         <Link href="/" className={styles.home} aria-label={g.siteName}>
           <img className={styles.lockup} src="/brand/svg/bidaya-lockup-3-header.svg" alt="" width="1659" height="392" />
-          <img className={styles.lockupPhone} src="/brand/svg/bidaya-lockup-3-header-phone.svg" alt="" width="1075" height="392" />
         </Link>
         <nav className={styles.nav} aria-label={f.navLabel}>
           <details className={styles.toggle}>

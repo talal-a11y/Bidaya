@@ -1,0 +1,89 @@
+{
+  "$comment": "The summary cards behind the home page's buttons (About, What we do, Programs). Each opens as one panel with three brief cards — who it is for, a line or two, and Learn more to the full page. Drafted from the founder's copy of 2026-09-22; every line is proposed until he confirms. The full text lives on the pages the cards open.",
+  "learnMore": "Learn more",
+  "explore": "Explore",
+  "panels": {
+    "what-we-do": {
+      "title": "What we do",
+      "cards": [
+        {
+          "for": "For funded startups and SMEs",
+          "brief": "We run setup, operations, finance and tech inside the business at CEO, CFO and COO scope, monthly or as one defined piece of work, until it runs without us.",
+          "href": "/what-we-do",
+          "tone": "ink"
+        },
+        {
+          "for": "For creatives, youth and aspiring entrepreneurs",
+          "brief": "Workshops, trainings and advisory, programs built with institutions, and a community of small businesses that share costs and support one another.",
+          "href": "/what-we-do",
+          "tone": "plum"
+        },
+        {
+          "for": "For cultural and educational institutions",
+          "brief": "Programs, trainings, workshops and events built with you for the entrepreneurs you host, from ideation to launch.",
+          "href": "/what-we-do",
+          "tone": "aqua"
+        }
+      ]
+    },
+    "about": {
+      "title": "About",
+      "cards": [
+        {
+          "for": "For startups and small businesses",
+          "brief": "We take the load an executive would take, so the owner's time goes back to what matters, and hand back a business that runs without us.",
+          "href": "/about",
+          "tone": "plum"
+        },
+        {
+          "for": "For creative and educational institutions",
+          "brief": "Programs that support young and creative entrepreneurs, built with institutions across the UAE, backed by our own talent network.",
+          "href": "/about",
+          "tone": "aqua"
+        },
+        {
+          "for": "For boutique firms and independent workers",
+          "brief": "Our Talent Network: the specialists we bring in when a client's need sits outside our scope. Register, and be the first we reach out to.",
+          "href": "/about",
+          "tone": "tealDeep"
+        }
+      ]
+    },
+    "programs": {
+      "title": "Programs",
+      "cards": [
+        {
+          "for": "For residencies, cohorts and incubators",
+          "brief": "The company side of the craft: licensing, pricing, invoicing, the numbers, the first hire, taught inside the program you already run.",
+          "href": "/programs",
+          "tone": "aqua"
+        },
+        {
+          "for": "For universities and creative institutions",
+          "brief": "Events, competitions and programs built together, that keep making room for entrepreneurs early on.",
+          "href": "/programs",
+          "tone": "tealDeep"
+        },
+        {
+          "for": "For community events and programs",
+          "brief": "Project management from ideation to launch, with the partners, sponsors, speakers and small businesses our network brings.",
+          "href": "/programs",
+          "tone": "plum"
+        }
+      ]
+    }
+  },
+  "ring": {
+    "$comment": "The order the inner pages follow with their prev/next arrows and the dropdown. Not the home page.",
+    "pages": [
+      "/founders",
+      "/creatives-and-pre-preneurs",
+      "/institutions",
+      "/about",
+      "/feasibility-and-advisory",
+      "/fractional-coo-uae",
+      "/fractional-cfo-uae",
+      "/tech-and-projects"
+    ]
+  }
+}

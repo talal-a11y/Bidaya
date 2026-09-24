@@ -1,9 +1,9 @@
 ---
 route: /how-we-work
-title: How we work — Bidaya
+title: How we work — Bidaya Consulting
 description: Bidaya's terms, published: monthly engagements from AED 12,000, a first month with no notice, a thirty-day exit on every engagement, and a written "you don't need us" when it's true.
+unlisted: true
 order: 3
-nav: How we work
 faqSchema: true
 ---
 

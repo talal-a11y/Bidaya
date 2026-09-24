@@ -4,7 +4,7 @@ import { chromium } from "playwright";
 import fs from "node:fs";
 
 const base = process.env.BASE_URL || "http://localhost:3000";
-const routes = ["/", "/where-you-stand", "/what-we-do", "/how-we-work", "/programs", "/papers", "/about", "/start",
+const routes = ["/", "/founders", "/creatives-and-pre-preneurs", "/institutions", "/about", "/resources", "/work-with-us", "/general-inquiry", "/fees",
   "/fractional-coo-uae", "/fractional-cfo-uae", "/tech-and-projects", "/feasibility-and-advisory"];
 fs.mkdirSync("screenshots", { recursive: true });
 const browser = await chromium.launch();

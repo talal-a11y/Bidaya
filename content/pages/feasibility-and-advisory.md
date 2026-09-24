@@ -1,10 +1,11 @@
 ---
 route: /feasibility-and-advisory
-title: Feasibility and advisory — Bidaya
+title: Feasibility and advisory — Bidaya Consulting
 description: Feasibility studies before a business is set up, and a study of how an existing business actually runs before anything is changed. Research before commitment.
 order: 12
 intent: Feasibility and advisory
 faqSchema: true
+function: setup
 serviceSchema: true
 serviceName: Feasibility and advisory
 ---
@@ -31,7 +32,9 @@ How the business actually runs: finances, teams, sales, process, systems. Every 
 
 ## What it costs
 
-Both are fixed-scope work, quoted after the call, paid at milestones, with discovery as the first phase inside the fee. Where a study leads to a monthly engagement, monthly engagements are from AED 12,000, scope-dependent above that.
+@note the floor line moved to /fees (rework/rulings §8).
+
+Both are fixed-scope work, quoted after the call, paid at milestones, with discovery as the first phase inside the fee.
 
 ---
 
@@ -43,8 +46,7 @@ When the question is one *Where you stand* can answer in ten minutes. Try that f
 
 ## How it starts
 
-@cta See where you stand -> /where-you-stand
-@ghost Start a conversation -> /start
+@cta Start a conversation -> /#form-business
 
 ---
 

@@ -1,0 +1,18 @@
+{
+  "$comment": "The four functions. 'short' is the home page's line (deck §1); 'long' is what the card shows on hover (deck §2, 'What the role covers'); 'href' is the page 'Learn more' opens (which function goes to which intent page is assumed — docs/decisions.md 2026-09-22). 'name' is what the intent page types in after the mark.",
+  "learnMore": "Learn more",
+  "functions": [
+    { "id": "setup", "word": "Setup", "name": "Bidaya Setup", "tone": "tealDeep", "color": "#237C85", "href": "/feasibility-and-advisory",
+      "short": "Structure, licensing and the foundations a company runs on, decided before the growth arrives.",
+      "long": "Entity structure and the licensing decision. Formation coordinated with the specialists it needs. The foundations decided once, so they don't have to be redone at the first hire, the first investor or the first audit." },
+    { "id": "ops", "word": "Ops", "name": "Bidaya Ops", "tone": "opsDeep", "color": "#0A5C66", "href": "/fractional-coo-uae",
+      "short": "Process, the people plan and the hiring roadmap, so the business runs without the owner in every decision.",
+      "long": "How the business runs when the owner isn't in the room: process written down, the people plan, the hiring roadmap and the hires themselves, the review rhythm that keeps the month on track." },
+    { "id": "finance", "word": "Finance", "name": "Bidaya Finance", "tone": "plum", "color": "#5A47A3", "href": "/fractional-cfo-uae",
+      "short": "Monthly numbers you can trust, cash you can see, and the filings that carry fines when missed.",
+      "long": "Management reporting every month, budgeting and cash flow, the reporting an investor or a bank asks for, and the filings that carry a fine when they're missed. Licensed tax consultants and accountants are included in the fee." },
+    { "id": "tech", "word": "Tech", "name": "Bidaya Tech", "tone": "ink", "color": "#241B2E", "href": "/tech-and-projects",
+      "short": "The systems underneath all of it, built on the tools you already use.",
+      "long": "The systems under all of it: the accounting stack, the records, the automation that removes a job rather than adds a tool. Built on what the business already uses. One-time technical projects, from a website to a custom internal system, are in scope on their own." }
+  ]
+}
