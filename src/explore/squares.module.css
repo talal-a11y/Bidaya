@@ -1,7 +1,8 @@
 /* The seven squares of "We focus on", six ways (src/explore/Squares.tsx). Paper on the colours. */
 .wrap { display: grid; grid-template-rows: auto 1fr; min-block-size: 56svh; color: var(--paper); transition: background-color 640ms var(--ease-standard); }
-.row { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(7, 1fr); position: relative; }
-.row a { position: relative; display: flex; flex-direction: column; justify-content: flex-end; aspect-ratio: 1; padding: 16px; text-decoration: none; color: var(--paper); font-size: clamp(14px, 1.3vw, 20px); font-weight: 500; letter-spacing: -0.02em; line-height: 1.1; opacity: 0.9; overflow: hidden; box-shadow: inset 0 0 0 0 var(--paper); transition: opacity 300ms, box-shadow 320ms var(--ease-standard), transform 320ms var(--ease-standard); }
+.row { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(7, 1fr); grid-auto-rows: 1fr; position: relative; }
+.row li { display: grid; min-inline-size: 0; }
+.row a { position: relative; display: flex; flex-direction: column; justify-content: flex-end; min-block-size: calc(100vw / 7); padding: 16px; text-decoration: none; color: var(--paper); font-size: clamp(17px, 1.7vw, 25px); font-weight: 600; letter-spacing: -0.02em; line-height: 1.1; opacity: 0.9; overflow: hidden; box-shadow: inset 0 0 0 0 var(--paper); transition: opacity 300ms, box-shadow 320ms var(--ease-standard), transform 320ms var(--ease-standard), background-color 320ms var(--ease-standard); }
 .row a:hover, .row a[data-on] { opacity: 1; box-shadow: inset 0 0 0 3px var(--paper); transform: translateY(-6px); }
 .title { position: relative; }
 .stage { position: relative; padding: 36px; display: grid; align-content: center; min-block-size: 32svh; }
@@ -12,23 +13,28 @@
 .go::after { content: "→"; }
 @keyframes rise { from { opacity: 0; transform: translateY(12px); } }
 
-/* S1: the words take the square — large, bold, from the top */
-.words .row a { justify-content: flex-start; font-size: clamp(20px, 2.5vw, 40px); font-weight: 600; letter-spacing: -0.035em; line-height: 0.98; padding: 18px; }
+/* S1: the words take the square — large, bold, from the top; a thin paper frame around each, which goes as the
+   hovered card grows a little and joins the stage beneath in the same colour */
+.words .row { gap: 0; }
+.words .row a { justify-content: flex-start; font-size: clamp(18px, 2vw, 32px); font-weight: 600; letter-spacing: -0.035em; line-height: 0.98; padding: 18px; opacity: 1; box-shadow: inset 0 0 0 1.5px var(--paper); transform: none; }
+.words .row a:hover, .words .row a[data-on] { box-shadow: inset 0 0 0 0 var(--paper); transform: scale(1.045); z-index: 2; }
 
 /* S2: a mark for each, drawn above the title */
 .marks .row a { justify-content: space-between; }
 .glyph { inline-size: 46%; margin-block-start: 4px; opacity: 0.9; transition: transform 420ms var(--ease-standard); }
 .row a:hover .glyph, .row a[data-on] .glyph { transform: scale(1.08) rotate(-4deg); }
 
-/* S3: one flowing line through all seven — drawn, then flowing, on repeat (the founder asked for a repeat) */
-.flow .row { overflow: hidden; }
-.flow svg.flow { position: absolute; inset: 0; inline-size: 100%; block-size: 100%; pointer-events: none; z-index: 2; }
-.flowGhost, .flowLine, .flowLoop { fill: none; stroke: var(--paper); stroke-width: 2.2; vector-effect: non-scaling-stroke; stroke-linecap: round; }
-.flowGhost { opacity: 0.22; }
-.flowLine { stroke-dasharray: 140 1400; animation: flowing 7s linear infinite; opacity: 0.95; }
-.flowLoop { stroke-dasharray: 90 1500; stroke-width: 1.4; opacity: 0.6; animation: flowing 9s linear infinite reverse; }
-@keyframes flowing { from { stroke-dashoffset: 1540; } to { stroke-dashoffset: 0; } }
-@media (prefers-reduced-motion: reduce) { .flowLine, .flowLoop { animation: none; stroke-dasharray: none; opacity: 0.5; } }
+/* S2a: the mark as a watermark in the top-right corner, part of it outside the square */
+.glyphCorner { position: absolute; inset-block-start: -14%; inset-inline-end: -16%; inline-size: 58%; opacity: 0.32; pointer-events: none; transition: transform 420ms var(--ease-standard), opacity 300ms; }
+.glyphCorner svg { inline-size: 100%; display: block; }
+.row a:hover .glyphCorner, .row a[data-on] .glyphCorner { opacity: 0.5; transform: translate(-4%, 4%); }
+/* S2b: the mark large, cropped by the square's top-right, faint */
+.glyphLarge { position: absolute; inset-block-start: -30%; inset-inline-end: -34%; inline-size: 120%; opacity: 0.2; pointer-events: none; transition: transform 520ms var(--ease-standard), opacity 300ms; }
+.glyphLarge svg { inline-size: 100%; display: block; }
+.row a:hover .glyphLarge, .row a[data-on] .glyphLarge { opacity: 0.32; transform: rotate(-3deg); }
+/* S3: circles as watermarks, placed by hand */
+.circles { position: absolute; inset: 0; inline-size: 100%; block-size: 100%; pointer-events: none; transition: transform 600ms var(--ease-standard); }
+.row a:hover .circles, .row a[data-on] .circles { transform: scale(1.06); }
 
 /* S4: one mark across all seven — the squares hold slices of the same two circles */
 .piece { position: absolute; inset: 0; inline-size: 100%; block-size: 100%; opacity: 0.5; pointer-events: none; }
@@ -38,13 +44,10 @@
 .initial { position: absolute; inset-block-start: -0.12em; inset-inline-start: 0.06em; font-size: clamp(90px, 10vw, 170px); font-weight: 600; letter-spacing: -0.06em; line-height: 1; opacity: 0.22; pointer-events: none; transition: opacity 300ms, transform 420ms var(--ease-standard); }
 .row a:hover .initial, .row a[data-on] .initial { opacity: 0.4; transform: translateX(6px); }
 
-/* S6: the hilal in seven phases */
-.crescent { position: absolute; inset-block-start: 10%; inset-inline-start: 12%; inline-size: 62%; opacity: 0.3; pointer-events: none; transition: transform 520ms var(--ease-standard), opacity 300ms; }
-.row a:hover .crescent, .row a[data-on] .crescent { opacity: 0.5; transform: rotate(8deg); }
 
 @media (max-width: 900px) {
   .row { grid-template-columns: repeat(2, 1fr); }
   .row li:last-child:nth-child(odd) { grid-column: 1 / -1; }
-  .row li:last-child:nth-child(odd) a { aspect-ratio: 2 / 1; }
-  .flow svg.flow { display: none; }
+  .row a { min-block-size: 44vw; }
+  .row li:last-child:nth-child(odd) a { min-block-size: 22vw; }
 }

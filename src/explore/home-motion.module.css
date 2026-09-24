@@ -1,0 +1,76 @@
+/* Home animations — the hero's right panel, opened five ways and kept alive four ways (HomeMotion.tsx) */
+.stageWrap { position: relative; }
+.stage { position: relative; inline-size: min(100%, 720px); aspect-ratio: 1 / 1; max-block-size: 78svh; overflow: hidden; margin: 24px 28px; border: 1px solid var(--ink); }
+.replay { position: absolute; inset-block-start: 36px; inset-inline-end: 40px; z-index: 20; font: inherit; font-size: 13px; font-weight: 600; padding: 8px 14px; border: 1px solid var(--ink); background: var(--paper); color: var(--ink); cursor: pointer; }
+.form { position: absolute; inset: 0; color: var(--paper); overflow: hidden; }
+.arcs { position: absolute; inset-inline-start: -8%; inset-block-start: -10%; inline-size: 82%; fill: none; stroke: currentColor; stroke-width: 6; color: var(--paper); pointer-events: none; }
+.line { position: absolute; inset-inline-start: 28px; inset-block-end: 28px; margin: 0; font-family: var(--b-mono); font-size: clamp(15px, 1.3vw, 19px); color: var(--paper); }
+.arabic { font-family: "Readex Pro", system-ui, sans-serif; font-weight: 700; font-size: 1.5em; margin-inline-end: 0.5em; vertical-align: -0.1em; }
+.deck { position: absolute; inset: 0; perspective: 1400px; transform-style: preserve-3d; }
+
+/* H1 — the page flip: each form turns away from a corner and the next is beneath */
+.flip { animation: flipAway 520ms cubic-bezier(0.6, 0, 0.4, 1) both; backface-visibility: hidden; }
+.flipTL { transform-origin: 0 0; --axis: 1, 1, 0; --deg: -180deg; }
+.flipBR { transform-origin: 100% 100%; --axis: 1, -1, 0; --deg: 180deg; }
+.flipTR { transform-origin: 100% 0; --axis: 1, -1, 0; --deg: -180deg; }
+@keyframes flipAway { from { transform: rotate3d(var(--axis), 0deg); } 60% { filter: brightness(0.85); } to { transform: rotate3d(var(--axis), var(--deg)); } }
+
+/* H2 — the wipes */
+.wipe { animation: wipeIn 620ms var(--ease-standard) both; }
+.wipeL { --from: polygon(0 0, 0 0, 0 100%, 0 100%); }
+.wipeT { --from: polygon(0 0, 100% 0, 100% 0, 0 0); }
+.wipeR { --from: polygon(100% 0, 100% 0, 100% 100%, 100% 100%); }
+.wipeB { --from: polygon(0 100%, 100% 100%, 100% 100%, 0 100%); }
+@keyframes wipeIn { from { clip-path: var(--from); } to { clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); } }
+
+/* H3 — the marks converge */
+.converge { animation: gather 1500ms cubic-bezier(0.2, 0.8, 0.2, 1) both; }
+@keyframes gather { from { transform: translate(var(--dx), var(--dy)) rotate(var(--rot)) scale(0.5); opacity: 0; } 30% { opacity: 1; } to { transform: none; opacity: 1; } }
+.flash { position: absolute; inset: 0; animation: flash 520ms ease-out both; }
+@keyframes flash { from { opacity: 1; } to { opacity: 0; } }
+.lineLate { animation: lineIn 600ms var(--ease-standard) 1500ms both; }
+@keyframes lineIn { from { opacity: 0; transform: translateY(8px); } }
+
+/* H4 — the shuffle */
+.table { background: var(--stone); }
+.card { inset: 12% 30% 12% 30%; transform-origin: 50% 140%; animation: deal 700ms cubic-bezier(0.2, 0.8, 0.2, 1) both; box-shadow: 0 20px 40px rgb(36 27 46 / 0.25); }
+.card .arcs { inline-size: 110%; inset-inline-start: -20%; inset-block-start: -18%; }
+.card .line { font-size: 12px; inset-inline-start: 16px; inset-block-end: 14px; }
+@keyframes deal { from { transform: translateX(var(--fx)) translateY(60%) rotate(var(--fan)); opacity: 0; } 40% { opacity: 1; } to { transform: none; } }
+.cardLast { animation: deal 700ms cubic-bezier(0.2, 0.8, 0.2, 1) both, grow 800ms var(--ease-standard) both; animation-delay: 1.7s, 2.6s; }
+@keyframes grow { to { inset: 0; box-shadow: none; } }
+.cardLast .arcs { animation: arcsBack 800ms var(--ease-standard) 2.6s both; }
+@keyframes arcsBack { to { inline-size: 82%; inset-inline-start: -8%; inset-block-start: -10%; } }
+.cardLast .line { animation: lineBack 800ms var(--ease-standard) 2.6s both; }
+@keyframes lineBack { to { font-size: clamp(15px, 1.3vw, 19px); inset-inline-start: 28px; inset-block-end: 28px; } }
+
+/* H5 — through the ring */
+.through { transform-origin: 34% 32%; animation: through 900ms cubic-bezier(0.6, 0, 0.8, 0.2) both; }
+@keyframes through { from { transform: scale(1); opacity: 1; } 70% { opacity: 1; } to { transform: scale(7); opacity: 0; } }
+.arrive { transform-origin: 34% 32%; animation: arrive 900ms cubic-bezier(0.2, 0.8, 0.2, 1) both; }
+@keyframes arrive { from { transform: scale(0.94); opacity: 0.8; } to { transform: none; opacity: 1; } }
+
+/* M1 — depth */
+.depth { --mx: 0; --my: 0; }
+.deep1 { transform: translate(calc(var(--mx) * 22px), calc(var(--my) * 22px)); transition: transform 600ms cubic-bezier(0.2, 0.8, 0.2, 1); }
+.deep2 { transform: translate(calc(var(--mx) * 48px), calc(var(--my) * 48px)); transition: transform 900ms cubic-bezier(0.2, 0.8, 0.2, 1); }
+
+/* M2 — the trail */
+.canvas { position: absolute; inset: 0; inline-size: 100%; block-size: 100%; pointer-events: none; }
+
+/* M3 — the ripples */
+.ring { position: absolute; inline-size: 12px; block-size: 12px; margin: -6px 0 0 -6px; border: 1.5px solid var(--paper); border-radius: 50%; pointer-events: none; animation: ripple 1600ms cubic-bezier(0.2, 0.8, 0.2, 1) both; }
+@keyframes ripple { to { transform: scale(22); opacity: 0; } }
+
+/* M4 — the mark looks */
+.looks { transition: background-color 400ms linear; }
+.eye { transition: cx 320ms cubic-bezier(0.2, 0.8, 0.2, 1), cy 320ms cubic-bezier(0.2, 0.8, 0.2, 1); }
+
+@media (prefers-reduced-motion: reduce) {
+  .flip, .wipe, .converge, .flash, .lineLate, .card, .cardLast, .through, .arrive { animation: none; }
+  .flip, .through { opacity: 0; }
+  .flash { opacity: 0; }
+  .card { inset: 0; box-shadow: none; }
+  .deep1, .deep2 { transform: none; }
+  .ring { display: none; }
+}

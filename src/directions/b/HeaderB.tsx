@@ -26,7 +26,7 @@ export const showExplore = process.env.VERCEL_ENV !== "production";
 export default function HeaderB({ current }: { current: string }) {
   const g = getGlobal();
   // the Explore dropdown: the reserves (kept variants) and the reserve fixes (variants for a section under review); never on the published site
-  const groups: NavGroup[] = [...resolveNav(), ...(showExplore ? [{ label: "Explore", children: [{ label: "Reserves", href: "/explore" }, { label: "Reserve fixes", href: "/explore/fixes" }] }] : [])];
+  const groups: NavGroup[] = [...resolveNav(), ...(showExplore ? [{ label: "Explore", children: [{ label: "Reserves", href: "/explore" }, { label: "Reserve fixes", href: "/explore/fixes" }, { label: "Home animations", href: "/explore/home" }] }] : [])];
   return (
     <header className={styles.bar}>
       <Link href="/" className={styles.barHome} aria-label={g.siteName}>
