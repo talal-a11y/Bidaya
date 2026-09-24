@@ -12,6 +12,7 @@ import booking from "../../../content/booking.json";
 import nav from "../../../content/nav.json";
 import styles from "./b.module.css";
 import ConsultB from "./ConsultB";
+import BookingFrame from "./BookingFrame";
 import FocusB from "./FocusB";
 import MotionB from "./MotionB";
 import Typed from "./Typed";
@@ -118,7 +119,7 @@ export default function HomeB({ page }: { page: Page }) {
       </Panel>
       <Panel id="booking" label={booking.label} closeLabel={close}>
         {booking.url ? (
-          <iframe src={booking.url} title={booking.label} className={styles.bookingFrame} loading="lazy" />
+          <BookingFrame id="booking" src={booking.url} title={booking.label} className={styles.bookingFrame} />
         ) : (
           <div className={`${styles.panel} ${styles.paper}`}><p className={styles.lead}>{g.fields.bookingSoon}</p><p className={styles.body}><a href={`mailto:${nav.contactEmail}`}>{nav.contactEmail}</a></p></div>
         )}

@@ -61,7 +61,7 @@ export default function ConsultB({ title }: { title: string }) {
                 <Arcs />
                 <p className={styles.mono}>{x.name}</p>
                 <p className={styles.consultLine}>{x.long}</p>
-                <Link href={x.href} className={styles.consultGo} tabIndex={on === i ? 0 : -1}>{audiences.learnMore}</Link>
+                <Link href={x.href} className={styles.consultGo} tabIndex={on === i ? 0 : -1} aria-label={`${audiences.learnMore}: ${x.word}`}>{audiences.learnMore}</Link>
               </div>
             ))}
           </div>
