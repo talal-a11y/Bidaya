@@ -13,19 +13,19 @@ serviceName: Operations leadership — the executive layer
 @note category vocabulary is permitted on this page and the three that follow — Rule 13, P4 — in headings, FAQ and metadata, never as the position.
 @note the title runs past 30 characters by design; the intent pages are the search surface — deck §13, assumed.
 
-# Fractional COO in the UAE: what it covers, what it costs, and when you don't need one
+# Fractional COO in the UAE: What It Covers, What It Costs, and When You Don't Need One
 
 @lead The owner of a growing business ends up running operations by default: the process, the people, the hiring, the week. A fractional COO takes that role for part of the time a full-time one would, inside the business. At Bidaya the role is one scope of the executive layer, run alongside setup, finance and tech by one firm, rather than a seat on its own.
 
 ---
 
-## What it covers
+## What It Covers
 
 The way the business runs when the owner isn't in the room. Process written down for the work that repeats: delivery, handover, variations, quality. The people plan and the hiring roadmap: who is needed next, by when, and what they'll do. The hires themselves, from the role description to the offer. The review rhythm: a weekly format the team runs, and a monthly one the owner reads. And the registers that keep the company out of trouble: renewals, expiries, obligations.
 
 ---
 
-## What it costs
+## What It Costs
 
 @note the floor line moved to /fees (rework/rulings §8).
 
@@ -33,13 +33,13 @@ Project work, such as writing the process and the registers for a business and h
 
 ---
 
-## When you don't need one
+## When You Don't Need One
 
 When the business has fewer than a handful of people and the owner can still hold the week in their head. Then the answer is process written down and a review format, both of which *Where you stand* hands you with the method. When the business is past that, the question is whether one defined piece of work covers it or the role needs to be there monthly. The read will tell you which; so will the call.
 
 ---
 
-## How it starts
+## How It Starts
 
 @cta Start a conversation -> /#form-business
 

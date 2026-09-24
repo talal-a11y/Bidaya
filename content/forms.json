@@ -14,7 +14,7 @@
   "consent": "I'm happy for Bidaya to contact me about this enquiry.",
   "forms": {
     "business": {
-      "title": "Enquire for your business",
+      "title": "Enquire for Your Business",
       "tone": "plum",
       "steps": [
         {
@@ -195,7 +195,7 @@
       ]
     },
     "partners": {
-      "title": "Partnerships and programs",
+      "title": "Partnerships and Programs",
       "tone": "aqua",
       "$proposed": "questions and options drafted from the Programs page; founder to confirm",
       "steps": [
@@ -474,7 +474,7 @@
       "consent": true
     },
     "general": {
-      "title": "General inquiry",
+      "title": "General Inquiry",
       "tone": "plumLight",
       "email": "contact@bidaya.consulting",
       "$proposed": "founder to confirm the two lines",
@@ -555,7 +555,7 @@
       ]
     },
     "write": {
-      "title": "General inquiry",
+      "title": "General Inquiry",
       "tone": "plumLight",
       "steps": [
         {
@@ -655,7 +655,7 @@
     "$comment": "the one panel's name"
   },
   "write": {
-    "title": "General inquiry",
+    "title": "General Inquiry",
     "fields": [
       {
         "label": "Your name",

@@ -104,6 +104,8 @@
 /* rows */
 .hero { grid-template-columns: 1fr 1fr; min-block-size: calc(100svh - 61px); }
 .flip { grid-template-columns: 1fr 1fr; } /* sits to its content — founder, 2026-09-23: "the section is too big" */
+.flip > .panel:first-child { justify-content: center; } /* the headline centred in its panel, larger — founder, 2026-09-24 */
+.flip .h1 { font-size: clamp(34px, 5.2vw, 80px); }
 .read { grid-template-columns: 1fr 1fr 1fr; }
 .four { grid-template-columns: repeat(4, 1fr); min-block-size: 64svh; }
 .four .panel { justify-content: flex-end; gap: 28px; }
@@ -129,7 +131,7 @@
 .footLinks a { color: var(--ink); text-decoration: none; }
 .footLinks a:hover { text-decoration: underline; text-underline-offset: 5px; }
 .footMark { display: flex; align-items: center; }
-.footLines { display: grid; gap: 6px; max-inline-size: 42ch; }
+.footLines { display: grid; gap: 4px; max-inline-size: 46ch; font-size: 12px; line-height: 1.4; } /* smaller still — founder, 2026-09-24 */
 .footMark img { inline-size: 72px; block-size: auto; }
 
 /* ---- phone ---- */

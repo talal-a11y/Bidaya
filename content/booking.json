@@ -1,6 +1,6 @@
 {
   "$comment": "The booking option on the home page. Put the Calendly (or other) embed URL in 'url' and the card opens it; empty means the card says booking opens soon. The founder prefers booking on the site from his Google Calendar; Calendly is the fallback he will share.",
   "url": "https://calendar.google.com/calendar/appointments/schedules/AcZssZ2qHkHpSE6Jry31ss3DIwJVg9-ASGFw189On0peXdfI-opox4fsDvrmJxzvMtIGD_3hAUOGb4J-?gv=true",
-  "label": "Book a 30-minute discovery session",
+  "label": "Book Your Free 30-Minute Discovery Call",
   "provider": "Google Calendar appointment schedule (the founder's embed, 2026-09-23)"
 }

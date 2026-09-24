@@ -3,13 +3,13 @@
     "file": "content/pages/tech-and-projects.md",
     "rule": "banned word: \"platforms\"",
     "contains": "custom platforms",
-    "why": "Deck \u00a711 description as written. Checklist 11 bans the word; the deck's own \u00a714 says it was rewritten out and it wasn't. Shipped verbatim, flagged \u2014 docs/decisions.md 2026-09-21."
+    "why": "Deck §11 description as written. Checklist 11 bans the word; the deck's own §14 says it was rewritten out and it wasn't. Shipped verbatim, flagged — docs/decisions.md 2026-09-21."
   },
   {
     "file": "content/pages/where-you-stand.md",
     "rule": "\"AED\" outside How we work, the intent pages and FAQ",
     "contains": "the cost in AED of missing it",
-    "why": "Deck \u00a74 body copy as written, outside the FAQ and the worked example. Shipped verbatim, flagged \u2014 docs/decisions.md 2026-09-21."
+    "why": "Deck §4 body copy as written, outside the FAQ and the worked example. Shipped verbatim, flagged — docs/decisions.md 2026-09-21."
   },
   {
     "file": "content/pages/home.md",
@@ -27,7 +27,7 @@
     "file": "content/forms.json",
     "rule": "\"I\" or \"my\" outside an owner quote",
     "contains": "I'm ",
-    "why": "The visitor's own sentence, spoken in the first person by the visitor, not the firm (Talent form) \u2014 docs/decisions.md 2026-09-21."
+    "why": "The visitor's own sentence, spoken in the first person by the visitor, not the firm (Talent form) — docs/decisions.md 2026-09-21."
   },
   {
     "file": "content/pages/about.md",
@@ -104,8 +104,8 @@
   {
     "file": "content/pages/creatives-and-pre-preneurs.md",
     "rule": "banned: \"journey\"",
-    "contains": "**Programs and partnerships.**",
-    "why": "The founder's own words (2026-09-22 restructure: the same copy moved to the audience pages). Flagged in docs/14-deviations.md; kept until he strikes it."
+    "contains": "**Programs and Partnerships.**",
+    "why": "The founder's own words (2026-09-22 restructure: the same copy moved to the audience pages). Flagged in docs/14-deviations.md; kept until he strikes it. Title case since 2026-09-24."
   },
   {
     "file": "content/pages/founders.md",
@@ -140,8 +140,8 @@
   {
     "file": "content/pages/institutions.md",
     "rule": "banned: \"journey\"",
-    "contains": "**Programs and partnerships.**",
-    "why": "The founder's own words (2026-09-22 restructure: the same copy moved to the audience pages). Flagged in docs/14-deviations.md; kept until he strikes it."
+    "contains": "**Programs and Partnerships.**",
+    "why": "The founder's own words (2026-09-22 restructure: the same copy moved to the audience pages). Flagged in docs/14-deviations.md; kept until he strikes it. Title case since 2026-09-24."
   },
   {
     "file": "content/summaries.json",
@@ -165,43 +165,43 @@
     "file": "content/focus.json",
     "rule": "banned: \"under one roof\"",
     "contains": "all under one roof",
-    "why": "The founder's words \u2014 rework/we-focus-on.md (FOUNDER'S WORDS, PROVISIONAL): flagged once, not changed."
+    "why": "The founder's words — rework/we-focus-on.md (FOUNDER'S WORDS, PROVISIONAL): flagged once, not changed."
   },
   {
     "file": "content/focus.json",
     "rule": "banned: \"one roof\"",
     "contains": "all under one roof",
-    "why": "The founder's words \u2014 rework/we-focus-on.md (FOUNDER'S WORDS, PROVISIONAL): flagged once, not changed."
+    "why": "The founder's words — rework/we-focus-on.md (FOUNDER'S WORDS, PROVISIONAL): flagged once, not changed."
   },
   {
     "file": "content/focus.json",
     "rule": "\"fractional/outsourced/part-time\" outside the intent pages",
     "contains": "fractional executives",
-    "why": "The founder's words \u2014 rework/we-focus-on.md (FOUNDER'S WORDS, PROVISIONAL): flagged once, not changed."
+    "why": "The founder's words — rework/we-focus-on.md (FOUNDER'S WORDS, PROVISIONAL): flagged once, not changed."
   },
   {
     "file": "content/focus.json",
     "rule": "banned: \"assessment\"",
     "contains": "feasibility assessments",
-    "why": "The founder's words \u2014 rework/we-focus-on.md (FOUNDER'S WORDS, PROVISIONAL): flagged once, not changed."
+    "why": "The founder's words — rework/we-focus-on.md (FOUNDER'S WORDS, PROVISIONAL): flagged once, not changed."
   },
   {
     "file": "content/focus.json",
     "rule": "banned: \"tailored solution\"",
     "contains": "tailored",
-    "why": "The founder's words \u2014 rework/we-focus-on.md (FOUNDER'S WORDS, PROVISIONAL): flagged once, not changed."
+    "why": "The founder's words — rework/we-focus-on.md (FOUNDER'S WORDS, PROVISIONAL): flagged once, not changed."
   },
   {
     "file": "content/focus.json",
     "rule": "banned word: \"leverage\"",
     "contains": "Leveraging",
-    "why": "The founder's words \u2014 rework/we-focus-on.md (FOUNDER'S WORDS, PROVISIONAL): flagged once, not changed."
+    "why": "The founder's words — rework/we-focus-on.md (FOUNDER'S WORDS, PROVISIONAL): flagged once, not changed."
   },
   {
     "file": "content/focus.json",
     "rule": "banned: \"build it right\"",
     "contains": "built right from day one",
-    "why": "The founder's words \u2014 rework/we-focus-on.md (FOUNDER'S WORDS, PROVISIONAL): flagged once, not changed."
+    "why": "The founder's words — rework/we-focus-on.md (FOUNDER'S WORDS, PROVISIONAL): flagged once, not changed."
   },
   {
     "file": "content/pages/founders.md",
@@ -224,14 +224,14 @@
   {
     "file": "content/focus.json",
     "rule": "\"executive management\" outside the tagline and home title",
-    "contains": "Executive management",
-    "why": "The founder's words \u2014 rework/we-focus-on.md."
+    "contains": "Executive Management",
+    "why": "The founder's words — rework/we-focus-on.md. Title case since 2026-09-24."
   },
   {
     "file": "content/focus.json",
     "rule": "\"fractional/outsourced/part-time\" outside the intent pages",
     "contains": "fractional executives",
-    "why": "The founder's words \u2014 rework/we-focus-on.md."
+    "why": "The founder's words — rework/we-focus-on.md."
   },
   {
     "file": "content/forms.json",
@@ -243,7 +243,7 @@
     "file": "content/pages/founders.md",
     "rule": "\"executive management\" outside the tagline and home title",
     "contains": "Executive management, from day one.",
-    "why": "The Founders page's header, his words \u2014 rework/rulings \u00a72."
+    "why": "The Founders page's header, his words — rework/rulings §2."
   },
   {
     "file": "content/focus.json",

@@ -128,12 +128,9 @@ for (const file of files) {
     // the category sentence
     if (/consultancy for smes, startups and creators/i.test(t)) hit(file, n, "the category sentence", t);
 
-    // 12. headlines say what follows — no question marks, no title case
+    // 12. headlines say what follows — no question marks. (Title case is the founder's rule since 2026-09-24; the old title-case check is off.)
     if (/^#{1,3} /.test(t)) {
       if (/\?/.test(t)) hit(file, n, "question mark in a heading", t);
-      const words = t.replace(/^#+ /, "").split(/\s+/);
-      const caps = words.slice(1).filter((w) => /^[A-Z][a-z]+$/.test(w) && !["Bidaya", "UAE", "COO", "CFO", "CEO", "Programs", "Setup", "Operations", "Finance", "Tech", "VAT"].includes(w));
-      if (caps.length >= 3 && caps.length >= words.length / 2) hit(file, n, "title case in a heading", t);
     }
     // the deck's sentence-case rule and the never-say "founder credentials": nothing to search mechanically here.
   });

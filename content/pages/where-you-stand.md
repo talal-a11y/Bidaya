@@ -1,13 +1,13 @@
 ---
 route: /where-you-stand
-title: Where you stand — Bidaya Consulting
+title: Where You Stand — Bidaya Consulting
 description: A free read on your UAE business: what's covered, what needs building, what's yours to do, and what is due with the cost of missing it. Shown in full, no email required.
 order: 4
 hidden: true
 faqSchema: true
 ---
 
-# Where you stand
+# Where You Stand
 
 @lead A read on your business before any conversation. Twelve questions, about four minutes. The read is shown in full on screen, without an email, a login or a payment.
 
@@ -17,21 +17,21 @@ faqSchema: true
 
 ---
 
-## What the read contains
+## What the Read Contains
 
 @rows
-**Where you stand.** Setup, operations, finance and tech, each judged three ways: covered, needs building, yours to do. Every "yours to do" item carries the method: the steps, and what done looks like.
+**Where You Stand.** Setup, operations, finance and tech, each judged three ways: covered, needs building, yours to do. Every "yours to do" item carries the method: the steps, and what done looks like.
 
-**What is due.** The obligations that apply to your business, each with its next date, the cost in AED of missing it, the source, and the date we last verified the rule. Where your zone or activity isn't covered yet, the read says so rather than guess.
+**What Is Due.** The obligations that apply to your business, each with its next date, the cost in AED of missing it, the source, and the date we last verified the rule. Where your zone or activity isn't covered yet, the read says so rather than guess.
 
-**What to do first.** Three items, ordered by the cost of delay: the obligations with penalties first, then visibility, then structure.
+**What to Do First.** Three items, ordered by the cost of delay: the obligations with penalties first, then visibility, then structure.
 
-**One honest line.** One of three: you don't need an executive layer yet; one defined piece of work would cover this; or this is what an executive layer takes off your desk. Never a score, a percentage or a grade.
+**One Honest Line.** One of three: you don't need an executive layer yet; one defined piece of work would cover this; or this is what an executive layer takes off your desk. Never a score, a percentage or a grade.
 @end
 
 ---
 
-## A worked example
+## A Worked Example
 
 @note fictional, and marked as such on the page. Layout as the read itself: four rows, three columns.
 
@@ -55,19 +55,19 @@ faqSchema: true
 
 ---
 
-## After the read
+## After the Read
 
 @rows
-**Send me this and the files.** The read, and Bidaya's own method files for your "yours to do" items, the templates we build for clients. Only the files your read called for. And a note when a rule on your list changes. By email or WhatsApp, with your consent, and nothing else.
+**Send Me This and the Files.** The read, and Bidaya's own method files for your "yours to do" items, the templates we build for clients. Only the files your read called for. And a note when a rule on your list changes. By email or WhatsApp, with your consent, and nothing else.
 
-**Book the thirty-minute call.** The call already knows what you told the read.
+**Book the Thirty-Minute Call.** The call already knows what you told the read.
 
-**Not now.** Nothing is stored.
+**Not Now.** Nothing is stored.
 @end
 
 ---
 
-## Questions the read is built to answer
+## Questions the Read Is Built to Answer
 
 @note FAQ block, schema-marked. Every regulatory statement below is provisional until the tax review before publish — tool spec 5.7.
 

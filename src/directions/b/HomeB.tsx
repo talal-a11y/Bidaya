@@ -105,7 +105,7 @@ export default function HomeB({ page }: { page: Page }) {
       </section>
       <section id="start" className={`${styles.row} ${styles.doors} ${styles.doorsTwo}`}>
         {doors.items.map((it, i) => (
-          <Door key={i} id={i === 0 ? "form-reach" : "booking"} className={`${styles.door} ${i === 0 ? styles.doorBusiness : styles.doorPartners}`}>
+          <Door key={i} id={i === 0 ? "form-reach" : "booking"} closes={[i === 0 ? "booking" : "form-reach"]} className={`${styles.door} ${i === 0 ? styles.doorBusiness : styles.doorPartners}`}>
             <div className={styles.doorBody}>
               <strong><InlineNodes nodes={it.lead} /></strong>
               <p className={styles.body}><InlineNodes nodes={it.rest} /></p>

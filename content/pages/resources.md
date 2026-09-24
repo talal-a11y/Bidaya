@@ -10,9 +10,9 @@ order: 70
 # Resources
 
 @rows
-**Work with us.** For professionals and firms who want to help run Bidaya's clients.
+**Work with Us.** For professionals and firms who want to help run Bidaya's clients.
 
-**Useful tools.** In preparation.
+**Useful Tools.** In preparation.
 @end
 
 @cta Work with us -> /work-with-us

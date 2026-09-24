@@ -1,6 +1,6 @@
 ---
 route: /feasibility-and-advisory
-title: Feasibility and advisory — Bidaya Consulting
+title: Feasibility and Advisory — Bidaya Consulting
 description: Feasibility studies before a business is set up, and a study of how an existing business actually runs before anything is changed. Research before commitment.
 order: 12
 intent: Feasibility and advisory
@@ -12,25 +12,25 @@ serviceName: Feasibility and advisory
 
 @note category vocabulary is permitted here — Rule 13, P4.
 
-# Feasibility and advisory: the study before the commitment
+# Feasibility and Advisory: The Study Before the Commitment
 
 @lead Two questions bring people here. *I want to set up, and I don't know if this is the right market for it.* And, from owners further along: *The business is good and the company is getting hard to run; where do we start?* Both are answered the same way: with a study, before anything is built or changed.
 
 ---
 
-## Before a business exists: feasibility
+## Before a Business Exists: Feasibility
 
 Whether the business should be set up at all, and if so how: the market, the model, the numbers, the structure, the licensing route. Research-backed planning before the licence is paid for. The output is a decision, with the reasoning, and a plan for the first ninety days if the decision is yes.
 
 ---
 
-## In an existing business: the study
+## In an Existing Business: The Study
 
 How the business actually runs: finances, teams, sales, process, systems. Every improvement we recommend follows that study, never precedes it. The output is the three-column read at full depth: what's covered, what needs building, what's yours to do, and, where it's true, that the business doesn't need us monthly.
 
 ---
 
-## What it costs
+## What It Costs
 
 @note the floor line moved to /fees (rework/rulings §8).
 
@@ -38,13 +38,13 @@ Both are fixed-scope work, quoted after the call, paid at milestones, with disco
 
 ---
 
-## When you don't need it
+## When You Don't Need It
 
 When the question is one *Where you stand* can answer in ten minutes. Try that first. When the decision is already made and what's needed is the setup itself, that's a project, and the study is its first phase rather than a separate piece.
 
 ---
 
-## How it starts
+## How It Starts
 
 @cta Start a conversation -> /#form-business
 

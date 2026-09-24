@@ -22,7 +22,9 @@ const reveal = (id: string) => {
   setTimeout(to, 680);
 };
 
-type Ctx = { open: Record<string, boolean>; presets: Record<string, string>; toggle: (id: string) => void; openWith: (id: string, preset: string) => void };
+// closes: panels that shut when this one opens — the two doors of "Start a conversation" are one
+// or the other, never both (founder, 2026-09-24)
+type Ctx = { open: Record<string, boolean>; presets: Record<string, string>; toggle: (id: string, closes?: string[]) => void; openWith: (id: string, preset: string, closes?: string[]) => void };
 const ChapterContext = createContext<Ctx>({ open: {}, presets: {}, toggle: () => {}, openWith: () => {} });
 
 export const useChapter = () => useContext(ChapterContext);
@@ -30,9 +32,9 @@ export const useChapter = () => useContext(ChapterContext);
 export function Chapters({ children, openIds = [] }: { children: ReactNode; openIds?: string[] }) {
   const [open, setOpen] = useState<Record<string, boolean>>(() => Object.fromEntries(openIds.map((i) => [i, true])));
   const [presets, setPresets] = useState<Record<string, string>>({});
-  const toggle = useCallback((id: string) => setOpen((o) => ({ ...o, [id]: !o[id] })), []);
+  const toggle = useCallback((id: string, closes: string[] = []) => setOpen((o) => { const n = { ...o, [id]: !o[id] }; if (n[id]) closes.forEach((c) => { n[c] = false; }); return n; }), []);
   // a door opens the one questionnaire with its first answer already given
-  const openWith = useCallback((id: string, preset: string) => { setPresets((p) => ({ ...p, [id]: preset })); setOpen((o) => ({ ...o, [id]: true })); }, []);
+  const openWith = useCallback((id: string, preset: string, closes: string[] = []) => { setPresets((p) => ({ ...p, [id]: preset })); setOpen((o) => { const n = { ...o, [id]: true }; closes.forEach((c) => { n[c] = false; }); return n; }); }, []);
   // a link from another page — /#form-business, /#chapter-programs — opens that panel on arrival
   useEffect(() => {
     const [id, preset] = window.location.hash.slice(1).split(":");
@@ -122,9 +124,9 @@ export function ChapterStrip({ id, label, closeLabel, prevLabel, nextLabel, slid
 }
 
 // A door: a card that opens a panel beneath the row (the forms). Same state as the chapters.
-export function Door({ id, preset, className, children }: { id: string; preset?: string; className: string; children: ReactNode }) {
+export function Door({ id, preset, closes, className, children }: { id: string; preset?: string; closes?: string[]; className: string; children: ReactNode }) {
   const { openWith, open, toggle } = useContext(ChapterContext);
-  const onClick = () => { if (preset) openWith(id, preset); else if (!open[id]) toggle(id); reveal(id); };
+  const onClick = () => { if (preset) openWith(id, preset, closes); else if (!open[id]) toggle(id, closes); reveal(id); };
   return <button type="button" className={className} aria-controls={id} onClick={onClick}>{children}</button>;
 }
 

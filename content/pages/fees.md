@@ -10,13 +10,13 @@ unlisted: true
 
 # Fees
 
-## Monthly engagements from AED 12,000
+## Monthly Engagements from AED 12,000
 
 That is the published floor for the executive layer inside a business. What sits above it depends on scope: how many of the four functions, how much of each, how often. Project work is scoped and quoted after the call. Proposals set out the options by scope; the site does not.
 
 ---
 
-## Project work for founders from AED 7,000
+## Project Work for Founders from AED 7,000
 
 @note [proposed] the founder's number; the line is drafted.
 
@@ -24,7 +24,7 @@ One defined piece of work, at a fixed fee, scoped and quoted after the call. The
 
 ---
 
-## One-time engagements for creatives & pre-preneurs from AED 3,500
+## One-Time Engagements for Creatives & Pre-Preneurs from AED 3,500
 
 @note [proposed] the founder's number; the line is drafted. What those engagements are is never listed (rework/rulings §8).
 

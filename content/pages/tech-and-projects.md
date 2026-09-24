@@ -1,6 +1,6 @@
 ---
 route: /tech-and-projects
-title: Tech and one-time projects — Bidaya Consulting
+title: Tech and One-Time Projects — Bidaya Consulting
 description: The systems under a UAE business: accounting stack, records, automation, and one-time technical projects from websites to custom platforms. Built on the tools you already use.
 order: 11
 intent: Tech and one-time projects
@@ -12,25 +12,25 @@ serviceName: Tech and one-time projects
 
 @note category vocabulary is permitted here — Rule 13, P4.
 
-# Tech inside the business, and one-time technical projects
+# Tech Inside the Business, and One-Time Technical Projects
 
 @lead Tech is not a separate department at Bidaya and not a separate seat. It runs through every engagement: the systems the finance sits on, the records operations run from, the automation that removes a job rather than adds a tool. It is also work we do on its own, as a defined project with a beginning and an end.
 
 ---
 
-## Inside an engagement
+## Inside an Engagement
 
 The accounting and reporting stack, set up so the monthly numbers arrive without a manual month-end. Records with a structure: contracts, licences, renewals, staff files, in a shared drive the business owns. Automation for the work that repeats: quotations, invoicing, reminders. And the direction: which tools the business should run on, and which it should stop paying for. All of it built on what the business already uses where that works.
 
 ---
 
-## As a one-time project
+## As a One-Time Project
 
 A website. A custom system for the business, a database, an internal tool. An automation that connects the systems already in place. Fixed scope, fixed fee, paid at milestones, with discovery as the first phase inside the fee, and handed over documented and owned by the client. Quoted after the call.
 
 ---
 
-## What it costs
+## What It Costs
 
 @note the floor line moved to /fees (rework/rulings §8).
 
@@ -38,13 +38,13 @@ Project work is scoped and quoted after the call.
 
 ---
 
-## When you don't need it
+## When You Don't Need It
 
 When the tools you have already do the job and the problem is that nobody runs them. That's an operations question, and *Where you stand* will say so. When a spreadsheet still works, we'll tell you to keep it.
 
 ---
 
-## How it starts
+## How It Starts
 
 @cta Start a conversation -> /#form-business
 

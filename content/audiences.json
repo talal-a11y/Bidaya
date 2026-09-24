@@ -5,7 +5,7 @@
     {
       "id": "founders",
       "word": "Founders & SMEs",
-      "name": "Bidaya for founders & SMEs",
+      "name": "Bidaya for Founders & SMEs",
       "tone": "ink",
       "color": "#241B2E",
       "href": "/founders",
@@ -14,8 +14,8 @@
     },
     {
       "id": "creatives",
-      "word": "Creatives & pre-preneurs",
-      "name": "Bidaya for creatives & pre-preneurs",
+      "word": "Creatives & Pre-Preneurs",
+      "name": "Bidaya for Creatives & Pre-Preneurs",
       "tone": "plum",
       "color": "#5A47A3",
       "href": "/creatives-and-pre-preneurs",
@@ -25,7 +25,7 @@
     {
       "id": "institutions",
       "word": "Institutions",
-      "name": "Bidaya for institutions",
+      "name": "Bidaya for Institutions",
       "tone": "opsDeep",
       "color": "#0A5C66",
       "href": "/institutions",
