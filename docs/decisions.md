@@ -234,3 +234,5 @@ Wiring (milestone 8), his word: "resend has now been verified start working on t
 2 The header dropdown "Consulting on" becomes "Focusing on" (content/nav.json).
 3 The Resend key is now on all environments and redeployed (his word); the test submission from the preview: see below.
 The test submission after his redeploy still answered "not-configured" (503) from the preview; not yet diagnosed — the founder logged off ("don't run anything keep as is for now"). First thing next session: check the variable's targets and the deployment that the branch alias points to, then test again.
+
+2026-09-24 — The wiring works. The founder put RESEND_API_KEY on all environments ("it shows on all I checked… go ahead"); one test submission from the preview's /api/enquire answered ok — a General inquiry from "Claude Code test", sender address info@bidaya.consulting, so both the delivery and the confirmation landed in info@. Talent (→ talent@) not yet exercised. The forms send; nothing is stored.
