@@ -4,3 +4,6 @@
 // dark purple = plum, light purple = the lighter plum. Everywhere the seven appear, by index.
 export const focusColors = ["#2A8F99", "#0A5C66", "#5A47A3", "#7462B8", "#5A47A3", "#0A5C66", "#2A8F99"];
 export const focusColor = (i: number) => focusColors[i % focusColors.length];
+// Where small text sits on a surface (the stage, the buttons), the light aqua deepens a hair to
+// #237C85 so paper text reads at 4.6:1 (it reads 3.7:1 on #2A8F99); the squares keep his colour.
+export const focusSurface = (i: number) => (focusColor(i) === "#2A8F99" ? "#237C85" : focusColor(i));

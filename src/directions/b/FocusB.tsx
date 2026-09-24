@@ -8,7 +8,7 @@ import { useRef, useState } from "react";
 import focus from "../../../content/focus.json";
 import styles from "./b.module.css";
 import Typed from "./Typed";
-import { focusColor } from "./focusColors";
+import { focusColor, focusSurface } from "./focusColors";
 
 export default function FocusB({ title }: { title: string }) {
   const [on, setOn] = useState(0);
@@ -28,7 +28,7 @@ export default function FocusB({ title }: { title: string }) {
         </div>
       </section>
       <section className={styles.row}>
-        <div className={styles.focus7} style={{ background: focusColor(on) }} data-shown={shown || undefined}>
+        <div className={styles.focus7} style={{ background: focusSurface(on) }} data-shown={shown || undefined}>
           <ul className={styles.focusRow}>
             {focus.items.map((x, i) => (
               <li key={x.id} style={{ transitionDelay: `${i * 90}ms` }}>
@@ -42,7 +42,7 @@ export default function FocusB({ title }: { title: string }) {
               <div key={x.id} className={styles.focusText} data-on={on === i || undefined} aria-hidden={on !== i || undefined}>
                 <h3>{x.title}</h3>
                 <p className={styles.consultLine}>{x.line}</p>
-                <Link href={x.href} className={styles.consultGo} tabIndex={on === i ? 0 : -1}>{focus.learnMore}</Link>
+                <Link href={x.href} className={styles.consultGo} tabIndex={on === i ? 0 : -1} aria-label={`${focus.learnMore}: ${x.title}`}>{focus.learnMore}</Link>
               </div>
             ))}
           </div>
