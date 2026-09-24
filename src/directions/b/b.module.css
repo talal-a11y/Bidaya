@@ -573,4 +573,4 @@ button.door { font: inherit; text-align: start; cursor: pointer; border-block: 0
 
 /* build/05-mono: every title that is not an h1–h3 element takes the mono too; weights unchanged */
 .title, .h1, .word, .intentName, .cardTitle, .bigH, .big, .number, .consultNames a, .focusRow a, .focusText h3, .tabTitle, .tab, .doorBody strong, .fnHead, .focusTitle { font-family: var(--b-mono); }
-.word { font-size: clamp(28px, 5.4vw, 96px); } /* the mono is wider: the typed name sized so it fits its panel */
+.word { font-size: clamp(26px, 4.4vw, 80px); } /* the mono is wider: the typed name sized so it fits its panel */
