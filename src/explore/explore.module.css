@@ -1,6 +1,6 @@
 /* Explorations for "We focus on" and "We consult for" — branch build/03b-explorations. Each block
    is self-contained; the site's tokens, faces and lines; motion is transform and opacity only. */
-.wrap { font-family: "Geist", system-ui, sans-serif; color: var(--ink); }
+.wrap { font-family: "Geist Mono", ui-monospace, monospace; color: var(--ink); }
 .mono { font-family: "Geist Mono", ui-monospace, monospace; font-size: 13px; }
 .label { padding: 14px 28px; border-block: 1px solid var(--ink); background: var(--paper); display: flex; justify-content: space-between; align-items: center; }
 .label strong { font-weight: 600; }

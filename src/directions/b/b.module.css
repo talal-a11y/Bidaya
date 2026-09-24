@@ -3,7 +3,7 @@
    Breaks docs/05's "boxes not" on purpose — logged in docs/decisions.md. */
 
 .page {
-  --b-display: "Geist", var(--font-sans);
+  --b-display: "Geist Mono", ui-monospace, "SF Mono", Menlo, monospace; /* build/05-mono: the mono for everything */
   --b-mono: "Geist Mono", ui-monospace, "SF Mono", Menlo, monospace;
   --line: 1px solid var(--ink);
   font-family: var(--b-display);
