@@ -44,7 +44,7 @@ const CIRCLES: { cx: number; cy: number; r: number; fill?: boolean }[][] = [
 ];
 function Circles({ i }: { i: number }) {
   return (
-    <svg viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice" className={s.circles} aria-hidden="true">
+    <svg viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice" className={s.rings} aria-hidden="true">
       {CIRCLES[i].map((c, k) => <circle key={k} cx={c.cx} cy={c.cy} r={c.r} fill={c.fill ? "currentColor" : "none"} stroke="currentColor" strokeWidth={c.fill ? 0 : 2} opacity={c.fill ? 0.18 : 0.32} />)}
     </svg>
   );

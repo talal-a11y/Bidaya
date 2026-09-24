@@ -33,8 +33,8 @@
 .glyphLarge svg { inline-size: 100%; display: block; }
 .row a:hover .glyphLarge, .row a[data-on] .glyphLarge { opacity: 0.32; transform: rotate(-3deg); }
 /* S3: circles as watermarks, placed by hand */
-.circles { position: absolute; inset: 0; inline-size: 100%; block-size: 100%; pointer-events: none; transition: transform 600ms var(--ease-standard); }
-.row a:hover .circles, .row a[data-on] .circles { transform: scale(1.06); }
+.rings { position: absolute; inset: 0; inline-size: 100%; block-size: 100%; pointer-events: none; transition: transform 600ms var(--ease-standard); }
+.row a:hover .rings, .row a[data-on] .rings { transform: scale(1.06); }
 
 /* S4: one mark across all seven — the squares hold slices of the same two circles */
 .piece { position: absolute; inset: 0; inline-size: 100%; block-size: 100%; opacity: 0.5; pointer-events: none; }
