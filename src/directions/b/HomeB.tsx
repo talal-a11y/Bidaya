@@ -11,7 +11,8 @@ import summaries from "../../../content/summaries.json";
 import booking from "../../../content/booking.json";
 import nav from "../../../content/nav.json";
 import styles from "./b.module.css";
-import { C2, F6 } from "@/explore/Variants";
+import ConsultB from "./ConsultB";
+import FocusB from "./FocusB";
 import MotionB from "./MotionB";
 import Typed from "./Typed";
 import { Chapters, ChapterButton, Door, Panel, SummaryPanel } from "./Chapter";
@@ -89,28 +90,16 @@ export default function HomeB({ page }: { page: Page }) {
       </section>
       <SummaryPanel {...chAbout} />
 
-      {/* 3 — We consult for: three audiences; each card opens on hover with the fuller line and Learn more */}
-      <section id="we-consult" className={`${styles.row} ${styles.lineRow}`}>
-        <div className={`${styles.panel} ${styles.stone}`}>
-          <h2 className={styles.title}><InlineNodes nodes={consultT.text} /></h2>
-        </div>
-      </section>
-      {/* exploration branch: C2, the founder's pick — the three names large, the block takes the hovered audience's colour */}
-      <section className={styles.row}><C2 /></section>
+      {/* 3 — We consult for: the title typed on reach, the three names rise in; the block takes the hovered audience's colour (ConsultB) */}
+      <ConsultB title={inlineToText(consultT.text)} />
 
-      {/* 4 — We focus on: the seven, in the founder's words; each opens the page that best matches it */}
-      <section id="we-focus-on" className={`${styles.row} ${styles.lineRow}`}>
-        <div className={`${styles.panel} ${styles.paper}`}>
-          <h2 className={styles.title}>{focus.title}</h2>
-        </div>
-      </section>
-      {/* exploration branch: F6, the founder's idea — seven squares; the hovered one takes over the row and moves the rest aside */}
-      <section className={styles.row}><F6 /></section>
+      {/* 4 — We focus on: the title typed on reach; seven squares in the founder's colour order, the stage beneath speaks (FocusB) */}
+      <FocusB title={focus.title} />
 
       {/* 6 — Start a conversation: one form, or a booking */}
       <section id="enquire" className={`${styles.row} ${styles.lineRow}`}>
         <div className={`${styles.panel} ${styles.stone}`}>
-          <h2 className={styles.title}><InlineNodes nodes={startT.text} /></h2>
+          <Typed text={inlineToText(startT.text)} speed={55} className={styles.title} as="h2" onView />
         </div>
       </section>
       <section id="start" className={`${styles.row} ${styles.doors} ${styles.doorsTwo}`}>

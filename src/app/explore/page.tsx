@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { notFound } from "next/navigation";
 import HeaderB from "@/directions/b/HeaderB";
 import FooterB from "@/directions/b/FooterB";
 import { F1, F2, F3, F4, F6, F7, C2, C3, C4 } from "@/explore/Variants";
@@ -21,6 +22,7 @@ const blocks: { id: string; name: string; note: string; el: React.ReactNode }[] 
 ];
 
 export default function Explore() {
+  if (process.env.VERCEL_ENV === "production") notFound(); // the published site has no explorations (founder, 2026-09-24)
   return (
     <>
       <HeaderB current="/explore" />
