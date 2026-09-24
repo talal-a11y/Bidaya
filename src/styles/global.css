@@ -111,8 +111,10 @@ main { flex: 1; }
 .page { position: relative; z-index: 1; display: flex; flex-direction: column; min-height: 100dvh; }
 .page main { flex: 1; }
 
-/* branch build/05-mono (founder, 2026-09-24): the mono everywhere — the face of "means beginning." — weights kept as they were */
-body { font-family: "Geist Mono", ui-monospace, "SF Mono", Menlo, monospace; }
+/* direction B: Geist everywhere while B is under review */
+body { font-family: "Geist", var(--font-sans); }
+/* branch build/05-mono (founder, 2026-09-24): headers and titles in the mono — the face of "means beginning." — weights as they were */
+h1, h2, h3 { font-family: "Geist Mono", ui-monospace, "SF Mono", Menlo, monospace; }
 
 /* Arabic inside Latin copy: the one face that carries it, bold, a touch larger, no tracking */
 .ar { font-family: "Readex Pro", system-ui, sans-serif; font-weight: 700; font-size: 1.3em; letter-spacing: 0; line-height: 1; }

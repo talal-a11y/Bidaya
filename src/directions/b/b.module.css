@@ -3,7 +3,7 @@
    Breaks docs/05's "boxes not" on purpose — logged in docs/decisions.md. */
 
 .page {
-  --b-display: "Geist Mono", ui-monospace, "SF Mono", Menlo, monospace; /* build/05-mono: the mono for everything */
+  --b-display: "Geist", var(--font-sans);
   --b-mono: "Geist Mono", ui-monospace, "SF Mono", Menlo, monospace;
   --line: 1px solid var(--ink);
   font-family: var(--b-display);
@@ -570,3 +570,6 @@ button.door { font: inherit; text-align: start; cursor: pointer; border-block: 0
   .focusRow li:last-child:nth-child(odd) { grid-column: 1 / -1; }
   .focusRow li:last-child:nth-child(odd) a { aspect-ratio: 2 / 1; }
 }
+
+/* build/05-mono: every title that is not an h1–h3 element takes the mono too; weights unchanged */
+.title, .h1, .word, .intentName, .cardTitle, .bigH, .big, .number, .consultNames a, .focusRow a, .focusText h3, .tabTitle, .tab, .doorBody strong, .fnHead, .focusTitle { font-family: var(--b-mono); }
