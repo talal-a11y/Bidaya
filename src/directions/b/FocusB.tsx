@@ -10,7 +10,7 @@ import styles from "./b.module.css";
 import Typed from "./Typed";
 import { focusColor, focusSurface } from "./focusColors";
 
-export default function FocusB({ title }: { title: string }) {
+export default function FocusB({ title, linked = true }: { title: string; linked?: boolean }) {
   const [on, setOn] = useState(0);
   const [shown, setShown] = useState(false);
   const armed = useRef<number | null>(null);
@@ -32,7 +32,7 @@ export default function FocusB({ title }: { title: string }) {
           <ul className={styles.focusRow}>
             {focus.items.map((x, i) => (
               <li key={x.id} style={{ transitionDelay: `${i * 90}ms` }}>
-                <Link href={x.href} style={{ background: focusColor(i) }} data-on={on === i || undefined} onMouseEnter={() => setOn(i)} onFocus={() => setOn(i)} onClick={tap(i)}>{x.title}</Link>
+                {linked ? <Link href={x.href} style={{ background: focusColor(i) }} data-on={on === i || undefined} onMouseEnter={() => setOn(i)} onFocus={() => setOn(i)} onClick={tap(i)}>{x.title}</Link> : <button type="button" style={{ background: focusColor(i) }} data-on={on === i || undefined} onMouseEnter={() => setOn(i)} onFocus={() => setOn(i)} onClick={() => setOn(i)}>{x.title}</button>}
               </li>
             ))}
           </ul>
@@ -42,7 +42,7 @@ export default function FocusB({ title }: { title: string }) {
               <div key={x.id} className={styles.focusText} data-on={on === i || undefined} aria-hidden={on !== i || undefined}>
                 <h3>{x.title}</h3>
                 <p className={styles.consultLine}>{x.line}</p>
-                <Link href={x.href} className={styles.consultGo} tabIndex={on === i ? 0 : -1} aria-label={`${focus.learnMore}: ${x.title}`}>{focus.learnMore}</Link>
+                {linked && <Link href={x.href} className={styles.consultGo} tabIndex={on === i ? 0 : -1} aria-label={`${focus.learnMore}: ${x.title}`}>{focus.learnMore}</Link>}
               </div>
             ))}
           </div>

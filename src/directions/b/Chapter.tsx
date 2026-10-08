@@ -170,7 +170,7 @@ export function SummaryPanel({ id, label, closeLabel, learnMore, cards, tones }:
                 <h3 className={styles.miniFor}>{c.for}</h3>
                 <p>{c.brief}</p>
               </div>
-              <a href={c.href} className={`${styles.action} ${styles.miniCta}`}>{learnMore}</a>
+              {learnMore && <a href={c.href} className={`${styles.action} ${styles.miniCta}`}>{learnMore}</a>}
             </div>
           ))}
         </div>
