@@ -14,6 +14,7 @@ import styles from "./b.module.css";
 import ConsultB from "./ConsultB";
 import BookingFrame from "./BookingFrame";
 import FocusB from "./FocusB";
+import { landingOnly } from "@/lib/landing";
 import MotionB from "./MotionB";
 import Typed from "./Typed";
 import { Chapters, ChapterButton, Door, Panel, SummaryPanel } from "./Chapter";
@@ -52,7 +53,7 @@ export default function HomeB({ page }: { page: Page }) {
   const startT = find(start, "h2")!, doors = find(start, "rows")!;
   const close = g.fields.menuClose;
   const about = getPageByRoute("/about")!;
-  const chAbout = { id: "chapter-about", label: about.nav ?? about.title, cards: summaries.panels.about.cards, learnMore: summaries.learnMore, tones: toneClass, closeLabel: close };
+  const chAbout = { id: "chapter-about", label: about.nav ?? about.title, cards: summaries.panels.about.cards, learnMore: landingOnly ? "" : summaries.learnMore, tones: toneClass, closeLabel: close };
   const asideParts = inlineToText(aside.text).split(" | ").flatMap((t, i) => (i ? [{ text: "|", className: styles.pipe }, { text: t }] : [{ text: t, className: "ar" }]));
 
   return (
@@ -92,10 +93,10 @@ export default function HomeB({ page }: { page: Page }) {
       <SummaryPanel {...chAbout} />
 
       {/* 3 — We consult for: the title typed on reach, the three names rise in; the block takes the hovered audience's colour (ConsultB) */}
-      <ConsultB title={inlineToText(consultT.text)} />
+      <ConsultB title={inlineToText(consultT.text)} linked={!landingOnly} />
 
       {/* 4 — We focus on: the title typed on reach; seven squares in the founder's colour order, the stage beneath speaks (FocusB) */}
-      <FocusB title={focus.title} />
+      <FocusB title={focus.title} linked={!landingOnly} />
 
       {/* 6 — Start a conversation: one form, or a booking */}
       <section id="enquire" className={`${styles.row} ${styles.lineRow}`}>
