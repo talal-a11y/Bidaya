@@ -5,6 +5,7 @@ import nav from "../../../content/nav.json";
 import audiences from "../../../content/audiences.json";
 import focus from "../../../content/focus.json";
 import styles from "./b.module.css";
+import { landingOnly } from "@/lib/landing";
 
 // The header: About | Consulting For ▾ | Consulting On ▾ | Resources ▾ | Enquire
 // (the founder's Vercel comment, 2026-09-23). Dropdowns open on hover or focus; on the phone
@@ -31,6 +32,7 @@ export default function HeaderB({ current }: { current: string }) {
       <Link href="/" className={styles.barHome} aria-label={g.siteName}>
         <img className={styles.lockup} src="/brand/svg/outlined/bidaya-lockup-3-header-outlined.svg" alt="" width="1659" height="392" />
       </Link>
+      {landingOnly ? null : <>
       <nav className={styles.barNav} aria-label={g.fields.navLabel}>
         <ul>
           {groups.map((grp) => grp.children ? (
@@ -59,6 +61,7 @@ export default function HeaderB({ current }: { current: string }) {
           {showExplore && <li><AnchorLink href="/explore">Explore</AnchorLink></li>}
         </ul>
       </details>
+      </>}
       <div className={styles.barStart}><AnchorLink href={nav.cta.href}>{nav.cta.label}</AnchorLink></div>
     </header>
   );

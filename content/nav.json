@@ -1,5 +1,7 @@
 {
   "$comment": "The header: About | Consulting For ▾ | Consulting On ▾ | Resources ▾ | Enquire (the founder's Vercel comment, 2026-09-23). Groups open as dropdowns; the seven of 'Consulting On' are content/focus.json; the Resources group's two entries are his (2026-09-23). The footer lists every group flat, plus the 'From the firm' group (name OPEN — proposed placeholder).",
+  "landingOnly": true,
+  "$landingOnly": "founder, 2026-10-08: on the published site only the landing page is linked for humans — no navigation, no footer links, no Learn more; every other page stays live, in the sitemap and with its schema, for search and AI. Applies on production only; previews show everything. Set false to open the site up.",
   "items": [
     {
       "label": "About",

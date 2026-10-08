@@ -14,7 +14,7 @@ const Arcs = () => (
   <svg viewBox="180 192.5 640 640" className={styles.consultMark} aria-hidden="true"><g><circle cx="500" cy="530" r="240" /><circle cx="500" cy="455" r="200" /></g></svg>
 );
 
-export default function ConsultB({ title }: { title: string }) {
+export default function ConsultB({ title, linked = true }: { title: string; linked?: boolean }) {
   const [on, setOn] = useState(0);
   const [named, setNamed] = useState(false);
   const armed = useRef<number | null>(null);
@@ -51,7 +51,7 @@ export default function ConsultB({ title }: { title: string }) {
           <ul ref={list} className={styles.consultNames}>
             {audiences.audiences.map((x, i) => (
               <li key={x.id} style={{ transitionDelay: `${i * 140}ms` }}>
-                <Link href={x.href} data-on={on === i || undefined} onMouseEnter={() => setOn(i)} onFocus={() => setOn(i)} onClick={tap(i)}><span>{x.word}</span></Link>
+                {linked ? <Link href={x.href} data-on={on === i || undefined} onMouseEnter={() => setOn(i)} onFocus={() => setOn(i)} onClick={tap(i)}><span>{x.word}</span></Link> : <button type="button" data-on={on === i || undefined} onMouseEnter={() => setOn(i)} onFocus={() => setOn(i)} onClick={() => setOn(i)}><span>{x.word}</span></button>}
               </li>
             ))}
           </ul>
@@ -61,7 +61,7 @@ export default function ConsultB({ title }: { title: string }) {
                 <Arcs />
                 <p className={styles.mono}>{x.name}</p>
                 <p className={styles.consultLine}>{x.long}</p>
-                <Link href={x.href} className={styles.consultGo} tabIndex={on === i ? 0 : -1} aria-label={`${audiences.learnMore}: ${x.word}`}>{audiences.learnMore}</Link>
+                {linked && <Link href={x.href} className={styles.consultGo} tabIndex={on === i ? 0 : -1} aria-label={`${audiences.learnMore}: ${x.word}`}>{audiences.learnMore}</Link>}
               </div>
             ))}
           </div>

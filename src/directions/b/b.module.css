@@ -533,8 +533,9 @@ button.door { font: inherit; text-align: start; cursor: pointer; border-block: 0
 .consultNames { list-style: none; margin: 0; padding: 28px; display: grid; align-content: space-evenly; min-inline-size: 0; overflow: hidden; }
 .consultNames li { opacity: 0; transform: translateY(28px); transition: opacity 520ms var(--ease-standard), transform 640ms var(--ease-standard); }
 .consult[data-named] .consultNames li { opacity: 1; transform: none; }
-.consultNames a { display: block; white-space: nowrap; font-size: clamp(26px, 3.1vw, 50px); line-height: 1; font-weight: 500; letter-spacing: -0.04em; color: inherit; text-decoration: none; opacity: 0.45; transition: opacity 360ms var(--ease-standard), transform 480ms var(--ease-standard); }
-.consultNames a:hover, .consultNames a[data-on] { opacity: 1; transform: translateX(18px); }
+.consultNames button { font: inherit; background: none; border: 0; padding: 0; text-align: start; cursor: default; }
+.consultNames a, .consultNames button { display: block; white-space: nowrap; font-size: clamp(26px, 3.1vw, 50px); line-height: 1; font-weight: 500; letter-spacing: -0.04em; color: inherit; text-decoration: none; opacity: 0.45; transition: opacity 360ms var(--ease-standard), transform 480ms var(--ease-standard); }
+.consultNames a:hover, .consultNames a[data-on], .consultNames button:hover, .consultNames button[data-on] { opacity: 1; transform: translateX(18px); }
 .consultStage { position: relative; border-inline-start: 1px solid currentColor; overflow: hidden; min-block-size: 0; }
 .consultText { position: absolute; inset: 0; padding: 36px; display: grid; gap: 18px; align-content: start; opacity: 0; transform: translateY(18px); transition: opacity 420ms var(--ease-standard), transform 560ms var(--ease-standard); pointer-events: none; }
 .consultText[data-on] { opacity: 1; transform: none; pointer-events: auto; transition-delay: 120ms; }
@@ -549,8 +550,9 @@ button.door { font: inherit; text-align: start; cursor: pointer; border-block: 0
 .focusRow { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(7, 1fr); }
 .focusRow li { opacity: 0; transform: translateY(24px); transition: opacity 480ms var(--ease-standard), transform 600ms var(--ease-standard); }
 .focus7[data-shown] .focusRow li { opacity: 1; transform: none; }
-.focusRow a { display: flex; align-items: flex-end; aspect-ratio: 1; padding: 16px; text-decoration: none; color: var(--paper); font-size: clamp(14px, 1.3vw, 20px); font-weight: 500; letter-spacing: -0.02em; line-height: 1.1; opacity: 0.88; box-shadow: inset 0 0 0 0 var(--paper); transition: opacity 300ms, box-shadow 320ms var(--ease-standard), transform 320ms var(--ease-standard); }
-.focusRow a:hover, .focusRow a[data-on] { opacity: 1; box-shadow: inset 0 0 0 3px var(--paper); transform: translateY(-6px); }
+.focusRow button { font: inherit; border: 0; cursor: default; inline-size: 100%; text-align: start; }
+.focusRow a, .focusRow button { display: flex; align-items: flex-end; aspect-ratio: 1; padding: 16px; text-decoration: none; color: var(--paper); font-size: clamp(14px, 1.3vw, 20px); font-weight: 500; letter-spacing: -0.02em; line-height: 1.1; opacity: 0.88; box-shadow: inset 0 0 0 0 var(--paper); transition: opacity 300ms, box-shadow 320ms var(--ease-standard), transform 320ms var(--ease-standard); }
+.focusRow a:hover, .focusRow a[data-on], .focusRow button:hover, .focusRow button[data-on] { opacity: 1; box-shadow: inset 0 0 0 3px var(--paper); transform: translateY(-6px); }
 .focusStage { position: relative; padding: 36px; overflow: hidden; min-block-size: 40svh; }
 .focusStage .consultMark { inset-inline-end: -18%; inset-block-end: -40%; inline-size: 56%; opacity: 0.25; }
 .focusText { position: absolute; inset: 0; padding: 36px; display: grid; gap: 16px; align-content: center; max-inline-size: 70ch; opacity: 0; transform: translateY(14px); transition: opacity 420ms var(--ease-standard), transform 560ms var(--ease-standard); pointer-events: none; }
